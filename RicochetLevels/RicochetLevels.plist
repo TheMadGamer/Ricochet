@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>group</key>
+		<true/>
+		<key>title</key>
+		<string>Campaign</string>
+	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
+		<string>Intro0.plist</string>
+		<key>title</key>
+		<string>Intro 0</string>
+	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
+		<string>Intro1.plist</string>
+		<key>title</key>
+		<string>Intro 1</string>
+	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
+		<string>Intro2.plist</string>
+		<key>title</key>
+		<string>Intro 2</string>
+	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
+		<string>Intro3.plist</string>
+		<key>title</key>
+		<string>Intro 3</string>
+	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
+		<string>Ricochet1.plist</string>
+		<key>title</key>
+		<string>Ricochet 1</string>
+	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
+		<string>Ricochet2.plist</string>
+		<key>title</key>
+		<string>Ricochet 2</string>
+	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
+		<string>Ricochet3.plist</string>
+		<key>title</key>
+		<string>Ricochet 3</string>
+	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
+		<string>Ricochet4.plist</string>
+		<key>title</key>
+		<string>Ricochet 4</string>
+	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
+		<string>Ricochet5.plist</string>
+		<key>title</key>
+		<string>Ricochet 5</string>
+	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
+		<string>Ricochet6.plist</string>
+		<key>title</key>
+		<string>Ricochet 6</string>
+	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
+		<string>Ricochet7.plist</string>
+		<key>title</key>
+		<string>Ricochet 7</string>
+	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
+		<string>RicochetSpin8.plist</string>
+		<key>title</key>
+		<string>Ricochet 8</string>
+	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
+		<string>Ricochet9.plist</string>
+		<key>title</key>
+		<string>Ricochet 9</string>
+	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
+		<string>Gate1.plist</string>
+		<key>title</key>
+		<string>Gate1</string>
+	</dict>
+</array>
+</plist>
