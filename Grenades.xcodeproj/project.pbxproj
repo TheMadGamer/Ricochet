@@ -31,6 +31,8 @@
 		EA12452E1106715E00B33424 /* GameEntityFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA12452D1106715E00B33424 /* GameEntityFactory.mm */; };
 		EA191C8F117D5FB600F30836 /* SceneManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA191C8E117D5FB600F30836 /* SceneManager.mm */; };
 		EA2D753013C02A5C00126D1F /* farmer.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = EA2D752F13C02A5C00126D1F /* farmer.sheet.png */; };
+		EA2D753313C038AC00126D1F /* ParticleEmitter.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA2D753113C038AC00126D1F /* ParticleEmitter.mm */; };
+		EA2D753813C03A3300126D1F /* ParticleComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA2D753613C03A3300126D1F /* ParticleComponent.mm */; };
 		EA31A20F111799A40076F89F /* Component.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA31A20E111799A40076F89F /* Component.mm */; };
 		EA3430711125CD6100AE5693 /* NodeNetwork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA34306F1125CD6100AE5693 /* NodeNetwork.cpp */; };
 		EA36FDAF13B8357A00A5DBBE /* ball.electric.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FDAB13B8357A00A5DBBE /* ball.electric.sheet.png */; };
@@ -41,8 +43,6 @@
 		EA36FDD713B835AB00A5DBBE /* Carrot.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FDB513B835AB00A5DBBE /* Carrot.png */; };
 		EA36FDD813B835AB00A5DBBE /* CrateTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FDB613B835AB00A5DBBE /* CrateTexture.png */; };
 		EA36FDD913B835AB00A5DBBE /* BombFuse.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FDB813B835AB00A5DBBE /* BombFuse.png */; };
-		EA36FDDA13B835AB00A5DBBE /* Flamex4.tga in Resources */ = {isa = PBXBuildFile; fileRef = EA36FDB913B835AB00A5DBBE /* Flamex4.tga */; };
-		EA36FDDB13B835AB00A5DBBE /* SmokeExplosion.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FDBA13B835AB00A5DBBE /* SmokeExplosion.sheet.png */; };
 		EA36FDDC13B835AB00A5DBBE /* tiki.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FDBB13B835AB00A5DBBE /* tiki.sheet.png */; };
 		EA36FDDD13B835AB00A5DBBE /* fenceC.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FDBC13B835AB00A5DBBE /* fenceC.png */; };
 		EA36FDDE13B835AB00A5DBBE /* fenceLt.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FDBD13B835AB00A5DBBE /* fenceLt.png */; };
@@ -67,7 +67,6 @@
 		EA36FDF113B835AB00A5DBBE /* pot2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FDD013B835AB00A5DBBE /* pot2.png */; };
 		EA36FDF213B835AB00A5DBBE /* rock.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FDD113B835AB00A5DBBE /* rock.png */; };
 		EA36FDF313B835AB00A5DBBE /* RockCircular.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FDD213B835AB00A5DBBE /* RockCircular.png */; };
-		EA36FDF413B835AB00A5DBBE /* tombStone.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FDD313B835AB00A5DBBE /* tombStone.png */; };
 		EA36FDF513B835AB00A5DBBE /* UFO.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FDD413B835AB00A5DBBE /* UFO.sheet.png */; };
 		EA36FDF613B835AB00A5DBBE /* wagon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FDD513B835AB00A5DBBE /* wagon.png */; };
 		EA36FE2B13B835EB00A5DBBE /* 3dDog.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FDF813B835EB00A5DBBE /* 3dDog.png */; };
@@ -126,14 +125,12 @@
 		EA52F0CE118626970050C2DC /* Ball_Electric.png in Resources */ = {isa = PBXBuildFile; fileRef = EA52F0CA118626970050C2DC /* Ball_Electric.png */; };
 		EA52F0CF118626970050C2DC /* Ball_Fire.png in Resources */ = {isa = PBXBuildFile; fileRef = EA52F0CB118626970050C2DC /* Ball_Fire.png */; };
 		EA52F0D0118626970050C2DC /* Ball_Ice.png in Resources */ = {isa = PBXBuildFile; fileRef = EA52F0CC118626970050C2DC /* Ball_Ice.png */; };
-		EA52F8B3118E3D6D0050C2DC /* PaddleController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA52F8B2118E3D6D0050C2DC /* PaddleController.mm */; };
 		EA667CD9134FD1BC000C1D85 /* LevelPackPurchaseVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667CD7134FD1BC000C1D85 /* LevelPackPurchaseVC.mm */; };
 		EA667CDA134FD1BC000C1D85 /* LevelPackPurchaseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA667CD8134FD1BC000C1D85 /* LevelPackPurchaseVC.xib */; };
 		EA667D931350284D000C1D85 /* TriggerComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA667D921350284D000C1D85 /* TriggerComponent.cpp */; };
 		EA667DB413502A16000C1D85 /* GateControllerComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA667DB313502A16000C1D85 /* GateControllerComponent.cpp */; };
 		EA667DD613503DB0000C1D85 /* GenericsFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667DD513503DB0000C1D85 /* GenericsFactory.mm */; };
 		EA667E7D13504684000C1D85 /* SpinnerController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA667E7C13504684000C1D85 /* SpinnerController.cpp */; };
-		EA6A2DCA1180EDCE00E5968B /* HUDController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA6A2DC91180EDCE00E5968B /* HUDController.mm */; };
 		EA6A2F6F1185F93D00E5968B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6A2F6E1185F93D00E5968B /* CoreGraphics.framework */; };
 		EA6A2F731185F94600E5968B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6A2F721185F94600E5968B /* OpenGLES.framework */; };
 		EA6A2F771185F94B00E5968B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6A2F761185F94B00E5968B /* Foundation.framework */; };
@@ -371,6 +368,10 @@
 		EA191C8D117D5FB600F30836 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
 		EA191C8E117D5FB600F30836 /* SceneManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SceneManager.mm; sourceTree = "<group>"; };
 		EA2D752F13C02A5C00126D1F /* farmer.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = farmer.sheet.png; sourceTree = "<group>"; };
+		EA2D753113C038AC00126D1F /* ParticleEmitter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParticleEmitter.mm; sourceTree = "<group>"; };
+		EA2D753213C038AC00126D1F /* ParticleEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleEmitter.h; sourceTree = "<group>"; };
+		EA2D753613C03A3300126D1F /* ParticleComponent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParticleComponent.mm; sourceTree = "<group>"; };
+		EA2D753713C03A3300126D1F /* ParticleComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleComponent.h; sourceTree = "<group>"; };
 		EA31A20E111799A40076F89F /* Component.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Component.mm; sourceTree = "<group>"; };
 		EA34306F1125CD6100AE5693 /* NodeNetwork.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NodeNetwork.cpp; path = ../ShortestPath/NodeNetwork.cpp; sourceTree = SOURCE_ROOT; };
 		EA3430701125CD6100AE5693 /* NodeNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NodeNetwork.h; path = ../ShortestPath/NodeNetwork.h; sourceTree = SOURCE_ROOT; };
@@ -382,8 +383,6 @@
 		EA36FDB513B835AB00A5DBBE /* Carrot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Carrot.png; sourceTree = "<group>"; };
 		EA36FDB613B835AB00A5DBBE /* CrateTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CrateTexture.png; sourceTree = "<group>"; };
 		EA36FDB813B835AB00A5DBBE /* BombFuse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BombFuse.png; sourceTree = "<group>"; };
-		EA36FDB913B835AB00A5DBBE /* Flamex4.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = Flamex4.tga; sourceTree = "<group>"; };
-		EA36FDBA13B835AB00A5DBBE /* SmokeExplosion.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmokeExplosion.sheet.png; sourceTree = "<group>"; };
 		EA36FDBB13B835AB00A5DBBE /* tiki.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tiki.sheet.png; sourceTree = "<group>"; };
 		EA36FDBC13B835AB00A5DBBE /* fenceC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fenceC.png; sourceTree = "<group>"; };
 		EA36FDBD13B835AB00A5DBBE /* fenceLt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fenceLt.png; sourceTree = "<group>"; };
@@ -408,7 +407,6 @@
 		EA36FDD013B835AB00A5DBBE /* pot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pot2.png; sourceTree = "<group>"; };
 		EA36FDD113B835AB00A5DBBE /* rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock.png; sourceTree = "<group>"; };
 		EA36FDD213B835AB00A5DBBE /* RockCircular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RockCircular.png; sourceTree = "<group>"; };
-		EA36FDD313B835AB00A5DBBE /* tombStone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tombStone.png; sourceTree = "<group>"; };
 		EA36FDD413B835AB00A5DBBE /* UFO.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UFO.sheet.png; sourceTree = "<group>"; };
 		EA36FDD513B835AB00A5DBBE /* wagon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wagon.png; sourceTree = "<group>"; };
 		EA36FDF813B835EB00A5DBBE /* 3dDog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3dDog.png; sourceTree = "<group>"; };
@@ -468,8 +466,6 @@
 		EA52F0CA118626970050C2DC /* Ball_Electric.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_Electric.png; sourceTree = "<group>"; };
 		EA52F0CB118626970050C2DC /* Ball_Fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_Fire.png; sourceTree = "<group>"; };
 		EA52F0CC118626970050C2DC /* Ball_Ice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_Ice.png; sourceTree = "<group>"; };
-		EA52F8B1118E3D6D0050C2DC /* PaddleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaddleController.h; sourceTree = "<group>"; };
-		EA52F8B2118E3D6D0050C2DC /* PaddleController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PaddleController.mm; sourceTree = "<group>"; };
 		EA667CD6134FD1BC000C1D85 /* LevelPackPurchaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelPackPurchaseVC.h; sourceTree = "<group>"; };
 		EA667CD7134FD1BC000C1D85 /* LevelPackPurchaseVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LevelPackPurchaseVC.mm; sourceTree = "<group>"; };
 		EA667CD8134FD1BC000C1D85 /* LevelPackPurchaseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelPackPurchaseVC.xib; sourceTree = "<group>"; };
@@ -479,8 +475,6 @@
 		EA667DD513503DB0000C1D85 /* GenericsFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GenericsFactory.mm; sourceTree = "<group>"; };
 		EA667E7B13504684000C1D85 /* SpinnerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinnerController.h; sourceTree = "<group>"; };
 		EA667E7C13504684000C1D85 /* SpinnerController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpinnerController.cpp; sourceTree = "<group>"; };
-		EA6A2DC81180EDCE00E5968B /* HUDController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDController.h; sourceTree = "<group>"; };
-		EA6A2DC91180EDCE00E5968B /* HUDController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HUDController.mm; sourceTree = "<group>"; };
 		EA6A2F6E1185F93D00E5968B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EA6A2F721185F94600E5968B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		EA6A2F761185F94B00E5968B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1028,6 +1022,19 @@
 			name = Entity;
 			sourceTree = "<group>";
 		};
+		EA2D753513C03A0700126D1F /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				EA2D753113C038AC00126D1F /* ParticleEmitter.mm */,
+				EA2D753213C038AC00126D1F /* ParticleEmitter.h */,
+				EAC8DF39110A2E12008542DA /* GraphicsComponent.h */,
+				EAC8DF5D110A2E56008542DA /* GraphicsComponent.mm */,
+				EA2D753613C03A3300126D1F /* ParticleComponent.mm */,
+				EA2D753713C03A3300126D1F /* ParticleComponent.h */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
 		EA3430731125CD6B00AE5693 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -1078,7 +1085,6 @@
 				EA36FDD013B835AB00A5DBBE /* pot2.png */,
 				EA36FDD113B835AB00A5DBBE /* rock.png */,
 				EA36FDD213B835AB00A5DBBE /* RockCircular.png */,
-				EA36FDD313B835AB00A5DBBE /* tombStone.png */,
 				EA36FDD413B835AB00A5DBBE /* UFO.sheet.png */,
 				EA36FDD513B835AB00A5DBBE /* wagon.png */,
 			);
@@ -1089,8 +1095,6 @@
 			isa = PBXGroup;
 			children = (
 				EA36FDB813B835AB00A5DBBE /* BombFuse.png */,
-				EA36FDB913B835AB00A5DBBE /* Flamex4.tga */,
-				EA36FDBA13B835AB00A5DBBE /* SmokeExplosion.sheet.png */,
 				EA36FDBB13B835AB00A5DBBE /* tiki.sheet.png */,
 			);
 			path = Effects;
@@ -1716,6 +1720,7 @@
 		EAC8DF5F110A2E83008542DA /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				EA2D753513C03A0700126D1F /* Graphics */,
 				EA667E7A13504668000C1D85 /* Kinematic */,
 				EA96FFCA11AF336800FFE13C /* Cannon */,
 				EAC8DF60110A2E9C008542DA /* Component.h */,
@@ -1726,12 +1731,6 @@
 				EA069E91119CC94200179E6B /* FlipperController.mm */,
 				EA79D77F11419DA3006E6EDC /* GopherController.h */,
 				EA73173811738CC400E52AA0 /* GopherController.mm */,
-				EAC8DF39110A2E12008542DA /* GraphicsComponent.h */,
-				EAC8DF5D110A2E56008542DA /* GraphicsComponent.mm */,
-				EA6A2DC81180EDCE00E5968B /* HUDController.h */,
-				EA6A2DC91180EDCE00E5968B /* HUDController.mm */,
-				EA52F8B1118E3D6D0050C2DC /* PaddleController.h */,
-				EA52F8B2118E3D6D0050C2DC /* PaddleController.mm */,
 				EA6CB348110A5BEF004C0D8F /* PhysicsComponent.h */,
 				EA6CB349110A5BEF004C0D8F /* PhysicsComponent.mm */,
 				EA7616F2113741A500BD7A02 /* SpawnComponent.h */,
@@ -1952,8 +1951,6 @@
 				EA36FDD713B835AB00A5DBBE /* Carrot.png in Resources */,
 				EA36FDD813B835AB00A5DBBE /* CrateTexture.png in Resources */,
 				EA36FDD913B835AB00A5DBBE /* BombFuse.png in Resources */,
-				EA36FDDA13B835AB00A5DBBE /* Flamex4.tga in Resources */,
-				EA36FDDB13B835AB00A5DBBE /* SmokeExplosion.sheet.png in Resources */,
 				EA36FDDC13B835AB00A5DBBE /* tiki.sheet.png in Resources */,
 				EA36FDDD13B835AB00A5DBBE /* fenceC.png in Resources */,
 				EA36FDDE13B835AB00A5DBBE /* fenceLt.png in Resources */,
@@ -1978,7 +1975,6 @@
 				EA36FDF113B835AB00A5DBBE /* pot2.png in Resources */,
 				EA36FDF213B835AB00A5DBBE /* rock.png in Resources */,
 				EA36FDF313B835AB00A5DBBE /* RockCircular.png in Resources */,
-				EA36FDF413B835AB00A5DBBE /* tombStone.png in Resources */,
 				EA36FDF513B835AB00A5DBBE /* UFO.sheet.png in Resources */,
 				EA36FDF613B835AB00A5DBBE /* wagon.png in Resources */,
 				EA36FE2B13B835EB00A5DBBE /* 3dDog.png in Resources */,
@@ -2064,8 +2060,6 @@
 				EA73173911738CC400E52AA0 /* GopherController.mm in Sources */,
 				EA7319531174F94800E52AA0 /* ExplodableComponent.mm in Sources */,
 				EA191C8F117D5FB600F30836 /* SceneManager.mm in Sources */,
-				EA6A2DCA1180EDCE00E5968B /* HUDController.mm in Sources */,
-				EA52F8B3118E3D6D0050C2DC /* PaddleController.mm in Sources */,
 				EA069BC3119B4ED400179E6B /* GopherViewController.mm in Sources */,
 				EA069CCE119B90BF00179E6B /* PreferencesViewController.m in Sources */,
 				EA069E92119CC94200179E6B /* FlipperController.mm in Sources */,
@@ -2201,6 +2195,8 @@
 				EA9EA14213A47D2300704CDC /* btGeometryUtil.cpp in Sources */,
 				EA9EA14313A47D2300704CDC /* btQuickprof.cpp in Sources */,
 				EA9EA14413A47D2300704CDC /* btSerializer.cpp in Sources */,
+				EA2D753313C038AC00126D1F /* ParticleEmitter.mm in Sources */,
+				EA2D753813C03A3300126D1F /* ParticleComponent.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
