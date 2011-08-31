@@ -187,34 +187,9 @@ void SceneManager::LoadScene( NSString *levelName)
 	GamePlayManager::Instance()->SetBallSpawn(mLevelControl.mBallSpawn);
 	
 	GamePlayManager::Instance()->SetCarrotSearchDistance(mLevelControl.mCarrotSearchDistance);
-	
-	// setup gravity
-	switch(mLevelControl.mPlayMode )
-	{
-		case GamePlayManager::TAP:
-		case GamePlayManager::POOL:
-		case GamePlayManager::FLICK:
-		case GamePlayManager::PADDLE:
-		case GamePlayManager::FLIPPER:
-		case GamePlayManager::TILT_ONLY:
-		case GamePlayManager::SWARM_CANNON:
-		case GamePlayManager::RUN_CANNON:
-        case GamePlayManager::RICOCHET:
-		{
 			
-			btVector3 gravity(0,-10,0);
-			PhysicsManager::Instance()->SetGravity(gravity);
-
-			break;
-		}
-		case GamePlayManager::CANNON:
-		{
-			btVector3 gravity(12,-12,0);
-			PhysicsManager::Instance()->SetGravity(gravity);
-			break;
-			
-		}	
-	}
+  btVector3 gravity(0,-10,0);
+  PhysicsManager::Instance()->SetGravity(gravity);
 	
 	
 	btVector3 position(0,0,0);
@@ -231,9 +206,6 @@ void SceneManager::LoadScene( NSString *levelName)
 	
 	
 	// create static world walls
-#ifdef BUILD_PADDLE_MODE	
-	if(mLevelControl.mPlayMode != GamePlayManager::PADDLE)
-#endif
 	{
 		int wallFlags = (mLevelControl.mPlayMode == GamePlayManager::CANNON 
 						 ||mLevelControl.mPlayMode == GamePlayManager::SWARM_CANNON ||
@@ -599,7 +571,7 @@ void SceneManager::LoadGeneratedObjects(NSDictionary *rootDictionary)
 			
 				ball = GameEntityFactory::BuildBall(radius, 
 														pos, 
-														mLevelControl.mPlayMode != GamePlayManager::PADDLE, 
+                            true, 
 														poolBall ? 1.0f : 0.3f, 
 														0.1f, 
 														(ExplodableComponent::ExplosionType) ballType , 
@@ -610,7 +582,7 @@ void SceneManager::LoadGeneratedObjects(NSDictionary *rootDictionary)
 			{	
 				ball = GameEntityFactory::BuildBall(radius, 
 													pos, 
-													mLevelControl.mPlayMode != GamePlayManager::PADDLE, 
+													true, 
 													poolBall ? 1.0f : 0.3f, 
 													1.0f, 
 													(ExplodableComponent::ExplosionType) ballType , 

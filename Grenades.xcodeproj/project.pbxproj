@@ -34,7 +34,6 @@
 		EA069BC4119B4ED400179E6B /* GopherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA069BC2119B4ED400179E6B /* GopherViewController.xib */; };
 		EA069CCE119B90BF00179E6B /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA069CCD119B90BF00179E6B /* PreferencesViewController.m */; };
 		EA069CD0119B911200179E6B /* PreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA069CCF119B911200179E6B /* PreferencesViewController.xib */; };
-		EA069E92119CC94200179E6B /* FlipperController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA069E91119CC94200179E6B /* FlipperController.mm */; };
 		EA0B63F311A7B19D00124ED9 /* InstructionsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA0B63F111A7B19D00124ED9 /* InstructionsViewController.mm */; };
 		EA0B63F411A7B19D00124ED9 /* InstructionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA0B63F211A7B19D00124ED9 /* InstructionsViewController.xib */; };
 		EA1127C411F76757000A8124 /* SchemingWeasel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EA1127C311F76757000A8124 /* SchemingWeasel.mp3 */; };
@@ -139,7 +138,6 @@
 		EA52F0CE118626970050C2DC /* Ball_Electric.png in Resources */ = {isa = PBXBuildFile; fileRef = EA52F0CA118626970050C2DC /* Ball_Electric.png */; };
 		EA52F0CF118626970050C2DC /* Ball_Fire.png in Resources */ = {isa = PBXBuildFile; fileRef = EA52F0CB118626970050C2DC /* Ball_Fire.png */; };
 		EA52F0D0118626970050C2DC /* Ball_Ice.png in Resources */ = {isa = PBXBuildFile; fileRef = EA52F0CC118626970050C2DC /* Ball_Ice.png */; };
-		EA52F8B3118E3D6D0050C2DC /* PaddleController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA52F8B2118E3D6D0050C2DC /* PaddleController.mm */; };
 		EA667CD9134FD1BC000C1D85 /* LevelPackPurchaseVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667CD7134FD1BC000C1D85 /* LevelPackPurchaseVC.mm */; };
 		EA667CDA134FD1BC000C1D85 /* LevelPackPurchaseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA667CD8134FD1BC000C1D85 /* LevelPackPurchaseVC.xib */; };
 		EA667D931350284D000C1D85 /* TriggerComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA667D921350284D000C1D85 /* TriggerComponent.cpp */; };
@@ -380,8 +378,6 @@
 		EA069CCC119B90BF00179E6B /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesViewController.h; path = Views/PreferencesViewController.h; sourceTree = "<group>"; };
 		EA069CCD119B90BF00179E6B /* PreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesViewController.m; path = Views/PreferencesViewController.m; sourceTree = "<group>"; };
 		EA069CCF119B911200179E6B /* PreferencesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PreferencesViewController.xib; path = Views/PreferencesViewController.xib; sourceTree = "<group>"; };
-		EA069E90119CC94200179E6B /* FlipperController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipperController.h; sourceTree = "<group>"; };
-		EA069E91119CC94200179E6B /* FlipperController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FlipperController.mm; sourceTree = "<group>"; };
 		EA0B63F011A7B19D00124ED9 /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsViewController.h; sourceTree = "<group>"; };
 		EA0B63F111A7B19D00124ED9 /* InstructionsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InstructionsViewController.mm; sourceTree = "<group>"; };
 		EA0B63F211A7B19D00124ED9 /* InstructionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstructionsViewController.xib; sourceTree = "<group>"; };
@@ -493,8 +489,6 @@
 		EA52F0CA118626970050C2DC /* Ball_Electric.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_Electric.png; sourceTree = "<group>"; };
 		EA52F0CB118626970050C2DC /* Ball_Fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_Fire.png; sourceTree = "<group>"; };
 		EA52F0CC118626970050C2DC /* Ball_Ice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_Ice.png; sourceTree = "<group>"; };
-		EA52F8B1118E3D6D0050C2DC /* PaddleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaddleController.h; sourceTree = "<group>"; };
-		EA52F8B2118E3D6D0050C2DC /* PaddleController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PaddleController.mm; sourceTree = "<group>"; };
 		EA667CD6134FD1BC000C1D85 /* LevelPackPurchaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelPackPurchaseVC.h; sourceTree = "<group>"; };
 		EA667CD7134FD1BC000C1D85 /* LevelPackPurchaseVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LevelPackPurchaseVC.mm; sourceTree = "<group>"; };
 		EA667CD8134FD1BC000C1D85 /* LevelPackPurchaseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelPackPurchaseVC.xib; sourceTree = "<group>"; };
@@ -1759,16 +1753,12 @@
 				EA31A20E111799A40076F89F /* Component.mm */,
 				EA76145B1135D0CF00BD7A02 /* ExplodableComponent.h */,
 				EA7319521174F94800E52AA0 /* ExplodableComponent.mm */,
-				EA069E90119CC94200179E6B /* FlipperController.h */,
-				EA069E91119CC94200179E6B /* FlipperController.mm */,
 				EA79D77F11419DA3006E6EDC /* GopherController.h */,
 				EA73173811738CC400E52AA0 /* GopherController.mm */,
 				EAC8DF39110A2E12008542DA /* GraphicsComponent.h */,
 				EAC8DF5D110A2E56008542DA /* GraphicsComponent.mm */,
 				EA6A2DC81180EDCE00E5968B /* HUDController.h */,
 				EA6A2DC91180EDCE00E5968B /* HUDController.mm */,
-				EA52F8B1118E3D6D0050C2DC /* PaddleController.h */,
-				EA52F8B2118E3D6D0050C2DC /* PaddleController.mm */,
 				EA6CB348110A5BEF004C0D8F /* PhysicsComponent.h */,
 				EA6CB349110A5BEF004C0D8F /* PhysicsComponent.mm */,
 				EA7616F2113741A500BD7A02 /* SpawnComponent.h */,
@@ -2115,10 +2105,8 @@
 				EA7319531174F94800E52AA0 /* ExplodableComponent.mm in Sources */,
 				EA191C8F117D5FB600F30836 /* SceneManager.mm in Sources */,
 				EA6A2DCA1180EDCE00E5968B /* HUDController.mm in Sources */,
-				EA52F8B3118E3D6D0050C2DC /* PaddleController.mm in Sources */,
 				EA069BC3119B4ED400179E6B /* GopherViewController.mm in Sources */,
 				EA069CCE119B90BF00179E6B /* PreferencesViewController.m in Sources */,
-				EA069E92119CC94200179E6B /* FlipperController.mm in Sources */,
 				EAC8488A11A202DE0000720A /* CannonController.mm in Sources */,
 				EA0B63F311A7B19D00124ED9 /* InstructionsViewController.mm in Sources */,
 				EABC34A611A85F93000C6EC6 /* GopherGameController.mm in Sources */,

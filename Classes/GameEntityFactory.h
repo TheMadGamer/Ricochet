@@ -9,7 +9,6 @@
 
 #import <btBulletDynamicsCommon.h>
 #import "Entity.h"
-#import "PaddleController.h"
 #import "SceneManager.h"
 #import "ExplodableComponent.h"
 #import "GraphicsManager.h"
@@ -106,10 +105,6 @@ class GameEntityFactory
 	//static Dog3D::Entity *BuildWin();
 	//static Dog3D::Entity *BuildLost();
 
-#ifdef BUILD_PADDLE_MODE
-	static Dog3D::Entity *BuildFlipper( btVector3& initialPosition, btVector3& halfExtents, float yRotation );
-	static Dog3D::Entity *BuildSlidePaddle( btVector3& initialPosition, btVector3& halfExtents , Dog3D::PaddleController::ConstraintAxis axis );
-#endif
 	
 	static Dog3D::Entity *BuildFXElement(  btVector3 &initialPosition, Dog3D::ExplodableComponent::ExplosionType elementType );
 	

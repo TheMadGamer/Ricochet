@@ -63,11 +63,6 @@ namespace Dog3D
 		
 		mSpawnComponents.clear();
 		
-#ifdef BUILD_PADDLE_MODE
-		mPaddles.clear();
-		mFlippers.clear();
-#endif
-		
 		mExplodables.clear();
 		
 		mKinematicControllers.clear();
@@ -121,19 +116,7 @@ namespace Dog3D
 		{
 			return;
 		}
-#ifdef BUILD_PADDLE_MODE
-		for(int i = 0; i < mPaddles.size(); i++)
-		{
-			mPaddles[i]->Update(deltaTime);
-		
-		}
-		
-		for(int i = 0; i < mFlippers.size(); i++)
-		{
-			mFlippers[i]->Update(deltaTime);
-		}
-#endif
-				
+
 		if(mGameState == GOPHER_WIN || mGameState == GOPHER_LOST)
 		{
 
@@ -401,10 +384,6 @@ namespace Dog3D
 		// set the parent object's position
 		ball->SetPosition(resetPosition);
 		
-		if(mGamePlayMode == PADDLE)
-		{
-			ball->GetPhysicsComponent()->GetRigidBody()->setLinearVelocity(btVector3(0,0,25));
-		}
 		
 	}
 	

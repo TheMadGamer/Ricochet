@@ -19,8 +19,6 @@
 #import "Entity.h"
 #import "VectorMath.h"
 #import "GraphicsComponent.h"
-#import "PaddleController.h"
-#import "FlipperController.h"
 #import "CannonController.h"
 #import "CannonUI.h"
 #import "ExplodableComponent.h"
@@ -36,8 +34,6 @@ namespace Dog3D
 		enum GameState { PLAY, PAUSE, GOPHER_WIN, GOPHER_LOST };
 		enum GamePlayMode { TAP=0, 
 			FLICK=1, 
-			PADDLE=2, 
-			FLIPPER=3, 
 			TILT_ONLY=4, 
 			CANNON=5, 
 			POOL=6, 
@@ -53,7 +49,7 @@ namespace Dog3D
 		mDestroyedObjects(0),
 		mGameState(PLAY),
 		mGopherHUD(NULL), mCarrotHUD(NULL), mTouched(false), mFlicked(false),
-		mGamePlayMode(PADDLE), mCannonController(NULL), mCannonUI(NULL), 
+		mGamePlayMode(RICOCHET), mCannonController(NULL), mCannonUI(NULL), 
 		mUnlimitedBalls(true), mFocalPoint(0,0,0), mCarrotSearchDistance(20.0f),
 		mSpawnDelay(0.0f)
 		{}

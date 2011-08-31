@@ -25,7 +25,6 @@
 #import "SpawnComponent.h"
 #import "TargetComponent.h"
 #import "ExplodableComponent.h"
-#import "PaddleController.h"
 #import "SceneManager.h"
 #import "CannonController.h"
 #import "GateControllerComponent.h"
