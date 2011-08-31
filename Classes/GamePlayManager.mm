@@ -295,42 +295,12 @@ namespace Dog3D
 		
 		ExplodableComponent *explodable = ball->GetExplodable();
 		
-		// only in flick mode do we defer activation
-		if(mGamePlayMode != FLICK)
-		{
-			explodable->Prime();
-		}
+
+    explodable->Prime();
 		
 		// pick a random start point (see rands below)
 		btVector3 resetPosition(mBallSpawn);
 		mBallSpawn.setY(1.5);
-		
-		if(mGamePlayMode == POOL)
-		{
-			
-			if(explodable->GetExplosionType() == ExplodableComponent::CUE_BALL)
-			{
-				resetPosition.setValue(0, 1.5, 5);
-			}
-			else 
-			{
-				if(position == 0)
-				{
-					resetPosition.setValue(0, 1.5, -5);
-				}
-				else 
-				{
-					resetPosition.setValue(0.75, 1.5, -6.25);
-					
-					
-					if(position == 2)
-					{
-						resetPosition.setX(-0.75);			
-					}
-					
-				}
-			}
-		}
 
 		// re activate gfx
 		ball->GetGraphicsComponent()->mActive = true;
@@ -373,13 +343,7 @@ namespace Dog3D
 			
 			PhysicsManager::Instance()->AddComponent(physicsComponent);
 			
-			if(mGamePlayMode == FLICK )
-			{
-				physicsComponent->SetKinematic(true);
-			}
-			else {
-				physicsComponent->SetKinematic(false);
-			}
+      physicsComponent->SetKinematic(false);
 		}
 		// set the parent object's position
 		ball->SetPosition(resetPosition);
@@ -575,10 +539,9 @@ namespace Dog3D
 			mSpawnIntervals.pop_front();
 		}
 		
-		if(mGamePlayMode == RICOCHET)
-		{
-			mNumGophersToSpawn = min(mNumGophersToSpawn, mGopherLives);
-		}
+
+    mNumGophersToSpawn = min(mNumGophersToSpawn, mGopherLives);
+		
 
 		int numToSpawn =  mNumGophersToSpawn - mActiveGophers.size() ;
 		
@@ -634,14 +597,7 @@ namespace Dog3D
 					PhysicsManager::Instance()->AddGhostCollider(physicsComponent->GetGhostCollider());
 					
 					mActiveGophers.push_back(controller);
-					
-					// warning arrow system
-					if(mGamePlayMode == TILT_ONLY && 
-					   (mWorldBounds.z() > 15 || mWorldBounds.x() > 10))
-					{
-						GraphicsManager::Instance()->PointWarningArrowAt(spawnPosition);
-					}
-					
+										
 					mSpawnDelay = ((float) (rand() % 5)) * 0.2f;
 					
 					break;

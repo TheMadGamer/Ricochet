@@ -596,19 +596,10 @@ using namespace Dog3D;
 		int totalGophs = GamePlayManager::Instance()->GetTotalGophers();
 		int ballsLeft = GamePlayManager::Instance()->GetNumBallsLeft();
 		
-		if(GamePlayManager::Instance()->GetGamePlayMode() == GamePlayManager::RICOCHET)
-		{
-			// update score if it has changed
-			[ self updateScore: score withDead:deadGophs andTotal: totalGophs andBallsLeft:ballsLeft];
+
+    // update score if it has changed
+    [ self updateScore: score withDead:deadGophs andTotal: totalGophs andBallsLeft:ballsLeft];
 			
-		}
-		else
-		{
-			
-			// update score if it has changed
-			[ self updateScore: score withDead:deadGophs andTotal: totalGophs];
-			
-		}
 	}
 	
 	scoreLabel = label;	
@@ -840,23 +831,9 @@ using namespace Dog3D;
 		{
 			imageName = @"Instructions_Goal.png";
 		}
-		else {
-			
-			if(levelControl.mPlayMode == GamePlayManager::CANNON ||
-			   levelControl.mPlayMode == GamePlayManager::SWARM_CANNON ||
-			   levelControl.mPlayMode == GamePlayManager::RUN_CANNON ||
-			   levelControl.mPlayMode == GamePlayManager::RICOCHET)
-			{
-				imageName = @"Instructions_Cannon.png";
-			}
-			else if(levelControl.mPlayMode == GamePlayManager::POOL)
-			{
-				imageName = @"Instructions_Tap.png";
-			}
-			else {
-				imageName = @"Instructions_Tilt.png";
-			}
-			
+		else 
+    {
+      imageName = @"Instructions_Cannon.png";
 		}
 		
 		

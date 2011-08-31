@@ -44,8 +44,6 @@ SceneManager::LevelControlInfo::LevelControlInfo(NSDictionary *controlDictionary
 	mNumGopherLives = [[controlDictionary objectForKey:@"NumGopherLives"] intValue];	
 	//mNumCarrotLives = [[controlDictionary objectForKey:@"NumCarrotLives"] intValue];
 	
-	mPlayMode =  (GamePlayManager::GamePlayMode) [[controlDictionary objectForKey:@"GamePlayMode"] intValue];	
-	
 	NSString *background = [controlDictionary objectForKey:@"Background"];
 	mBackground = [background UTF8String];
 	
@@ -68,8 +66,8 @@ SceneManager::LevelControlInfo::LevelControlInfo(NSDictionary *controlDictionary
 	DLog(@"Control NumCombos:%d GopherLives:%d ", 
 		  mNumCombos, mNumGopherLives );
 	
-	DLog(@"Control PlayMode:%d ScoreMode:%d BallTypes%d NumBalls:%d",
-		  mPlayMode, mScoreMode, mBallTypes, mNumBalls);
+	DLog(@"Control ScoreMode:%d BallTypes%d NumBalls:%d",
+		   mScoreMode, mBallTypes, mNumBalls);
 	
 	mCollisionAvoidance = [[controlDictionary objectForKey:@"CollisionAvoidance"] intValue];
 	
@@ -177,8 +175,6 @@ void SceneManager::LoadScene( NSString *levelName)
 	
 	mLevelControl = LevelControlInfo(controlDictionary);
 	mNumCarrots = 0;
-	GamePlayManager::Instance()->SetGamePlayMode(mLevelControl.mPlayMode);
-	DLog(@"Game Play Mode %d", mLevelControl.mPlayMode);
 	
 	GamePlayManager::Instance()->SetSpawnIntervals(mLevelControl.mSpawnIntervals);
 	
@@ -207,9 +203,7 @@ void SceneManager::LoadScene( NSString *levelName)
 	
 	// create static world walls
 	{
-		int wallFlags = (mLevelControl.mPlayMode == GamePlayManager::CANNON 
-						 ||mLevelControl.mPlayMode == GamePlayManager::SWARM_CANNON ||
-						 mLevelControl.mPlayMode == GamePlayManager::RUN_CANNON) ? SceneManager::FLOOR | SceneManager::CEILING : -1;
+		int wallFlags =  -1;
 		DLog(@"Wall flags %d", wallFlags);
 		CreateWalls( &mLevelControl.mBackground , wallFlags );
 	}
@@ -545,19 +539,6 @@ void SceneManager::LoadGeneratedObjects(NSDictionary *rootDictionary)
 			int ballType = [[object objectForKey:@"ballType"] intValue];
 			
 			btVector3 pos( 8, 1.5, 10);
-			
-			if(mLevelControl.mPlayMode == GamePlayManager::POOL)
-			{
-				if(poolBallCount == 0)
-				{
-					ballType = ExplodableComponent::CUE_BALL;
- 				}
-				else
-				{
-					ballType = ExplodableComponent::BALL_8;
-				}
-			}
-				
 				
 			bool poolBall = ballType == ExplodableComponent::BALL_8 || ballType == ExplodableComponent::CUE_BALL;
 			
@@ -566,30 +547,16 @@ void SceneManager::LoadGeneratedObjects(NSDictionary *rootDictionary)
 			
 			Entity *ball = NULL;
 			
-			if(mLevelControl.mPlayMode == GamePlayManager::TILT_ONLY)
-			{
-			
-				ball = GameEntityFactory::BuildBall(radius, 
-														pos, 
-                            true, 
-														poolBall ? 1.0f : 0.3f, 
-														0.1f, 
-														(ExplodableComponent::ExplosionType) ballType , 
-														true,
-														0.1f);
-			}
-			else
-			{	
-				ball = GameEntityFactory::BuildBall(radius, 
-													pos, 
-													true, 
-													poolBall ? 1.0f : 0.3f, 
-													1.0f, 
-													(ExplodableComponent::ExplosionType) ballType , 
-													false,
-													0.5f);
-				
-			}
+
+      ball = GameEntityFactory::BuildBall(radius, 
+                        pos, 
+                        true, 
+                        poolBall ? 1.0f : 0.3f, 
+                        1.0f, 
+                        (ExplodableComponent::ExplosionType) ballType , 
+                        false,
+                        0.5f);
+      
 						
 			PhysicsComponent *physics = dynamic_cast<PhysicsComponent*>(ball->GetPhysicsComponent());
 			
@@ -611,12 +578,6 @@ void SceneManager::LoadGeneratedObjects(NSDictionary *rootDictionary)
 			}
 			
 			poolBallCount++;
-
-			// disable kinematic
-			if(mLevelControl.mPlayMode == GamePlayManager::TAP || mLevelControl.mPlayMode == GamePlayManager::TILT_ONLY)
-			{
-				physics->SetKinematic(false);
-			}
 			
 			GraphicsManager::Instance()->AddComponent(ball->GetGraphicsComponent(), GraphicsManager::POST);
 			
@@ -642,7 +603,7 @@ void SceneManager::LoadGeneratedObjects(NSDictionary *rootDictionary)
 				cannonPowerScale = 1;
 			}
 			
-			float rotationScale = (mLevelControl.mPlayMode == GamePlayManager::CANNON) ? M_PI/1.8f : M_PI*1.1f;
+			float rotationScale =  M_PI*1.1f;
 			
 			scale *= 4.0f;
 			
@@ -696,11 +657,11 @@ void SceneManager::LoadGeneratedObjects(NSDictionary *rootDictionary)
 				// can roll if not in paddle mode
 				// in the case of ricochet, anti-gopher ball that doesn't detonate itself, only the goph
 				Entity *ball = GameEntityFactory::BuildBall(radius, pos, true ,
-															mLevelControl.mPlayMode == GamePlayManager::RICOCHET ? 1.0f : 0.8f,
-															mLevelControl.mPlayMode == GamePlayManager::RICOCHET ? 0.5f : 1.0f,  
+															1.0f,
+															0.5f ,  
 															(ExplodableComponent::ExplosionType) randType, 
-															mLevelControl.mPlayMode == GamePlayManager::RICOCHET,
-															mLevelControl.mPlayMode == GamePlayManager::RICOCHET? 0.01f:0.5f);
+															true,
+                              0.01f);
 				mBalls.push_back(ball);
 				
 				ball->mActive = false;
@@ -727,32 +688,16 @@ void SceneManager::LoadHUDs()
 {
 
 	// pause button (only on pool)
-	if(mLevelControl.mPlayMode != GamePlayManager::POOL)
-	{
-		btVector3 position( -9, 1, -14);
-		
-		Entity *hud = GameEntityFactory::BuildScreenSpaceSprite(position, 2.0f, 2.0f, 
-														 @"PauseButton", HUGE_VAL);
-		
-		// pause btn does not rotate
-		static_cast<ScreenSpaceComponent*>(hud->GetGraphicsComponent())->mRotateTowardsTarget = false;
-		static_cast<ScreenSpaceComponent*>(hud->GetGraphicsComponent())->mConstrainToCircle = false;
-		
-		// do not add to huds - Graphics Manager will clean this up
-	}
-	
-	
-	/*
-	{
-		btVector3 position( 0,1,0);
-		btVector3 extent(3, 1, 1);
-		
-		Entity *hud = GameEntityFactory::BuildText(position, extent.x(), extent.z(), @"ABCDcore: 123");
-		mHuds.push_back(hud);
-		
 
-	}*/
-	
+  btVector3 position( -9, 1, -14);
+  
+  Entity *hud = GameEntityFactory::BuildScreenSpaceSprite(position, 2.0f, 2.0f, 
+                           @"PauseButton", HUGE_VAL);
+  
+  // pause btn does not rotate
+  static_cast<ScreenSpaceComponent*>(hud->GetGraphicsComponent())->mRotateTowardsTarget = false;
+  static_cast<ScreenSpaceComponent*>(hud->GetGraphicsComponent())->mConstrainToCircle = false;
+
 }
 
 void SceneManager::ConvertToSingleBodies(Entity *compoundEntity, vector<Entity*> &newBodies)
@@ -923,7 +868,7 @@ void SceneManager::CreateWalls( const string *backgroundTexture, int wallFlags)
 	
 	float kEpsilon = 0.5;
 	
-	const float wallRestitution = (mLevelControl.mPlayMode == GamePlayManager::RICOCHET) ? 1.0f : 0.9f;
+	const float wallRestitution = 1.0f;
 	
 	// create ground 
 	if(wallFlags & FLOOR) {
