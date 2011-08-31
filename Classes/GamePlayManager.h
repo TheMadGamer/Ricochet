@@ -13,7 +13,7 @@
 #import "PhysicsComponent.h"
 #import "TriggerComponent.h"
 #import "GateControllerComponent.h"
-#import "NodeNetwork.h"
+
 #import "GopherController.h"
 #import "SpawnComponent.h"
 #import "Entity.h"
@@ -195,9 +195,6 @@ namespace Dog3D
         inline CannonController *GetCannon(){ return mCannonController;}
         		
 		void AddGopherController( GopherController *component);
-				
-		// initializes  node network
-		void InitializeNodeNetwork();
 		
 		// initializes debug node network
 		// to be replaced later
@@ -281,11 +278,7 @@ namespace Dog3D
 			return nActiveTargets;
 		}
 		
-		//TODO - this goes away
-		inline TheMadGamer::NodeNetwork* GetNodeNetwork()
-		{
-			return &mNodeNetwork;
-		}
+
 #if DEBUG
 		void DrawDebugLines();
 #endif
@@ -471,7 +464,6 @@ namespace Dog3D
 		
 		std::list<Entity *> mTargets;
 		
-		TheMadGamer::NodeNetwork mNodeNetwork;
 		
 		// managed components
 		std::list<Entity *> mBalls;

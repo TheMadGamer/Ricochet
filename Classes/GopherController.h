@@ -9,7 +9,6 @@
 
 #import <vector>
 #import "Component.h"
-#import "NodeNetwork.h"
 #import "Entity.h"
 #import <btBulletDynamicsCommon.h>
 
@@ -30,10 +29,8 @@ namespace Dog3D
 		{
 			SPAWN, 
 			IDLE, 
-			ATTACK, 
 			EAT,
 			EAT_FINAL,
-			RUN_AWAY, 
 			JUMP_DOWN, 
 			EXPLODE, 
 			WIN_DANCE, 
@@ -47,15 +44,10 @@ namespace Dog3D
 	private:
 		ControllerState mControllerState;
 		ControllerState mPreviousState;
-		
-		TheMadGamer::Vec2 mTarget;
-		std::vector<const TheMadGamer::PositionedNode *> mPath;
-		
+				
 		// for a jump down hole type motion
 		btVector3 mStartMotionPosition;
 		
-		// active attack target
-		Entity *mActiveTarget;
 		
 		// pause in idle - how many frames until it transitions to next anim
 		int mPauseFrame;
@@ -74,7 +66,6 @@ namespace Dog3D
 		
 		GopherController() : 
 		mControllerState(SPAWN), 
-		mActiveTarget(NULL) , 
 		mPauseFrame(0), 
 		mIntraFrameTime(0), 
 		kWalkSpeed(2.0), 
@@ -85,10 +76,7 @@ namespace Dog3D
 		{
 			mTypeId = NAVIGATION;
 		}
-		
-		inline Entity *GetActiveTarget() { return mActiveTarget; }
-		inline void SetActiveTarget( Entity *target) { mActiveTarget = target;}
-		
+				
 		inline ControllerState GetControllerState(){ return mControllerState;}
 		
 		inline void SetTetherHole(Entity *hole)
@@ -110,8 +98,6 @@ namespace Dog3D
 		// idle the gopher
 		void Idle();
 		
-		// attack a direction
-		void Attack(Entity* target, const TheMadGamer::NodeNetwork *nodeNetwork);
 		
 		// eat carrot, cannot be killed
 		void Eat(); 
@@ -126,9 +112,7 @@ namespace Dog3D
 		void Fire();
 		
 		void WinDance();
-		
-		void RunAway(Entity* target, const TheMadGamer::NodeNetwork *nodeNetwork);
-		
+				
 		void JumpDown();
 		
 		void Taunt();
@@ -140,7 +124,6 @@ namespace Dog3D
 		void UpdateSpawn(float dt);
 		void UpdateEat(float dt);
 		void UpdateIdle(float dt);
-		void UpdateAttackAndRun(float dt);
 		void UpdateJumpDown(float dt);
 		void UpdateExplode(float dt);
 		

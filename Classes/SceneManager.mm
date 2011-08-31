@@ -246,8 +246,6 @@ void SceneManager::LoadScene( NSString *levelName)
 		
 	LoadGeneratedObjects(rootDictionary  );	
 	
-	// create a network for navigation
-	GamePlayManager::Instance()->InitializeNodeNetwork();
 	
 	LoadHUDs();
 	
