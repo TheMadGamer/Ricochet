@@ -28,6 +28,7 @@
 		4F58CB6B140E90AB000027F4 /* walk_forward.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB5A140E90AB000027F4 /* walk_forward.sheet.png */; };
 		4F58CB6C140E90AB000027F4 /* walk_forward_left.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB5B140E90AB000027F4 /* walk_forward_left.sheet.png */; };
 		4F58CB6D140E90AB000027F4 /* walk_left.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB5C140E90AB000027F4 /* walk_left.sheet.png */; };
+		4F95BF8A14106F2900AE5CC4 /* ParticleEmitter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F95BF8914106F2900AE5CC4 /* ParticleEmitter.mm */; };
 		A895E04A0E2806AD00A7AE7A /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = A895E0480E2806AD00A7AE7A /* Texture2D.m */; };
 		A895E04F0E2806DB00A7AE7A /* GopherView.mm in Sources */ = {isa = PBXBuildFile; fileRef = A895E04E0E2806DB00A7AE7A /* GopherView.mm */; };
 		EA069BC3119B4ED400179E6B /* GopherViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA069BC1119B4ED400179E6B /* GopherViewController.mm */; };
@@ -366,6 +367,8 @@
 		4F58CB5A140E90AB000027F4 /* walk_forward.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walk_forward.sheet.png; sourceTree = "<group>"; };
 		4F58CB5B140E90AB000027F4 /* walk_forward_left.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walk_forward_left.sheet.png; sourceTree = "<group>"; };
 		4F58CB5C140E90AB000027F4 /* walk_left.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walk_left.sheet.png; sourceTree = "<group>"; };
+		4F95BF8914106F2900AE5CC4 /* ParticleEmitter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParticleEmitter.mm; sourceTree = "<group>"; };
+		4F95BF8B14106F3B00AE5CC4 /* ParticleEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleEmitter.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A895E0480E2806AD00A7AE7A /* Texture2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture2D.m; sourceTree = "<group>"; };
 		A895E0490E2806AD00A7AE7A /* Texture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture2D.h; sourceTree = "<group>"; };
@@ -1025,6 +1028,30 @@
 				4F58CB5C140E90AB000027F4 /* walk_left.sheet.png */,
 			);
 			path = GopherSprites;
+			sourceTree = "<group>";
+		};
+		4F58CB6E140E97FB000027F4 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				EA6A2DC81180EDCE00E5968B /* HUDController.h */,
+				EA6A2DC91180EDCE00E5968B /* HUDController.mm */,
+				EAC8DF39110A2E12008542DA /* GraphicsComponent.h */,
+				EAC8DF5D110A2E56008542DA /* GraphicsComponent.mm */,
+				4F95BF8B14106F3B00AE5CC4 /* ParticleEmitter.h */,
+				4F95BF8914106F2900AE5CC4 /* ParticleEmitter.mm */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
+		4F95BF8714106EEB00AE5CC4 /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				EA79D77F11419DA3006E6EDC /* GopherController.h */,
+				EA73173811738CC400E52AA0 /* GopherController.mm */,
+				EA7616F2113741A500BD7A02 /* SpawnComponent.h */,
+				EA76183B11379D3200BD7A02 /* TargetComponent.h */,
+			);
+			name = Character;
 			sourceTree = "<group>";
 		};
 		A895E04C0E2806C200A7AE7A /* Support Files */ = {
@@ -1747,22 +1774,16 @@
 		EAC8DF5F110A2E83008542DA /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				EA667E7A13504668000C1D85 /* Kinematic */,
+				4F95BF8714106EEB00AE5CC4 /* Character */,
 				EA96FFCA11AF336800FFE13C /* Cannon */,
+				4F58CB6E140E97FB000027F4 /* Graphics */,
+				EA667E7A13504668000C1D85 /* Kinematic */,
 				EAC8DF60110A2E9C008542DA /* Component.h */,
 				EA31A20E111799A40076F89F /* Component.mm */,
 				EA76145B1135D0CF00BD7A02 /* ExplodableComponent.h */,
 				EA7319521174F94800E52AA0 /* ExplodableComponent.mm */,
-				EA79D77F11419DA3006E6EDC /* GopherController.h */,
-				EA73173811738CC400E52AA0 /* GopherController.mm */,
-				EAC8DF39110A2E12008542DA /* GraphicsComponent.h */,
-				EAC8DF5D110A2E56008542DA /* GraphicsComponent.mm */,
-				EA6A2DC81180EDCE00E5968B /* HUDController.h */,
-				EA6A2DC91180EDCE00E5968B /* HUDController.mm */,
 				EA6CB348110A5BEF004C0D8F /* PhysicsComponent.h */,
 				EA6CB349110A5BEF004C0D8F /* PhysicsComponent.mm */,
-				EA7616F2113741A500BD7A02 /* SpawnComponent.h */,
-				EA76183B11379D3200BD7A02 /* TargetComponent.h */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -2239,6 +2260,7 @@
 				EA9EA14213A47D2300704CDC /* btGeometryUtil.cpp in Sources */,
 				EA9EA14313A47D2300704CDC /* btQuickprof.cpp in Sources */,
 				EA9EA14413A47D2300704CDC /* btSerializer.cpp in Sources */,
+				4F95BF8A14106F2900AE5CC4 /* ParticleEmitter.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

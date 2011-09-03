@@ -7,7 +7,7 @@
 //
 
 #import "GopherViewController.h"
-#import "InstructionsViewController.h";
+#import "InstructionsViewController.h"
 
 #import "PhysicsManager.h"
 #import "GraphicsManager.h"

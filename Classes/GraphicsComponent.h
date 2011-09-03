@@ -92,7 +92,7 @@ namespace Dog3D
 		
 		const MaterialSet *mMaterialSet;
 		
-		Texture2D* mTexture;
+		const Texture2D* mTexture;
 		btVector3 mOffset;
 
 		
@@ -157,7 +157,7 @@ namespace Dog3D
 		inline void SetupMaterials()
 		{}
 		
-		virtual void Update(float deltaTime, bool show3D);
+		virtual void Update(float deltaTime);
 		
 		inline void SetOffset(btVector3 &offset){ mOffset = offset; }
 		inline void SetOffset(btVector3 offset){ mOffset = offset; }
@@ -167,7 +167,7 @@ namespace Dog3D
 	
 	class LineComponent : public GraphicsComponent
 	{		
-		virtual void Update(float deltaTime, bool show3D);
+		virtual void Update(float deltaTime);
 	};
 	
 	// holds n graphics components
@@ -187,7 +187,7 @@ namespace Dog3D
 		inline int IsEmtpy() { return mChildren.empty();}
 			 
 		// draw each child
-		void Update(float deltaTime, bool show3D);
+		void Update(float deltaTime);
 		
 	protected:
 		std::list<GraphicsComponent *> mChildren;
@@ -210,7 +210,7 @@ namespace Dog3D
 		
 		~TexturedGraphicsComponent();
 		
-		void Update(float deltaTime, bool show3D);		
+		void Update(float deltaTime);		
 		
 	};
 	
@@ -245,7 +245,7 @@ namespace Dog3D
 			}
 		}
 		
-		void Update(float dt, bool show3D) ;
+		void Update(float dt) ;
 		
 	};
 	
@@ -257,7 +257,7 @@ namespace Dog3D
 		SquareTexturedGraphicsComponent(float width, float height) :
 		TexturedGraphicsComponent(width, height){ }
 		
-		void Update(float deltaTime, bool show3D);	
+		void Update(float deltaTime);	
 	};
 	
 	// screen space based graphics componentt
@@ -273,7 +273,7 @@ namespace Dog3D
 		mRotateTowardsTarget(true),
 		mConstrainToCircle(true){ }
 		
-		void Update(float deltaTime, bool show3D);	
+		void Update(float deltaTime);	
 		
 		bool IsFinished() { return mDuration <= 0;}
 		
@@ -430,7 +430,7 @@ namespace Dog3D
 		void UpdateAnimatedWalkDirection( btVector3 &direction );
 		
 		
-		void Update(float deltaTime, bool show3D);	
+		void Update(float deltaTime);	
 		
 		inline void SetBigVertices( Vec3 * bigVertices)
 		{
@@ -487,7 +487,7 @@ namespace Dog3D
 		: FXGraphicsComponent(drawWidth, drawHeight)
 		{}
 		
-		void Update(float deltaTime, bool show3D);	
+		void Update(float deltaTime);	
 		
 	};
 	

@@ -167,12 +167,6 @@ namespace Dog3D
 			return GetTexture(&textureName);
 		}
 		
-		
-		// show 3d projection mode
-		inline void SetGraphics3D(bool show3d)
-		{
-			mGraphics3D = show3d;
-		}
 				
 		inline void SetFXPool( std::queue<Entity *> *fxPool)
 		{
@@ -309,6 +303,7 @@ namespace Dog3D
 		void DisableLineDrawing();
 		void SetupLineDrawing();
 
+    
 		// draws debug stuff in red
 		void DrawLine(btVector3 pointA, btVector3 pointB);
 
@@ -436,7 +431,6 @@ namespace Dog3D
 		
 		
 		bool mIdle;
-		bool mGraphics3D;
 		
 	};
 }

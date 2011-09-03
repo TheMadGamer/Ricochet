@@ -23,6 +23,8 @@
 
 #import "AudioDispatch.h"
 
+#import "ParticleEmitter.h"
+
 const float kBallRadius = 0.5;
 
 const float kWallHeight = 2.5;
@@ -230,10 +232,30 @@ void SceneManager::LoadScene( NSString *levelName)
 	
 }
 
+void BuildCenteredEmitter()
+{
+  Entity *newEntity = new Entity();
+#if DEBUG
+	newEntity->mDebugName = "Emitter";
+#endif
+	btVector3 initialPosition(3,1,3);
+	newEntity->SetPosition(initialPosition);
+  
+  ParticleEmitter *p = new ParticleEmitter(1.0);
+  
+  newEntity->SetGraphicsComponent(p);
+  
+  GraphicsManager::Instance()->AddComponent(p);
+  
+}
+
+
 void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
 {
 	NSDictionary *layoutDictionary = [rootDictionary objectForKey:@"LayoutObjects"];
     
+  BuildCenteredEmitter();
+  
 	// load up things like spawn points, targets, hedges
 	for (id key in layoutDictionary) 
 	{

@@ -28,7 +28,7 @@ GraphicsComponent::~GraphicsComponent()
 }
 	
 // basic circular component
-void GraphicsComponent::Update( float deltaTime, bool show3D )
+void GraphicsComponent::Update( float deltaTime )
 {
 	
 	if(!mParent->mActive || !mActive)
@@ -127,7 +127,7 @@ void GraphicsComponent::Update( float deltaTime, bool show3D )
 	glPopMatrix();	
 }
 
-void LineComponent::Update(float deltaTime, bool show3D )
+void LineComponent::Update(float deltaTime)
 {
 	GraphicsManager::Instance()->SetupLineDrawing();
 
@@ -179,16 +179,16 @@ CompoundGraphicsComponent::~CompoundGraphicsComponent()
 	
 }
 
-void CompoundGraphicsComponent::Update(float deltaTime , bool show3D)
+void CompoundGraphicsComponent::Update(float deltaTime )
 {
 	for(std::list<GraphicsComponent *>::iterator it = mChildren.begin(); it!= mChildren.end(); it++)
 	{
-		(*it)->Update(deltaTime, show3D);
+		(*it)->Update(deltaTime);
 	}
 }
 
 
-void SquareTexturedGraphicsComponent::Update( float deltaTime , bool show3D)
+void SquareTexturedGraphicsComponent::Update( float deltaTime )
 {
 	
 	if(!mParent->mActive || !mActive)
@@ -247,7 +247,7 @@ void SquareTexturedGraphicsComponent::Update( float deltaTime , bool show3D)
 	
 }
 
-void ScreenSpaceComponent::Update( float deltaTime , bool show3D)
+void ScreenSpaceComponent::Update( float deltaTime)
 {
 	
 	if(!mParent->mActive || !mActive)
@@ -338,7 +338,7 @@ void ScreenSpaceComponent::Update( float deltaTime , bool show3D)
 TexturedGraphicsComponent::~TexturedGraphicsComponent(){}
 
 
-void TexturedGraphicsComponent::Update( float deltaTime, bool show3D )
+void TexturedGraphicsComponent::Update( float deltaTime )
 {
 	if(!mParent->mActive || !mActive)
 	{
@@ -401,7 +401,7 @@ void TexturedGraphicsComponent::Update( float deltaTime, bool show3D )
 
 }
 
-void HUDGraphicsComponent::Update(float dt, bool show3D) 
+void HUDGraphicsComponent::Update(float dt) 
 {
 	//tiles across given position and extents
 	
@@ -429,13 +429,7 @@ void HUDGraphicsComponent::Update(float dt, bool show3D)
 		
 		
 		glTranslatef(position.x(), position.y(), position.z());
-		
-		if(show3D)
-		{
-			// billboard effect hack
-			glRotatef(-45.0, 0, 0, 1);
-		}
-		
+
 		for(int i = 0; i < mCurrentLives; i++)
 		{			
 			[mTexture drawInRect:CGRectMake(-mExtents.x(), -mExtents.z(), mExtents.x(), mExtents.z()) depth:0];			
@@ -614,7 +608,7 @@ void AnimatedGraphicsComponent::UpdateAnimatedWalkDirection( btVector3 &directio
 	
 }
 
-void AnimatedGraphicsComponent::Update( float deltaTime , bool show3D)
+void AnimatedGraphicsComponent::Update( float deltaTime )
 {
 	if(! mParent->mActive || !mActive)
 	{
@@ -655,12 +649,7 @@ void AnimatedGraphicsComponent::Update( float deltaTime , bool show3D)
 	{
 		// POSITION 				
 		glTranslatef(position.getX(), position.getY(), position.getZ());
-		
-		if(show3D)
-		{
-			// billboard effect hack
-			glRotatef(-45.0, 0, 0, 1);
-		}
+
 		
 		if( (!mIgnoreParentRotation) && mParent->IsRotationSet())
 		{
@@ -759,7 +748,7 @@ void AnimatedGraphicsComponent::Update( float deltaTime , bool show3D)
 	glDisable(GL_TEXTURE_2D);	
 }
 
-void BillBoard::Update( float deltaTime , bool show3D)
+void BillBoard::Update( float deltaTime )
 {
 	if(! mParent->mActive || !mActive)
 	{
@@ -800,13 +789,6 @@ void BillBoard::Update( float deltaTime , bool show3D)
 		// POSITION 				
 		glTranslatef(position.getX(), position.getY(), position.getZ());
 		
-#if USE_3D	
-		if(show3D)
-		{
-			// billboard effect hack
-			glRotatef(-45.0, 0, 0, 1);
-		}
-#endif
 		
 		if(!(mOffset.x() == 0 && mOffset.y() == 0 && mOffset.z() ==0)  && mParent->IsRotationSet())
 		{

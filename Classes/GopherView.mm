@@ -74,9 +74,8 @@ float kWallHeight = 1;
 		touchStartTime = 0;
 		touchStart.setZero();
 		
-        movingFarmer = false;
-		graphics3D = false;
-
+    movingFarmer = false;
+		
 		lastTimeInterval = [NSDate timeIntervalSinceReferenceDate];
 		lastAccelInterval = [NSDate timeIntervalSinceReferenceDate];
 		
@@ -92,12 +91,6 @@ float kWallHeight = 1;
 	}
 	
 	return self;
-}
-
-- (void) setGraphics3D:(bool) set3D
-{
-	graphics3D = set3D;
-	GraphicsManager::Instance()->SetGraphics3D(set3D);
 }
 
 
