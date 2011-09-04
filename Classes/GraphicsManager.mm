@@ -83,6 +83,7 @@ namespace Dog3D
 		LoadTexture(@"hedge1");
 		LoadTexture(@"GreenBack");
 		LoadTexture(@"flower.sheet");
+        LoadTexture(@"Leaf");
 	}
 	
 	void GraphicsManager::Unload()
@@ -675,8 +676,7 @@ namespace Dog3D
 #if USE_LIGHTS	
 		glEnable(GL_LIGHTING);
 #else
-		//glColor4f(1, 1, 1, 1);
-		glColor4f(0.8,0,0.8,1);
+		glColor4f(1, 1, 1, 1);
 #endif
 		
 		glDisable(GL_BLEND);

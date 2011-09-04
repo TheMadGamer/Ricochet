@@ -53,44 +53,67 @@ void ParticleEmitter::UpdateSimulation(float dt)
 void ParticleEmitter::Draw()
 {
   
-  // setup
-  GraphicsManager::Instance()->SetupLineDrawing();
-  
-  glColor4f(1,0,0,1);
-  
-  btVector3 pos =  GetParent()->GetPosition();
-  glPushMatrix();
+    // setup textured drawing
+    //setup blending
+    glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); 
+	glDisable(GL_DEPTH_TEST);
 
-  glTranslatef(pos.x(), pos.y(), pos.z());
-  
-  int nQuads = mParticles.size();
-  
-  Vec3 *verts = (Vec3*) alloca(sizeof(Vec3)*nQuads * 6);
+    glEnable(GL_TEXTURE_2D);
+    Texture2D *leaf = GraphicsManager::Instance()->GetTexture(@"Leaf");
     
-  Vec3 *vp = verts;
-  
-  for( list<Particle*>::iterator it = mParticles.begin();
-      it != mParticles.end(); ++it)
-  {
-    btVector3 pos = (*it)->position;
-    *vp++ = Vec3( pos.x() - mDX, pos.y(), pos.z() - mDZ );
-    *vp++ = Vec3( pos.x() + mDX, pos.y(), pos.z() - mDZ );
-    *vp++ = Vec3( pos.x() - mDX, pos.y(), pos.z() + mDZ );
+    [leaf enable];
+    
+    glColor4f(1,0,0,1);
 
-    *vp++ = Vec3( pos.x() + mDX, pos.y(), pos.z() - mDZ );
-    *vp++ = Vec3( pos.x() - mDX, pos.y(), pos.z() + mDZ );
-    *vp++ = Vec3( pos.x() + mDX, pos.y(), pos.z() + mDZ );
-  }
-  
-  // To-Do: add support for creating and holding a display list
-  glVertexPointer(3, GL_FLOAT, 0, verts);
-  
-  glDrawArrays(GL_TRIANGLES, 0, nQuads * 6);
-  
-  
-  glPopMatrix();
-  
-  // cleanup
-  GraphicsManager::Instance()->DisableLineDrawing();
-  
+    btVector3 pos =  GetParent()->GetPosition();
+
+    int nQuads = mParticles.size();
+    
+    Vec3 *verts = (Vec3*) alloca(sizeof(Vec3)*nQuads * 6);
+
+    Vec3 *vp = verts;
+
+    for( list<Particle*>::iterator it = mParticles.begin();
+      it != mParticles.end(); ++it)
+    {
+        
+        btVector3 pos = (*it)->position;
+        *vp++ = Vec3( pos.x() - mDX, pos.y(), pos.z() - mDZ );
+        *vp++ = Vec3( pos.x() + mDX, pos.y(), pos.z() - mDZ );
+        *vp++ = Vec3( pos.x() - mDX, pos.y(), pos.z() + mDZ );
+
+        *vp++ = Vec3( pos.x() + mDX, pos.y(), pos.z() - mDZ );
+        *vp++ = Vec3( pos.x() - mDX, pos.y(), pos.z() + mDZ );
+        *vp++ = Vec3( pos.x() + mDX, pos.y(), pos.z() + mDZ );
+    }
+
+    // To-Do: add support for creating and holding a display list
+    glVertexPointer(3, GL_FLOAT, 0, verts);
+
+    
+    Vec2 *texCoords = (Vec2 *) alloca(sizeof(Vec2)* nQuads * 6);
+    Vec2 *tp = texCoords;
+    for(int i = 0; i < nQuads ; i++)
+    {
+        *tp++ = Vec2(0,0);
+        *tp++ = Vec2(1,0);
+        *tp++ = Vec2(0,1);
+        
+        *tp++ = Vec2(1,0);
+        *tp++ = Vec2(0,1);
+        *tp++ = Vec2(1,1);
+    }
+    
+    glTexCoordPointer(2, GL_FLOAT, 0, texCoords);	
+    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+    
+    
+    glDrawArrays(GL_TRIANGLES, 0, nQuads * 6 );
+    
+    glDisable(GL_BLEND);
+	glEnable(GL_DEPTH_TEST);
+	
+	glDisable(GL_TEXTURE_2D);
+    
 }
