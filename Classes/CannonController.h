@@ -9,7 +9,6 @@
 
 #import <vector>
 #import "Component.h"
-#import "NodeNetwork.h"
 #import "Entity.h"
 #import <btBulletDynamicsCommon.h>
 

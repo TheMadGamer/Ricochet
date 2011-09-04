@@ -40,23 +40,7 @@ using namespace Dog3D;
 		
 		SceneManager::LevelControlInfo levelControl(controlDictionary);
 		
-		NSString* imageName;
-		
-		
-		if(levelControl.mPlayMode == GamePlayManager::CANNON ||
-		   levelControl.mPlayMode == GamePlayManager::SWARM_CANNON || 
-		   levelControl.mPlayMode == GamePlayManager::RUN_CANNON ||
-		   levelControl.mPlayMode == GamePlayManager::RICOCHET)
-		{
-			imageName = @"Instructions_Cannon.png";
-		}
-		else if(levelControl.mPlayMode == GamePlayManager::POOL)
-		{
-			imageName = @"Instructions_Tap.png";
-		}
-		else {
-			imageName = @"Instructions_Tilt.png";
-		}
+		NSString* imageName = @"Instructions_Cannon.png";
 		
 		instructionView.image = [UIImage imageNamed:imageName];
 		[controlDictionary release];

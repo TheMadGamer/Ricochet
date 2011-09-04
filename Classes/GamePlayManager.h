@@ -13,14 +13,12 @@
 #import "PhysicsComponent.h"
 #import "TriggerComponent.h"
 #import "GateControllerComponent.h"
-#import "NodeNetwork.h"
+
 #import "GopherController.h"
 #import "SpawnComponent.h"
 #import "Entity.h"
 #import "VectorMath.h"
 #import "GraphicsComponent.h"
-#import "PaddleController.h"
-#import "FlipperController.h"
 #import "CannonController.h"
 #import "CannonUI.h"
 #import "ExplodableComponent.h"
@@ -34,17 +32,7 @@ namespace Dog3D
 	{
 	public:
 		enum GameState { PLAY, PAUSE, GOPHER_WIN, GOPHER_LOST };
-		enum GamePlayMode { TAP=0, 
-			FLICK=1, 
-			PADDLE=2, 
-			FLIPPER=3, 
-			TILT_ONLY=4, 
-			CANNON=5, 
-			POOL=6, 
-			SWARM_CANNON=7, 
-			RUN_CANNON=8,
-			RICOCHET=9
-		};
+
 	private:
 		GameState mGameState;
 		
@@ -53,7 +41,7 @@ namespace Dog3D
 		mDestroyedObjects(0),
 		mGameState(PLAY),
 		mGopherHUD(NULL), mCarrotHUD(NULL), mTouched(false), mFlicked(false),
-		mGamePlayMode(PADDLE), mCannonController(NULL), mCannonUI(NULL), 
+    mCannonController(NULL), mCannonUI(NULL), 
 		mUnlimitedBalls(true), mFocalPoint(0,0,0), mCarrotSearchDistance(20.0f),
 		mSpawnDelay(0.0f)
 		{}
@@ -160,10 +148,7 @@ namespace Dog3D
 		inline GameState GetGameState() { return mGameState; }
 		
 		inline void SetGameState(GameState gameState){ mGameState = gameState;}
-		
-		inline GamePlayMode GetGamePlayMode(){ return mGamePlayMode;}
-		inline void SetGamePlayMode(GamePlayMode mode){mGamePlayMode = mode;}
-		
+				
 		inline void AddSpawnComponent(SpawnComponent *spawn)
 		{
 			mSpawnComponents.push_back(spawn);
@@ -195,9 +180,6 @@ namespace Dog3D
         inline CannonController *GetCannon(){ return mCannonController;}
         		
 		void AddGopherController( GopherController *component);
-				
-		// initializes  node network
-		void InitializeNodeNetwork();
 		
 		// initializes debug node network
 		// to be replaced later
@@ -222,37 +204,8 @@ namespace Dog3D
 		
 		inline void GetFocalPoint(btVector3 &point)
 		{
-			if(mGamePlayMode == TILT_ONLY)
-			{
-				point = mFocalPoint;
-				
-					
-				// then clip
-				
-				if(point.x() > mWorldBounds.x() - 10)
-				{
-					point.setX(mWorldBounds.x() - 10);
-				}
-				else if(point.x() < -mWorldBounds.x() +  10)
-				{
-					point.setX(-mWorldBounds.x() + 10);
-				}
-				
-				if(point.z() > mWorldBounds.z() - 15)
-				{
-					point.setZ(mWorldBounds.z() - 15);
-				}
-				else if(point.z() < -mWorldBounds.z() + 15)
-				{
-					point.setZ(-mWorldBounds.z() +  15);
-				}
-				
-				
-			}
-			else 
-			{
-				point.setZero();
-			}
+			
+      point.setZero();
 
 		}
 			
@@ -281,11 +234,7 @@ namespace Dog3D
 			return nActiveTargets;
 		}
 		
-		//TODO - this goes away
-		inline TheMadGamer::NodeNetwork* GetNodeNetwork()
-		{
-			return &mNodeNetwork;
-		}
+
 #if DEBUG
 		void DrawDebugLines();
 #endif
@@ -471,7 +420,6 @@ namespace Dog3D
 		
 		std::list<Entity *> mTargets;
 		
-		TheMadGamer::NodeNetwork mNodeNetwork;
 		
 		// managed components
 		std::list<Entity *> mBalls;
@@ -536,8 +484,6 @@ namespace Dog3D
 		
 		// gas cans, etc
 		int mDestroyedObjects;
-		
-		GamePlayMode mGamePlayMode;
 		
 		bool mUnlimitedBalls;
 		

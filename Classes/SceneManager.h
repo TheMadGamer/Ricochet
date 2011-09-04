@@ -98,8 +98,6 @@ namespace Dog3D
 			int mBallTypes;
 			int mNumBalls;
 			int mCollisionAvoidance;
-			GamePlayManager::GamePlayMode mPlayMode;
-			
 			
 			
 			LevelControlInfo(): 
@@ -111,9 +109,8 @@ namespace Dog3D
 			mBallTypes(-1), 
 			mNumBalls(-1),
 			mCollisionAvoidance(0),
-			mCarrotSearchDistance(20.0f),
-			mPlayMode(GamePlayManager::CANNON )
-			{
+			mCarrotSearchDistance(20.0f)
+      {
 			}
 			
 			LevelControlInfo(NSDictionary *controlDictionary);	

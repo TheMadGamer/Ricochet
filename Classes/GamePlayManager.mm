@@ -19,7 +19,6 @@
 #import "GateControllerComponent.h"
 #import "GamePlayManager.h"
 #import "Entity.h"
-#import "NodeNetwork.h"
 #import "GraphicsComponent.h"
 #import "GraphicsManager.h"
 
@@ -62,14 +61,7 @@ namespace Dog3D
 		
 		mBalls.clear();
 		
-		mNodeNetwork = TheMadGamer::NodeNetwork();
-		
 		mSpawnComponents.clear();
-		
-#ifdef BUILD_PADDLE_MODE
-		mPaddles.clear();
-		mFlippers.clear();
-#endif
 		
 		mExplodables.clear();
 		
@@ -116,157 +108,7 @@ namespace Dog3D
 	}
 #endif
 	
-	void GamePlayManager::InitializeNodeNetwork()
-	{
-		
-		int nodeId = 0;
-		int nLinks = 0;
-		
-		const float kCarrotOffset = -1;
-		const float kSpawnOffset = -1.25;
-		
-		for(std::list<Entity*>::iterator it = mTargets.begin(); it != mTargets.end(); it++)
-		{
 			
-			Entity *target = (*it);
-			TheMadGamer::Vec2 position(target->GetPosition().getX()+kCarrotOffset, target->GetPosition().getZ());
-			mNodeNetwork.AddNode(nodeId, 
-								 new TheMadGamer::PositionedNode(nodeId, position));
-			
-			// allows removal of carrot nodes
-			TargetComponent *targetComponent = static_cast<TargetComponent*>(target->FindComponentOfType(TARGET));
-			targetComponent->mNetworkNodeID = nodeId;
-					
-			for(int j = 0; j < nodeId; j++)
-			{
-				mNodeNetwork.LinkBiDirectional(j, nodeId);
-				nLinks++;
-			}
-			
-			nodeId++;
-		}
-		
-		
-		int lastTargetId = nodeId-1;
-		
-		for(int i = 0; i < mSpawnComponents.size(); i++)
-		{
-			// this causes gophs to spawn in up when below the midline and spawn downward when above
-			// keeps gophs from spawning off screen
-			float dX = mSpawnComponents[i]->GetParent()->GetPosition().getX() > 0 ? 
-				mSpawnComponents[i]->GetParent()->GetPosition().getX()+kSpawnOffset 
-			: mSpawnComponents[i]->GetParent()->GetPosition().getX()-kSpawnOffset;
-			
-			TheMadGamer::Vec2 position(dX, 
-									   mSpawnComponents[i]->GetParent()->GetPosition().getZ());
-			mNodeNetwork.AddNode(nodeId, 
-								 new TheMadGamer::PositionedNode(nodeId, position));
-			
-			// allows removal of carrot nodes
-			TargetComponent *targetComponent = static_cast<TargetComponent*>(mSpawnComponents[i]->GetParent()->FindComponentOfType(TARGET));
-			targetComponent->mNetworkNodeID = nodeId;
-			
-			for(int targetId = 0; targetId <= lastTargetId; targetId++)
-			{
-				mNodeNetwork.LinkBiDirectional(targetId, nodeId);
-				nLinks++;
-			}
-			
-			nodeId++;
-		}
-		
-		mNumDebugVertices = nLinks * 4;  //links are bi-directional
-#if DEBUG
-		mDebugVertices = new Dog3D::Vec3[mNumDebugVertices];
-#endif
-	}
-	
-#pragma mark DEBUG_VERTS
-	void GamePlayManager::UpdateDebugVertices()
-	{
-		vector<int> nodeIds;
-		
-		mNodeNetwork.GetAllNodeIDs(nodeIds);
-		
-		
-		int debugCnt = 0;
-		
-		// for each spawn component, draw links
-		for(int i = 0; i < nodeIds.size();i++)
-		{
-			const TheMadGamer::PositionedNode *startNode = mNodeNetwork.GetNode(nodeIds[i]);
-			
-			const vector<int> *links = mNodeNetwork.GetLinksFrom(nodeIds[i]);
-			
-			for(int j = 0; j < links->size(); j++)
-			{
-				const TheMadGamer::PositionedNode *endNode = mNodeNetwork.GetNode((*links)[j]);
-				TheMadGamer::Vec2 debugVec;
-				
-				startNode->GetPosition(debugVec);
-#if DEBUG
-				mDebugVertices[debugCnt++] = Vec3(debugVec.x, 1, debugVec.y);
-#endif		
-				endNode->GetPosition(debugVec);
-#if DEBUG
-				mDebugVertices[debugCnt++]  = Vec3(debugVec.x, 1, debugVec.y);
-#endif		
-			}
-		}
-		
-		mNumDebugVertices = debugCnt-1;
-	}
-	
-	void GamePlayManager::InitializeDebugNetwork()
-	{
-		
-		int nodeId = 0;
-		
-		//TODO hard coded
-		
-		for(int y = -12; y <= 12; y+=3)				
-		{
-			for(int x = -9; x <= 9; x+= 3)
-			{
-				TheMadGamer::Vec2 initialPosition(x,y);
-				mNodeNetwork.AddNode(nodeId, new TheMadGamer::PositionedNode(nodeId, initialPosition));
-				
-				nodeId++;
-			}
-		}
-		
-		nodeId = 0;
-		for(int y = -12; y <= 12; y+=3)				
-		{
-			for(int x = -9; x <= 9; x+= 3)
-			{
-				
-				if(x > -9)
-				{
-					mNodeNetwork.LinkBiDirectional(nodeId, nodeId-1);
-				}
-				
-				if(y > -12)
-				{
-					mNodeNetwork.LinkBiDirectional(nodeId, nodeId-7);
-				}
-				
-				/*if( x > -9 && y > -12)
-				{
-					mNodeNetwork.LinkBiDirectional(nodeId, nodeId -8);
-				}
-				
-				if( x < 9 && y > -12)
-				{
-					mNodeNetwork.LinkBiDirectional(nodeId, nodeId -6);
-				}*/
-				
-				nodeId++;
-				
-			}
-		}
-	}
-	
 #pragma mark UPDATE
 	void GamePlayManager::Update(float deltaTime)
 	{
@@ -274,19 +116,7 @@ namespace Dog3D
 		{
 			return;
 		}
-#ifdef BUILD_PADDLE_MODE
-		for(int i = 0; i < mPaddles.size(); i++)
-		{
-			mPaddles[i]->Update(deltaTime);
-		
-		}
-		
-		for(int i = 0; i < mFlippers.size(); i++)
-		{
-			mFlippers[i]->Update(deltaTime);
-		}
-#endif
-				
+
 		if(mGameState == GOPHER_WIN || mGameState == GOPHER_LOST)
 		{
 
@@ -465,42 +295,12 @@ namespace Dog3D
 		
 		ExplodableComponent *explodable = ball->GetExplodable();
 		
-		// only in flick mode do we defer activation
-		if(mGamePlayMode != FLICK)
-		{
-			explodable->Prime();
-		}
+
+    explodable->Prime();
 		
 		// pick a random start point (see rands below)
 		btVector3 resetPosition(mBallSpawn);
 		mBallSpawn.setY(1.5);
-		
-		if(mGamePlayMode == POOL)
-		{
-			
-			if(explodable->GetExplosionType() == ExplodableComponent::CUE_BALL)
-			{
-				resetPosition.setValue(0, 1.5, 5);
-			}
-			else 
-			{
-				if(position == 0)
-				{
-					resetPosition.setValue(0, 1.5, -5);
-				}
-				else 
-				{
-					resetPosition.setValue(0.75, 1.5, -6.25);
-					
-					
-					if(position == 2)
-					{
-						resetPosition.setX(-0.75);			
-					}
-					
-				}
-			}
-		}
 
 		// re activate gfx
 		ball->GetGraphicsComponent()->mActive = true;
@@ -543,21 +343,11 @@ namespace Dog3D
 			
 			PhysicsManager::Instance()->AddComponent(physicsComponent);
 			
-			if(mGamePlayMode == FLICK )
-			{
-				physicsComponent->SetKinematic(true);
-			}
-			else {
-				physicsComponent->SetKinematic(false);
-			}
+      physicsComponent->SetKinematic(false);
 		}
 		// set the parent object's position
 		ball->SetPosition(resetPosition);
 		
-		if(mGamePlayMode == PADDLE)
-		{
-			ball->GetPhysicsComponent()->GetRigidBody()->setLinearVelocity(btVector3(0,0,25));
-		}
 		
 	}
 	
@@ -697,15 +487,15 @@ namespace Dog3D
 			Entity *gopher = (*it)->GetParent();
 			btVector3 position = gopher->GetPosition();	
 			
-			if(abs(position.getX()) > (mWorldBounds.x() + 2) || 
-			   abs(position.getZ()) > (mWorldBounds.z()+2))
+			if(fabs(position.getX()) > (mWorldBounds.x() + 2) || 
+			   fabs(position.getZ()) > (mWorldBounds.z()+2))
 			{
 				DLog(@"Bounds");
 			}
 			
 
-			if(abs(position.getX()) > (mWorldBounds.x() + 2) || 
-			   abs(position.getZ()) > (mWorldBounds.z() + 2) ||
+			if(fabs(position.getX()) > (mWorldBounds.x() + 2) || 
+			   fabs(position.getZ()) > (mWorldBounds.z() + 2) ||
 			   ( (*it)->GetControllerState() == GopherController::EXPLODE && (*it)->GetExplodeTime() > 3)  ||
 			   (*it)->GetControllerState() == GopherController::DEAD)				
 			{
@@ -749,10 +539,9 @@ namespace Dog3D
 			mSpawnIntervals.pop_front();
 		}
 		
-		if(mGamePlayMode == RICOCHET)
-		{
-			mNumGophersToSpawn = min(mNumGophersToSpawn, mGopherLives);
-		}
+
+    mNumGophersToSpawn = min(mNumGophersToSpawn, mGopherLives);
+		
 
 		int numToSpawn =  mNumGophersToSpawn - mActiveGophers.size() ;
 		
@@ -808,14 +597,7 @@ namespace Dog3D
 					PhysicsManager::Instance()->AddGhostCollider(physicsComponent->GetGhostCollider());
 					
 					mActiveGophers.push_back(controller);
-					
-					// warning arrow system
-					if(mGamePlayMode == TILT_ONLY && 
-					   (mWorldBounds.z() > 15 || mWorldBounds.x() > 10))
-					{
-						GraphicsManager::Instance()->PointWarningArrowAt(spawnPosition);
-					}
-					
+										
 					mSpawnDelay = ((float) (rand() % 5)) * 0.2f;
 					
 					break;
@@ -846,59 +628,6 @@ namespace Dog3D
 		
 	}
 	
-#pragma mark NETWORK PRIVATE
-	void GamePlayManager::RemoveTargetNode(int nodeId)
-	{
-		// deactivate associated node
-		mNodeNetwork.RemoveNode(nodeId);
-	}
-	
-	
-	Entity *GamePlayManager::PickTarget(btVector3 position)
-	{
-		if(rand() %2 == 1)
-		{
-			DLog(@"Get Closest Hole");
-			return GetClosestHole(position);
-		}
-		else 
-		{
-			DLog(@"Get Random Carrot");
-			return GetRandomCarrot(position);
-		}
-		
-	}
-	
-	Entity *GamePlayManager::GetClosestHole(btVector3 position)
-	{
-		float distToClosest = HUGE_VAL;
-		
-		// assumes there is one spawn hole
-		// also assumes that not all holes will be occupied (ie holes outnumber gophers)
-		
-		Entity *closestSpawn = NULL;
-		
-		for(int i = 0; i < mSpawnComponents.size(); i++)
-		{
-			btVector3 dist = position - mSpawnComponents[i]->GetParent()->GetPosition();
-			
-			float currentDist = dist.length();
-			if(currentDist < distToClosest && (!mSpawnComponents[i]->GetOccupied()))
-			{
-				closestSpawn = mSpawnComponents[i]->GetParent();
-				distToClosest = currentDist;
-			}
-		}
-		
-		if(closestSpawn == NULL)
-		{
-			// return a random if the search fails
-			return mSpawnComponents[rand() % mSpawnComponents.size()]->GetParent();
-		}
-		
-		return closestSpawn;
-		
-	}
 	
 	
 	Entity *GamePlayManager::GetRandomCarrot(btVector3 position)

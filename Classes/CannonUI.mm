@@ -40,27 +40,7 @@ bool CannonUI::StartSwipe(btVector3 &swipe)
 	// 10 is the boundary
 	if(swipe.z() < 10)
 	{
-		if(GamePlayManager::Instance()->GetGamePlayMode() == GamePlayManager::RUN_CANNON)
-		{
-			CannonController *farmer = static_cast<CannonController*>(mCannon->GetController());
-			
-			btVector3 direction = swipe;
-			btVector3 originalPos = farmer->GetParent()->GetPosition();
-			direction -= originalPos;
-			
-			direction.normalize();
-			direction *= 0.2f;
-			direction += originalPos;
-			direction.setY(originalPos.getY());
-			
-			
-			farmer->GetParent()->SetPosition(direction);
-			return true;
-		}
-		else
-		{		   
 			return false;
-		}
 	}
 	else
 	{
@@ -82,27 +62,6 @@ bool CannonUI::StartSwipe(btVector3 &swipe)
 void CannonUI::MoveSwipe(btVector3 &swipe)
 {
 	// 10 is the boundary
-	if(swipe.z() < 10)
-	{
-		if(GamePlayManager::Instance()->GetGamePlayMode() == GamePlayManager::RUN_CANNON)
-		{
-			CannonController *farmer = static_cast<CannonController*>(mCannon->GetController());
-			
-			btVector3 direction = swipe;
-			btVector3 originalPos = farmer->GetParent()->GetPosition();
-			direction -= originalPos;
-			
-			direction.normalize();
-			direction *= 0.2f;
-			direction += originalPos;
-			direction.setY(originalPos.getY());
-			
-			farmer->GetParent()->SetPosition(direction);
-			
-		}
-		
-	}
-	else
 	{
 		float angle = XToAngle(swipe.x()) +  mRotationOffset;
 		

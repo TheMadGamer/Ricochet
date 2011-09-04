@@ -11,7 +11,6 @@
 #import <vector>
 #import <string>
 #import "Component.h"
-#import "NodeNetwork.h"
 #import "GraphicsComponent.h"
 
 namespace Dog3D 

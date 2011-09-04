@@ -11,13 +11,29 @@
 		1D60589B0D05DD56006BFB54 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.mm */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28FD14FE0DC6FC130079059D /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */; };
+		4F58CB5D140E90AB000027F4 /* blowup.left.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB4C140E90AB000027F4 /* blowup.left.sheet.png */; };
+		4F58CB5E140E90AB000027F4 /* blowup.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB4D140E90AB000027F4 /* blowup.sheet.png */; };
+		4F58CB5F140E90AB000027F4 /* cannon.puff.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB4E140E90AB000027F4 /* cannon.puff.png */; };
+		4F58CB60140E90AB000027F4 /* Dance.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB4F140E90AB000027F4 /* Dance.sheet.png */; };
+		4F58CB61140E90AB000027F4 /* EatCarrot.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB50140E90AB000027F4 /* EatCarrot.sheet.png */; };
+		4F58CB62140E90AB000027F4 /* electro.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB51140E90AB000027F4 /* electro.sheet.png */; };
+		4F58CB63140E90AB000027F4 /* fire.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB52140E90AB000027F4 /* fire.sheet.png */; };
+		4F58CB64140E90AB000027F4 /* freeze.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB53140E90AB000027F4 /* freeze.sheet.png */; };
+		4F58CB65140E90AB000027F4 /* idle.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB54140E90AB000027F4 /* idle.sheet.png */; };
+		4F58CB66140E90AB000027F4 /* jump.in.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB55140E90AB000027F4 /* jump.in.sheet.png */; };
+		4F58CB67140E90AB000027F4 /* jump_down.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB56140E90AB000027F4 /* jump_down.sheet.png */; };
+		4F58CB68140E90AB000027F4 /* taunt.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB57140E90AB000027F4 /* taunt.sheet.png */; };
+		4F58CB69140E90AB000027F4 /* walk_back.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB58140E90AB000027F4 /* walk_back.sheet.png */; };
+		4F58CB6A140E90AB000027F4 /* walk_back_left.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB59140E90AB000027F4 /* walk_back_left.sheet.png */; };
+		4F58CB6B140E90AB000027F4 /* walk_forward.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB5A140E90AB000027F4 /* walk_forward.sheet.png */; };
+		4F58CB6C140E90AB000027F4 /* walk_forward_left.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB5B140E90AB000027F4 /* walk_forward_left.sheet.png */; };
+		4F58CB6D140E90AB000027F4 /* walk_left.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB5C140E90AB000027F4 /* walk_left.sheet.png */; };
 		A895E04A0E2806AD00A7AE7A /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = A895E0480E2806AD00A7AE7A /* Texture2D.m */; };
 		A895E04F0E2806DB00A7AE7A /* GopherView.mm in Sources */ = {isa = PBXBuildFile; fileRef = A895E04E0E2806DB00A7AE7A /* GopherView.mm */; };
 		EA069BC3119B4ED400179E6B /* GopherViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA069BC1119B4ED400179E6B /* GopherViewController.mm */; };
 		EA069BC4119B4ED400179E6B /* GopherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA069BC2119B4ED400179E6B /* GopherViewController.xib */; };
 		EA069CCE119B90BF00179E6B /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA069CCD119B90BF00179E6B /* PreferencesViewController.m */; };
 		EA069CD0119B911200179E6B /* PreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA069CCF119B911200179E6B /* PreferencesViewController.xib */; };
-		EA069E92119CC94200179E6B /* FlipperController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA069E91119CC94200179E6B /* FlipperController.mm */; };
 		EA0B63F311A7B19D00124ED9 /* InstructionsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA0B63F111A7B19D00124ED9 /* InstructionsViewController.mm */; };
 		EA0B63F411A7B19D00124ED9 /* InstructionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA0B63F211A7B19D00124ED9 /* InstructionsViewController.xib */; };
 		EA1127C411F76757000A8124 /* SchemingWeasel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EA1127C311F76757000A8124 /* SchemingWeasel.mp3 */; };
@@ -34,7 +50,6 @@
 		EA2D753313C038AC00126D1F /* ParticleEmitter.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA2D753113C038AC00126D1F /* ParticleEmitter.mm */; };
 		EA2D753813C03A3300126D1F /* ParticleComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA2D753613C03A3300126D1F /* ParticleComponent.mm */; };
 		EA31A20F111799A40076F89F /* Component.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA31A20E111799A40076F89F /* Component.mm */; };
-		EA3430711125CD6100AE5693 /* NodeNetwork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA34306F1125CD6100AE5693 /* NodeNetwork.cpp */; };
 		EA36FDAF13B8357A00A5DBBE /* ball.electric.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FDAB13B8357A00A5DBBE /* ball.electric.sheet.png */; };
 		EA36FDB013B8357A00A5DBBE /* ball.fire.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FDAC13B8357A00A5DBBE /* ball.fire.sheet.png */; };
 		EA36FDB113B8357A00A5DBBE /* ball.ice.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FDAD13B8357A00A5DBBE /* ball.ice.sheet.png */; };
@@ -335,6 +350,23 @@
 		28FD14FD0DC6FC130079059D /* EAGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Gopher_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gopher_Prefix.pch; sourceTree = "<group>"; };
+		4F58CB4C140E90AB000027F4 /* blowup.left.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blowup.left.sheet.png; sourceTree = "<group>"; };
+		4F58CB4D140E90AB000027F4 /* blowup.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blowup.sheet.png; sourceTree = "<group>"; };
+		4F58CB4E140E90AB000027F4 /* cannon.puff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cannon.puff.png; sourceTree = "<group>"; };
+		4F58CB4F140E90AB000027F4 /* Dance.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dance.sheet.png; sourceTree = "<group>"; };
+		4F58CB50140E90AB000027F4 /* EatCarrot.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EatCarrot.sheet.png; sourceTree = "<group>"; };
+		4F58CB51140E90AB000027F4 /* electro.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = electro.sheet.png; sourceTree = "<group>"; };
+		4F58CB52140E90AB000027F4 /* fire.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.sheet.png; sourceTree = "<group>"; };
+		4F58CB53140E90AB000027F4 /* freeze.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = freeze.sheet.png; sourceTree = "<group>"; };
+		4F58CB54140E90AB000027F4 /* idle.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = idle.sheet.png; sourceTree = "<group>"; };
+		4F58CB55140E90AB000027F4 /* jump.in.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jump.in.sheet.png; sourceTree = "<group>"; };
+		4F58CB56140E90AB000027F4 /* jump_down.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jump_down.sheet.png; sourceTree = "<group>"; };
+		4F58CB57140E90AB000027F4 /* taunt.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taunt.sheet.png; sourceTree = "<group>"; };
+		4F58CB58140E90AB000027F4 /* walk_back.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walk_back.sheet.png; sourceTree = "<group>"; };
+		4F58CB59140E90AB000027F4 /* walk_back_left.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walk_back_left.sheet.png; sourceTree = "<group>"; };
+		4F58CB5A140E90AB000027F4 /* walk_forward.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walk_forward.sheet.png; sourceTree = "<group>"; };
+		4F58CB5B140E90AB000027F4 /* walk_forward_left.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walk_forward_left.sheet.png; sourceTree = "<group>"; };
+		4F58CB5C140E90AB000027F4 /* walk_left.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walk_left.sheet.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A895E0480E2806AD00A7AE7A /* Texture2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture2D.m; sourceTree = "<group>"; };
 		A895E0490E2806AD00A7AE7A /* Texture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture2D.h; sourceTree = "<group>"; };
@@ -347,8 +379,6 @@
 		EA069CCC119B90BF00179E6B /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesViewController.h; path = Views/PreferencesViewController.h; sourceTree = "<group>"; };
 		EA069CCD119B90BF00179E6B /* PreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesViewController.m; path = Views/PreferencesViewController.m; sourceTree = "<group>"; };
 		EA069CCF119B911200179E6B /* PreferencesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PreferencesViewController.xib; path = Views/PreferencesViewController.xib; sourceTree = "<group>"; };
-		EA069E90119CC94200179E6B /* FlipperController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipperController.h; sourceTree = "<group>"; };
-		EA069E91119CC94200179E6B /* FlipperController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FlipperController.mm; sourceTree = "<group>"; };
 		EA0B63F011A7B19D00124ED9 /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsViewController.h; sourceTree = "<group>"; };
 		EA0B63F111A7B19D00124ED9 /* InstructionsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InstructionsViewController.mm; sourceTree = "<group>"; };
 		EA0B63F211A7B19D00124ED9 /* InstructionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstructionsViewController.xib; sourceTree = "<group>"; };
@@ -373,8 +403,6 @@
 		EA2D753613C03A3300126D1F /* ParticleComponent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParticleComponent.mm; sourceTree = "<group>"; };
 		EA2D753713C03A3300126D1F /* ParticleComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleComponent.h; sourceTree = "<group>"; };
 		EA31A20E111799A40076F89F /* Component.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Component.mm; sourceTree = "<group>"; };
-		EA34306F1125CD6100AE5693 /* NodeNetwork.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NodeNetwork.cpp; path = ../ShortestPath/NodeNetwork.cpp; sourceTree = SOURCE_ROOT; };
-		EA3430701125CD6100AE5693 /* NodeNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NodeNetwork.h; path = ../ShortestPath/NodeNetwork.h; sourceTree = SOURCE_ROOT; };
 		EA36FDAB13B8357A00A5DBBE /* ball.electric.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.electric.sheet.png; sourceTree = "<group>"; };
 		EA36FDAC13B8357A00A5DBBE /* ball.fire.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.fire.sheet.png; sourceTree = "<group>"; };
 		EA36FDAD13B8357A00A5DBBE /* ball.ice.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.ice.sheet.png; sourceTree = "<group>"; };
@@ -905,7 +933,6 @@
 				EA1245431106852900B33424 /* Entity */,
 				EA925DD7119081F9005A9B74 /* Factories */,
 				EAC636731106DCB70025A7EF /* FakeGLU */,
-				EA3430731125CD6B00AE5693 /* Network */,
 				EA6CB3A7110A89D2004C0D8F /* Manager */,
 				A895E04C0E2806C200A7AE7A /* Support Files */,
 				EAC8DF79110A2FE4008542DA /* Views */,
@@ -946,19 +973,20 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EA36FE5E13B8363400A5DBBE /* FarmerAnims */,
-				EA36FDF713B835EA00A5DBBE /* UI */,
-				EA36FDB313B835AB00A5DBBE /* SceneElements */,
-				EA36FDAA13B8357A00A5DBBE /* BallSheets */,
-				EAF1330B1356853B00A1F3DC /* RicochetLevels */,
-				EAED41F7133C1AFC00F55050 /* BunnySprites */,
-				EA4DAF9F1280C92900320A57 /* openfeint_offline_config.xml */,
 				EA11276D11F7617D000A8124 /* Audio */,
+				EA36FDAA13B8357A00A5DBBE /* BallSheets */,
 				EA52F0C8118626970050C2DC /* BallTexture */,
+				EAED41F7133C1AFC00F55050 /* BunnySprites */,
 				EAC84B8F11A3425A0000720A /* Cannon */,
+				EA36FE5E13B8363400A5DBBE /* FarmerAnims */,
+				4F58CB4B140E90AB000027F4 /* GopherSprites */,
+				8D1107310486CEB800E47090 /* Info.plist */,
 				EA89DBD311E2818E00CFEED1 /* Instructions */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
-				8D1107310486CEB800E47090 /* Info.plist */,
+				EA4DAF9F1280C92900320A57 /* openfeint_offline_config.xml */,
+				EAF1330B1356853B00A1F3DC /* RicochetLevels */,
+				EA36FDB313B835AB00A5DBBE /* SceneElements */,
+				EA36FDF713B835EA00A5DBBE /* UI */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -976,6 +1004,30 @@
 				EA7774D0132DDECD00593D94 /* StoreKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4F58CB4B140E90AB000027F4 /* GopherSprites */ = {
+			isa = PBXGroup;
+			children = (
+				4F58CB4C140E90AB000027F4 /* blowup.left.sheet.png */,
+				4F58CB4D140E90AB000027F4 /* blowup.sheet.png */,
+				4F58CB4E140E90AB000027F4 /* cannon.puff.png */,
+				4F58CB4F140E90AB000027F4 /* Dance.sheet.png */,
+				4F58CB50140E90AB000027F4 /* EatCarrot.sheet.png */,
+				4F58CB51140E90AB000027F4 /* electro.sheet.png */,
+				4F58CB52140E90AB000027F4 /* fire.sheet.png */,
+				4F58CB53140E90AB000027F4 /* freeze.sheet.png */,
+				4F58CB54140E90AB000027F4 /* idle.sheet.png */,
+				4F58CB55140E90AB000027F4 /* jump.in.sheet.png */,
+				4F58CB56140E90AB000027F4 /* jump_down.sheet.png */,
+				4F58CB57140E90AB000027F4 /* taunt.sheet.png */,
+				4F58CB58140E90AB000027F4 /* walk_back.sheet.png */,
+				4F58CB59140E90AB000027F4 /* walk_back_left.sheet.png */,
+				4F58CB5A140E90AB000027F4 /* walk_forward.sheet.png */,
+				4F58CB5B140E90AB000027F4 /* walk_forward_left.sheet.png */,
+				4F58CB5C140E90AB000027F4 /* walk_left.sheet.png */,
+			);
+			path = GopherSprites;
 			sourceTree = "<group>";
 		};
 		A895E04C0E2806C200A7AE7A /* Support Files */ = {
@@ -1020,28 +1072,6 @@
 				EA12452711064DD100B33424 /* Entity.mm */,
 			);
 			name = Entity;
-			sourceTree = "<group>";
-		};
-		EA2D753513C03A0700126D1F /* Graphics */ = {
-			isa = PBXGroup;
-			children = (
-				EA2D753113C038AC00126D1F /* ParticleEmitter.mm */,
-				EA2D753213C038AC00126D1F /* ParticleEmitter.h */,
-				EAC8DF39110A2E12008542DA /* GraphicsComponent.h */,
-				EAC8DF5D110A2E56008542DA /* GraphicsComponent.mm */,
-				EA2D753613C03A3300126D1F /* ParticleComponent.mm */,
-				EA2D753713C03A3300126D1F /* ParticleComponent.h */,
-			);
-			name = Graphics;
-			sourceTree = "<group>";
-		};
-		EA3430731125CD6B00AE5693 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				EA34306F1125CD6100AE5693 /* NodeNetwork.cpp */,
-				EA3430701125CD6100AE5693 /* NodeNetwork.h */,
-			);
-			name = Network;
 			sourceTree = "<group>";
 		};
 		EA36FDAA13B8357A00A5DBBE /* BallSheets */ = {
@@ -1727,10 +1757,12 @@
 				EA31A20E111799A40076F89F /* Component.mm */,
 				EA76145B1135D0CF00BD7A02 /* ExplodableComponent.h */,
 				EA7319521174F94800E52AA0 /* ExplodableComponent.mm */,
-				EA069E90119CC94200179E6B /* FlipperController.h */,
-				EA069E91119CC94200179E6B /* FlipperController.mm */,
 				EA79D77F11419DA3006E6EDC /* GopherController.h */,
 				EA73173811738CC400E52AA0 /* GopherController.mm */,
+				EAC8DF39110A2E12008542DA /* GraphicsComponent.h */,
+				EAC8DF5D110A2E56008542DA /* GraphicsComponent.mm */,
+				EA6A2DC81180EDCE00E5968B /* HUDController.h */,
+				EA6A2DC91180EDCE00E5968B /* HUDController.mm */,
 				EA6CB348110A5BEF004C0D8F /* PhysicsComponent.h */,
 				EA6CB349110A5BEF004C0D8F /* PhysicsComponent.mm */,
 				EA7616F2113741A500BD7A02 /* SpawnComponent.h */,
@@ -2030,6 +2062,23 @@
 				EA36FE5D13B835EB00A5DBBE /* YouWin.png in Resources */,
 				EA36FE6113B8363500A5DBBE /* cannon.puff.sheet.png in Resources */,
 				EA2D753013C02A5C00126D1F /* farmer.sheet.png in Resources */,
+				4F58CB5D140E90AB000027F4 /* blowup.left.sheet.png in Resources */,
+				4F58CB5E140E90AB000027F4 /* blowup.sheet.png in Resources */,
+				4F58CB5F140E90AB000027F4 /* cannon.puff.png in Resources */,
+				4F58CB60140E90AB000027F4 /* Dance.sheet.png in Resources */,
+				4F58CB61140E90AB000027F4 /* EatCarrot.sheet.png in Resources */,
+				4F58CB62140E90AB000027F4 /* electro.sheet.png in Resources */,
+				4F58CB63140E90AB000027F4 /* fire.sheet.png in Resources */,
+				4F58CB64140E90AB000027F4 /* freeze.sheet.png in Resources */,
+				4F58CB65140E90AB000027F4 /* idle.sheet.png in Resources */,
+				4F58CB66140E90AB000027F4 /* jump.in.sheet.png in Resources */,
+				4F58CB67140E90AB000027F4 /* jump_down.sheet.png in Resources */,
+				4F58CB68140E90AB000027F4 /* taunt.sheet.png in Resources */,
+				4F58CB69140E90AB000027F4 /* walk_back.sheet.png in Resources */,
+				4F58CB6A140E90AB000027F4 /* walk_back_left.sheet.png in Resources */,
+				4F58CB6B140E90AB000027F4 /* walk_forward.sheet.png in Resources */,
+				4F58CB6C140E90AB000027F4 /* walk_forward_left.sheet.png in Resources */,
+				4F58CB6D140E90AB000027F4 /* walk_left.sheet.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2056,13 +2105,12 @@
 				EA6CB5D0110AB571004C0D8F /* GraphicsManager.mm in Sources */,
 				EAC2EDFE11176B89000F428C /* GamePlayManager.mm in Sources */,
 				EA31A20F111799A40076F89F /* Component.mm in Sources */,
-				EA3430711125CD6100AE5693 /* NodeNetwork.cpp in Sources */,
 				EA73173911738CC400E52AA0 /* GopherController.mm in Sources */,
 				EA7319531174F94800E52AA0 /* ExplodableComponent.mm in Sources */,
 				EA191C8F117D5FB600F30836 /* SceneManager.mm in Sources */,
+				EA6A2DCA1180EDCE00E5968B /* HUDController.mm in Sources */,
 				EA069BC3119B4ED400179E6B /* GopherViewController.mm in Sources */,
 				EA069CCE119B90BF00179E6B /* PreferencesViewController.m in Sources */,
-				EA069E92119CC94200179E6B /* FlipperController.mm in Sources */,
 				EAC8488A11A202DE0000720A /* CannonController.mm in Sources */,
 				EA0B63F311A7B19D00124ED9 /* InstructionsViewController.mm in Sources */,
 				EABC34A611A85F93000C6EC6 /* GopherGameController.mm in Sources */,
