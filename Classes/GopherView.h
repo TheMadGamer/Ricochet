@@ -114,11 +114,6 @@
 - (void) initEngine;
 - (bool) isEngineInitialized;
 
-
-// toggle 3d gfx mode
-// can be set on the fly
-- (void) setGraphics3D:(bool) set3D;
-
 - (void) loadLevel:(NSString*) levelName;
 
 - (void) reloadLevel;

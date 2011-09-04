@@ -39,7 +39,6 @@ namespace Dog3D
 #if DEBUG
 	mShowDebug(false), 
 #endif
-	mGraphics3D(false),
 	mBoxCoordinateSet(NULL),
 	mSphereCoordinateSet(NULL),
 	mLineCoordinateSet(NULL)
@@ -170,7 +169,7 @@ namespace Dog3D
 		for(GraphicsComponentIterator it = mPreRenderQueue.begin(); it != mPreRenderQueue.end(); it++)
 		{
 			GraphicsComponent *comp = (*it);
-			comp->Update(deltaTime, mGraphics3D);
+			comp->Update(deltaTime);
 		}
 		
 		for(FXComponentIterator it = mPreFXComponents.begin(); it != mPreFXComponents.end(); it++)
@@ -190,7 +189,7 @@ namespace Dog3D
 			}
 			else 
 			{
-				fx->Update(deltaTime, mGraphics3D);
+				fx->Update(deltaTime);
 			}
 		}
 		
@@ -198,14 +197,14 @@ namespace Dog3D
 		for(GraphicsComponentIterator it = mMidRenderQueue.begin(); it != mMidRenderQueue.end(); it++)
 		{
 			GraphicsComponent *comp = (*it);
-			comp->Update(deltaTime, mGraphics3D);
+			comp->Update(deltaTime);
 		}
 		
 		// draws post queue graphics components
 		for(GraphicsComponentIterator it = mPostRenderQueue.begin(); it != mPostRenderQueue.end(); it++)
 		{
 			GraphicsComponent *comp = (*it);
-			comp->Update(deltaTime, mGraphics3D);
+			comp->Update(deltaTime);
 		}
 		
 		// post FX queue
@@ -226,7 +225,7 @@ namespace Dog3D
 			}
 			else 
 			{
-				fx->Update(deltaTime, mGraphics3D);
+				fx->Update(deltaTime);
 			}
 		}
 				
@@ -241,7 +240,7 @@ namespace Dog3D
 				
 			}
 			else {
-				(*it)->Update(deltaTime, mGraphics3D);
+				(*it)->Update(deltaTime);
 			}
 		}
 		
@@ -388,19 +387,12 @@ namespace Dog3D
 		//double aspect = 10.0/15.0;
 		
 		
-		//persp vs. ortho
-		if(mGraphics3D)
-		{
-			gluPerspective(45, 1.0/1.5, 1, 100);
-		}
-		else
-		{
-			float nearClip = 0.5;
-			float farClip = 80;
-			glOrthof(-10, 10, -15, 15, nearClip, farClip);
+    float nearClip = 0.5;
+    float farClip = 80;
+    glOrthof(-10, 10, -15, 15, nearClip, farClip);
 			//double fovy = 2.0 * atan(30.0/(2.0*zEye)) * 180.0 / PI;
 			//gluPerspective(fovy, 1.0/1.5, nearClip, farClip);
-		}
+		
 		
 		glMatrixMode(GL_MODELVIEW); 
 		glLoadIdentity(); 
@@ -408,18 +400,10 @@ namespace Dog3D
 		btVector3 focalPoint;
 		GamePlayManager::Instance()->GetFocalPoint(focalPoint);
 		
-		if(mGraphics3D)	
-		{
-			gluLookAt(zEye*0.67f + focalPoint.x(), zEye * 0.33f , focalPoint.z(), 
-				  focalPoint.x(), 2.0, focalPoint.z(), 
-				  0.0, 0.0, 1.0);
-		}
-		else 
-		{
-			gluLookAt(focalPoint.x(), zEye, focalPoint.z(), 
-				  focalPoint.x(), 0.0, focalPoint.z(), 
-				  0.0, 0.0, 1.0);
-		}
+    gluLookAt(focalPoint.x(), zEye, focalPoint.z(), 
+        focalPoint.x(), 0.0, focalPoint.z(), 
+        0.0, 0.0, 1.0);
+		
 		
 	}
 	
