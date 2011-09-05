@@ -33,11 +33,23 @@ namespace Dog3D
     mEmitterRate(emitterRate),
     mDX(0.2), 
     mDZ(0.2), 
-    mParticlesToEmit(0){}
+    mParticlesToEmit(0),
+      nDrawVerts(512)
+    {
+        mDrawVerts = new Vec3[nDrawVerts];
+        mTexVerts = new Vec2[nDrawVerts];
+        mColors = new Color[nDrawVerts];
+    }
     
-    virtual ~ParticleEmitter(){}
+    virtual ~ParticleEmitter()
+      {
+          delete [] mDrawVerts;
+          delete [] mTexVerts;
+          delete [] mColors;
+          
+      }
     
-		virtual void Update(float deltaTime);
+    virtual void Update(float deltaTime);
     
     
   private:
@@ -48,7 +60,14 @@ namespace Dog3D
     
     // list of point locations
     std::list<Particle*> mParticles;
-    
+      
+      Vec3 *mDrawVerts;
+      int nDrawVerts;
+      Vec2 *mTexVerts;
+      Color *mColors;
+      
+      // TODO - try colors
+      
     // TODO add list of color attenuations
     float mEmitterRate;
     

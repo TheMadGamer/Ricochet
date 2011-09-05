@@ -241,7 +241,7 @@ void BuildCenteredEmitter()
 	btVector3 initialPosition(3,1,3);
 	newEntity->SetPosition(initialPosition);
   
-  ParticleEmitter *p = new ParticleEmitter(1.0);
+  ParticleEmitter *p = new ParticleEmitter(10.0);
   
   newEntity->SetGraphicsComponent(p);
   

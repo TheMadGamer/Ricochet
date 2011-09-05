@@ -21,32 +21,45 @@ void ParticleEmitter::Update(float deltaTime)
   Draw();
 }
 
+bool TooFar(Particle *p)
+{
+    return p->position.length() > 30;
+}
+
 void ParticleEmitter::UpdateSimulation(float dt)
 {
 
-  while(mParticlesToEmit >= 1)
-  {
-    // create a particle
-    Particle *p = new Particle();
-    p->position = GetParent()->GetPosition();
-    p->velocity = btVector3(1,0,1);
+    while(mParticlesToEmit >= 1)
+    {
+        // create a particle
+        Particle *p = new Particle();
+        p->position = GetParent()->GetPosition();
+          
+        float theta = (float) random()/RAND_MAX * PI * 2.0f;
+        float mag = (float)  random()/RAND_MAX * 10.0f + 1.0f; 
+        
+        p->velocity = btVector3(sin(theta) * mag ,0,cos(theta) * mag);
+
+        mParticles.push_back(p);
+        mParticlesToEmit -= 1.0f;
+    }
     
-    mParticles.push_back(p);
-    mParticlesToEmit -= 1.0f;
-  }
-  
-  mParticlesToEmit += mEmitterRate * dt;
-  
-  // move particles along
-  for( list<Particle*>::iterator it = mParticles.begin();
+    // remove if outside bounds
+    mParticles.remove_if(TooFar);
+    
+    
+    mParticlesToEmit += mEmitterRate * dt;
+
+    // move particles along
+    for( list<Particle*>::iterator it = mParticles.begin();
       it != mParticles.end(); ++it)
-  {
-    Particle *p = *it;
-    p->position = p->position + p->velocity * dt;
-  }
-  
-  
-  // remove a particle
+    {
+        Particle *p = *it;
+        p->position = p->position + p->velocity * dt;
+    }
+
+
+    // remove a particle
   
 }
 
@@ -70,15 +83,16 @@ void ParticleEmitter::Draw()
 
     int nQuads = mParticles.size();
     
-    Vec3 *verts = (Vec3*) alloca(sizeof(Vec3)*nQuads * 6);
-
-    Vec3 *vp = verts;
+    assert(nQuads * 6 < nDrawVerts);
+    
+    Vec3 *vp = mDrawVerts;
 
     for( list<Particle*>::iterator it = mParticles.begin();
       it != mParticles.end(); ++it)
     {
         
         btVector3 pos = (*it)->position;
+                
         *vp++ = Vec3( pos.x() - mDX, pos.y(), pos.z() - mDZ );
         *vp++ = Vec3( pos.x() + mDX, pos.y(), pos.z() - mDZ );
         *vp++ = Vec3( pos.x() - mDX, pos.y(), pos.z() + mDZ );
@@ -89,11 +103,9 @@ void ParticleEmitter::Draw()
     }
 
     // To-Do: add support for creating and holding a display list
-    glVertexPointer(3, GL_FLOAT, 0, verts);
-
+    glVertexPointer(3, GL_FLOAT, 0, mDrawVerts);
     
-    Vec2 *texCoords = (Vec2 *) alloca(sizeof(Vec2)* nQuads * 6);
-    Vec2 *tp = texCoords;
+    Vec2 *tp = mTexVerts;
     for(int i = 0; i < nQuads ; i++)
     {
         *tp++ = Vec2(0,0);
@@ -105,9 +117,18 @@ void ParticleEmitter::Draw()
         *tp++ = Vec2(1,1);
     }
     
-    glTexCoordPointer(2, GL_FLOAT, 0, texCoords);	
+    glTexCoordPointer(2, GL_FLOAT, 0, mTexVerts);	
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     
+    // TODO - try colors
+    Color *cp = mColors;
+    for(int i = 0; i < nQuads * 6;i++)
+    {
+        *cp++ = Color(1,1,1,1);
+    }
+    
+    glColorPointer(4, GL_FLOAT, 0, mColors);
+    glEnableClientState(GL_COLOR_ARRAY);
     
     glDrawArrays(GL_TRIANGLES, 0, nQuads * 6 );
     
