@@ -24,6 +24,7 @@
 #import "AudioDispatch.h"
 
 #import "ParticleEmitter.h"
+#import "BurstEmitter.h"
 
 const float kBallRadius = 0.5;
 
@@ -66,10 +67,10 @@ SceneManager::LevelControlInfo::LevelControlInfo(NSDictionary *controlDictionary
 	
 	
 	DLog(@"Control NumCombos:%d GopherLives:%d ", 
-		  mNumCombos, mNumGopherLives );
+         mNumCombos, mNumGopherLives );
 	
 	DLog(@"Control ScoreMode:%d BallTypes%d NumBalls:%d",
-		   mScoreMode, mBallTypes, mNumBalls);
+         mScoreMode, mBallTypes, mNumBalls);
 	
 	mCollisionAvoidance = [[controlDictionary objectForKey:@"CollisionAvoidance"] intValue];
 	
@@ -100,7 +101,7 @@ SceneManager::LevelControlInfo::LevelControlInfo(NSDictionary *controlDictionary
 		// default
 		mWorldBounds.setX(10);
 	}
-
+    
 	mWorldBounds.setY(4);
 	
 	float zBound = [[controlDictionary objectForKey:@"ZBounds"] floatValue];
@@ -130,7 +131,7 @@ SceneManager::LevelControlInfo::LevelControlInfo(NSDictionary *controlDictionary
 	else {
 		mCarrotSearchDistance = 20.0f;
 	}
-
+    
 	
 	DLog(@"Finish Init Level Control");
 }
@@ -162,7 +163,7 @@ void SceneManager::LoadScene( NSString *levelName)
 		UnloadScene();
 		DLog(@"Done");
 	}
-		
+    
 	DLog(@" **** Loading Scene **** ");
 	PhysicsManager::Instance()->CreateWorld();
 	
@@ -185,9 +186,9 @@ void SceneManager::LoadScene( NSString *levelName)
 	GamePlayManager::Instance()->SetBallSpawn(mLevelControl.mBallSpawn);
 	
 	GamePlayManager::Instance()->SetCarrotSearchDistance(mLevelControl.mCarrotSearchDistance);
-			
-  btVector3 gravity(0,-10,0);
-  PhysicsManager::Instance()->SetGravity(gravity);
+    
+    btVector3 gravity(0,-10,0);
+    PhysicsManager::Instance()->SetGravity(gravity);
 	
 	
 	btVector3 position(0,0,0);
@@ -211,7 +212,7 @@ void SceneManager::LoadScene( NSString *levelName)
 	}
 	
 	LoadSceneObjects(rootDictionary);
-		
+    
 	LoadGeneratedObjects(rootDictionary  );	
 	
 	
@@ -234,19 +235,21 @@ void SceneManager::LoadScene( NSString *levelName)
 
 void BuildCenteredEmitter()
 {
-  Entity *newEntity = new Entity();
+    Entity *newEntity = new Entity();
 #if DEBUG
 	newEntity->mDebugName = "Emitter";
 #endif
-	btVector3 initialPosition(3,1,3);
+	btVector3 initialPosition(0,1,0);
 	newEntity->SetPosition(initialPosition);
-  
-  ParticleEmitter *p = new ParticleEmitter(10.0);
-  
-  newEntity->SetGraphicsComponent(p);
-  
-  GraphicsManager::Instance()->AddComponent(p);
-  
+    
+    BurstEmitter *p = new BurstEmitter();
+    
+    newEntity->SetGraphicsComponent(p);
+        
+    GraphicsManager::Instance()->AddComponent(p);
+
+    p->EmitBurst(100);
+
 }
 
 
@@ -254,8 +257,8 @@ void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
 {
 	NSDictionary *layoutDictionary = [rootDictionary objectForKey:@"LayoutObjects"];
     
-  BuildCenteredEmitter();
-  
+    BuildCenteredEmitter();
+    
 	// load up things like spawn points, targets, hedges
 	for (id key in layoutDictionary) 
 	{
@@ -366,10 +369,10 @@ void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
 		{
 			// no delayed rock spawning
 			/*if(spawnTime > 0)
-			{
-				mDelayedSpawns.push_back(new SpawnInfo([type UTF8String], pos, extents, 0, spawnTime));
-			}
-			else*/
+             {
+             mDelayedSpawns.push_back(new SpawnInfo([type UTF8String], pos, extents, 0, spawnTime));
+             }
+             else*/
 			{
 				// rocks have a 25% padding
 				Entity * item = GameEntityFactory::BuildCircularCollider(pos, extents, mFixedRest , type, 1.33f);
@@ -378,10 +381,10 @@ void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
 		}
 		else if([type isEqualToString:@"bounceRock"]  )
 		{
-				// rocks have a 25% padding
-				Entity * item = GameEntityFactory::BuildCircularCollider(pos, extents, mBounceRest, @"rock", 1.33f);
-				mSceneElements.insert(item);
-		
+            // rocks have a 25% padding
+            Entity * item = GameEntityFactory::BuildCircularCollider(pos, extents, mBounceRest, @"rock", 1.33f);
+            mSceneElements.insert(item);
+            
 		}
 		else if([type isEqualToString:@"pot1"] || [type isEqualToString:@"pot2"] || [type isEqualToString:@"wagon"] )
 		{
@@ -416,13 +419,14 @@ void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
 			if([type isEqualToString:@"flowerPurple"])
 			{			
 				item = GameEntityFactory::BuildCircularExploder(pos, extents, type, spawnTime,1,
-														ExplodableComponent::BUMPER );
+                                                                ExplodableComponent::BUMPER );
 			}
-			else {
+			else 
+            {
 				item = GameEntityFactory::BuildCircularExploder(pos, extents, type, spawnTime,1,
-														 ExplodableComponent::POP );				
+                                                                ExplodableComponent::POP );				
 			}
-
+            
 			
 			mSceneElements.insert(item);
 			item->GetExplodable()->Prime();
@@ -449,7 +453,7 @@ void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
 		{
 			// fx renders in pre queue
 			Entity * firePit = GameEntityFactory::BuildFXElement(pos, extents,
-														   @"tiki.sheet", 2,2,4, true);
+                                                                 @"tiki.sheet", 2,2,4, true);
 			
 			mSceneElements.insert(firePit);
 			
@@ -466,7 +470,7 @@ void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
 		else if([type isEqualToString:@"fountain"] )
 		{
 			Entity * element = GameEntityFactory::BuildFXCircularCollider(pos, extents,
-																 @"fountain.sheet", 2,2,4);
+                                                                          @"fountain.sheet", 2,2,4);
 			
 			mSceneElements.insert(element);
 			
@@ -474,9 +478,9 @@ void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
 		else {
 			DLog(@"--->>> Error loading object of type %@", type);
 		}
-
+        
 	}
-
+    
 }
 
 // spawn in objects
@@ -538,18 +542,18 @@ void SceneManager::LoadGeneratedObjects(NSDictionary *rootDictionary)
 				{
 					charType = GameEntityFactory::Squ;	
 				}
-
+                
 			}
-
+            
 			
 			Entity *gopher =  GameEntityFactory::BuildCharacter(scale, pos, charType);
 			mGophers.push_back( gopher );
-
+            
 			GraphicsManager::Instance()->AddComponent(gopher->GetGraphicsComponent(), GraphicsManager::POST);
-
+            
 			
 			static_cast<GopherController*>(gopher->GetController())->
-				SetCollisionAvoidance(mLevelControl.mCollisionAvoidance > 0);
+            SetCollisionAvoidance(mLevelControl.mCollisionAvoidance > 0);
 			
 		}
 		// balls are spawned out of a pool
@@ -561,7 +565,7 @@ void SceneManager::LoadGeneratedObjects(NSDictionary *rootDictionary)
 			int ballType = [[object objectForKey:@"ballType"] intValue];
 			
 			btVector3 pos( 8, 1.5, 10);
-				
+            
 			bool poolBall = ballType == ExplodableComponent::BALL_8 || ballType == ExplodableComponent::CUE_BALL;
 			
 			// can roll if not in paddle mode
@@ -569,26 +573,26 @@ void SceneManager::LoadGeneratedObjects(NSDictionary *rootDictionary)
 			
 			Entity *ball = NULL;
 			
-
-      ball = GameEntityFactory::BuildBall(radius, 
-                        pos, 
-                        true, 
-                        poolBall ? 1.0f : 0.3f, 
-                        1.0f, 
-                        (ExplodableComponent::ExplosionType) ballType , 
-                        false,
-                        0.5f);
-      
-						
+            
+            ball = GameEntityFactory::BuildBall(radius, 
+                                                pos, 
+                                                true, 
+                                                poolBall ? 1.0f : 0.3f, 
+                                                1.0f, 
+                                                (ExplodableComponent::ExplosionType) ballType , 
+                                                false,
+                                                0.5f);
+            
+            
 			PhysicsComponent *physics = dynamic_cast<PhysicsComponent*>(ball->GetPhysicsComponent());
 			
 			// add to phyz mgr
 			PhysicsManager::Instance()->AddComponent( physics );
-
+            
 			// add to game mgr
 			GamePlayManager::Instance()->AddBall( ball, ballType );			
 			
-				
+            
 			if(ballType == ExplodableComponent::BALL_8)
 			{
 				// explicitly spawn in 
@@ -683,7 +687,7 @@ void SceneManager::LoadGeneratedObjects(NSDictionary *rootDictionary)
 															0.5f ,  
 															(ExplodableComponent::ExplosionType) randType, 
 															true,
-                              0.01f);
+                                                            0.01f);
 				mBalls.push_back(ball);
 				
 				ball->mActive = false;
@@ -691,9 +695,9 @@ void SceneManager::LoadGeneratedObjects(NSDictionary *rootDictionary)
 				PhysicsComponent *physicsComponent = dynamic_cast<PhysicsComponent*>(ball->GetPhysicsComponent());
 				physicsComponent->SetKinematic(true);
 				controller->AddBall(ball);
-
+                
 				GraphicsManager::Instance()->AddComponent(ball->GetGraphicsComponent(), GraphicsManager::POST);
-
+                
 				
 			}
 		}
@@ -708,18 +712,18 @@ void SceneManager::LoadGeneratedObjects(NSDictionary *rootDictionary)
 
 void SceneManager::LoadHUDs()
 {
-
+    
 	// pause button (only on pool)
-
-  btVector3 position( -9, 1, -14);
-  
-  Entity *hud = GameEntityFactory::BuildScreenSpaceSprite(position, 2.0f, 2.0f, 
-                           @"PauseButton", HUGE_VAL);
-  
-  // pause btn does not rotate
-  static_cast<ScreenSpaceComponent*>(hud->GetGraphicsComponent())->mRotateTowardsTarget = false;
-  static_cast<ScreenSpaceComponent*>(hud->GetGraphicsComponent())->mConstrainToCircle = false;
-
+    
+    btVector3 position( -9, 1, -14);
+    
+    Entity *hud = GameEntityFactory::BuildScreenSpaceSprite(position, 2.0f, 2.0f, 
+                                                            @"PauseButton", HUGE_VAL);
+    
+    // pause btn does not rotate
+    static_cast<ScreenSpaceComponent*>(hud->GetGraphicsComponent())->mRotateTowardsTarget = false;
+    static_cast<ScreenSpaceComponent*>(hud->GetGraphicsComponent())->mConstrainToCircle = false;
+    
 }
 
 void SceneManager::ConvertToSingleBodies(Entity *compoundEntity, vector<Entity*> &newBodies)
@@ -753,8 +757,8 @@ void SceneManager::ConvertToSingleBodies(Entity *compoundEntity, vector<Entity*>
 			info.mDoesNotSleep = true;
 			
 			PhysicsComponent *physics = 
-				PhysicsComponentFactory::BuildBox(
-							initialPosition, halfExtents, 0, info);
+            PhysicsComponentFactory::BuildBox(
+                                              initialPosition, halfExtents, 0, info);
 			
 			Entity *newEntity = new Entity();
 #if DEBUG
@@ -790,7 +794,7 @@ void SceneManager::ConvertToSingleBodies(Entity *compoundEntity, vector<Entity*>
 		{
 			PhysicsManager::Instance()->RemoveComponent(physicsParent);
 		}	
-			
+        
 		// wait for later for Sceme Mgr to delete
 		compoundEntity->mActive = false;
 		
@@ -881,10 +885,10 @@ void SceneManager::UnloadScene()
 	mCannon = NULL;
 	
 	mSceneLoaded = false;
-
+    
 }
 
-	
+
 void SceneManager::CreateWalls( const string *backgroundTexture, int wallFlags)
 {	
 	
@@ -944,7 +948,7 @@ void SceneManager::CreateWalls( const string *backgroundTexture, int wallFlags)
 // this handles spawn and respawn
 void SceneManager::Update(float dt)
 {
-
+    
 	
 	for(list<SpawnInfo *>::iterator it = mDelayedSpawns.begin(); it != mDelayedSpawns.end(); it++  ) 
 	{
@@ -961,11 +965,11 @@ void SceneManager::Update(float dt)
 				
 				DLog(@"Spawn Rock");
 				item = GameEntityFactory::BuildCircularCollider(
-												info->mPosition, 
-												info->mScale, 
-												0.45f,  
-												@"rock", 
-												1.33f);
+                                                                info->mPosition, 
+                                                                info->mScale, 
+                                                                0.45f,  
+                                                                @"rock", 
+                                                                1.33f);
 				
 				mSceneElements.insert(item);
 				
@@ -987,8 +991,8 @@ void SceneManager::Update(float dt)
 																info->mScale, 
 																@"flower", 
 																respawnInfo->mRespawnInterval, 1, ExplodableComponent::EXPLODE_SMALL) ;
-			
-			
+                
+                
 				GraphicsComponent *graphics= item->GetGraphicsComponent();
 				graphics->mActive = false;
 				
@@ -1039,7 +1043,7 @@ void SceneManager::Update(float dt)
 			else {
 				DLog(@"Don't know how to spawn %@", [[NSString alloc] initWithUTF8String:info->mTypeName.c_str()]);
 			}
-
+            
 			
 		}
 		

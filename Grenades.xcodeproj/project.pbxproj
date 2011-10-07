@@ -317,6 +317,7 @@
 		EAC2EDFE11176B89000F428C /* GamePlayManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2EDFD11176B89000F428C /* GamePlayManager.mm */; };
 		EAC8488A11A202DE0000720A /* CannonController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC8488911A202DE0000720A /* CannonController.mm */; };
 		EAC8DF5E110A2E56008542DA /* GraphicsComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC8DF5D110A2E56008542DA /* GraphicsComponent.mm */; };
+		EAD1941F143EB0B600DFC2B2 /* BurstEmitter.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAD1941E143EB0B600DFC2B2 /* BurstEmitter.mm */; };
 		EAD5612212824F05000ED4FE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD5612112824F05000ED4FE /* AVFoundation.framework */; };
 		EAEB1FDF13AC70270027117A /* Gate1.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAEB1FDE13AC70270027117A /* Gate1.plist */; };
 		EAED420A133C1C6A00F55050 /* Bun_Eat_Carrot.png in Resources */ = {isa = PBXBuildFile; fileRef = EAED4203133C1C6A00F55050 /* Bun_Eat_Carrot.png */; };
@@ -881,6 +882,8 @@
 		EAC8DF39110A2E12008542DA /* GraphicsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicsComponent.h; sourceTree = "<group>"; };
 		EAC8DF5D110A2E56008542DA /* GraphicsComponent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GraphicsComponent.mm; sourceTree = "<group>"; };
 		EAC8DF60110A2E9C008542DA /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
+		EAD1941E143EB0B600DFC2B2 /* BurstEmitter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BurstEmitter.mm; sourceTree = "<group>"; };
+		EAD19420143EB0C600DFC2B2 /* BurstEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurstEmitter.h; sourceTree = "<group>"; };
 		EAD5612112824F05000ED4FE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EAEB1FDE13AC70270027117A /* Gate1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gate1.plist; sourceTree = "<group>"; };
 		EAED4203133C1C6A00F55050 /* Bun_Eat_Carrot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bun_Eat_Carrot.png; sourceTree = "<group>"; };
@@ -1036,6 +1039,8 @@
 				EAC8DF5D110A2E56008542DA /* GraphicsComponent.mm */,
 				4F95BF8B14106F3B00AE5CC4 /* ParticleEmitter.h */,
 				4F95BF8914106F2900AE5CC4 /* ParticleEmitter.mm */,
+				EAD1941E143EB0B600DFC2B2 /* BurstEmitter.mm */,
+				EAD19420143EB0C600DFC2B2 /* BurstEmitter.h */,
 			);
 			name = Graphics;
 			sourceTree = "<group>";
@@ -2259,6 +2264,7 @@
 				EA9EA14313A47D2300704CDC /* btQuickprof.cpp in Sources */,
 				EA9EA14413A47D2300704CDC /* btSerializer.cpp in Sources */,
 				4F95BF8A14106F2900AE5CC4 /* ParticleEmitter.mm in Sources */,
+				EAD1941F143EB0B600DFC2B2 /* BurstEmitter.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
