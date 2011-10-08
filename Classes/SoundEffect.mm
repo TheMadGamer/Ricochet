@@ -31,7 +31,7 @@
             if (error == kAudioServicesNoError) { // success
                 _soundID = aSoundID;
             } else {
-                DLog(@"Error %d loading sound at path: %@", error, path);
+                DLog(@"Error %@ loading sound at path: %@", error, path);
                 [self release], self = nil;
             }
         } else {

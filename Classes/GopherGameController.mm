@@ -23,7 +23,7 @@
 
 
 
-const NSString *kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack1";
+NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack1";
 
 @implementation GopherGameController
 

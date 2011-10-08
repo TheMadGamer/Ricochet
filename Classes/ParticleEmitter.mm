@@ -57,10 +57,6 @@ void ParticleEmitter::UpdateSimulation(float dt)
         Particle *p = *it;
         p->position = p->position + p->velocity * dt;
     }
-
-
-    // remove a particle
-  
 }
 
 void ParticleEmitter::Draw()

@@ -19,6 +19,7 @@ namespace Dog3D
     
     struct Particle
     {
+        Particle() : position(btVector3(0,0,0)), velocity(btVector3(0,0,0)), attenuation(1.0){}
         btVector3 position;
         btVector3 velocity;
         float attenuation;
