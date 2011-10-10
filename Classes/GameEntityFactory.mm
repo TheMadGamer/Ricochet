@@ -14,6 +14,7 @@
 #import "GraphicsComponent.h"
 #import "GraphicsComponentFactory.h"
 #import "GraphicsManager.h"
+#import "ParticleEmitter.h"
 
 #import "PhysicsComponent.h"
 #import "PhysicsComponentFactory.h"
@@ -93,12 +94,22 @@ Entity *GameEntityFactory::BuildBall( float radius,
 	}
 	
 	
-	GraphicsComponent *graphicsComponent = 
-		GraphicsComponentFactory::BuildSphere(radius , textureName );
+	CompoundGraphicsComponent *graphicsComponent = new CompoundGraphicsComponent();
+	newBall->SetGraphicsComponent(graphicsComponent);	
+    
+    GraphicsComponent *sphere = GraphicsComponentFactory::BuildSphere(radius , textureName );
+    graphicsComponent->AddChild(sphere);
+    
+    ParticleEmitter *emitter = new ParticleEmitter(100.0f, 1.0);
+    graphicsComponent->AddChild(emitter);
+    
+    /*ParticleEmitter *emitter = new ParticleEmitter(50.0f);
+    newBall->SetGraphicsComponent(emitter);*/
+    
+
 	//GraphicsManager::Instance()->AddComponent(graphicsComponent);
 	// added in order by scene manager
-	
-	newBall->SetGraphicsComponent(graphicsComponent);	
+
 	
 	PhysicsComponentInfo info;
 	

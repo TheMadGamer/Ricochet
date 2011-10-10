@@ -44,6 +44,9 @@ namespace Dog3D
     mCannonController(NULL), mCannonUI(NULL), 
 		mUnlimitedBalls(true), mFocalPoint(0,0,0), mCarrotSearchDistance(20.0f),
 		mSpawnDelay(0.0f)
+#if DEBUG
+        , mDebugVertices(NULL)
+#endif
 		{}
 	
 		

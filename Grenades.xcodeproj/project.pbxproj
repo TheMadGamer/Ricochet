@@ -315,6 +315,7 @@
 		EABC34A611A85F93000C6EC6 /* GopherGameController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EABC34A411A85F93000C6EC6 /* GopherGameController.mm */; };
 		EABC34A711A85F93000C6EC6 /* GopherGameController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EABC34A511A85F93000C6EC6 /* GopherGameController.xib */; };
 		EAC2EDFE11176B89000F428C /* GamePlayManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2EDFD11176B89000F428C /* GamePlayManager.mm */; };
+		EAC584321441647000F0A89E /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC584311441647000F0A89E /* Smoke.png */; };
 		EAC8488A11A202DE0000720A /* CannonController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC8488911A202DE0000720A /* CannonController.mm */; };
 		EAC8DF5E110A2E56008542DA /* GraphicsComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC8DF5D110A2E56008542DA /* GraphicsComponent.mm */; };
 		EAD1941F143EB0B600DFC2B2 /* BurstEmitter.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAD1941E143EB0B600DFC2B2 /* BurstEmitter.mm */; };
@@ -876,6 +877,7 @@
 		EABC34A511A85F93000C6EC6 /* GopherGameController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GopherGameController.xib; sourceTree = "<group>"; };
 		EAC2EDFC11176B89000F428C /* GamePlayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayManager.h; sourceTree = "<group>"; };
 		EAC2EDFD11176B89000F428C /* GamePlayManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GamePlayManager.mm; sourceTree = "<group>"; };
+		EAC584311441647000F0A89E /* Smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smoke.png; sourceTree = "<group>"; };
 		EAC6367A1106DFC40025A7EF /* VectorMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorMath.h; sourceTree = "<group>"; };
 		EAC8488811A202DE0000720A /* CannonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CannonController.h; sourceTree = "<group>"; };
 		EAC8488911A202DE0000720A /* CannonController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CannonController.mm; sourceTree = "<group>"; };
@@ -1150,6 +1152,7 @@
 		EA36FDB713B835AB00A5DBBE /* Effects */ = {
 			isa = PBXGroup;
 			children = (
+				EAC584311441647000F0A89E /* Smoke.png */,
 				EA2F81E014133E8F005F1816 /* Leaf.png */,
 				EA36FDB813B835AB00A5DBBE /* BombFuse.png */,
 				EA36FDBB13B835AB00A5DBBE /* tiki.sheet.png */,
@@ -2100,6 +2103,7 @@
 				4F58CB6C140E90AB000027F4 /* walk_forward_left.sheet.png in Resources */,
 				4F58CB6D140E90AB000027F4 /* walk_left.sheet.png in Resources */,
 				EA2F81E114133E8F005F1816 /* Leaf.png in Resources */,
+				EAC584321441647000F0A89E /* Smoke.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

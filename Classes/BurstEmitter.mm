@@ -10,6 +10,8 @@
 using namespace Dog3D;
 using namespace std;
 
+NSString* BurstEmitter::GetTextureName() { return @"leaf"; } 
+
 void BurstEmitter::EmitBurst(int nParticles)
 {
     int particlesToCreate = nParticles;

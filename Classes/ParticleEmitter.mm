@@ -15,16 +15,33 @@
 using namespace Dog3D;
 using namespace std;
 
+static float gAttenuation = 0.99f;
+
 void ParticleEmitter::Update(float deltaTime)
 {
-  UpdateSimulation(deltaTime);
-  Draw();
+    if(GetParent()->mActive)
+    {
+        UpdateSimulation(deltaTime);
+        Draw();
+    }
 }
 
 bool TooFar(Particle *p)
 {
     return p->position.length() > 30;
 }
+
+bool ZeroAttenuation(Particle *p)
+{
+    return p->attenuation <= 0;
+}
+
+void Attenuate(Particle *p)
+{
+    p->attenuation *= gAttenuation;
+}
+
+NSString* ParticleEmitter::GetTextureName() { return @"Smoke"; } 
 
 void ParticleEmitter::UpdateSimulation(float dt)
 {
@@ -34,28 +51,35 @@ void ParticleEmitter::UpdateSimulation(float dt)
         // create a particle
         Particle *p = new Particle();
         p->position = GetParent()->GetPosition();
-          
         float theta = (float) random()/RAND_MAX * PI * 2.0f;
-        float mag = (float)  random()/RAND_MAX * 10.0f + 1.0f; 
+        float mag = (float) random()/RAND_MAX * 0.5f + 0.5f; 
         
         p->velocity = btVector3(sin(theta) * mag ,0,cos(theta) * mag);
 
+        //NSLog(@"Particle %f %f %f ", p->position.x(), p->position.y(), p->position.z());
+        p->position = p->position + p->velocity * (float) random()/RAND_MAX * 0.5f;
+        
         mParticles.push_back(p);
         mParticlesToEmit -= 1.0f;
     }
     
     // remove if outside bounds
     mParticles.remove_if(TooFar);
+    mParticles.remove_if(ZeroAttenuation);
     
+    // 
+    gAttenuation = 1.0f - (mParticleAttenuation * dt);
+    for_each(mParticles.begin(), mParticles.end(), Attenuate);
     
-    mParticlesToEmit += mEmitterRate * dt;
+    mParticlesToEmit += (float) random()/RAND_MAX * mEmitterRate * dt;
 
     // move particles along
     for( list<Particle*>::iterator it = mParticles.begin();
       it != mParticles.end(); ++it)
     {
         Particle *p = *it;
-        p->position = p->position + p->velocity * dt;
+        // trick - slow velocity based on attenuation
+        p->position = p->position + p->velocity * dt * p->attenuation;
     }
 }
 
@@ -69,13 +93,13 @@ void ParticleEmitter::Draw()
 	glDisable(GL_DEPTH_TEST);
 
     glEnable(GL_TEXTURE_2D);
-    Texture2D *leaf = GraphicsManager::Instance()->GetTexture(@"Leaf");
+    Texture2D *leaf = GraphicsManager::Instance()->GetTexture(GetTextureName());
     
     [leaf enable];
     
     glColor4f(1,0,0,1);
 
-    btVector3 pos =  GetParent()->GetPosition();
+    //btVector3 pos =  GetParent()->GetPosition();
 
     int nQuads = mParticles.size();
     
@@ -89,13 +113,13 @@ void ParticleEmitter::Draw()
         
         btVector3 pos = (*it)->position;
                 
-        *vp++ = Vec3( pos.x() - mDX, pos.y(), pos.z() - mDZ );
-        *vp++ = Vec3( pos.x() + mDX, pos.y(), pos.z() - mDZ );
-        *vp++ = Vec3( pos.x() - mDX, pos.y(), pos.z() + mDZ );
+        *vp++ = Vec3( pos.x() - mDX, 1, pos.z() - mDZ );
+        *vp++ = Vec3( pos.x() + mDX, 1, pos.z() - mDZ );
+        *vp++ = Vec3( pos.x() - mDX, 1, pos.z() + mDZ );
 
-        *vp++ = Vec3( pos.x() + mDX, pos.y(), pos.z() - mDZ );
-        *vp++ = Vec3( pos.x() - mDX, pos.y(), pos.z() + mDZ );
-        *vp++ = Vec3( pos.x() + mDX, pos.y(), pos.z() + mDZ );
+        *vp++ = Vec3( pos.x() + mDX, 1, pos.z() - mDZ );
+        *vp++ = Vec3( pos.x() - mDX, 1, pos.z() + mDZ );
+        *vp++ = Vec3( pos.x() + mDX, 1, pos.z() + mDZ );
     }
 
     // To-Do: add support for creating and holding a display list
@@ -118,9 +142,15 @@ void ParticleEmitter::Draw()
     
     // TODO - try colors
     Color *cp = mColors;
-    for(int i = 0; i < nQuads * 6;i++)
+    for( list<Particle*>::iterator it = mParticles.begin();
+        it != mParticles.end(); ++it)
     {
-        *cp++ = Color(1,1,1,1);
+        *cp++ = Color(1,1,1,(*it)->attenuation);
+        *cp++ = Color(1,1,1,(*it)->attenuation);
+        *cp++ = Color(1,1,1,(*it)->attenuation);
+        *cp++ = Color(1,1,1,(*it)->attenuation);
+        *cp++ = Color(1,1,1,(*it)->attenuation);
+        *cp++ = Color(1,1,1,(*it)->attenuation);
     }
     
     glColorPointer(4, GL_FLOAT, 0, mColors);

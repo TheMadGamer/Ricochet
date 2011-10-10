@@ -19,7 +19,7 @@ namespace Dog3D
     
     struct Particle
     {
-        Particle() : position(btVector3(0,0,0)), velocity(btVector3(0,0,0)), attenuation(1.0){}
+        Particle() : position(btVector3(0,0,0)), velocity(btVector3(0,0,0)), attenuation(1.0f){}
         btVector3 position;
         btVector3 velocity;
         float attenuation;
@@ -30,11 +30,12 @@ namespace Dog3D
     {
     public:
         
-        ParticleEmitter(float emitterRate) : 
+        ParticleEmitter(float emitterRate, float attenuationRate) : 
         mEmitterRate(emitterRate),
-        mDX(0.2), 
-        mDZ(0.2), 
+        mDX(0.2f), 
+        mDZ(0.2f), 
         mParticlesToEmit(0),
+        mParticleAttenuation(attenuationRate),
         nDrawVerts(4096)
         {
             mDrawVerts = new Vec3[nDrawVerts];
@@ -49,6 +50,8 @@ namespace Dog3D
             delete [] mColors;
             
         }
+        
+        virtual NSString *GetTextureName();
         
         virtual void Update(float deltaTime);
        
@@ -77,6 +80,7 @@ namespace Dog3D
         float mDZ;
         
         float mParticlesToEmit;
+        float mParticleAttenuation;
         ParticleType m_type;
         
     };

@@ -242,7 +242,7 @@ void BuildCenteredEmitter()
 	btVector3 initialPosition(0,1,0);
 	newEntity->SetPosition(initialPosition);
     
-    BurstEmitter *p = new BurstEmitter();
+    BurstEmitter *p = new BurstEmitter(1.0f);
     
     newEntity->SetGraphicsComponent(p);
         
@@ -257,7 +257,8 @@ void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
 {
 	NSDictionary *layoutDictionary = [rootDictionary objectForKey:@"LayoutObjects"];
     
-    BuildCenteredEmitter();
+    // For debug
+    //BuildCenteredEmitter();
     
 	// load up things like spawn points, targets, hedges
 	for (id key in layoutDictionary) 
@@ -579,7 +580,7 @@ void SceneManager::LoadGeneratedObjects(NSDictionary *rootDictionary)
                                                 true, 
                                                 poolBall ? 1.0f : 0.3f, 
                                                 1.0f, 
-                                                (ExplodableComponent::ExplosionType) ballType , 
+                                                (ExplodableComponent::ExplosionType) ballType, 
                                                 false,
                                                 0.5f);
             
