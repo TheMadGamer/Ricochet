@@ -100,7 +100,7 @@ Entity *GameEntityFactory::BuildBall( float radius,
     GraphicsComponent *sphere = GraphicsComponentFactory::BuildSphere(radius , textureName );
     graphicsComponent->AddChild(sphere);
     
-    ParticleEmitter *emitter = new ParticleEmitter(100.0f, 1.0);
+    ParticleEmitter *emitter = new ParticleEmitter(100.0f, 1.0  );
     graphicsComponent->AddChild(emitter);
     
     /*ParticleEmitter *emitter = new ParticleEmitter(50.0f);

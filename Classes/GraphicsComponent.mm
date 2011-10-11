@@ -134,12 +134,19 @@ void LineComponent::Update(float deltaTime)
 	glPushMatrix();
 	btVector3 position = mParent->GetPosition();
 	
-	glTranslatef(position.getX(), position.getY(), position.getZ());
-	
+    // quick hack to center on garbage can gun
+	glTranslatef(position.getX()+0.1f, position.getY(), position.getZ());
 	glRotatef(mParent->GetYRotation()* 180.0f/M_PI, 0, 1, 0);
-	
-	btVector3 up(-mScale.x() * 0.1f, 0, 0);
-	GraphicsManager::Instance()->DrawLine(btVector3(0,0,0), up);
+    //btVector3 up(-mScale.x() * 0.1f, 0, 0);
+    
+    float f = 0;
+    while (f < 1.2f) {
+        
+        GraphicsManager::Instance()->DrawLine(btVector3(-mScale.x() * 0.1f * f,0,0), 
+                                              btVector3(-mScale.x() * 0.1f * (f + 0.1), 0, 0));
+        
+        f+= 0.2f;
+    }
 	
 	glPopMatrix();
 	
