@@ -29,6 +29,7 @@
 		4F58CB6C140E90AB000027F4 /* walk_forward_left.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB5B140E90AB000027F4 /* walk_forward_left.sheet.png */; };
 		4F58CB6D140E90AB000027F4 /* walk_left.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB5C140E90AB000027F4 /* walk_left.sheet.png */; };
 		4F95BF8A14106F2900AE5CC4 /* ParticleEmitter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F95BF8914106F2900AE5CC4 /* ParticleEmitter.mm */; };
+		4FE993691444A3D800C5B571 /* Pot1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FE993681444A3D800C5B571 /* Pot1.plist */; };
 		A895E04A0E2806AD00A7AE7A /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = A895E0480E2806AD00A7AE7A /* Texture2D.m */; };
 		A895E04F0E2806DB00A7AE7A /* GopherView.mm in Sources */ = {isa = PBXBuildFile; fileRef = A895E04E0E2806DB00A7AE7A /* GopherView.mm */; };
 		EA069BC3119B4ED400179E6B /* GopherViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA069BC1119B4ED400179E6B /* GopherViewController.mm */; };
@@ -371,6 +372,7 @@
 		4F58CB5C140E90AB000027F4 /* walk_left.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walk_left.sheet.png; sourceTree = "<group>"; };
 		4F95BF8914106F2900AE5CC4 /* ParticleEmitter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParticleEmitter.mm; sourceTree = "<group>"; };
 		4F95BF8B14106F3B00AE5CC4 /* ParticleEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleEmitter.h; sourceTree = "<group>"; };
+		4FE993681444A3D800C5B571 /* Pot1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Pot1.plist; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A895E0480E2806AD00A7AE7A /* Texture2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture2D.m; sourceTree = "<group>"; };
 		A895E0490E2806AD00A7AE7A /* Texture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture2D.h; sourceTree = "<group>"; };
@@ -1870,6 +1872,7 @@
 				EAFCB10513727C3500865969 /* Intro1.plist */,
 				EAFCB10613727C3500865969 /* Intro2.plist */,
 				EAFCB10713727C3500865969 /* Intro3.plist */,
+				4FE993681444A3D800C5B571 /* Pot1.plist */,
 				EAF1330D1356853B00A1F3DC /* Ricochet1.plist */,
 				EAF1330E1356853B00A1F3DC /* Ricochet2.plist */,
 				EAF1330F1356853B00A1F3DC /* Ricochet3.plist */,
@@ -2104,6 +2107,7 @@
 				4F58CB6D140E90AB000027F4 /* walk_left.sheet.png in Resources */,
 				EA2F81E114133E8F005F1816 /* Leaf.png in Resources */,
 				EAC584321441647000F0A89E /* Smoke.png in Resources */,
+				4FE993691444A3D800C5B571 /* Pot1.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

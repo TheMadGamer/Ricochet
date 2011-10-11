@@ -127,7 +127,7 @@ namespace Dog3D
 		// not a goph, explode
 		
 		GopherController *controller = collidesWith != NULL ?  dynamic_cast<GopherController*>(collidesWith->GetController()) : NULL;
-		if(controller == NULL)
+		/*if(controller == NULL)
 		{
 			Explode();
 			
@@ -166,7 +166,7 @@ namespace Dog3D
 			
 			
 		}
-		else 
+		else */
 		{
 			
 			btVector3 position = mParent->GetPosition();
