@@ -138,7 +138,7 @@ void LineComponent::Update(float deltaTime)
 	glTranslatef(position.getX(), position.getY(), position.getZ());
 	glRotatef(mParent->GetYRotation()* 180.0f/M_PI, 0, 1, 0);
     //btVector3 up(-mScale.x() * 0.1f, 0, 0);
-  glTranslatef(0, 0, 1.0f);
+    glTranslatef(0, 0, -0.275f);
     float f = 0;
     while (f < 1.2f) {
         

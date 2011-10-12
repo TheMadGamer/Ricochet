@@ -3,7 +3,7 @@
  *  Gopher
  *
  *  Created by Anthony Lobay on 4/13/10.
- *  Copyright 2010 __MyCompanyName__. All rights reserved.
+ *  Copyright 2010 3dDog. All rights reserved.
  *
  */
 
@@ -167,7 +167,7 @@ namespace Dog3D
 			
 		}
 		else */
-		{
+		if (controller != NULL) {
 			
 			btVector3 position = mParent->GetPosition();
 			

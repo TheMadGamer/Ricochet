@@ -103,7 +103,7 @@ void ParticleEmitter::Draw()
 
     int nQuads = mParticles.size();
     
-    assert(nQuads * 6 < nDrawVerts);
+    //assert(nQuads * 6 < nDrawVerts);
     
     Vec3 *vp = mDrawVerts;
 
