@@ -16,11 +16,10 @@ namespace Dog3D
     class BurstEmitter : public Dog3D::ParticleEmitter {
         
     public:
-        BurstEmitter(float attenuationRate) : ParticleEmitter(0, attenuationRate){}
+        BurstEmitter(float attenuationRate) : ParticleEmitter(0, attenuationRate, @"leaf", true){}
         
         void EmitBurst( int nParticles);
         
-        virtual NSString *GetTextureName();
     };
 }
 

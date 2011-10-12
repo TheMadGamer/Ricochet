@@ -41,8 +41,6 @@ void Attenuate(Particle *p)
     p->attenuation *= gAttenuation;
 }
 
-NSString* ParticleEmitter::GetTextureName() { return @"Smoke"; } 
-
 void ParticleEmitter::UpdateSimulation(float dt)
 {
 
@@ -54,10 +52,18 @@ void ParticleEmitter::UpdateSimulation(float dt)
         float theta = (float) random()/RAND_MAX * PI * 2.0f;
         float mag = (float) random()/RAND_MAX * 0.5f + 0.5f; 
         
-        p->velocity = btVector3(sin(theta) * mag ,0,cos(theta) * mag);
+        
 
         //NSLog(@"Particle %f %f %f ", p->position.x(), p->position.y(), p->position.z());
-        p->position = p->position + p->velocity * (float) random()/RAND_MAX * 0.5f;
+        if (mSpread ) 
+        {
+            p->velocity = btVector3(sin(theta) * mag ,0,cos(theta) * mag);
+            p->position = p->position + p->velocity * (float) random()/RAND_MAX * 0.5f;
+        }
+        else
+        { 
+            p->velocity = btVector3(0,0,0);
+        }
         
         mParticles.push_back(p);
         mParticlesToEmit -= 1.0f;
@@ -93,7 +99,7 @@ void ParticleEmitter::Draw()
 	glDisable(GL_DEPTH_TEST);
 
     glEnable(GL_TEXTURE_2D);
-    Texture2D *leaf = GraphicsManager::Instance()->GetTexture(GetTextureName());
+    Texture2D *leaf = GraphicsManager::Instance()->GetTexture(mTexture);
     
     [leaf enable];
     

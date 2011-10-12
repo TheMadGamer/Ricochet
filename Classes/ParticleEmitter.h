@@ -30,13 +30,15 @@ namespace Dog3D
     {
     public:
         
-        ParticleEmitter(float emitterRate, float attenuationRate) : 
+        ParticleEmitter(float emitterRate, float attenuationRate, NSString *texture, bool spread) : 
         mEmitterRate(emitterRate),
         mDX(0.2f), 
         mDZ(0.2f), 
         mParticlesToEmit(0),
         mParticleAttenuation(attenuationRate),
-        nDrawVerts(10000)
+        nDrawVerts(10000),
+        mTexture(texture),
+        mSpread(spread)
         {
             mDrawVerts = new Vec3[nDrawVerts];
             mTexVerts = new Vec2[nDrawVerts];
@@ -50,8 +52,6 @@ namespace Dog3D
             delete [] mColors;
             
         }
-        
-        virtual NSString *GetTextureName();
         
         virtual void Update(float deltaTime);
        
@@ -71,7 +71,7 @@ namespace Dog3D
         Vec2 *mTexVerts;
         Color *mColors;
         
-        // TODO - try colors
+        NSString *mTexture;
         
         // TODO add list of color attenuations
         float mEmitterRate;
@@ -82,7 +82,7 @@ namespace Dog3D
         float mParticlesToEmit;
         float mParticleAttenuation;
         ParticleType m_type;
-        
+        bool mSpread;
     };
     
 }

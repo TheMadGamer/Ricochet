@@ -54,23 +54,26 @@ Entity *GameEntityFactory::BuildBall( float radius,
 	
 	NSString *textureName = nil;
 	FXGraphicsComponent *fxComponent = NULL;
-	
+	ParticleEmitter *emitter = NULL; 
 	switch (explosionType)
 	{
 		case ExplodableComponent::MUSHROOM:
 		case ExplodableComponent::EXPLODE_SMALL:
 			textureName = @"Black";
 			fxComponent =  GraphicsComponentFactory::BuildBillBoardElement(radius*2.0f, radius* 2.0f, @"BombFuse", 2, 2, 4, radius + 0.1f);
+            emitter = new ParticleEmitter(100.0f, 4, @"sparkle", false);
 			break;
 			
 		case ExplodableComponent::FIRE:
 			textureName = @"Ball_Fire";
 			fxComponent =  GraphicsComponentFactory::BuildFXElement(2, 2, @"ball.fire.sheet",4,4,16, true);
+            emitter = new ParticleEmitter(100.0f, 1.0, @"Smoke", true);
 			break;
 			
 		case ExplodableComponent::ELECTRO:
 			textureName = @"Ball_Electric";
 			fxComponent = GraphicsComponentFactory::BuildFXElement(2, 2, @"ball.electric.sheet", 4,4,16, true);
+            emitter = new ParticleEmitter(100.0f, 1.0, @"sparkle", true);
 			
 			break;
 			
@@ -100,8 +103,10 @@ Entity *GameEntityFactory::BuildBall( float radius,
     GraphicsComponent *sphere = GraphicsComponentFactory::BuildSphere(radius , textureName );
     graphicsComponent->AddChild(sphere);
     
-    ParticleEmitter *emitter = new ParticleEmitter(100.0f, 1.0  );
-    graphicsComponent->AddChild(emitter);
+    if(emitter)
+    {
+        graphicsComponent->AddChild(emitter);
+    }
     
     /*ParticleEmitter *emitter = new ParticleEmitter(50.0f);
     newBall->SetGraphicsComponent(emitter);*/
