@@ -36,7 +36,7 @@ namespace Dog3D
         mDZ(0.2f), 
         mParticlesToEmit(0),
         mParticleAttenuation(attenuationRate),
-        nDrawVerts(4096)
+        nDrawVerts(10000)
         {
             mDrawVerts = new Vec3[nDrawVerts];
             mTexVerts = new Vec2[nDrawVerts];

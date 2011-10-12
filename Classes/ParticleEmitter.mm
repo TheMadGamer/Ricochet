@@ -107,10 +107,19 @@ void ParticleEmitter::Draw()
     
     Vec3 *vp = mDrawVerts;
 
+    int cnt = 0;
     for( list<Particle*>::iterator it = mParticles.begin();
       it != mParticles.end(); ++it)
     {
-        
+        if (cnt > nDrawVerts) 
+        {
+          break;
+        } 
+        else 
+        {
+          cnt += 6;
+        }
+
         btVector3 pos = (*it)->position;
                 
         *vp++ = Vec3( pos.x() - mDX, 1, pos.z() - mDZ );
@@ -126,8 +135,19 @@ void ParticleEmitter::Draw()
     glVertexPointer(3, GL_FLOAT, 0, mDrawVerts);
     
     Vec2 *tp = mTexVerts;
+    cnt = 0;
     for(int i = 0; i < nQuads ; i++)
     {
+    
+        if (cnt > nDrawVerts) 
+        {
+          break;
+        } 
+        else 
+        {
+          cnt += 6;
+        }
+
         *tp++ = Vec2(0,0);
         *tp++ = Vec2(1,0);
         *tp++ = Vec2(0,1);
@@ -142,9 +162,19 @@ void ParticleEmitter::Draw()
     
     // TODO - try colors
     Color *cp = mColors;
+    cnt = 0;
     for( list<Particle*>::iterator it = mParticles.begin();
         it != mParticles.end(); ++it)
     {
+        if (cnt > nDrawVerts) 
+        {
+          break;
+        } 
+        else 
+        {
+          cnt += 6;
+        }
+
         *cp++ = Color(1,1,1,(*it)->attenuation);
         *cp++ = Color(1,1,1,(*it)->attenuation);
         *cp++ = Color(1,1,1,(*it)->attenuation);

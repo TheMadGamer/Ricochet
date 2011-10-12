@@ -135,10 +135,10 @@ void LineComponent::Update(float deltaTime)
 	btVector3 position = mParent->GetPosition();
 	
     // quick hack to center on garbage can gun
-	glTranslatef(position.getX()+0.1f, position.getY(), position.getZ());
+	glTranslatef(position.getX(), position.getY(), position.getZ());
 	glRotatef(mParent->GetYRotation()* 180.0f/M_PI, 0, 1, 0);
     //btVector3 up(-mScale.x() * 0.1f, 0, 0);
-    
+  glTranslatef(0, 0, 1.0f);
     float f = 0;
     while (f < 1.2f) {
         
