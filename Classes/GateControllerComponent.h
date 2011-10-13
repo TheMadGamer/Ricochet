@@ -30,17 +30,7 @@ namespace Dog3D
 		mState(false)
 		{}
 
-		
-		virtual void Activate()
-		{
-			mTimer = 0;
-			mState = true;
-            
-            // set physics hinge target
-            
-            
-		}
-		
+		virtual void Activate();
 		
 	protected:
 		

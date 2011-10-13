@@ -12,8 +12,9 @@ using namespace Dog3D;
 
 void TriggerComponent::OnCollision( Entity *collidesWith)
 {
-	if(mGate != NULL)
+	if(mGate != NULL && mCountdown <= 0)
 	{
+    mCountdown = 2.0f;
 		mGate->Activate();
 	}
 }

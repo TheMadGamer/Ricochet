@@ -12,3 +12,12 @@
 
 using namespace Dog3D;
 
+void GateController::Activate()
+{
+  mTimer = 0;
+  mState = true;
+        
+        // set physics hinge target
+        
+        
+}

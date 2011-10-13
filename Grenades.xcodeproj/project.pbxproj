@@ -143,10 +143,10 @@
 		EA52F0D0118626970050C2DC /* Ball_Ice.png in Resources */ = {isa = PBXBuildFile; fileRef = EA52F0CC118626970050C2DC /* Ball_Ice.png */; };
 		EA667CD9134FD1BC000C1D85 /* LevelPackPurchaseVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667CD7134FD1BC000C1D85 /* LevelPackPurchaseVC.mm */; };
 		EA667CDA134FD1BC000C1D85 /* LevelPackPurchaseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA667CD8134FD1BC000C1D85 /* LevelPackPurchaseVC.xib */; };
-		EA667D931350284D000C1D85 /* TriggerComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA667D921350284D000C1D85 /* TriggerComponent.cpp */; };
-		EA667DB413502A16000C1D85 /* GateControllerComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA667DB313502A16000C1D85 /* GateControllerComponent.cpp */; };
+		EA667D931350284D000C1D85 /* TriggerComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667D921350284D000C1D85 /* TriggerComponent.mm */; };
+		EA667DB413502A16000C1D85 /* GateControllerComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667DB313502A16000C1D85 /* GateControllerComponent.mm */; };
 		EA667DD613503DB0000C1D85 /* GenericsFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667DD513503DB0000C1D85 /* GenericsFactory.mm */; };
-		EA667E7D13504684000C1D85 /* SpinnerController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA667E7C13504684000C1D85 /* SpinnerController.cpp */; };
+		EA667E7D13504684000C1D85 /* SpinnerController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667E7C13504684000C1D85 /* SpinnerController.mm */; };
 		EA6A2F6F1185F93D00E5968B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6A2F6E1185F93D00E5968B /* CoreGraphics.framework */; };
 		EA6A2F731185F94600E5968B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6A2F721185F94600E5968B /* OpenGLES.framework */; };
 		EA6A2F771185F94B00E5968B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6A2F761185F94B00E5968B /* Foundation.framework */; };
@@ -501,12 +501,12 @@
 		EA667CD6134FD1BC000C1D85 /* LevelPackPurchaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelPackPurchaseVC.h; sourceTree = "<group>"; };
 		EA667CD7134FD1BC000C1D85 /* LevelPackPurchaseVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LevelPackPurchaseVC.mm; sourceTree = "<group>"; };
 		EA667CD8134FD1BC000C1D85 /* LevelPackPurchaseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelPackPurchaseVC.xib; sourceTree = "<group>"; };
-		EA667D921350284D000C1D85 /* TriggerComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TriggerComponent.cpp; sourceTree = "<group>"; };
+		EA667D921350284D000C1D85 /* TriggerComponent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TriggerComponent.mm; sourceTree = "<group>"; };
 		EA667DB213502A16000C1D85 /* GateControllerComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GateControllerComponent.h; sourceTree = "<group>"; };
-		EA667DB313502A16000C1D85 /* GateControllerComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GateControllerComponent.cpp; sourceTree = "<group>"; };
+		EA667DB313502A16000C1D85 /* GateControllerComponent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GateControllerComponent.mm; sourceTree = "<group>"; };
 		EA667DD513503DB0000C1D85 /* GenericsFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GenericsFactory.mm; sourceTree = "<group>"; };
 		EA667E7B13504684000C1D85 /* SpinnerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinnerController.h; sourceTree = "<group>"; };
-		EA667E7C13504684000C1D85 /* SpinnerController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpinnerController.cpp; sourceTree = "<group>"; };
+		EA667E7C13504684000C1D85 /* SpinnerController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SpinnerController.mm; sourceTree = "<group>"; };
 		EA6A2F6E1185F93D00E5968B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EA6A2F721185F94600E5968B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		EA6A2F761185F94B00E5968B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1247,11 +1247,11 @@
 			isa = PBXGroup;
 			children = (
 				EA667DB213502A16000C1D85 /* GateControllerComponent.h */,
-				EA667DB313502A16000C1D85 /* GateControllerComponent.cpp */,
+				EA667DB313502A16000C1D85 /* GateControllerComponent.mm */,
 				EA3C4E0211176E1200243D5F /* TriggerComponent.h */,
-				EA667D921350284D000C1D85 /* TriggerComponent.cpp */,
+				EA667D921350284D000C1D85 /* TriggerComponent.mm */,
 				EA667E7B13504684000C1D85 /* SpinnerController.h */,
-				EA667E7C13504684000C1D85 /* SpinnerController.cpp */,
+				EA667E7C13504684000C1D85 /* SpinnerController.mm */,
 			);
 			name = Kinematic;
 			sourceTree = "<group>";
@@ -2156,10 +2156,10 @@
 				EAA1A832134EC64100840CDB /* BunnyFactory.mm in Sources */,
 				EAA1A834134EC66E00840CDB /* SquFactory.mm in Sources */,
 				EA667CD9134FD1BC000C1D85 /* LevelPackPurchaseVC.mm in Sources */,
-				EA667D931350284D000C1D85 /* TriggerComponent.cpp in Sources */,
-				EA667DB413502A16000C1D85 /* GateControllerComponent.cpp in Sources */,
+				EA667D931350284D000C1D85 /* TriggerComponent.mm in Sources */,
+				EA667DB413502A16000C1D85 /* GateControllerComponent.mm in Sources */,
 				EA667DD613503DB0000C1D85 /* GenericsFactory.mm in Sources */,
-				EA667E7D13504684000C1D85 /* SpinnerController.cpp in Sources */,
+				EA667E7D13504684000C1D85 /* SpinnerController.mm in Sources */,
 				EA9EA0D113A47D2300704CDC /* btAxisSweep3.cpp in Sources */,
 				EA9EA0D213A47D2300704CDC /* btBroadphaseProxy.cpp in Sources */,
 				EA9EA0D313A47D2300704CDC /* btCollisionAlgorithm.cpp in Sources */,

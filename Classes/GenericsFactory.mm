@@ -99,7 +99,7 @@ pair<Entity *, Entity *> GameEntityFactory::BuildGate( btVector3 &initialPositio
         info.mRestitution = restitution;
         info.mDoesNotSleep = false;
         info.mCanRotate = false;
-        info.mCollisionGroup = GRP_FIXED;
+        info.mCollisionGroup = GRP_EXPLODABLE;
         info.mCollidesWith = GRP_BALL | GRP_GOPHER;
         
         PhysicsComponent *physicsBox = PhysicsComponentFactory::BuildBox( triggerPosition, halfExtents, yRotation, info );
@@ -108,7 +108,8 @@ pair<Entity *, Entity *> GameEntityFactory::BuildGate( btVector3 &initialPositio
         trigger->SetPhysicsComponent( physicsBox );
         
         TriggerComponent *triggerCtl = new TriggerComponent(gateCtl);
-        trigger->AddComponent(triggerCtl);
+        trigger->SetExplodable(triggerCtl);
+        GamePlayManager::Instance()->AddExplodable(triggerCtl);
         
     }
     
