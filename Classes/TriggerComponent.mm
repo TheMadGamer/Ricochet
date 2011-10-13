@@ -14,7 +14,7 @@ void TriggerComponent::OnCollision( Entity *collidesWith)
 {
 	if(mGate != NULL && mCountdown <= 0)
 	{
-    mCountdown = 2.0f;
+        mCountdown = kCountdown;
 		mGate->Activate();
 	}
 }

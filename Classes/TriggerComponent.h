@@ -11,8 +11,10 @@
 #import "PhysicsManager.h"
 #import <vector>
 
+
 namespace Dog3D
 {
+    static const float kCountdown = 0.5f;
 	
 	// Collidable component
 	class TriggerComponent : public ExplodableComponent
@@ -21,16 +23,16 @@ namespace Dog3D
 	public:
 		
 		TriggerComponent( Component *gate ) : mGate(gate), ExplodableComponent(BUMPER), mCountdown(0) {
-      mExplodeState = PRIMED;
-    }
-    
-    virtual void Update(float dt) { if( mCountdown > 0) mCountdown -= dt; }
-
+            mExplodeState = PRIMED;
+        }
+        
+        virtual void Update(float dt) { if( mCountdown > 0) mCountdown -= dt; }
+        
 		// trips a sensor
 		virtual void OnCollision( Entity *collidesWith);
 		
 	protected:	
-    float mCountdown;
+        float mCountdown;
 		Component *mGate;
 	};
 	

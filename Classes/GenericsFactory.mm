@@ -39,8 +39,9 @@ using namespace std;
 
 // TODO return a pair
 pair<Entity *, Entity *> GameEntityFactory::BuildGate( btVector3 &initialPosition, btVector3 &halfExtents, 
-												 float yRotation, float restitution, NSString *textureName,
-												 float graphicsScale, float triggerX, float triggerZ)
+                                                      float yRotation, float restitution,
+                                                      NSString *gateTextureName, NSString *targetTextureName,
+                                                      float graphicsScale, float triggerX, float triggerZ)
 {
 	
 	Entity *gate = new Entity();
@@ -51,13 +52,13 @@ pair<Entity *, Entity *> GameEntityFactory::BuildGate( btVector3 &initialPositio
         rotation.setEulerZYX(0, 0, yRotation);
         gate->SetRotation(rotation);
         
-    #if DEBUG
-        gate->mDebugName = [textureName UTF8String];
-    #endif
+#if DEBUG
+        gate->mDebugName = [targetTextureName UTF8String];
+#endif
         
         GraphicsComponent *graphicsComponent = GraphicsComponentFactory::BuildSprite(halfExtents.x()*2.0f * graphicsScale, 
                                                                                      halfExtents.z()*2.0f * graphicsScale, 
-                                                                                     textureName);
+                                                                                     gateTextureName);
         
         GraphicsManager::Instance()->AddComponent(graphicsComponent);
         gate->SetGraphicsComponent(graphicsComponent);	
@@ -89,7 +90,7 @@ pair<Entity *, Entity *> GameEntityFactory::BuildGate( btVector3 &initialPositio
     {
         GraphicsComponent *graphicsComponent = GraphicsComponentFactory::BuildSprite(graphicsScale, 
                                                                                      graphicsScale, 
-                                                                                     textureName);
+                                                                                     targetTextureName);
         
         GraphicsManager::Instance()->AddComponent(graphicsComponent);
         trigger->SetGraphicsComponent(graphicsComponent);	
@@ -120,8 +121,8 @@ pair<Entity *, Entity *> GameEntityFactory::BuildGate( btVector3 &initialPositio
 
 
 Entity *GameEntityFactory::BuildSpinner( btVector3 &initialPosition, btVector3 &halfExtents, 
-									 float yRotation, float restitution, NSString *textureName,
-									 float graphicsScale)
+                                        float yRotation, float restitution, NSString *textureName,
+                                        float graphicsScale)
 {
 	
 	Entity *newEntity = new Entity();
@@ -154,7 +155,7 @@ Entity *GameEntityFactory::BuildSpinner( btVector3 &initialPosition, btVector3 &
 	
 	PhysicsManager::Instance()->AddComponent( physicsBox  );
 	newEntity->SetPhysicsComponent( physicsBox );
-		
+    
     physicsBox->AddHingeMotor();
     
 	return newEntity;
