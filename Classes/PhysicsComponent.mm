@@ -24,7 +24,7 @@ namespace Dog3D
 			
 			//rotate off parent
 			trans.setBasis(mParent->GetRotation());
-						
+            
 			mRigidBody->getMotionState()->setWorldTransform(trans);
 			
 			mRigidBody->setWorldTransform(trans);
@@ -86,14 +86,14 @@ namespace Dog3D
 			trans.setIdentity();
 			trans.setOrigin(btVector3(mParent->GetPosition().getX(), 1,mParent->GetPosition().getZ() )); //mParent->GetPosition().getX(),1,mParent->GetPosition().getZ()));
 			mGhostCollider->setCollisionFlags(mGhostCollider->getCollisionFlags() | btCollisionObject::CF_NO_CONTACT_RESPONSE);
-		
+            
 			mGhostCollider->setWorldTransform(trans);
 			mGhostCollider->setUserPointer(this);
 		}
 		else {
 			DLog(@"Ghost collider WTF");
 		}
-
+        
 	}
 	
 	void PhysicsComponent::SetGhostColliderShape( btCollisionShape *shape )
@@ -125,7 +125,7 @@ namespace Dog3D
 		{
 			return;
 		}
-
+        
 		mKinematic = kinematic;	
 		
 		bool removeAndAdd = (mRigidBody->isInWorld());
@@ -134,7 +134,7 @@ namespace Dog3D
 		{
 			PhysicsManager::Instance()->RemoveComponent(this);
 		}
-	
+        
 		if(kinematic)
 		{
 			mRigidBody->setCollisionFlags( mRigidBody->getCollisionFlags() | btCollisionObject::CF_KINEMATIC_OBJECT);
@@ -146,7 +146,7 @@ namespace Dog3D
 			mRigidBody->setCollisionFlags(  mRigidBody->getCollisionFlags() & ~btCollisionObject::CF_KINEMATIC_OBJECT);
 			mRigidBody->setActivationState( WANTS_DEACTIVATION );
 		}
-
+        
 		if(removeAndAdd)
 		{
 			PhysicsManager::Instance()->AddComponent(this);
@@ -156,41 +156,13 @@ namespace Dog3D
     
     void PhysicsComponent::AddHingeMotor()
     {
-
-        if(false)
-        { 
-            btTransform transform;
-            transform.setIdentity();
-            transform.getBasis().setEulerZYX(-3.14/2.0,0,0);
-            transform.setOrigin(btVector3(btScalar(mRigidBody->getCollisionShape()->getLocalScaling().x()),btScalar(0.),btScalar(0.)));
-            mHinge = new btHingeConstraint(*mRigidBody, transform);
-
-        }else if(true)
-        {
-            PhysicsComponent *ground = PhysicsManager::Instance()->GetGround();
-            /*
-            btTransform pivotInA;
-            pivotInA.setIdentity();
-            pivotInA.getBasis().setEulerZYX(3.14/2.0,0,0);
-            pivotInA.setOrigin(btVector3(1,0,0));
-            
-            btTransform pivotInB;
-            pivotInB.setIdentity();
-            pivotInB.setOrigin(mParent->GetPosition()  );
-            pivotInB.getBasis().setEulerZYX(3.14/2.0,0,0);
-            
-            mHinge = new btHingeConstraint(* mRigidBody, *ground->GetRigidBody(), pivotInA, pivotInB.inverse());*/
-            
-            mHinge = new btHingeConstraint(* mRigidBody, *ground->GetRigidBody(), btVector3(0 /*1.5*/,1,0), mParent->GetPosition() ,
-                                           btVector3(0,1,0), btVector3(0,1,0), true);
-            
-        }
-        else
-        {   
-            btVector3 btAxisA( 0.0f, -1.0f, 0.0f ); // pointing upwards, aka Y-axis
-            btVector3 origin(0,0,1);
-            mHinge = new btHingeConstraint( *mRigidBody, origin, btAxisA, true );
-        }
+        
+        PhysicsComponent *ground = PhysicsManager::Instance()->GetGround();
+        
+        mHinge = new btHingeConstraint(* mRigidBody, *ground->GetRigidBody(),   btVector3(0 /*1.5*/,1,0), mParent->GetPosition() ,
+                                       btVector3(0,1,0), btVector3(0,1,0), true);
+        
+        
         
         mRigidBody->setActivationState( DISABLE_DEACTIVATION );
         
@@ -198,7 +170,22 @@ namespace Dog3D
         mHinge->enableAngularMotor(true, 1.0f, 10.0f);
         
         PhysicsManager::Instance()->AddConstraint(mHinge);
-            
+        
+    }
+    
+    void PhysicsComponent::EnableHingeMotor()
+    {
+        PhysicsManager::Instance()->RemoveConstraint(mHinge);
+        mHinge->enableAngularMotor(true, 1.0f, 10.0f);
+        PhysicsManager::Instance()->AddConstraint(mHinge);
+    }
+
+    void PhysicsComponent::DisableHingeMotor()
+    {
+        PhysicsManager::Instance()->RemoveConstraint(mHinge);
+        mHinge->enableAngularMotor(true, 0.0f, 10.0f);
+        PhysicsManager::Instance()->AddConstraint(mHinge);
+
     }
 }
 

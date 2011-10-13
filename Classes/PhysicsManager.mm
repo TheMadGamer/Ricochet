@@ -304,7 +304,9 @@ namespace Dog3D
     {
         mDynamicsWorld->addConstraint(constraint, true);
     }
-	
+    void PhysicsManager::RemoveConstraint(btHingeConstraint *constraint) {
+        mDynamicsWorld->removeConstraint(constraint);
+	}
 	void PhysicsManager::Update(float deltaTime)
 	{
 		if(mDynamicsWorld == NULL)

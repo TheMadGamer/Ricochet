@@ -36,7 +36,7 @@ namespace Dog3D
         mDZ(0.2f), 
         mParticlesToEmit(0),
         mParticleAttenuation(attenuationRate),
-        nDrawVerts(10000),
+        nDrawVerts(4096),
         mTexture(texture),
         mSpread(spread)
         {

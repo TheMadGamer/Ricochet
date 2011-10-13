@@ -74,7 +74,7 @@ namespace Dog3D
 		}
         
 		void AddConstraint(btHingeConstraint *constraint);
-        
+        void RemoveConstraint(btHingeConstraint *constraint);
 		//adds a ghost collider to world
 	    void AddGhostCollider(btPairCachingGhostObject *ghostCollider, int collidesWith=GRP_BALL|GRP_EXPLODABLE);
 		

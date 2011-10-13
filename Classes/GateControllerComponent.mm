@@ -7,17 +7,25 @@
  *
  */
 
-#include "GateControllerComponent.h"
-
+#import "GateControllerComponent.h"
+#import "PhysicsComponent.h"
 
 using namespace Dog3D;
 
 void GateController::Activate()
 {
-  mTimer = 0;
-  mState = true;
-        
-        // set physics hinge target
-        
-        
+    mTimer = 0;
+    mState = !mState;
+    
+    // set physics hinge target
+
+    PhysicsComponent *physicsComponent = GetParent()->GetPhysicsComponent();
+    
+    if (mState) 
+    {
+        physicsComponent->EnableHingeMotor();
+    } else {
+        physicsComponent->DisableHingeMotor();
+    }
+    
 }

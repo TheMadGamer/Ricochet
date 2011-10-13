@@ -20,16 +20,16 @@ namespace Dog3D
 	{				
 		
 	public:
-
+        
 		GateController(float speed, float interval, float openAngle, float closedAngle) :
 		mSpeed(speed),
 		mInterval(interval),
 		mTimer(0.0f),
 		mOpenAngle(openAngle),
 		mClosedAngle(closedAngle),
-		mState(false)
+		mState(true)
 		{}
-
+        
 		virtual void Activate();
 		
 	protected:
@@ -49,5 +49,5 @@ namespace Dog3D
 		
 		
 	};
-
+    
 }
