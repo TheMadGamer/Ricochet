@@ -24,7 +24,9 @@ namespace Dog3D
 	class ExplodableComponent;
 	class PhysicsComponent;
 	class GraphicsComponent;
-	
+	class ParticleEmitter;
+    class BurstEmitter;
+    
 	// basic entity class
 	class Entity
 	{
@@ -41,7 +43,7 @@ namespace Dog3D
 		Component *mController;
 		Component *mSpawnComponent;
 		ExplodableComponent *mExplodableComponent;
-		
+        
 		std::vector<Component*> mGenericComponents;
 		
 #if DEBUG
@@ -198,7 +200,6 @@ namespace Dog3D
 			}
 			return NULL;
 		}
-		
 	};
 	
 	typedef  std::vector<Dog3D::Entity*>::iterator EntityIterator;

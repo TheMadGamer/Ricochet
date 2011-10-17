@@ -36,13 +36,15 @@ namespace Dog3D
         mDZ(0.2f), 
         mParticlesToEmit(0),
         mParticleAttenuation(attenuationRate),
-        nDrawVerts(4096),
+        nDrawVerts(1024*10),
         mTexture(texture),
-        mSpread(spread)
+        mSpread(spread),
+        mVelocityMagnitude(0.5)
         {
             mDrawVerts = new Vec3[nDrawVerts];
             mTexVerts = new Vec2[nDrawVerts];
             mColors = new Color[nDrawVerts];
+            mTypeId = PARTICLE;
         }
         
         virtual ~ParticleEmitter()
@@ -81,6 +83,7 @@ namespace Dog3D
         
         float mParticlesToEmit;
         float mParticleAttenuation;
+        float mVelocityMagnitude;
         ParticleType m_type;
         bool mSpread;
     };

@@ -15,6 +15,7 @@
 #import "GraphicsComponentFactory.h"
 #import "GraphicsManager.h"
 #import "ParticleEmitter.h"
+#import "BurstEmitter.h"
 
 #import "PhysicsComponent.h"
 #import "PhysicsComponentFactory.h"
@@ -93,20 +94,23 @@ Entity *GameEntityFactory::BuildBall( float radius,
 			fxComponent =  GraphicsComponentFactory::BuildBillBoardElement(radius*2.0f, radius* 2.0f, @"BombFuse", 2, 2, 4, radius + 0.1f);
 
 			break;
+        default:
+            break;
 			
 	}
-	
-	
-	CompoundGraphicsComponent *graphicsComponent = new CompoundGraphicsComponent();
-	newBall->SetGraphicsComponent(graphicsComponent);	
-    
-    GraphicsComponent *sphere = GraphicsComponentFactory::BuildSphere(radius , textureName );
-    graphicsComponent->AddChild(sphere);
-    
+
+    // Added by scene manager
     if(emitter)
     {
-        graphicsComponent->AddChild(emitter);
+        newBall->AddComponent(emitter);
     }
+    
+    BurstEmitter *burst = new BurstEmitter(1.0f);
+    newBall->AddComponent(burst);
+    
+    GraphicsComponent *sphere = GraphicsComponentFactory::BuildSphere(radius , textureName );
+    newBall->SetGraphicsComponent(sphere);
+    
     
     /*ParticleEmitter *emitter = new ParticleEmitter(50.0f);
     newBall->SetGraphicsComponent(emitter);*/

@@ -27,13 +27,14 @@ void ParticleEmitter::Update(float deltaTime)
 }
 
 bool TooFar(Particle *p)
-{
-    return p->position.length() > 30;
+{   
+    float len = p->position.length();
+    return len > 30.0;
 }
 
 bool ZeroAttenuation(Particle *p)
 {
-    return p->attenuation <= 0;
+    return p->attenuation <= 0.001f;
 }
 
 void Attenuate(Particle *p)
@@ -50,7 +51,7 @@ void ParticleEmitter::UpdateSimulation(float dt)
         Particle *p = new Particle();
         p->position = GetParent()->GetPosition();
         float theta = (float) random()/RAND_MAX * PI * 2.0f;
-        float mag = (float) random()/RAND_MAX * 0.5f + 0.5f; 
+        float mag = (float) random()/RAND_MAX * mVelocityMagnitude + mVelocityMagnitude; 
         
         
 
@@ -58,7 +59,7 @@ void ParticleEmitter::UpdateSimulation(float dt)
         if (mSpread ) 
         {
             p->velocity = btVector3(sin(theta) * mag ,0,cos(theta) * mag);
-            p->position = p->position + p->velocity * (float) random()/RAND_MAX * 0.5f;
+            p->position = p->position + p->velocity * (float) random()/RAND_MAX * mVelocityMagnitude;
         }
         else
         { 
@@ -68,10 +69,11 @@ void ParticleEmitter::UpdateSimulation(float dt)
         mParticles.push_back(p);
         mParticlesToEmit -= 1.0f;
     }
-    
+    size_t prevSize =  mParticles.size();
     // remove if outside bounds
     mParticles.remove_if(TooFar);
     mParticles.remove_if(ZeroAttenuation);
+    NSLog(@"%lu particles before, now %lu", prevSize, mParticles.size());
     
     // 
     gAttenuation = 1.0f - (mParticleAttenuation * dt);
@@ -107,9 +109,9 @@ void ParticleEmitter::Draw()
 
     //btVector3 pos =  GetParent()->GetPosition();
 
-    int nQuads = mParticles.size();
+    int nParticles = mParticles.size();
     
-    //assert(nQuads * 6 < nDrawVerts);
+    //assert(nParticles * 6 < nDrawVerts);
     
     Vec3 *vp = mDrawVerts;
 
@@ -117,7 +119,7 @@ void ParticleEmitter::Draw()
     for( list<Particle*>::iterator it = mParticles.begin();
       it != mParticles.end(); ++it)
     {
-        if (cnt > nDrawVerts) 
+        if (cnt >= nDrawVerts) 
         {
           break;
         } 
@@ -142,10 +144,10 @@ void ParticleEmitter::Draw()
     
     Vec2 *tp = mTexVerts;
     cnt = 0;
-    for(int i = 0; i < nQuads ; i++)
+    for(int i = 0; i < nParticles ; i++)
     {
     
-        if (cnt > nDrawVerts) 
+        if (cnt >= nDrawVerts) 
         {
           break;
         } 
@@ -172,7 +174,7 @@ void ParticleEmitter::Draw()
     for( list<Particle*>::iterator it = mParticles.begin();
         it != mParticles.end(); ++it)
     {
-        if (cnt > nDrawVerts) 
+        if (cnt >= nDrawVerts) 
         {
           break;
         } 
@@ -192,7 +194,8 @@ void ParticleEmitter::Draw()
     glColorPointer(4, GL_FLOAT, 0, mColors);
     glEnableClientState(GL_COLOR_ARRAY);
     
-    glDrawArrays(GL_TRIANGLES, 0, nQuads * 6 );
+    int nToDraw = (nParticles * 6 > nDrawVerts) ? nDrawVerts : nParticles * 6;
+    glDrawArrays(GL_TRIANGLES, 0, nToDraw );
     
     glDisable(GL_BLEND);
 	glEnable(GL_DEPTH_TEST);

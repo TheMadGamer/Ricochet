@@ -16,7 +16,11 @@ namespace Dog3D
     class BurstEmitter : public Dog3D::ParticleEmitter {
         
     public:
-        BurstEmitter(float attenuationRate) : ParticleEmitter(0, attenuationRate, @"leaf", true){}
+        BurstEmitter(float attenuationRate) : ParticleEmitter(0, attenuationRate, @"leaf", true)
+        {
+            mTypeId = BURST;
+            mVelocityMagnitude = 2;
+        }
         
         void EmitBurst( int nParticles);
         

@@ -20,7 +20,7 @@ void BurstEmitter::EmitBurst(int nParticles)
         p->position = GetParent()->GetPosition();
         
         float theta = (float) random()/RAND_MAX * PI * 2.0f;
-        float mag = (float)  random()/RAND_MAX * 10.0f + 1.0f; 
+        float mag = (float)  random()/RAND_MAX * mVelocityMagnitude + mVelocityMagnitude; 
         
         p->velocity = btVector3(sin(theta) * mag ,0,cos(theta) * mag);
         
