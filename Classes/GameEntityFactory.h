@@ -27,9 +27,9 @@ public:
     };
     
 	static Dog3D::Entity *BuildBall( float radius,  btVector3 &initialPosition, 
-									bool canRotate , float restitution, 
+									 float restitution, 
 									float mass, Dog3D::ExplodableComponent::ExplosionType explosionType,
-									bool antiGopher, float friction);
+                                     float friction);
     
 	static Dog3D::Entity *BuildCharacter( float radius,  btVector3 &initialPosition, CharacterType charType );
 	

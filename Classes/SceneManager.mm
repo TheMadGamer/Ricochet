@@ -557,60 +557,6 @@ void SceneManager::LoadGeneratedObjects(NSDictionary *rootDictionary)
             SetCollisionAvoidance(mLevelControl.mCollisionAvoidance > 0);
 			
 		}
-		// balls are spawned out of a pool
-		else if ([type isEqualToString:@"ball"] )
-		{
-			
-			float radius = [[object objectForKey:@"scale"] floatValue];
-			
-			int ballType = [[object objectForKey:@"ballType"] intValue];
-			
-			btVector3 pos( 8, 1.5, 10);
-            
-			bool poolBall = ballType == ExplodableComponent::BALL_8 || ballType == ExplodableComponent::CUE_BALL;
-			
-			// can roll if not in paddle mode
-			
-			
-			Entity *ball = NULL;
-			
-            
-            ball = GameEntityFactory::BuildBall(radius, 
-                                                pos, 
-                                                true, 
-                                                poolBall ? 1.0f : 0.3f, 
-                                                1.0f, 
-                                                (ExplodableComponent::ExplosionType) ballType, 
-                                                false,
-                                                0.5f);
-            
-            
-			PhysicsComponent *physics = dynamic_cast<PhysicsComponent*>(ball->GetPhysicsComponent());
-			
-			// add to phyz mgr
-			PhysicsManager::Instance()->AddComponent( physics );
-            
-			// add to game mgr
-			GamePlayManager::Instance()->AddBall( ball, ballType );			
-			
-            
-			if(ballType == ExplodableComponent::BALL_8)
-			{
-				// explicitly spawn in 
-				GamePlayManager::Instance()->SpawnBall(ball, poolBallCount-1);		
-			}
-			else {
-				// explicitly spawn in 
-				GamePlayManager::Instance()->SpawnBall(ball);						
-			}
-			
-			poolBallCount++;
-			
-			GraphicsManager::Instance()->AddComponent(ball->GetGraphicsComponent(), GraphicsManager::POST);
-			
-			mBalls.push_back(ball);
-			
-		}
 		else if([type compare:@"cannon"] == NSOrderedSame )
 		{
 			
@@ -683,11 +629,10 @@ void SceneManager::LoadGeneratedObjects(NSDictionary *rootDictionary)
 				//ExplodableComponent::ExplosionType randType = ExplodableComponent::EXPLODE_SMALL;
 				// can roll if not in paddle mode
 				// in the case of ricochet, anti-gopher ball that doesn't detonate itself, only the goph
-				Entity *ball = GameEntityFactory::BuildBall(radius, pos, true ,
+				Entity *ball = GameEntityFactory::BuildBall(radius, pos,
 															1.0f,
 															0.5f ,  
 															(ExplodableComponent::ExplosionType) randType, 
-															true,
                                                             0.01f);
 				mBalls.push_back(ball);
 				

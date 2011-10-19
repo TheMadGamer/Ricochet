@@ -11,6 +11,7 @@
 		1D60589B0D05DD56006BFB54 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.mm */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28FD14FE0DC6FC130079059D /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */; };
+		4F29439F144E637100054135 /* CountExplodable.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F29439E144E637100054135 /* CountExplodable.mm */; };
 		4F58CB5D140E90AB000027F4 /* blowup.left.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB4C140E90AB000027F4 /* blowup.left.sheet.png */; };
 		4F58CB5E140E90AB000027F4 /* blowup.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB4D140E90AB000027F4 /* blowup.sheet.png */; };
 		4F58CB5F140E90AB000027F4 /* cannon.puff.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB4E140E90AB000027F4 /* cannon.puff.png */; };
@@ -357,6 +358,8 @@
 		28FD14FD0DC6FC130079059D /* EAGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Gopher_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gopher_Prefix.pch; sourceTree = "<group>"; };
+		4F29439D144E637100054135 /* CountExplodable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountExplodable.h; sourceTree = "<group>"; };
+		4F29439E144E637100054135 /* CountExplodable.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CountExplodable.mm; sourceTree = "<group>"; };
 		4F58CB4C140E90AB000027F4 /* blowup.left.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blowup.left.sheet.png; sourceTree = "<group>"; };
 		4F58CB4D140E90AB000027F4 /* blowup.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blowup.sheet.png; sourceTree = "<group>"; };
 		4F58CB4E140E90AB000027F4 /* cannon.puff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cannon.puff.png; sourceTree = "<group>"; };
@@ -1294,15 +1297,15 @@
 		EA925DD7119081F9005A9B74 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
+				EAA1A831134EC64100840CDB /* BunnyFactory.mm */,
+				EA12452C1106715E00B33424 /* GameEntityFactory.h */,
+				EA12452D1106715E00B33424 /* GameEntityFactory.mm */,
+				EA667DD513503DB0000C1D85 /* GenericsFactory.mm */,
 				EA6CB353110A5E1D004C0D8F /* GraphicsComponentFactory.h */,
 				EA6CB354110A5E1D004C0D8F /* GraphicsComponentFactory.mm */,
 				EA6CB39E110A80EB004C0D8F /* PhysicsComponentFactory.h */,
 				EA6CB39F110A80EB004C0D8F /* PhysicsComponentFactory.mm */,
-				EA12452C1106715E00B33424 /* GameEntityFactory.h */,
-				EA12452D1106715E00B33424 /* GameEntityFactory.mm */,
-				EAA1A831134EC64100840CDB /* BunnyFactory.mm */,
 				EAA1A833134EC66E00840CDB /* SquFactory.mm */,
-				EA667DD513503DB0000C1D85 /* GenericsFactory.mm */,
 			);
 			name = Factories;
 			sourceTree = "<group>";
@@ -1794,6 +1797,8 @@
 		EAC8DF5F110A2E83008542DA /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				4F29439D144E637100054135 /* CountExplodable.h */,
+				4F29439E144E637100054135 /* CountExplodable.mm */,
 				4F95BF8714106EEB00AE5CC4 /* Character */,
 				EA96FFCA11AF336800FFE13C /* Cannon */,
 				4F58CB6E140E97FB000027F4 /* Graphics */,
@@ -2289,6 +2294,7 @@
 				EA9EA14413A47D2300704CDC /* btSerializer.cpp in Sources */,
 				4F95BF8A14106F2900AE5CC4 /* ParticleEmitter.mm in Sources */,
 				EAD1941F143EB0B600DFC2B2 /* BurstEmitter.mm in Sources */,
+				4F29439F144E637100054135 /* CountExplodable.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
