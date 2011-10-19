@@ -122,14 +122,15 @@ namespace Dog3D
 	}
 	
 	// roller and ricochet ball
-	void AntiGopherExplodable::OnCollision( Entity *collidesWith )
+	void TimeBombExplodable::OnCollision( Entity *collidesWith )
 	{ 
 		// not a goph, explode
 		
 		GopherController *controller = collidesWith != NULL ?  dynamic_cast<GopherController*>(collidesWith->GetController()) : NULL;
-		if(collidesWith == NULL)
+	
+        // time bomb
+        if(collidesWith == NULL)
 		{
-            // time bomb
 			Explode();
 			
 			// get fx component				
@@ -225,6 +226,7 @@ namespace Dog3D
 		
 	}
 	
+    // Flower pots use this
 	void FireballExplodable::OnCollision( Entity *collidesWith )
 	{ 
 		if(mExplodeState == TIMED_EXPLODE)

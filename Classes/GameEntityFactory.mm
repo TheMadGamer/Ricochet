@@ -160,7 +160,7 @@ Entity *GameEntityFactory::BuildBall( float radius,
 	else 
 	{ 
 		ExplodableComponent *explodeComponent = antiGopher ? 
-			new AntiGopherExplodable(explosionType) : 
+			new TimeBombExplodable(explosionType) : 
 			new ExplodableComponent(explosionType);		
 		newBall->SetExplodable(explodeComponent);
 	}

@@ -162,10 +162,10 @@ namespace Dog3D
 	};
 
 	// keeps on exploding 
-	class AntiGopherExplodable : public ExplodableComponent
+	class TimeBombExplodable : public ExplodableComponent
 	{
 	public:
-		AntiGopherExplodable( ExplosionType explosionType) : 
+		TimeBombExplodable( ExplosionType explosionType) : 
 		ExplodableComponent(explosionType){}
 		
 		void OnCollision(Entity *collidesWith);
