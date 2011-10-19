@@ -21,6 +21,7 @@
 #import "PhysicsComponentFactory.h"
 #import "PhysicsManager.h"
 
+#import "CountExplodable.h"
 #import "GamePlayManager.h"
 #import "GopherController.h"
 #import "SpawnComponent.h"
@@ -38,11 +39,9 @@ const float kFixedHeight = 10;
 /// not added to phys mgr or game play mgr
 Entity *GameEntityFactory::BuildBall( float radius, 
 									 btVector3 &initialPosition, 
-									 bool canRotate, 
 									 float restitution, 
 									 float mass,
 									 ExplodableComponent::ExplosionType explosionType, 
-									 bool antiGopher, 
 									 float friction)
 {
 	
@@ -56,6 +55,9 @@ Entity *GameEntityFactory::BuildBall( float radius,
 	NSString *textureName = nil;
 	FXGraphicsComponent *fxComponent = NULL;
 	ParticleEmitter *emitter = NULL; 
+    bool timeBomb = true;
+    int maxBumps = 10;
+    
 	switch (explosionType)
 	{
 		case ExplodableComponent::MUSHROOM:
@@ -66,12 +68,16 @@ Entity *GameEntityFactory::BuildBall( float radius,
 			break;
 			
 		case ExplodableComponent::FIRE:
+            timeBomb = false;
+            maxBumps = 10;
 			textureName = @"Ball_Fire";
 			fxComponent =  GraphicsComponentFactory::BuildFXElement(2, 2, @"ball.fire.sheet",4,4,16, true);
             emitter = new ParticleEmitter(100.0f, 1.0, @"Smoke", true);
 			break;
 			
 		case ExplodableComponent::ELECTRO:
+            timeBomb = false;
+            maxBumps = 8;
 			textureName = @"Ball_Electric";
 			fxComponent = GraphicsComponentFactory::BuildFXElement(2, 2, @"ball.electric.sheet", 4,4,16, true);
             emitter = new ParticleEmitter(100.0f, 1.0, @"sparkle", true);
@@ -123,7 +129,7 @@ Entity *GameEntityFactory::BuildBall( float radius,
 	PhysicsComponentInfo info;
 	
 	info.mIsStatic = false;
-	info.mCanRotate = canRotate;
+	info.mCanRotate = true;
 	info.mRestitution = restitution;
 	info.mMass = mass;
 	info.mCollisionGroup = GRP_BALL;
@@ -146,24 +152,15 @@ Entity *GameEntityFactory::BuildBall( float radius,
 		GraphicsManager::Instance()->AddComponent(fxComponent);
 	}
 	
-	if(explosionType == ExplodableComponent::CUE_BALL)
-	{
-		ExplodableComponent *explodeComponent = new InfiniteExplodable(explosionType);		
+        
+		ExplodableComponent *explodeComponent;
+        
+        if (timeBomb) { 
+            explodeComponent = new AntiGopherExplodable(explosionType);
+        } else {
+            explodeComponent = new CountExplodable(explosionType, maxBumps);		
+        }
 		newBall->SetExplodable(explodeComponent);
-	}
-	else if(explosionType == ExplodableComponent::BALL_8)
-	{
-		ExplodableComponent *explodeComponent = new InfiniteExplodable(explosionType);
-		//ExplodableComponent(ExplodableComponent::EXPLODE_SMALL);		
-		newBall->SetExplodable(explodeComponent);		
-	}
-	else 
-	{ 
-		ExplodableComponent *explodeComponent = antiGopher ? 
-			new AntiGopherExplodable(explosionType) : 
-			new ExplodableComponent(explosionType);		
-		newBall->SetExplodable(explodeComponent);
-	}
 	// balls added to game mgr and phys mgr by cannon or scene mgr, depending on setup
 	
 	return newBall;
