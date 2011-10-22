@@ -133,7 +133,7 @@ Entity *GameEntityFactory::BuildBall( float radius,
 	info.mRestitution = restitution;
 	info.mMass = mass;
 	info.mCollisionGroup = GRP_BALL;
-	info.mCollidesWith = info.mCollidesWith ; //| GRP_GHOST;
+	info.mCollidesWith = info.mCollidesWith | GRP_FIXED | GRP_WALL;
 	info.mDoesNotSleep = true;
 	
 	info.mFriction = friction;
