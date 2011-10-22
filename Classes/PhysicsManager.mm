@@ -180,7 +180,7 @@ namespace Dog3D
 			short collisionGrpB = obB->getBroadphaseHandle()->m_collisionFilterGroup;
 			
             // test ball/ exploders 
-            if(  (collisionGrpA & (GRP_EXPLODABLE | GRP_BALL)) && (collisionGrpB & (GRP_EXPLODABLE | GRP_BALL) ) )  {
+            if(  (collisionGrpA & (GRP_EXPLODABLE | GRP_BALL | GRP_FIXED | GRP_WALL)) && (collisionGrpB & (GRP_EXPLODABLE | GRP_BALL | GRP_FIXED | GRP_WALL) ) )  {
                 
                 PhysicsComponent *pA = (PhysicsComponent*) obA->getUserPointer();
                 PhysicsComponent *pB = (PhysicsComponent*) obB->getUserPointer();
