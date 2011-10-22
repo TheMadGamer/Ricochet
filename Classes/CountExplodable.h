@@ -25,6 +25,8 @@ namespace Dog3D
         mTimeBomb = false;
         }
 		
+        virtual void Activate() { mTimeBomb = false; }
+    
         void Detonate();
 		void OnCollision(Entity *collidesWith);
         int mNBumps;

@@ -90,6 +90,8 @@ namespace Dog3D
 			mExplodeState = PRIME_DELAY;
 		}
 		
+    virtual void Activate() {  }
+    
 		virtual bool DetonatesOtherCollider(){ return true;}
 		
 		//inline void SetExplostionType(FXGraphicsComponent::FXElementType explosionType) { mExplosionType = explosionType; }
@@ -167,7 +169,7 @@ namespace Dog3D
 	public:
 		TimeBombExplodable( ExplosionType explosionType) : 
 		ExplodableComponent(explosionType){}
-		
+		virtual void Activate() { mTimeBomb = true; }
 		void OnCollision(Entity *collidesWith);
 	};
 	

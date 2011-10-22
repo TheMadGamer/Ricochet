@@ -53,7 +53,7 @@ void CannonController::FireBall(){
 			  ballPosition.z());
 		
 		ExplodableComponent *explodable =  ball->GetExplodable();
-		explodable->SetTimeBomb(true);
+		explodable->Activate();
 		explodable->Prime();
 		
 		//btVector3 resetPosition(8,1.5,0);
