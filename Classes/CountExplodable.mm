@@ -67,9 +67,7 @@ namespace Dog3D
   // explodes after n bumps
   void CountExplodable::OnCollision( Entity *collidesWith )
   { 
-      mTimeBomb = false;
     GopherController *controller = collidesWith != NULL ?  dynamic_cast<GopherController*>(collidesWith->GetController()) : NULL;
-    
     
     // NULL = forced explode
     if(collidesWith == NULL)
