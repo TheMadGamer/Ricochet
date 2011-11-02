@@ -73,7 +73,7 @@ void ParticleEmitter::UpdateSimulation(float dt)
     // remove if outside bounds
     mParticles.remove_if(TooFar);
     mParticles.remove_if(ZeroAttenuation);
-    DLog(@"%lu particles before, now %lu", prevSize, mParticles.size());
+    //DLog(@"%lu particles before, now %lu", prevSize, mParticles.size());
     
     // 
     gAttenuation = 1.0f - (mParticleAttenuation * dt);
