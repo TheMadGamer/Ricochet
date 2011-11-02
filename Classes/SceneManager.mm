@@ -650,7 +650,6 @@ void SceneManager::LoadGeneratedObjects(NSDictionary *rootDictionary)
                 if(burst)
                 {
                     GraphicsManager::Instance()->AddComponent(burst, GraphicsManager::MID);
-                    burst->EmitBurst(100);
                 }
                 
 				GraphicsManager::Instance()->AddComponent(ball->GetGraphicsComponent(), GraphicsManager::POST);

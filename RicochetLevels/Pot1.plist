@@ -193,27 +193,6 @@
 			<key>sz</key>
 			<real>0.5</real>
 		</dict>
-		<key>UFO</key>
-		<dict>
-			<key>x</key>
-			<real>5.89995088986</real>
-			<key>y</key>
-			<real>-2.27373675443e-15</real>
-			<key>z</key>
-			<real>12.2456643562</real>
-			<key>type</key>
-			<string>uFO</string>
-			<key>ry</key>
-			<real>0</real>
-			<key>spawnTime</key>
-			<real>0</real>
-			<key>sx</key>
-			<real>3</real>
-			<key>sy</key>
-			<real>3</real>
-			<key>sz</key>
-			<real>3</real>
-		</dict>
 		<key>Hedge12</key>
 		<dict>
 			<key>x</key>
