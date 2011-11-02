@@ -21,17 +21,20 @@ namespace Dog3D
 	{
 	public:
 		CountExplodable( ExplosionType explosionType, int maxBumps) : 
-		ExplodableComponent(explosionType), mNBumps(0), mMaxBumps(maxBumps), mLastCollider(NULL) {
+		ExplodableComponent(explosionType), mNBumps(0), mMaxBumps(maxBumps), mLastCollider(NULL), mSecondToLastCollider(NULL), mTimeWindow(0) {
         mTimeBomb = false;
         }
 		
         virtual void Activate() { mTimeBomb = false; }
+        virtual void Update(float dt) { mTimeWindow += dt;  ExplodableComponent::Update(dt); }
     
         void Detonate();
 		void OnCollision(Entity *collidesWith);
         int mNBumps;
         int mMaxBumps;
         Entity *mLastCollider;
+        Entity *mSecondToLastCollider;
+        float mTimeWindow;
     };
 	
 }

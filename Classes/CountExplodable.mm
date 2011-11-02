@@ -76,9 +76,11 @@ namespace Dog3D
     } 
     else
     { 
-        if (collidesWith != mLastCollider) {
+        if (collidesWith != mLastCollider && ( mTimeWindow > 0.1f || collidesWith != mSecondToLastCollider) ) {
+            mSecondToLastCollider = mLastCollider;
             mLastCollider = collidesWith;
             mNBumps++;
+            mTimeWindow = 0;
         }
       
         if (controller != NULL) 
