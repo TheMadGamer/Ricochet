@@ -106,7 +106,6 @@
 		EA36FE3913B835EB00A5DBBE /* ExitText2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FE0613B835EB00A5DBBE /* ExitText2.png */; };
 		EA36FE3A13B835EB00A5DBBE /* FarmerLevelSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FE0713B835EB00A5DBBE /* FarmerLevelSelect.png */; };
 		EA36FE3B13B835EB00A5DBBE /* FarmerScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FE0813B835EB00A5DBBE /* FarmerScreen.png */; };
-		EA36FE3C13B835EB00A5DBBE /* FarmerSplash.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FE0913B835EB00A5DBBE /* FarmerSplash.png */; };
 		EA36FE3D13B835EB00A5DBBE /* Goher Grenade1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FE0A13B835EB00A5DBBE /* Goher Grenade1.png */; };
 		EA36FE3E13B835EB00A5DBBE /* GreenBlueGrad.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FE0B13B835EB00A5DBBE /* GreenBlueGrad.png */; };
 		EA36FE3F13B835EB00A5DBBE /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36FE0C13B835EB00A5DBBE /* help.png */; };
@@ -171,6 +170,9 @@
 		EA820AD71106D06C00E8B8FE /* FakeGLU.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA820AD61106D06C00E8B8FE /* FakeGLU.mm */; };
 		EA89DBD811E2830F00CFEED1 /* Instructions_Cannon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA89DBD511E2830F00CFEED1 /* Instructions_Cannon.png */; };
 		EA89DC0311E290B900CFEED1 /* Instructions_Intro.png in Resources */ = {isa = PBXBuildFile; fileRef = EA89DC0211E290B900CFEED1 /* Instructions_Intro.png */; };
+		EA922D9E1461012C00A65609 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = EA922D9D1461012C00A65609 /* Splash.png */; };
+		EA922DA01461027E00A65609 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA922D9F1461027E00A65609 /* Icon.png */; };
+		EA922DA21461028400A65609 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA922DA11461028400A65609 /* Icon@2x.png */; };
 		EA96FFC911AF334300FFE13C /* CannonUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA96FFC811AF334300FFE13C /* CannonUI.mm */; };
 		EA96FFCE11AF499600FFE13C /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = EA96FFCD11AF499600FFE13C /* button.png */; };
 		EA9EA0D113A47D2300704CDC /* btAxisSweep3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA9E9F9513A47D2300704CDC /* btAxisSweep3.cpp */; };
@@ -467,7 +469,6 @@
 		EA36FE0613B835EB00A5DBBE /* ExitText2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ExitText2.png; sourceTree = "<group>"; };
 		EA36FE0713B835EB00A5DBBE /* FarmerLevelSelect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FarmerLevelSelect.png; sourceTree = "<group>"; };
 		EA36FE0813B835EB00A5DBBE /* FarmerScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FarmerScreen.png; sourceTree = "<group>"; };
-		EA36FE0913B835EB00A5DBBE /* FarmerSplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FarmerSplash.png; sourceTree = "<group>"; };
 		EA36FE0A13B835EB00A5DBBE /* Goher Grenade1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Goher Grenade1.png"; sourceTree = "<group>"; };
 		EA36FE0B13B835EB00A5DBBE /* GreenBlueGrad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreenBlueGrad.png; sourceTree = "<group>"; };
 		EA36FE0C13B835EB00A5DBBE /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help.png; sourceTree = "<group>"; };
@@ -549,6 +550,9 @@
 		EA820AD61106D06C00E8B8FE /* FakeGLU.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FakeGLU.mm; sourceTree = "<group>"; };
 		EA89DBD511E2830F00CFEED1 /* Instructions_Cannon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Instructions_Cannon.png; path = Instructions/Instructions_Cannon.png; sourceTree = "<group>"; };
 		EA89DC0211E290B900CFEED1 /* Instructions_Intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Instructions_Intro.png; path = Instructions/Instructions_Intro.png; sourceTree = "<group>"; };
+		EA922D9D1461012C00A65609 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Splash.png; sourceTree = "<group>"; };
+		EA922D9F1461027E00A65609 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		EA922DA11461028400A65609 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		EA96FFC711AF334300FFE13C /* CannonUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CannonUI.h; sourceTree = "<group>"; };
 		EA96FFC811AF334300FFE13C /* CannonUI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CannonUI.mm; sourceTree = "<group>"; };
 		EA96FFCD11AF499600FFE13C /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = Cannon/button.png; sourceTree = "<group>"; };
@@ -968,6 +972,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				EA922DA11461028400A65609 /* Icon@2x.png */,
+				EA922D9F1461027E00A65609 /* Icon.png */,
 				EA9E9F8F13A47D2300704CDC /* Bullet */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -1180,6 +1186,7 @@
 		EA36FDF713B835EA00A5DBBE /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				EA922D9D1461012C00A65609 /* Splash.png */,
 				EA36FDF813B835EB00A5DBBE /* 3dDog.png */,
 				EA36FDF913B835EB00A5DBBE /* About.png */,
 				EA36FDFA13B835EB00A5DBBE /* ArrowButtonGold.png */,
@@ -1197,7 +1204,6 @@
 				EA36FE0613B835EB00A5DBBE /* ExitText2.png */,
 				EA36FE0713B835EB00A5DBBE /* FarmerLevelSelect.png */,
 				EA36FE0813B835EB00A5DBBE /* FarmerScreen.png */,
-				EA36FE0913B835EB00A5DBBE /* FarmerSplash.png */,
 				EA36FE0A13B835EB00A5DBBE /* Goher Grenade1.png */,
 				EA36FE0B13B835EB00A5DBBE /* GreenBlueGrad.png */,
 				EA36FE0C13B835EB00A5DBBE /* help.png */,
@@ -2069,7 +2075,6 @@
 				EA36FE3913B835EB00A5DBBE /* ExitText2.png in Resources */,
 				EA36FE3A13B835EB00A5DBBE /* FarmerLevelSelect.png in Resources */,
 				EA36FE3B13B835EB00A5DBBE /* FarmerScreen.png in Resources */,
-				EA36FE3C13B835EB00A5DBBE /* FarmerSplash.png in Resources */,
 				EA36FE3D13B835EB00A5DBBE /* Goher Grenade1.png in Resources */,
 				EA36FE3E13B835EB00A5DBBE /* GreenBlueGrad.png in Resources */,
 				EA36FE3F13B835EB00A5DBBE /* help.png in Resources */,
@@ -2129,6 +2134,9 @@
 				4FC0329E1447492500427A40 /* CactusBumper.png in Resources */,
 				4FC0329F1447492500427A40 /* FrogBumper.png in Resources */,
 				4FC032A01447492500427A40 /* Target.png in Resources */,
+				EA922D9E1461012C00A65609 /* Splash.png in Resources */,
+				EA922DA01461027E00A65609 /* Icon.png in Resources */,
+				EA922DA21461028400A65609 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -292,15 +292,13 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 
 #pragma mark PREF CONTROL
 // finished level select
-- (void)preferencesViewControllerDidFinish:(PreferencesViewController *)controller withSelectedLevel:(NSString*)levelName{
+- (void)preferencesViewControllerDidFinish:(PreferencesViewController *)controller 
+                         withSelectedLevel:(NSString*)levelName {
     
-	
 	[self dismissModalViewControllerAnimated:NO];
 	
-	if([levelName isEqualToString:@"None" ])
-	{
-		if(mSplashView == nil)
-		{
+	if([levelName isEqualToString:@"None" ]){
+		if(mSplashView == nil){
 			mSplashView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 480, 320)];
 			mSplashView.image = [UIImage imageNamed:@"PlayScreen.png"];
 			
@@ -317,15 +315,8 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 									   mLandingView.frame.size.height);
 		[self animateIn];
 		
-	}
-	// removed to not show instr's view
-
-	else if((![self isLevelPlayed:levelName]) && [self isBonusLevel:levelName])
-	{
-		[self setLevelPlayed:levelName played:YES];
-		[self showInstructionsView: levelName];
-	} 
-	else {
+	} else {
+        [self setLevelPlayed:levelName played:YES];
 		[self showGopherView:levelName];
 	}
 	
@@ -515,7 +506,7 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 	{
 		mSplashFrame++;
 		
-		mSplashView.image = [UIImage imageNamed:@"FarmerSplash.png"];
+		mSplashView.image = [UIImage imageNamed:@"Splash.png"];
 		
 		[NSTimer scheduledTimerWithTimeInterval:4.0f
 										 target:self
