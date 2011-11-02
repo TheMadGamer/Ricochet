@@ -127,7 +127,7 @@
 
 - (int) currentScore;
 - (int) deadGophers;
-- (int) remainingCarrots;
+- (int) remainingBalls;
 
 
 @end

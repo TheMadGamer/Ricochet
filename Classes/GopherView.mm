@@ -149,9 +149,9 @@ float kWallHeight = 1;
 	return GamePlayManager::Instance()->GetTotalGophers();
 }
 
--(int) remainingCarrots
+-(int) remainingBalls
 {
-	return GamePlayManager::Instance()->GetRemainingCarrots();
+	return GamePlayManager::Instance()->GetNumBallsLeft();
 }
 
 - (void) loadLevel:(NSString*) levelName
