@@ -3,7 +3,7 @@
  *  Gopher
  *
  *  Created by Anthony Lobay on 3/2/10.
- *  Copyright 2010 HighlandAvenue. All rights reserved.
+ *  Copyright 2010 3dDogStudios. All rights reserved.
  *
  */
 

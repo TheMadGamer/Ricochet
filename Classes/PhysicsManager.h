@@ -16,14 +16,9 @@
 #import <set>
 #import "PhysicsComponent.h"
 
-
 namespace Dog3D
 {
-	
-	
-
-	typedef std::pair<Entity *, Entity*> EntityPair;
-	
+	typedef std::pair<Entity *, Entity*> EntityPair;	
 	
 	class PhysicsManager
 	{		

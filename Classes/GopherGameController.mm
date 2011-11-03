@@ -3,7 +3,7 @@
 //  Gopher
 //
 //  Created by Anthony Lobay on 5/22/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Copyright 2010 3dDogStudios. All rights reserved.
 //
 
 #import <StoreKit/StoreKit.h>
@@ -161,12 +161,7 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 -(IBAction) scoresPressed
 {	
 	DLog(@"Scores pressed");
-	
-#if USE_OF	
-	[OpenFeint launchDashboard];
-#else	
 	[self showScoresView];
-#endif
 }
 
 -(IBAction) instructionsPressed
@@ -359,6 +354,7 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 
 #pragma mark SCORES CONTROL
 
+// TODO Ludo - add in game Center view here IF game center is available
 - (void) showScoresView
 {
 	
