@@ -427,13 +427,11 @@ using namespace Dog3D;
 	if([delegate isAudioOn])
 	{
 		[audioButton setImage:[UIImage imageNamed:@"SoundOn.png"] forState:UIControlStateNormal];
-		[self resumePlayback];
 		AudioDispatch::Instance()->SetAudioOn(true);
 	}
 	else
 	{
 		[audioButton setImage:[UIImage imageNamed:@"SoundOff.png"] forState:UIControlStateNormal];
-		[self pausePlayback];
 		AudioDispatch::Instance()->SetAudioOn(false);
 	}
 }
@@ -528,11 +526,6 @@ using namespace Dog3D;
 - (void)initStuff 
 {
 	DLog(@"--> GViewC will appear");
-	
-	if( (![levelName isEqualToString:@"Splash"]) && [delegate isAudioOn])
-	{
-		[self startPlayback];
-	}
 	
 	if(![levelName isEqualToString:@"Splash"])
 	{
@@ -630,15 +623,7 @@ using namespace Dog3D;
 -(void)shutdownStuff 
 {
 	DLog(@"--> Gopher View Ctlr will disappear");
-	
-	if(mMusicPlayer != nil)
-	{
-		[mMusicPlayer pause];
-		[mMusicPlayer release];
-		mMusicPlayer = nil;
 		
-	}
-	
 	[scoreLabel release];
 	scoreLabel = nil;
 	
@@ -676,97 +661,6 @@ using namespace Dog3D;
 
 
 #pragma mark MUSIC
-
-- (void)startPlayback {
-	
-    if(!mMusicPlayer){
-        /*
-         * Here we grab our path to our resource
-         */
-        NSString* resourcePath = [[NSBundle mainBundle] resourcePath];
-        resourcePath = [resourcePath stringByAppendingString:@"/FeelinGood4.caf"];
-        DLog(@"Path to play: %@", resourcePath);
-        NSError* err;
-		
-        //Initialize our player pointing to the path to our resource
-        mMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:
-				   [NSURL fileURLWithPath:resourcePath] error:&err];
-		
-        if( err ){
-            //bail!
-            DLog(@"Failed with reason: %@", [err localizedDescription]);
-        }
-        else{
-            //set our delegate and begin playback
-            mMusicPlayer.delegate = self;
-            [mMusicPlayer play];
-        }
-    }
-	else {
-		[mMusicPlayer play];
-	}
-	
-}
-
-- (void)pausePlayback {
-	
-    DLog(@"Player paused at time: %f", mMusicPlayer.currentTime);
-	if( mMusicPlayer)
-	{
-		[mMusicPlayer pause];
-	}
-}
-
-- (void)resumePlayback
-{	
-	if( mMusicPlayer)
-	{
-		[mMusicPlayer play];
-	}
-	else {
-		[self startPlayback];
-	}
-	
-}
-
-- (void) restartPlayback
-{
-	
-	if(mMusicPlayer)
-	{
-		mMusicPlayer.currentTime = 0;
-		[mMusicPlayer play];
-	}
-	else {
-		[self startPlayback];
-	}
-}
-
-- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
-{
-	
-	[self restartPlayback];
-}
-
-- (void)audioPlayerBeginInterruption:(AVAudioPlayer *)player
-{
-	
-}
-
-- (void)audioPlayerEndInterruption:(AVAudioPlayer *)player
-{
-	
-}
-
-- (void)audioPlayerEndInterruption:(AVAudioPlayer *)player withFlags:(NSUInteger)flags
-{
-	
-}
-
-- (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error
-{
-	
-}
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.

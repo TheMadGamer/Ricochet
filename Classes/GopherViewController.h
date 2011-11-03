@@ -12,7 +12,7 @@
 
 @protocol GopherViewControllerDelegate;
 
-@interface GopherViewController : UIViewController <GopherViewDelegate, AVAudioPlayerDelegate> {
+@interface GopherViewController : UIViewController <GopherViewDelegate> {
 	
 	IBOutlet GopherView *gopherView;	
 	UIView *scoreView;
@@ -34,10 +34,6 @@
 	
 	IBOutlet float tiltGravityCoef;
 	IBOutlet bool offsetGravityEnabled;
-	
-	// looping audio
-	AVAudioPlayer* mMusicPlayer;
-	
 }
 
 @property (nonatomic, assign) IBOutlet GopherView *gopherView;
@@ -66,11 +62,6 @@
 
 // pause level decl'd in GopherViewDelegate protocol
 -(void) resumeLevel;
-
-- (void)pausePlayback;
-- (void)resumePlayback;
-- (void)startPlayback;
-- (void) restartPlayback;
 
 -(UILabel *) makeScoreLabel;
 
