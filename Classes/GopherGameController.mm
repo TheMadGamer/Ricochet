@@ -29,6 +29,7 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 
 @synthesize levels; 
 @synthesize levelPackVC;
+@synthesize lastLevelName = lastLevelName_;
 
 + (NSString *) levelPlist
 {
@@ -44,7 +45,7 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 		levels = [[NSArray arrayWithContentsOfFile:path] retain];
 		
 		// get lastLevelName
-		for( int i = 1; i < [levels count]-1; i++)
+		for( int i = 1; i < [levels count]; i++)
 		{
 			NSDictionary *dict = [levels objectAtIndex:i];
 			
@@ -54,11 +55,10 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 			}
 			else
 			{
-				lastLevelName = [ dict objectForKey:@"filename"];
+				self.lastLevelName = [ dict objectForKey:@"filename"];
 			}
 		}	
 	}
-	
 	return levels;
 }
 
@@ -790,7 +790,7 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 
 - (bool) isLastLevel: (NSString*) levelName
 {	
-	return [lastLevelName isEqualToString:levelName];
+	return [self.lastLevelName isEqualToString:levelName];
 }
 
 - (bool) isBonusLevel: (NSString*) currentLevelName

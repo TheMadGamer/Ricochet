@@ -60,8 +60,6 @@
 	bool mFirstAppearance;
 		
 	NSArray *levels;
-	
-	NSString *lastLevelName;
 		
 }
 
@@ -70,6 +68,7 @@
 @property (readonly) NSString *playedLevelsFileName;
 @property (readonly) NSString *highScoresFileName;
 @property (nonatomic, retain) LevelPackPurchaseVC *levelPackVC;
+@property (nonatomic, retain) NSString *lastLevelName;
 
 - (IBAction)mutePressed;
 
