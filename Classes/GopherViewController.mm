@@ -449,7 +449,9 @@ using namespace Dog3D;
 		CGAffineTransform transform = CGAffineTransformMakeRotation(3.14159/2.0);
 		mInstructionsView.transform = transform;
 		
-		mInstructionsView.image = [UIImage imageNamed:@"Instructions_Intro.png"];
+        UIImage *image = [UIImage imageWithContentsOfFile:
+                          [[NSBundle mainBundle] pathForResource:@"Instructions_Cannon" ofType:@"png"]];
+		mInstructionsView.image = image;
 		
 		{
 			mInstructionsButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain]; 
@@ -792,46 +794,16 @@ using namespace Dog3D;
 		return;
 	}
 	
-	if(mFrameIndex == 3)
-	{
-		[mInstructionsView removeFromSuperview];
-		[mInstructionsView release];
-		mInstructionsView = nil;				
-		
-		[mInstructionsButton removeFromSuperview];
-		mInstructionsButton = nil;
-		
-		[self resumeLevel];
-		mFrameIndex = 1;
-	}
-	else {
-		
-		NSString *path = [[NSBundle mainBundle] bundlePath];
-		
-		NSString *finalPath = [path stringByAppendingPathComponent:[gopherView loadedLevel] ];
-		NSDictionary *rootDictionary = [NSDictionary dictionaryWithContentsOfFile:finalPath];
-		
-		NSDictionary *controlDictionary = [[rootDictionary objectForKey:@"LevelControl"] retain];
-		
-		SceneManager::LevelControlInfo levelControl(controlDictionary);
-		
-		
-		mFrameIndex++;
-		
-		NSString* imageName;
-		if(mFrameIndex == 2)
-		{
-			imageName = @"Instructions_Goal.png";
-		}
-		else 
-    {
-      imageName = @"Instructions_Cannon.png";
-		}
-		
-		
-		mInstructionsView.image = [UIImage imageNamed:imageName];
-		[controlDictionary release];
-	}
+	
+    [mInstructionsView removeFromSuperview];
+    [mInstructionsView release];
+    mInstructionsView = nil;				
+    
+    [mInstructionsButton removeFromSuperview];
+    mInstructionsButton = nil;
+    
+    [self resumeLevel];
+    mFrameIndex = 1;
 }
 
 @end

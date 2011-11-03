@@ -9,23 +9,18 @@
 #import "InstructionsViewController.h"
 #import "SceneManager.h"
 
+using namespace Dog3D;
 
 @implementation InstructionsViewController
 
 @synthesize instructionView;
-
 @synthesize delegate;
-
 @synthesize levelToLoad;
-
-using namespace Dog3D;
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
-	frameIndex = 1;
-	
+	frameIndex = 1;	
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -54,25 +49,12 @@ using namespace Dog3D;
     return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
-
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
 //- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 
 - (IBAction) NextFrame:(id) sender;
 {
-	if([levelToLoad isEqualToString:@"Basics"])
+    // Code for multi-plate instructions
+	/*if([levelToLoad isEqualToString:@"Basics"])
 	{
 		if(frameIndex == 1 ) 
 		{
@@ -105,12 +87,12 @@ using namespace Dog3D;
 	{
 		[self.delegate instructionsViewControllerDidFinish:self withSelectedLevel:levelToLoad];
 		
-	}
+	}*/
+    [self.delegate instructionsViewControllerDidFinish:self withSelectedLevel:levelToLoad];
 }
 
 - (void)dealloc {
     [super dealloc];
 }
-
 
 @end
