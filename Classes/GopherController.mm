@@ -39,7 +39,7 @@ namespace Dog3D
 		DLog(@"Idle");
 
 		mControllerState = IDLE;
-		mPauseFrame = 30;
+		mPauseFrame = 30 * (1 + random() % 2) + (random() % 15);
 		
 		static_cast<AnimatedGraphicsComponent*>(mParent->GetGraphicsComponent())->StartAnimation(AnimatedGraphicsComponent::IDLE);
 	}
@@ -89,7 +89,7 @@ namespace Dog3D
 		DLog(@"Taunt");
 		mPreviousState = mControllerState;
 		mControllerState = TAUNT;
-		mPauseFrame = 121;
+		mPauseFrame = 90;
 		
 		// note hard coded taunt time
 		SetRandomTauntDelay();
