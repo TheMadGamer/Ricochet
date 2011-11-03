@@ -102,7 +102,7 @@
 		cell = [tableView dequeueReusableCellWithIdentifier:@"TableViewHeader"];
 		if (cell == nil) 
 		{
-			cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"TableViewHeader"] autorelease];
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TableViewHeader"] autorelease];
 		}
 		
 		cell.backgroundColor = [UIColor clearColor];
@@ -121,7 +121,7 @@
 		
 		if (cell == nil) 
 		{
-			cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"TableViewCell"] autorelease];
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TableViewCell"] autorelease];
 		}
 		
 		NSDictionary *levelDictionary = [self.states objectAtIndex:indexPath.row];

@@ -113,7 +113,7 @@
 		cell = [tableView dequeueReusableCellWithIdentifier:@"TableViewHeader"];
 		if (cell == nil) 
 		{
-			cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"TableViewHeader"] autorelease];
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TableViewHeader"] autorelease];
 		}
 		
 		//UIImageView *bg = [[UIImageView alloc] initWithFrame:cell.frame];
@@ -149,7 +149,7 @@
 		
 		if (cell == nil) 
 		{
-			cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"TableViewCell"] autorelease];
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TableViewCell"] autorelease];
 		}
 		
 		NSDictionary *levelDictionary = [delegate.levels objectAtIndex:indexPath.row];
