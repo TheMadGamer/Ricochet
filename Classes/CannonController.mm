@@ -46,7 +46,7 @@ void CannonController::FireBall(){
 		ball->mActive = true;
 		
 		mBalls.pop();
-		DLog(@"Cannon Fire N Balls %d", mBalls.size());
+		DLog(@"Cannon Fire N Balls %d", (int)mBalls.size());
 		
 		btVector3 ballPosition = ball->GetPosition();
 		DLog(@"Cannon Fire ball pos %f %f %f", ballPosition.x(), ballPosition.y(),

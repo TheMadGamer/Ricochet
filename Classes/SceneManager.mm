@@ -486,9 +486,7 @@ void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
 
 // spawn in objects
 void SceneManager::LoadGeneratedObjects(NSDictionary *rootDictionary)
-{
-	int poolBallCount = 0;
-	
+{	
 	NSDictionary *levelDictionary = [rootDictionary objectForKey:@"GeneratedObjects"];
 	// load up generated gophers and balls
 	

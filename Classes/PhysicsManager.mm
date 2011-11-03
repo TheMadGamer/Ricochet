@@ -217,7 +217,7 @@ namespace Dog3D
 		
 		btVector3 worldAabbMin(-100,-4,-100);
 		btVector3 worldAabbMax(100,4,100);
-		int maxProxies = 256;
+		//int maxProxies = 256;
 		mBroadphase = new btDbvtBroadphase();//new btAxisSweep3(worldAabbMin,worldAabbMax,maxProxies);
 		
 		mCollisionConfiguration = new btDefaultCollisionConfiguration();

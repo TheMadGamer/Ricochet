@@ -547,7 +547,7 @@ namespace Dog3D
 		
 		if(numToSpawn > 0)
 		{
-			DLog(@"Active %d Gophs to Spawn %d", mActiveGophers.size(), mNumGophersToSpawn);
+			DLog(@"Active %lu Gophs to Spawn %d", mActiveGophers.size(), mNumGophersToSpawn);
 			DLog(@"Spawining in %d gophers", numToSpawn);
 		}
 		

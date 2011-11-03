@@ -263,8 +263,7 @@ float kWallHeight = 1;
 #if DEBUG
 		if(fpsTime > 1.0f)
 		{
-			float fps = fpsFrames / fpsTime;
-			
+			//float  fps = fpsFrames / fpsTime;
 			//NSLog(@"FPS : %f", fps);
 				
 			fpsTime = 0;
@@ -495,7 +494,7 @@ const float kFarmerMax = 7.0f;
 			
     //for (UITouch *touch in touches) {
 
-        CGPoint point = [touch locationInView:self];
+        //CGPoint point = [touch locationInView:self];
         
         CGPoint touchPoint = [touch locationInView:self];
         

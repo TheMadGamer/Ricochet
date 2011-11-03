@@ -69,7 +69,7 @@ void ParticleEmitter::UpdateSimulation(float dt)
         mParticles.push_back(p);
         mParticlesToEmit -= 1.0f;
     }
-    size_t prevSize =  mParticles.size();
+    //size_t prevSize =  mParticles.size();
     // remove if outside bounds
     mParticles.remove_if(TooFar);
     mParticles.remove_if(ZeroAttenuation);
