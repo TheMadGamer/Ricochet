@@ -35,7 +35,7 @@ using namespace Dog3D;
 		
 		SceneManager::LevelControlInfo levelControl(controlDictionary);
 		
-		NSString* imageName = @"Instructions_Cannon.png";
+		NSString* imageName = @"Instructions1.png";
 		
 		instructionView.image = [UIImage imageNamed:imageName];
 		[controlDictionary release];
@@ -54,41 +54,21 @@ using namespace Dog3D;
 - (IBAction) NextFrame:(id) sender;
 {
     // Code for multi-plate instructions
-	/*if([levelToLoad isEqualToString:@"Basics"])
-	{
-		if(frameIndex == 1 ) 
-		{
-			
-			frameIndex++;
-			
-			NSString* imageName = @"Instructions_Goal.png";
 
-			instructionView.image = [UIImage imageNamed:imageName];
-			
-		}
-		else if(frameIndex == 2){
-			
-			NSString* imageName = @"Instructions_Tilt.png";
-			
-			
-			instructionView.image = [UIImage imageNamed:imageName];
-			frameIndex++;
-		}
-		else
-		{
-			
-			[self.delegate instructionsViewControllerDidFinish:self withSelectedLevel:levelToLoad];
-			frameIndex++;
-		}
-		
-		
-	}
+    if(frameIndex == 1 ) 
+    {
+        frameIndex++;
+        
+        NSString* imageName = @"Instructions2.png";
+
+        instructionView.image = [UIImage imageNamed:imageName];
+        
+    }
 	else 
 	{
 		[self.delegate instructionsViewControllerDidFinish:self withSelectedLevel:levelToLoad];
 		
-	}*/
-    [self.delegate instructionsViewControllerDidFinish:self withSelectedLevel:levelToLoad];
+	}
 }
 
 - (void)dealloc {

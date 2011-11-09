@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-
 <dict>
 	<key>LayoutObjects</key>
 	<dict>
@@ -16,7 +15,7 @@
 			<key>type</key>
 			<string>spawn</string>
 			<key>ry</key>
-			<real>0.0</real>
+			<real>0</real>
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
@@ -37,7 +36,7 @@
 			<key>type</key>
 			<string>spawn</string>
 			<key>ry</key>
-			<real>0.0</real>
+			<real>0</real>
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
@@ -52,13 +51,13 @@
 			<key>x</key>
 			<real>3.52549423159</real>
 			<key>y</key>
-			<real>0.0</real>
+			<real>0</real>
 			<key>z</key>
 			<real>-158.167426819</real>
 			<key>type</key>
 			<string>carrot</string>
 			<key>ry</key>
-			<real>0.0</real>
+			<real>0</real>
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
@@ -83,9 +82,9 @@
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
-			<real>2.0</real>
+			<real>2</real>
 			<key>sy</key>
-			<real>8.0</real>
+			<real>8</real>
 			<key>sz</key>
 			<real>0.5</real>
 		</dict>
@@ -96,7 +95,7 @@
 			<key>y</key>
 			<real>1.99416814627</real>
 			<key>z</key>
-			<real>-9.53945493333</real>
+			<real>-9.539454933329999</real>
 			<key>type</key>
 			<string>hedge1</string>
 			<key>ry</key>
@@ -104,9 +103,9 @@
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
-			<real>2.0</real>
+			<real>2</real>
 			<key>sy</key>
-			<real>8.0</real>
+			<real>8</real>
 			<key>sz</key>
 			<real>0.5</real>
 		</dict>
@@ -125,9 +124,9 @@
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
-			<real>2.0</real>
+			<real>2</real>
 			<key>sy</key>
-			<real>8.0</real>
+			<real>8</real>
 			<key>sz</key>
 			<real>0.5</real>
 		</dict>
@@ -138,7 +137,7 @@
 			<key>y</key>
 			<real>1.99416814627</real>
 			<key>z</key>
-			<real>-9.53945493333</real>
+			<real>-9.539454933329999</real>
 			<key>type</key>
 			<string>hedge1</string>
 			<key>ry</key>
@@ -146,9 +145,9 @@
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
-			<real>2.0</real>
+			<real>2</real>
 			<key>sy</key>
-			<real>8.0</real>
+			<real>8</real>
 			<key>sz</key>
 			<real>0.5</real>
 		</dict>
@@ -167,16 +166,16 @@
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
-			<real>2.0</real>
+			<real>2</real>
 			<key>sy</key>
-			<real>8.0</real>
+			<real>8</real>
 			<key>sz</key>
 			<real>0.5</real>
 		</dict>
 		<key>Hedge24</key>
 		<dict>
 			<key>x</key>
-			<real>8.82963664226</real>
+			<real>8.829636642260001</real>
 			<key>y</key>
 			<real>1.99416814627</real>
 			<key>z</key>
@@ -188,9 +187,9 @@
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
-			<real>2.0</real>
+			<real>2</real>
 			<key>sy</key>
-			<real>8.0</real>
+			<real>8</real>
 			<key>sz</key>
 			<real>0.5</real>
 		</dict>
@@ -239,7 +238,7 @@
 		<key>Hedge27</key>
 		<dict>
 			<key>x</key>
-			<real>8.82963664226</real>
+			<real>8.829636642260001</real>
 			<key>y</key>
 			<real>1.99416814627</real>
 			<key>z</key>
@@ -251,9 +250,9 @@
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
-			<real>2.0</real>
+			<real>2</real>
 			<key>sy</key>
-			<real>8.0</real>
+			<real>8</real>
 			<key>sz</key>
 			<real>0.5</real>
 		</dict>
@@ -272,9 +271,9 @@
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
-			<real>2.0</real>
+			<real>2</real>
 			<key>sy</key>
-			<real>8.0</real>
+			<real>8</real>
 			<key>sz</key>
 			<real>0.5</real>
 		</dict>
@@ -294,7 +293,7 @@
 		<key>NumBalls</key>
 		<integer>5</integer>
 		<key>BallTypes</key>
-		<integer>8</integer>
+		<integer>1</integer>
 		<key>XBounds</key>
 		<real>10</real>
 		<key>ZBounds</key>
@@ -305,13 +304,13 @@
 		<array>
 			<dict>
 				<key>Time</key>
-				<real>0.0</real>
+				<real>0</real>
 				<key>Gophers</key>
 				<integer>100</integer>
 			</dict>
 			<dict>
 				<key>Time</key>
-				<real>0.0</real>
+				<real>0</real>
 				<key>Gophers</key>
 				<integer>100</integer>
 			</dict>
@@ -338,7 +337,7 @@
 			<key>type</key>
 			<string>cannon</string>
 			<key>scale</key>
-			<real>1.0</real>
+			<real>1</real>
 			<key>x</key>
 			<real>0.0400156904343</real>
 			<key>y</key>
@@ -352,7 +351,7 @@
 			<key>rotationBoundLower</key>
 			<real>-8.93609671111</real>
 			<key>powerScale</key>
-			<real>2.0</real>
+			<real>2</real>
 		</dict>
 	</dict>
 </dict>

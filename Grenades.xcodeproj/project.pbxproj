@@ -166,8 +166,8 @@
 		EA762E6A11EFE6CD00697A9F /* Black.png in Resources */ = {isa = PBXBuildFile; fileRef = EA762E6911EFE6CD00697A9F /* Black.png */; };
 		EA7774D1132DDECD00593D94 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA7774D0132DDECD00593D94 /* StoreKit.framework */; };
 		EA820AD71106D06C00E8B8FE /* FakeGLU.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA820AD61106D06C00E8B8FE /* FakeGLU.mm */; };
-		EA89DBD811E2830F00CFEED1 /* Instructions_Cannon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA89DBD511E2830F00CFEED1 /* Instructions_Cannon.png */; };
-		EA89DC0311E290B900CFEED1 /* Instructions_Intro.png in Resources */ = {isa = PBXBuildFile; fileRef = EA89DC0211E290B900CFEED1 /* Instructions_Intro.png */; };
+		EA841F86146B2C2100E3538D /* Instructions1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA841F84146B2C2100E3538D /* Instructions1.png */; };
+		EA841F87146B2C2100E3538D /* Instructions2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA841F85146B2C2100E3538D /* Instructions2.png */; };
 		EA922D9E1461012C00A65609 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = EA922D9D1461012C00A65609 /* Splash.png */; };
 		EA922DA01461027E00A65609 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA922D9F1461027E00A65609 /* Icon.png */; };
 		EA922DA21461028400A65609 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA922DA11461028400A65609 /* Icon@2x.png */; };
@@ -544,8 +544,8 @@
 		EA79D77F11419DA3006E6EDC /* GopherController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GopherController.h; sourceTree = "<group>"; };
 		EA820A6C1106B72800E8B8FE /* FakeGLU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeGLU.h; sourceTree = "<group>"; };
 		EA820AD61106D06C00E8B8FE /* FakeGLU.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FakeGLU.mm; sourceTree = "<group>"; };
-		EA89DBD511E2830F00CFEED1 /* Instructions_Cannon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Instructions_Cannon.png; path = Instructions/Instructions_Cannon.png; sourceTree = "<group>"; };
-		EA89DC0211E290B900CFEED1 /* Instructions_Intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Instructions_Intro.png; path = Instructions/Instructions_Intro.png; sourceTree = "<group>"; };
+		EA841F84146B2C2100E3538D /* Instructions1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instructions1.png; sourceTree = "<group>"; };
+		EA841F85146B2C2100E3538D /* Instructions2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instructions2.png; sourceTree = "<group>"; };
 		EA922D9D1461012C00A65609 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Splash.png; sourceTree = "<group>"; };
 		EA922D9F1461027E00A65609 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		EA922DA11461028400A65609 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -1288,8 +1288,8 @@
 		EA89DBD311E2818E00CFEED1 /* Instructions */ = {
 			isa = PBXGroup;
 			children = (
-				EA89DC0211E290B900CFEED1 /* Instructions_Intro.png */,
-				EA89DBD511E2830F00CFEED1 /* Instructions_Cannon.png */,
+				EA841F84146B2C2100E3538D /* Instructions1.png */,
+				EA841F85146B2C2100E3538D /* Instructions2.png */,
 			);
 			name = Instructions;
 			sourceTree = "<group>";
@@ -1964,8 +1964,6 @@
 				EA96FFCE11AF499600FFE13C /* button.png in Resources */,
 				EAA5A05F11D98CD6005A79DE /* Arrows.png in Resources */,
 				EAA5A07F11D98F7B005A79DE /* Line.png in Resources */,
-				EA89DBD811E2830F00CFEED1 /* Instructions_Cannon.png in Resources */,
-				EA89DC0311E290B900CFEED1 /* Instructions_Intro.png in Resources */,
 				EA762E6A11EFE6CD00697A9F /* Black.png in Resources */,
 				EA1127C411F76757000A8124 /* SchemingWeasel.mp3 in Resources */,
 				EA1128EE11F79D0A000A8124 /* FeelinGood4.caf in Resources */,
@@ -2129,6 +2127,8 @@
 				EA922D9E1461012C00A65609 /* Splash.png in Resources */,
 				EA922DA01461027E00A65609 /* Icon.png in Resources */,
 				EA922DA21461028400A65609 /* Icon@2x.png in Resources */,
+				EA841F86146B2C2100E3538D /* Instructions1.png in Resources */,
+				EA841F87146B2C2100E3538D /* Instructions2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

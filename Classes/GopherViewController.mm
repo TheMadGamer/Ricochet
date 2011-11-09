@@ -3,7 +3,7 @@
 //  Gopher
 //
 //  Created by Anthony Lobay on 5/10/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Copyright 2010 3dDogStudios. All rights reserved.
 //
 
 #import "GopherViewController.h"
@@ -448,7 +448,7 @@ using namespace Dog3D;
 		mInstructionsView.transform = transform;
 		
         UIImage *image = [UIImage imageWithContentsOfFile:
-                          [[NSBundle mainBundle] pathForResource:@"Instructions_Cannon" ofType:@"png"]];
+                          [[NSBundle mainBundle] pathForResource:@"Instructions1" ofType:@"png"]];
 		mInstructionsView.image = image;
 		
 		{

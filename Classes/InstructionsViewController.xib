@@ -51,7 +51,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">Instructions_Cannon.png</string>
+							<string key="NSResourceName">Instructions1.png</string>
 						</object>
 					</object>
 					<object class="IBUIView" id="256993278">
@@ -310,7 +310,7 @@
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>ArrowButtonGold.png</string>
-				<string>Instructions_Cannon.png</string>
+				<string>Instructions1.png</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>

@@ -14,16 +14,6 @@
 		<key>colorID</key>
 		<integer>2</integer>
 		<key>filename</key>
-		<string>Pot1.plist</string>
-		<key>title</key>
-		<string>Pot1</string>
-	</dict>
-	<dict>
-		<key>bonus</key>
-		<true/>
-		<key>colorID</key>
-		<integer>2</integer>
-		<key>filename</key>
 		<string>Intro0.plist</string>
 		<key>title</key>
 		<string>Intro 0</string>
@@ -77,6 +67,16 @@
 		<string>Ricochet2.plist</string>
 		<key>title</key>
 		<string>Ricochet 2</string>
+	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
+		<string>Pot1.plist</string>
+		<key>title</key>
+		<string>Pot1</string>
 	</dict>
 	<dict>
 		<key>bonus</key>
