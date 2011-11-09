@@ -687,17 +687,22 @@ using namespace Dog3D;
 	{
 		return;
 	}
-	
-	
-    [mInstructionsView removeFromSuperview];
-    [mInstructionsView release];
-    mInstructionsView = nil;				
-    
-    [mInstructionsButton removeFromSuperview];
-    mInstructionsButton = nil;
-    
-    [self resumeLevel];
-    mFrameIndex = 1;
+	else if (mFrameIndex == 1) {
+        //mInstructionsView.image = [[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] 
+        
+        mFrameIndex++;
+    } else {
+        
+        [mInstructionsView removeFromSuperview];
+        [mInstructionsView release];
+        mInstructionsView = nil;				
+        
+        [mInstructionsButton removeFromSuperview];
+        mInstructionsButton = nil;
+        
+        [self resumeLevel];
+        mFrameIndex = 1;
+    }
 }
 
 @end
