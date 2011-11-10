@@ -688,8 +688,7 @@ using namespace Dog3D;
 		return;
 	}
 	else if (mFrameIndex == 1) {
-        //mInstructionsView.image = [[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] 
-        
+        mInstructionsView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Instructions2" ofType:@"png"]];
         mFrameIndex++;
     } else {
         
