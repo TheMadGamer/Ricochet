@@ -134,16 +134,6 @@
 		<key>colorID</key>
 		<integer>2</integer>
 		<key>filename</key>
-		<string>RicochetSpin8.plist</string>
-		<key>title</key>
-		<string>Ricochet 8</string>
-	</dict>
-	<dict>
-		<key>bonus</key>
-		<true/>
-		<key>colorID</key>
-		<integer>2</integer>
-		<key>filename</key>
 		<string>Ricochet9.plist</string>
 		<key>title</key>
 		<string>Ricochet 9</string>

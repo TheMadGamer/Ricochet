@@ -244,7 +244,7 @@
 		<key>Background</key>
 		<string>InsanelyHard</string>
 		<key>BallTypes</key>
-		<integer>8</integer>
+		<integer>1</integer>
 		<key>CollisionAvoidance</key>
 		<integer>0</integer>
 		<key>GamePlayMode</key>

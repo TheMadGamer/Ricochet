@@ -495,7 +495,7 @@
 		<key>NumGopherLives</key>
 		<integer>12</integer>
 		<key>Background</key>
-		<string>CropCircles</string>
+		<string>GreenBlank</string>
 		<key>GamePlayMode</key>
 		<integer>9</integer>
 		<key>ScoreMode</key>
