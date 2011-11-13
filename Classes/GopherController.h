@@ -28,6 +28,7 @@ namespace Dog3D
 		enum ControllerState
 		{
 			SPAWN, 
+            SPAWN_DELAY,
 			IDLE, 
 			EAT,
 			EAT_FINAL,
@@ -61,6 +62,11 @@ namespace Dog3D
 		float mExplodeTime;
 		
 		float mTauntTime;
+        
+        // randomize spawn in 
+        float mSpawnDelay;
+        
+        bool mSpawning;
 		
 	public:
 		
@@ -72,9 +78,12 @@ namespace Dog3D
 		mSpawnTime(0.0),
 		mTetheredHole(NULL),
 		mAvoidCollisions(false),
-		mTauntTime(0)
+		mTauntTime(0),
+        mSpawning(false)
 		{
 			mTypeId = NAVIGATION;
+            // random 3 second interval
+            mSpawnDelay = (float) random()/RAND_MAX * 3.0f ;
 		}
 				
 		inline ControllerState GetControllerState(){ return mControllerState;}
@@ -93,7 +102,7 @@ namespace Dog3D
 		
 #pragma mark STATE ACTIVATION
 		// spawn in a gopher
-		void Spawn(const btVector3 &position);
+		void Spawn(const btVector3 &position, float delay);
 		
 		// idle the gopher
 		void Idle();

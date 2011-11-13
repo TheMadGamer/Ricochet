@@ -848,7 +848,7 @@ void SceneManager::CreateWalls( const string *backgroundTexture, int wallFlags)
 	
 	float kEpsilon = 0.5;
 	
-	const float wallRestitution = 1.0f;
+	const float wallRestitution = 1.1f;
 	
 	// create ground 
 	if(wallFlags & FLOOR) {
@@ -921,7 +921,7 @@ void SceneManager::Update(float dt)
 				item = GameEntityFactory::BuildCircularCollider(
                                                                 info->mPosition, 
                                                                 info->mScale, 
-                                                                0.45f,  
+                                                                1.0f,  
                                                                 @"rock", 
                                                                 1.33f);
 				

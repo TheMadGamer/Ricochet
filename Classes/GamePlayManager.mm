@@ -501,7 +501,7 @@ namespace Dog3D
 			{
 				// this puts the gopher into a spawn state
 				// away from everythign
-				(*it)->Spawn(btVector3(0,-100.1,0));
+				(*it)->Spawn(btVector3(0,-100.1,0), 2.0f);
 				
 				static_cast<AnimatedGraphicsComponent*>(gopher->GetGraphicsComponent())->PlayAnimation(AnimatedGraphicsComponent::IDLE);
 				gopher->mActive = false;
@@ -540,7 +540,7 @@ namespace Dog3D
 		}
 		
 
-    mNumGophersToSpawn = min(mNumGophersToSpawn, mGopherLives);
+        mNumGophersToSpawn = min(mNumGophersToSpawn, mGopherLives);
 		
 
 		int numToSpawn =  mNumGophersToSpawn - mActiveGophers.size() ;
@@ -579,7 +579,7 @@ namespace Dog3D
 					btVector3 spawnPosition = spawn->GetPosition();
 					spawnPosition.setY(0.1);
 					
-					controller->Spawn(spawnPosition);
+					controller->Spawn(spawnPosition, 2.0f);
 					mSpawnComponents[randomSpawn]->SetOccupied();
 					
 					gopher->mActive = true;

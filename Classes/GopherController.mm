@@ -24,14 +24,15 @@
 namespace Dog3D
 {
 	
-	void GopherController::Spawn( const btVector3 &spawnPosition)
+	void GopherController::Spawn( const btVector3 &spawnPosition, float delay)
 	{
+        mSpawnDelay = delay * (float) random()/RAND_MAX ;
 		mParent->SetPosition(spawnPosition);
 		
 		mControllerState = SPAWN;
+        mParent->GetGraphicsComponent()->mActive = false;
+        
 		
-		static_cast<AnimatedGraphicsComponent *>(mParent->GetGraphicsComponent())
-			->StartAnimation(AnimatedGraphicsComponent::JUMP_DOWN_HOLE, MIRROR_NONE,  false);
 	}
 
 	void GopherController::Idle()
@@ -418,20 +419,32 @@ namespace Dog3D
 	
 	void GopherController::UpdateSpawn(float dt)
 	{
-		// TODO - update the controller's spawn in 
-		btVector3 position = mParent->GetPosition();
-		
-		// moves the gopher off the hole (up/down)
-		float dX = position.getX() > 0 ? -0.006f : 0.006f; 
-		position.setX(position.getX() + dX);					
-		
-		mParent->SetPosition(position);	
-		
-		// at end of animation, transition to Idle
-		if(static_cast<AnimatedGraphicsComponent *>(mParent->GetGraphicsComponent())->LastFrame())
-		{
-			Idle();	
-		}
+        if (mSpawnDelay <= 0)
+        {
+            if(!mSpawning){
+                mParent->GetGraphicsComponent()->mActive = true;
+                static_cast<AnimatedGraphicsComponent *>(mParent->GetGraphicsComponent())
+                ->StartAnimation(AnimatedGraphicsComponent::JUMP_DOWN_HOLE, MIRROR_NONE,  false);
+                mSpawning = true;
+            }
+            
+            // TODO - update the controller's spawn in 
+            btVector3 position = mParent->GetPosition();
+            
+            // moves the gopher off the hole (up/down)
+            float dX = position.getX() > 0 ? -0.006f : 0.006f; 
+            position.setX(position.getX() + dX);					
+            
+            mParent->SetPosition(position);	
+            
+            // at end of animation, transition to Idle
+            if(static_cast<AnimatedGraphicsComponent *>(mParent->GetGraphicsComponent())->LastFrame())
+            {
+                Idle();	
+            }
+        } else { 
+            mSpawnDelay -= dt;
+        }
 	}
 	
 	void GopherController::UpdateEat(float dt)

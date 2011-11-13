@@ -281,7 +281,7 @@ Entity *GameEntityFactory::BuildCharacter( float radius, btVector3 &initialPosit
 	gopher->SetController(navigationComponent);
 	
 	// start in a spawn state, away from everything
-	navigationComponent->Spawn(btVector3(0,-100.1,0));
+	navigationComponent->Spawn(btVector3(0,-100.1,0), 3.0f);
 	GamePlayManager::Instance()->AddGopherController(navigationComponent);
 	
 
