@@ -167,7 +167,7 @@ namespace Dog3D
         mRigidBody->setActivationState( DISABLE_DEACTIVATION );
         
         //mHinge->setLimit( 0, 3.14/2.0);
-        mHinge->enableAngularMotor(true, 1.0f, 10.0f);
+        mHinge->enableAngularMotor(true, 1.0f, 100.0f);
         
         PhysicsManager::Instance()->AddConstraint(mHinge);
         
