@@ -168,6 +168,7 @@
 		EA820AD71106D06C00E8B8FE /* FakeGLU.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA820AD61106D06C00E8B8FE /* FakeGLU.mm */; };
 		EA841F86146B2C2100E3538D /* Instructions1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA841F84146B2C2100E3538D /* Instructions1.png */; };
 		EA841F87146B2C2100E3538D /* Instructions2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA841F85146B2C2100E3538D /* Instructions2.png */; };
+		EA841F891470D10A00E3538D /* ribbit.caf in Resources */ = {isa = PBXBuildFile; fileRef = EA841F881470D10A00E3538D /* ribbit.caf */; };
 		EA922D9E1461012C00A65609 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = EA922D9D1461012C00A65609 /* Splash.png */; };
 		EA922DA01461027E00A65609 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA922D9F1461027E00A65609 /* Icon.png */; };
 		EA922DA21461028400A65609 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA922DA11461028400A65609 /* Icon@2x.png */; };
@@ -546,6 +547,7 @@
 		EA820AD61106D06C00E8B8FE /* FakeGLU.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FakeGLU.mm; sourceTree = "<group>"; };
 		EA841F84146B2C2100E3538D /* Instructions1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instructions1.png; sourceTree = "<group>"; };
 		EA841F85146B2C2100E3538D /* Instructions2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instructions2.png; sourceTree = "<group>"; };
+		EA841F881470D10A00E3538D /* ribbit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ribbit.caf; sourceTree = "<group>"; };
 		EA922D9D1461012C00A65609 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Splash.png; sourceTree = "<group>"; };
 		EA922D9F1461027E00A65609 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		EA922DA11461028400A65609 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -1093,6 +1095,7 @@
 			children = (
 				EA11295C11F7AACB000A8124 /* Boom2.caf */,
 				EA11292F11F7A867000A8124 /* Boom1.caf */,
+				EA841F881470D10A00E3538D /* ribbit.caf */,
 				EA1128ED11F79D0A000A8124 /* FeelinGood4.caf */,
 				EA1127C311F76757000A8124 /* SchemingWeasel.mp3 */,
 			);
@@ -2129,6 +2132,7 @@
 				EA922DA21461028400A65609 /* Icon@2x.png in Resources */,
 				EA841F86146B2C2100E3538D /* Instructions1.png in Resources */,
 				EA841F87146B2C2100E3538D /* Instructions2.png in Resources */,
+				EA841F891470D10A00E3538D /* ribbit.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

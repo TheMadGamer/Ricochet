@@ -26,7 +26,12 @@ AudioDispatch::AudioDispatch()
 	[[SoundEffect alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Boom2" ofType:@"caf"]];
 
 	mSoundEffects.push_back(boom2Effect);	
+    
+	SoundEffect *ribbit = 
+	[[SoundEffect alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ribbit" ofType:@"caf"]];
 	
+    mSoundEffects.push_back(ribbit);
+    
 	mAudioIsOn = true;
 	
 }

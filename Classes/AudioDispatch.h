@@ -32,7 +32,8 @@ namespace Dog3D
 		enum SoundEffects
 		{
 			Boom1 = 0, 
-			Boom2 = 1
+			Boom2 = 1,
+            Ribbit = 2
 		};
 		
 		static AudioDispatch *Instance(){ return sInstance;}

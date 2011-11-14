@@ -176,14 +176,14 @@ namespace Dog3D
     void PhysicsComponent::EnableHingeMotor()
     {
         PhysicsManager::Instance()->RemoveConstraint(mHinge);
-        mHinge->enableAngularMotor(true, 1.0f, 10.0f);
+        mHinge->enableAngularMotor(true, 1.0f, 100.0f);
         PhysicsManager::Instance()->AddConstraint(mHinge);
     }
 
     void PhysicsComponent::DisableHingeMotor()
     {
         PhysicsManager::Instance()->RemoveConstraint(mHinge);
-        mHinge->enableAngularMotor(true, 0.0f, 10.0f);
+        mHinge->enableAngularMotor(true, 0.0f, 100.0f);
         PhysicsManager::Instance()->AddConstraint(mHinge);
 
     }
