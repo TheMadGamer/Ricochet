@@ -341,7 +341,7 @@ void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
 			float triggerX = [[object objectForKey:@"triggerX"] floatValue];
 			float triggerZ = [[object objectForKey:@"triggerZ"] floatValue];
 			
-			pair<Entity *, Entity*> items = GameEntityFactory::BuildGate(pos, extents, rotationY, mFixedRest, @"fenceC", @"Target", 1.33f, triggerX, triggerZ);
+			pair<Entity *, Entity*> items = GameEntityFactory::BuildGate(pos, extents, rotationY, mFixedRest, @"fenceC", @"frog", 1.33f, triggerX, triggerZ);
 			mSceneElements.insert(items.first);
             mSceneElements.insert(items.second);
 			

@@ -88,9 +88,8 @@ pair<Entity *, Entity *> GameEntityFactory::BuildGate( btVector3 &initialPositio
     Entity *trigger = new Entity();
     trigger->SetPosition(triggerPosition);
     {
-        GraphicsComponent *graphicsComponent = GraphicsComponentFactory::BuildSprite(graphicsScale, 
-                                                                                     graphicsScale, 
-                                                                                     targetTextureName);
+        GraphicsComponent *graphicsComponent = 
+            GraphicsComponentFactory::BuildHoldLastAnim(graphicsScale*1.5f, graphicsScale*1.5f, targetTextureName, 4, 2);
         
         GraphicsManager::Instance()->AddComponent(graphicsComponent);
         trigger->SetGraphicsComponent(graphicsComponent);	
@@ -103,10 +102,10 @@ pair<Entity *, Entity *> GameEntityFactory::BuildGate( btVector3 &initialPositio
         info.mCollisionGroup = GRP_EXPLODABLE;
         info.mCollidesWith = GRP_BALL | GRP_GOPHER;
         
-        PhysicsComponent *physicsBox = PhysicsComponentFactory::BuildBox( triggerPosition, halfExtents, yRotation, info );
+        PhysicsComponent *physicsCyl = PhysicsComponentFactory::BuildCylinder(halfExtents.x(), halfExtents.y(), triggerPosition, info );
         
-        PhysicsManager::Instance()->AddComponent( physicsBox  );
-        trigger->SetPhysicsComponent( physicsBox );
+        PhysicsManager::Instance()->AddComponent( physicsCyl );
+        trigger->SetPhysicsComponent( physicsCyl );
         
         TriggerComponent *triggerCtl = new TriggerComponent(gateCtl);
         trigger->SetExplodable(triggerCtl);

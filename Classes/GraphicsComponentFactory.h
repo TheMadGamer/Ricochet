@@ -48,7 +48,7 @@ namespace Dog3D
 		static HUDGraphicsComponent* BuildHUD(btVector3& extents, float widthSpacing, int nGopherLives, 
 											  bool alignLeft, NSString *textureName);
 	
-		static HoldLastAnim* BuildHoldLastAnim(float width, float height, NSString *effect, int nTiles);
+		static HoldLastAnim* BuildHoldLastAnim(float width, float height, NSString *effect, int nTiles,float tileWidth=4);
 
 	};
 	

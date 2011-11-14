@@ -459,7 +459,8 @@ HoldLastAnim* GraphicsComponentFactory::BuildHoldLastAnim(
 										float width,  
 										float height,
 										NSString *effect, 
-										int nTiles)
+										int nTiles, 
+                                        float tileWidth)
 {
 	HoldLastAnim *graphicsComponent = new HoldLastAnim(width, height);
 	
@@ -495,8 +496,8 @@ HoldLastAnim* GraphicsComponentFactory::BuildHoldLastAnim(
 		
 		Texture2D *texture = GraphicsManager::Instance()->GetTexture(effect);
 		SpriteAnimation *animation = new SpriteAnimation();
-		animation->mTileWidth = 4;
-		animation->mTileHeight = 4;
+		animation->mTileWidth = tileWidth;
+		animation->mTileHeight = tileWidth;
 		animation->mTileCount = nTiles;
 		///// START ANIM AT LAST FRAME ////
 		animation->mTileIndex = nTiles-1;

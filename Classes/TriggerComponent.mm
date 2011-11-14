@@ -7,6 +7,7 @@
  *
  */
 #import "TriggerComponent.h"
+#import "GraphicsComponent.h"
 
 using namespace Dog3D;
 
@@ -14,6 +15,8 @@ void TriggerComponent::OnCollision( Entity *collidesWith)
 {
 	if(mGate != NULL && mCountdown <= 0)
 	{
+        HoldLastAnim *graphics = (HoldLastAnim *)mParent->GetGraphicsComponent();
+        graphics->StartAnimation(AnimatedGraphicsComponent::IDLE);
         mCountdown = kCountdown;
 		mGate->Activate();
 	}
