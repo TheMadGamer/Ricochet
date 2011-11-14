@@ -396,31 +396,7 @@ namespace Dog3D
 				mTouched = false;
 				
 			}
-#ifdef ENABLE_FLICK_MODE			
-			// flick control mode
-			if( mFlicked )
-			{
-				btRigidBody *rigidBody = physicsComponent->GetRigidBody();
-				
-				//mFlick *= 5.0;
-				float velocity = mFlick.length();
-				if(velocity > 100)
-				{
-					mFlick.normalize();
-					mFlick *= 100;
-				}
-				
-				rigidBody->setLinearVelocity(mFlick);
-				
-				// let ball move under physics control
-				physicsComponent->SetKinematic(false);
-				explodable->Prime();
-				
-				mFlicked = false;
-			}
-#endif
 		}
-		
 	}
 	
 	// check ball/gopher collisions for explode

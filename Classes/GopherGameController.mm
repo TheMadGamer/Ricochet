@@ -206,7 +206,7 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 		
         if( err ){
             //bail!
-            DLog(@"Failed with reason: %@", [err localizedDescription]);
+            DLog(@"Audio Failed with reason: %@", [err localizedDescription]);
         }
         else{
             //set our delegate and begin playback
