@@ -27,7 +27,7 @@
 #import "ExplodableComponent.h"
 #import "SceneManager.h"
 #import "CannonController.h"
-#import "GateControllerComponent.h"
+#import "GateController.h"
 #import "SpinnerController.h"
 
 #import <vector>
@@ -168,6 +168,7 @@ pair<Entity *, Entity *> GateFactory::BuildDrivenGate( btVector3 &initialPositio
     }
     
 	GateController *gateCtl = new GateController(PI/2.0f, 10.0f, 0.0f, -PI/2.0f );
+    gateCtl->mFreeSpinner = false;
 	gate->AddComponent(gateCtl);
 	
     

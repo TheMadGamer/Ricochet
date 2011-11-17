@@ -12,7 +12,7 @@
 #import <list>
 #import "PhysicsComponent.h"
 #import "TriggerComponent.h"
-#import "GateControllerComponent.h"
+#import "GateController.h"
 
 #import "GopherController.h"
 #import "SpawnComponent.h"

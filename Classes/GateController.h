@@ -27,7 +27,8 @@ namespace Dog3D
 		mTimer(0.0f),
 		mOpenAngle(openAngle),
 		mClosedAngle(closedAngle),
-		mState(true)
+		mState(true),
+        mFreeSpinner(true)
 		{}
         
 		virtual void Activate();
@@ -46,6 +47,9 @@ namespace Dog3D
 		
 		// int open = true
 		bool mState;
+    public:
+        // free spinner (no = driven)
+        bool mFreeSpinner;
 		
 		
 	};

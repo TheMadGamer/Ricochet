@@ -7,7 +7,7 @@
  *
  */
 
-#import "GateControllerComponent.h"
+#import "GateController.h"
 #import "PhysicsComponent.h"
 
 using namespace Dog3D;
@@ -19,5 +19,19 @@ void GateController::Activate()
     
     // set physics hinge target direction
     PhysicsComponent *physicsComponent = GetParent()->GetPhysicsComponent();
-    physicsComponent->SetHingeDirection(mState);
+    if(mFreeSpinner)
+    {
+        if(mState)
+        {
+            physicsComponent->EnableHingeMotor();
+        }
+        else
+        {
+            physicsComponent->DisableHingeMotor();
+        }
+    }
+    else
+    {
+        physicsComponent->SetHingeDirection(mState);
+    }
 }

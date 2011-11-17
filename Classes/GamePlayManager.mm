@@ -16,7 +16,7 @@
 
 #import "TriggerComponent.h"
 #import "ExplodableComponent.h"
-#import "GateControllerComponent.h"
+#import "GateController.h"
 #import "GamePlayManager.h"
 #import "Entity.h"
 #import "GraphicsComponent.h"

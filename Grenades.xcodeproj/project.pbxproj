@@ -144,7 +144,7 @@
 		EA667CD9134FD1BC000C1D85 /* LevelPackPurchaseVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667CD7134FD1BC000C1D85 /* LevelPackPurchaseVC.mm */; };
 		EA667CDA134FD1BC000C1D85 /* LevelPackPurchaseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA667CD8134FD1BC000C1D85 /* LevelPackPurchaseVC.xib */; };
 		EA667D931350284D000C1D85 /* TriggerComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667D921350284D000C1D85 /* TriggerComponent.mm */; };
-		EA667DB413502A16000C1D85 /* GateControllerComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667DB313502A16000C1D85 /* GateControllerComponent.mm */; };
+		EA667DB413502A16000C1D85 /* GateController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667DB313502A16000C1D85 /* GateController.mm */; };
 		EA667DD613503DB0000C1D85 /* GateFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667DD513503DB0000C1D85 /* GateFactory.mm */; };
 		EA667E7D13504684000C1D85 /* SpinnerController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667E7C13504684000C1D85 /* SpinnerController.mm */; };
 		EA6A2F6F1185F93D00E5968B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6A2F6E1185F93D00E5968B /* CoreGraphics.framework */; };
@@ -513,8 +513,8 @@
 		EA667CD7134FD1BC000C1D85 /* LevelPackPurchaseVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LevelPackPurchaseVC.mm; sourceTree = "<group>"; };
 		EA667CD8134FD1BC000C1D85 /* LevelPackPurchaseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelPackPurchaseVC.xib; sourceTree = "<group>"; };
 		EA667D921350284D000C1D85 /* TriggerComponent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TriggerComponent.mm; sourceTree = "<group>"; };
-		EA667DB213502A16000C1D85 /* GateControllerComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GateControllerComponent.h; sourceTree = "<group>"; };
-		EA667DB313502A16000C1D85 /* GateControllerComponent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GateControllerComponent.mm; sourceTree = "<group>"; };
+		EA667DB213502A16000C1D85 /* GateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GateController.h; sourceTree = "<group>"; };
+		EA667DB313502A16000C1D85 /* GateController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GateController.mm; sourceTree = "<group>"; };
 		EA667DD513503DB0000C1D85 /* GateFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GateFactory.mm; sourceTree = "<group>"; };
 		EA667E7B13504684000C1D85 /* SpinnerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinnerController.h; sourceTree = "<group>"; };
 		EA667E7C13504684000C1D85 /* SpinnerController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SpinnerController.mm; sourceTree = "<group>"; };
@@ -1276,8 +1276,8 @@
 		EA667E7A13504668000C1D85 /* Kinematic */ = {
 			isa = PBXGroup;
 			children = (
-				EA667DB213502A16000C1D85 /* GateControllerComponent.h */,
-				EA667DB313502A16000C1D85 /* GateControllerComponent.mm */,
+				EA667DB213502A16000C1D85 /* GateController.h */,
+				EA667DB313502A16000C1D85 /* GateController.mm */,
 				EA3C4E0211176E1200243D5F /* TriggerComponent.h */,
 				EA667D921350284D000C1D85 /* TriggerComponent.mm */,
 				EA667E7B13504684000C1D85 /* SpinnerController.h */,
@@ -2200,7 +2200,7 @@
 				EAA1A834134EC66E00840CDB /* SquFactory.mm in Sources */,
 				EA667CD9134FD1BC000C1D85 /* LevelPackPurchaseVC.mm in Sources */,
 				EA667D931350284D000C1D85 /* TriggerComponent.mm in Sources */,
-				EA667DB413502A16000C1D85 /* GateControllerComponent.mm in Sources */,
+				EA667DB413502A16000C1D85 /* GateController.mm in Sources */,
 				EA667DD613503DB0000C1D85 /* GateFactory.mm in Sources */,
 				EA667E7D13504684000C1D85 /* SpinnerController.mm in Sources */,
 				EA9EA0D113A47D2300704CDC /* btAxisSweep3.cpp in Sources */,
