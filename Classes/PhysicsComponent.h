@@ -153,13 +153,11 @@ namespace Dog3D
 		virtual void Update(float deltaTime);
 		
         void AddHingeMotor();
-        
-    void EnableHingeMotor();
-    void DisableHingeMotor();
-    
-    void SetHingeLimit( float theta );
-    
-		
+        void AddHingeMotorWithTarget(float target);
+        void SetHingeDirection(bool positive);
+            
+        void EnableHingeMotor();
+        void DisableHingeMotor();
 	};
 }
 

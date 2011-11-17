@@ -17,15 +17,7 @@ void GateController::Activate()
     mTimer = 0;
     mState = !mState;
     
-    // set physics hinge target
-
+    // set physics hinge target direction
     PhysicsComponent *physicsComponent = GetParent()->GetPhysicsComponent();
-    
-    if (mState) 
-    {
-        physicsComponent->EnableHingeMotor();
-    } else {
-        physicsComponent->DisableHingeMotor();
-    }
-    
+    physicsComponent->SetHingeDirection(mState);
 }

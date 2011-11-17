@@ -12,6 +12,7 @@
 #import <btBulletDynamicsCommon.h>
 
 #import "GameEntityFactory.h"
+#import "GateFactory.h"
 #import "PhysicsComponentFactory.h"
 
 #import "PhysicsManager.h"
@@ -334,24 +335,27 @@ void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
 			
 			item->SetYRotation(rotationY);
 		}
-		else if([type isEqualToString:@"gate1"])
+		else if([type isEqualToString:@"gate1"] || [type isEqualToString:@"gate2"])
 		{
 			DLog(@"Loading collider %@ with YRotation %f", type, rotationY);
 			
 			float triggerX = [[object objectForKey:@"triggerX"] floatValue];
 			float triggerZ = [[object objectForKey:@"triggerZ"] floatValue];
 			
-			pair<Entity *, Entity*> items = GameEntityFactory::BuildGate(pos, extents, rotationY, mFixedRest, @"fenceC", @"frog", 1.33f, triggerX, triggerZ);
-			mSceneElements.insert(items.first);
+            pair<Entity *, Entity*> items = ([type isEqualToString:@"gate1"]) ?
+                 GateFactory::BuildSpinnerGate(pos, extents, rotationY, mFixedRest, @"fenceC", @"frog", 1.33f, triggerX, triggerZ) :
+                 GateFactory::BuildDrivenGate(pos, extents, rotationY, mFixedRest, @"fenceC", @"frog", 1.33f, triggerX, triggerZ);
+            mSceneElements.insert(items.first);
             mSceneElements.insert(items.second);
-			
+            
+            
 			items.first->SetYRotation(rotationY);
 		}
 		else if([type isEqualToString:@"spinner1"])
 		{
 			DLog(@"Loading collider %@ with YRotation %f", type, rotationY);
 			DLog(@"Spinner Ht: %f", extents.y());
-			Entity * item = GameEntityFactory::BuildSpinner(pos, extents, rotationY, 1.0f, @"fenceC", 1.33f);
+			Entity * item = GateFactory::BuildSpinner(pos, extents, rotationY, 1.0f, @"fenceC", 1.33f);
 			mSceneElements.insert(item);
 			
 			item->SetYRotation(rotationY);
@@ -918,8 +922,7 @@ void SceneManager::Update(float dt)
 			{
 				
 				DLog(@"Spawn Rock");
-				item = GameEntityFactory::BuildCircularCollider(
-                                                                info->mPosition, 
+				item = GameEntityFactory::BuildCircularCollider(info->mPosition, 
                                                                 info->mScale, 
                                                                 1.0f,  
                                                                 @"rock", 

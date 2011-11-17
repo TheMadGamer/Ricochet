@@ -146,7 +146,7 @@
 		EA667CDA134FD1BC000C1D85 /* LevelPackPurchaseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA667CD8134FD1BC000C1D85 /* LevelPackPurchaseVC.xib */; };
 		EA667D931350284D000C1D85 /* TriggerComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667D921350284D000C1D85 /* TriggerComponent.mm */; };
 		EA667DB413502A16000C1D85 /* GateControllerComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667DB313502A16000C1D85 /* GateControllerComponent.mm */; };
-		EA667DD613503DB0000C1D85 /* GenericsFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667DD513503DB0000C1D85 /* GenericsFactory.mm */; };
+		EA667DD613503DB0000C1D85 /* GateFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667DD513503DB0000C1D85 /* GateFactory.mm */; };
 		EA667E7D13504684000C1D85 /* SpinnerController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667E7C13504684000C1D85 /* SpinnerController.mm */; };
 		EA6A2F6F1185F93D00E5968B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6A2F6E1185F93D00E5968B /* CoreGraphics.framework */; };
 		EA6A2F731185F94600E5968B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6A2F721185F94600E5968B /* OpenGLES.framework */; };
@@ -169,6 +169,7 @@
 		EA841F86146B2C2100E3538D /* Instructions1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA841F84146B2C2100E3538D /* Instructions1.png */; };
 		EA841F87146B2C2100E3538D /* Instructions2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA841F85146B2C2100E3538D /* Instructions2.png */; };
 		EA841F891470D10A00E3538D /* ribbit.caf in Resources */ = {isa = PBXBuildFile; fileRef = EA841F881470D10A00E3538D /* ribbit.caf */; };
+		EA841F8C1474C90800E3538D /* Gate2.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA841F8B1474C90700E3538D /* Gate2.plist */; };
 		EA922D9E1461012C00A65609 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = EA922D9D1461012C00A65609 /* Splash.png */; };
 		EA922DA01461027E00A65609 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA922D9F1461027E00A65609 /* Icon.png */; };
 		EA922DA21461028400A65609 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA922DA11461028400A65609 /* Icon@2x.png */; };
@@ -511,7 +512,7 @@
 		EA667D921350284D000C1D85 /* TriggerComponent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TriggerComponent.mm; sourceTree = "<group>"; };
 		EA667DB213502A16000C1D85 /* GateControllerComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GateControllerComponent.h; sourceTree = "<group>"; };
 		EA667DB313502A16000C1D85 /* GateControllerComponent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GateControllerComponent.mm; sourceTree = "<group>"; };
-		EA667DD513503DB0000C1D85 /* GenericsFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GenericsFactory.mm; sourceTree = "<group>"; };
+		EA667DD513503DB0000C1D85 /* GateFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GateFactory.mm; sourceTree = "<group>"; };
 		EA667E7B13504684000C1D85 /* SpinnerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinnerController.h; sourceTree = "<group>"; };
 		EA667E7C13504684000C1D85 /* SpinnerController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SpinnerController.mm; sourceTree = "<group>"; };
 		EA6A2F6E1185F93D00E5968B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -548,6 +549,8 @@
 		EA841F84146B2C2100E3538D /* Instructions1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instructions1.png; sourceTree = "<group>"; };
 		EA841F85146B2C2100E3538D /* Instructions2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instructions2.png; sourceTree = "<group>"; };
 		EA841F881470D10A00E3538D /* ribbit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ribbit.caf; sourceTree = "<group>"; };
+		EA841F8A1474C66B00E3538D /* GateFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GateFactory.h; sourceTree = "<group>"; };
+		EA841F8B1474C90700E3538D /* Gate2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gate2.plist; sourceTree = "<group>"; };
 		EA922D9D1461012C00A65609 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Splash.png; sourceTree = "<group>"; };
 		EA922D9F1461027E00A65609 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		EA922DA11461028400A65609 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -1303,7 +1306,8 @@
 				EAA1A831134EC64100840CDB /* BunnyFactory.mm */,
 				EA12452C1106715E00B33424 /* GameEntityFactory.h */,
 				EA12452D1106715E00B33424 /* GameEntityFactory.mm */,
-				EA667DD513503DB0000C1D85 /* GenericsFactory.mm */,
+				EA841F8A1474C66B00E3538D /* GateFactory.h */,
+				EA667DD513503DB0000C1D85 /* GateFactory.mm */,
 				EA6CB353110A5E1D004C0D8F /* GraphicsComponentFactory.h */,
 				EA6CB354110A5E1D004C0D8F /* GraphicsComponentFactory.mm */,
 				EA6CB39E110A80EB004C0D8F /* PhysicsComponentFactory.h */,
@@ -1903,6 +1907,7 @@
 				EAF1335C1356D36000A1F3DC /* RicochetSpin8.plist */,
 				EAF133C71356DFBE00A1F3DC /* Ricochet9.plist */,
 				EAEB1FDE13AC70270027117A /* Gate1.plist */,
+				EA841F8B1474C90700E3538D /* Gate2.plist */,
 			);
 			path = RicochetLevels;
 			sourceTree = "<group>";
@@ -2133,6 +2138,7 @@
 				EA841F86146B2C2100E3538D /* Instructions1.png in Resources */,
 				EA841F87146B2C2100E3538D /* Instructions2.png in Resources */,
 				EA841F891470D10A00E3538D /* ribbit.caf in Resources */,
+				EA841F8C1474C90800E3538D /* Gate2.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2179,7 +2185,7 @@
 				EA667CD9134FD1BC000C1D85 /* LevelPackPurchaseVC.mm in Sources */,
 				EA667D931350284D000C1D85 /* TriggerComponent.mm in Sources */,
 				EA667DB413502A16000C1D85 /* GateControllerComponent.mm in Sources */,
-				EA667DD613503DB0000C1D85 /* GenericsFactory.mm in Sources */,
+				EA667DD613503DB0000C1D85 /* GateFactory.mm in Sources */,
 				EA667E7D13504684000C1D85 /* SpinnerController.mm in Sources */,
 				EA9EA0D113A47D2300704CDC /* btAxisSweep3.cpp in Sources */,
 				EA9EA0D213A47D2300704CDC /* btBroadphaseProxy.cpp in Sources */,

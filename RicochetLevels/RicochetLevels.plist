@@ -148,5 +148,15 @@
 		<key>title</key>
 		<string>Gate1</string>
 	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
+		<string>Gate2.plist</string>
+		<key>title</key>
+		<string>Gate2</string>
+	</dict>
 </array>
 </plist>

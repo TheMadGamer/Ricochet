@@ -71,15 +71,6 @@ public:
 												float yRotation, float restitution, 
 												NSString *textureName, float graphicsScale);
 	
-	static std::pair<Dog3D::Entity *, Dog3D::Entity *>BuildGate( btVector3 &initialPosition, btVector3 &halfExtents, 
-                                                                float yRotation, float restitution, 
-                                                                NSString *gateTextureName, NSString *targetTextureName,
-                                                                float graphicsScale, float triggerX, float triggerZ);
-	
-	static Dog3D::Entity *BuildSpinner( btVector3 &initialPosition, btVector3 &halfExtents, 
-                                       float yRotation, float restitution, NSString *textureName,
-                                       float graphicsScale);
-	
 	// rock collider
 	static Dog3D::Entity *BuildCircularCollider( btVector3 &initialPosition, btVector3 &halfExtents, 
 												float restitution, NSString *textureName, 

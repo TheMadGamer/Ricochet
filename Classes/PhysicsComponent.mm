@@ -173,6 +173,23 @@ namespace Dog3D
         
     }
     
+    void PhysicsComponent::AddHingeMotorWithTarget(float targetAngle)
+    {
+        PhysicsComponent *ground = PhysicsManager::Instance()->GetGround();
+        
+        mHinge = new btHingeConstraint(* mRigidBody, *ground->GetRigidBody(),   btVector3(0 /*1.5*/,1,0), mParent->GetPosition() ,
+                                       btVector3(0,1,0), btVector3(0,1,0), true);
+        
+        
+        mRigidBody->setActivationState( DISABLE_DEACTIVATION );
+        
+        mHinge->setLimit( 0, targetAngle);
+        mHinge->enableAngularMotor(true, 1.0f, 100.0f);
+        
+        PhysicsManager::Instance()->AddConstraint(mHinge);
+        
+    }
+    
     void PhysicsComponent::EnableHingeMotor()
     {
         PhysicsManager::Instance()->RemoveConstraint(mHinge);
@@ -185,7 +202,13 @@ namespace Dog3D
         PhysicsManager::Instance()->RemoveConstraint(mHinge);
         mHinge->enableAngularMotor(true, 0.0f, 100.0f);
         PhysicsManager::Instance()->AddConstraint(mHinge);
-
+    }
+    
+    void PhysicsComponent::SetHingeDirection(bool positive)
+    {
+        PhysicsManager::Instance()->RemoveConstraint(mHinge);
+        mHinge->enableAngularMotor(true, positive ? 1.0f : -1.0f, 100.0f);
+        PhysicsManager::Instance()->AddConstraint(mHinge);
     }
 }
 
