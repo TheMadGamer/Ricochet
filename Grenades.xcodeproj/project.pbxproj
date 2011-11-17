@@ -172,6 +172,8 @@
 		EA841F8E1474CEF200E3538D /* cactus.png in Resources */ = {isa = PBXBuildFile; fileRef = EA841F8D1474CEF200E3538D /* cactus.png */; };
 		EA841F911474D17600E3538D /* boing1.caf in Resources */ = {isa = PBXBuildFile; fileRef = EA841F8F1474D17600E3538D /* boing1.caf */; };
 		EA841F921474D17600E3538D /* boing2.caf in Resources */ = {isa = PBXBuildFile; fileRef = EA841F901474D17600E3538D /* boing2.caf */; };
+		EA841F951474D5CA00E3538D /* cheer.caf in Resources */ = {isa = PBXBuildFile; fileRef = EA841F931474D5CA00E3538D /* cheer.caf */; };
+		EA841F961474D5CA00E3538D /* lose.caf in Resources */ = {isa = PBXBuildFile; fileRef = EA841F941474D5CA00E3538D /* lose.caf */; };
 		EA922D9E1461012C00A65609 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = EA922D9D1461012C00A65609 /* Splash.png */; };
 		EA922DA01461027E00A65609 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA922D9F1461027E00A65609 /* Icon.png */; };
 		EA922DA21461028400A65609 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA922DA11461028400A65609 /* Icon@2x.png */; };
@@ -555,6 +557,8 @@
 		EA841F8D1474CEF200E3538D /* cactus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cactus.png; sourceTree = "<group>"; };
 		EA841F8F1474D17600E3538D /* boing1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = boing1.caf; sourceTree = "<group>"; };
 		EA841F901474D17600E3538D /* boing2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = boing2.caf; sourceTree = "<group>"; };
+		EA841F931474D5CA00E3538D /* cheer.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = cheer.caf; sourceTree = "<group>"; };
+		EA841F941474D5CA00E3538D /* lose.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lose.caf; sourceTree = "<group>"; };
 		EA922D9D1461012C00A65609 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Splash.png; sourceTree = "<group>"; };
 		EA922D9F1461027E00A65609 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		EA922DA11461028400A65609 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -1100,6 +1104,8 @@
 		EA11276D11F7617D000A8124 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				EA841F931474D5CA00E3538D /* cheer.caf */,
+				EA841F941474D5CA00E3538D /* lose.caf */,
 				EA841F8F1474D17600E3538D /* boing1.caf */,
 				EA841F901474D17600E3538D /* boing2.caf */,
 				EA11295C11F7AACB000A8124 /* Boom2.caf */,
@@ -2147,6 +2153,8 @@
 				EA841F8E1474CEF200E3538D /* cactus.png in Resources */,
 				EA841F911474D17600E3538D /* boing1.caf in Resources */,
 				EA841F921474D17600E3538D /* boing2.caf in Resources */,
+				EA841F951474D5CA00E3538D /* cheer.caf in Resources */,
+				EA841F961474D5CA00E3538D /* lose.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2343,7 +2351,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Anthony Lobay (MU8MU5US56)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: 3dDogStudios";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2354,6 +2362,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = Grenades;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "51FE8C71-62F9-46AF-8998-44FAD8F042B1";
 				SDKROOT = iphoneos;
 			};
 			name = Release;

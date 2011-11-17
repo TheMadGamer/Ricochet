@@ -33,7 +33,9 @@ namespace Dog3D
 			Boom2 = 1,
             Ribbit = 2,
             Boing1 = 3,
-            Boing2 = 4
+            Boing2 = 4,
+            Cheer = 5,
+            Lose = 6
 		};
 		
 		static AudioDispatch *Instance(){ return sInstance;}

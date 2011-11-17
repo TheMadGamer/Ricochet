@@ -235,6 +235,15 @@ using namespace Dog3D;
 - (void) finishedLevel: (bool) playerWon
 {
 
+    if (playerWon) 
+    {
+        AudioDispatch::Instance()->PlaySound(AudioDispatch::Cheer);
+    }
+    else
+    {
+        AudioDispatch::Instance()->PlaySound(AudioDispatch::Lose);        
+    }
+    
 	// add subview try gain or whatever
 	if(mEndOfGameView == nil)
 	{

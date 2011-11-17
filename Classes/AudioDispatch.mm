@@ -43,6 +43,16 @@ AudioDispatch::AudioDispatch()
 	[[SoundEffect alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"boing2" ofType:@"caf"]];
 	
     mSoundEffects.push_back(boing2);
+
+    SoundEffect *cheer = 
+	[[SoundEffect alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cheer" ofType:@"caf"]];
+	
+    mSoundEffects.push_back(cheer);
+    
+    SoundEffect *lose = 
+	[[SoundEffect alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"lose" ofType:@"caf"]];
+	
+    mSoundEffects.push_back(lose);
     
     mAudioIsOn = true;
 	
