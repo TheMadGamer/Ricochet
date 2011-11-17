@@ -30,7 +30,6 @@
 		4F58CB6C140E90AB000027F4 /* walk_forward_left.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB5B140E90AB000027F4 /* walk_forward_left.sheet.png */; };
 		4F58CB6D140E90AB000027F4 /* walk_left.sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F58CB5C140E90AB000027F4 /* walk_left.sheet.png */; };
 		4F95BF8A14106F2900AE5CC4 /* ParticleEmitter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F95BF8914106F2900AE5CC4 /* ParticleEmitter.mm */; };
-		4FC0329E1447492500427A40 /* CactusBumper.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC0329B1447492500427A40 /* CactusBumper.png */; };
 		4FC0329F1447492500427A40 /* frog.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC0329C1447492500427A40 /* frog.png */; };
 		4FC032A01447492500427A40 /* Target.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC0329D1447492500427A40 /* Target.png */; };
 		4FE993691444A3D800C5B571 /* Pot1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FE993681444A3D800C5B571 /* Pot1.plist */; };
@@ -170,6 +169,9 @@
 		EA841F87146B2C2100E3538D /* Instructions2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA841F85146B2C2100E3538D /* Instructions2.png */; };
 		EA841F891470D10A00E3538D /* ribbit.caf in Resources */ = {isa = PBXBuildFile; fileRef = EA841F881470D10A00E3538D /* ribbit.caf */; };
 		EA841F8C1474C90800E3538D /* Gate2.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA841F8B1474C90700E3538D /* Gate2.plist */; };
+		EA841F8E1474CEF200E3538D /* cactus.png in Resources */ = {isa = PBXBuildFile; fileRef = EA841F8D1474CEF200E3538D /* cactus.png */; };
+		EA841F911474D17600E3538D /* boing1.caf in Resources */ = {isa = PBXBuildFile; fileRef = EA841F8F1474D17600E3538D /* boing1.caf */; };
+		EA841F921474D17600E3538D /* boing2.caf in Resources */ = {isa = PBXBuildFile; fileRef = EA841F901474D17600E3538D /* boing2.caf */; };
 		EA922D9E1461012C00A65609 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = EA922D9D1461012C00A65609 /* Splash.png */; };
 		EA922DA01461027E00A65609 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA922D9F1461027E00A65609 /* Icon.png */; };
 		EA922DA21461028400A65609 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA922DA11461028400A65609 /* Icon@2x.png */; };
@@ -381,7 +383,6 @@
 		4F58CB5C140E90AB000027F4 /* walk_left.sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walk_left.sheet.png; sourceTree = "<group>"; };
 		4F95BF8914106F2900AE5CC4 /* ParticleEmitter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParticleEmitter.mm; sourceTree = "<group>"; };
 		4F95BF8B14106F3B00AE5CC4 /* ParticleEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleEmitter.h; sourceTree = "<group>"; };
-		4FC0329B1447492500427A40 /* CactusBumper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CactusBumper.png; sourceTree = "<group>"; };
 		4FC0329C1447492500427A40 /* frog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frog.png; sourceTree = "<group>"; };
 		4FC0329D1447492500427A40 /* Target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Target.png; sourceTree = "<group>"; };
 		4FE993681444A3D800C5B571 /* Pot1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Pot1.plist; sourceTree = "<group>"; };
@@ -551,6 +552,9 @@
 		EA841F881470D10A00E3538D /* ribbit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ribbit.caf; sourceTree = "<group>"; };
 		EA841F8A1474C66B00E3538D /* GateFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GateFactory.h; sourceTree = "<group>"; };
 		EA841F8B1474C90700E3538D /* Gate2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gate2.plist; sourceTree = "<group>"; };
+		EA841F8D1474CEF200E3538D /* cactus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cactus.png; sourceTree = "<group>"; };
+		EA841F8F1474D17600E3538D /* boing1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = boing1.caf; sourceTree = "<group>"; };
+		EA841F901474D17600E3538D /* boing2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = boing2.caf; sourceTree = "<group>"; };
 		EA922D9D1461012C00A65609 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Splash.png; sourceTree = "<group>"; };
 		EA922D9F1461027E00A65609 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		EA922DA11461028400A65609 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -1096,6 +1100,8 @@
 		EA11276D11F7617D000A8124 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				EA841F8F1474D17600E3538D /* boing1.caf */,
+				EA841F901474D17600E3538D /* boing2.caf */,
 				EA11295C11F7AACB000A8124 /* Boom2.caf */,
 				EA11292F11F7A867000A8124 /* Boom1.caf */,
 				EA841F881470D10A00E3538D /* ribbit.caf */,
@@ -1137,7 +1143,7 @@
 		EA36FDB313B835AB00A5DBBE /* SceneElements */ = {
 			isa = PBXGroup;
 			children = (
-				4FC0329B1447492500427A40 /* CactusBumper.png */,
+				EA841F8D1474CEF200E3538D /* cactus.png */,
 				4FC0329C1447492500427A40 /* frog.png */,
 				4FC0329D1447492500427A40 /* Target.png */,
 				EA36FDB413B835AB00A5DBBE /* bush.spray.sheet.png */,
@@ -2129,7 +2135,6 @@
 				EAC584321441647000F0A89E /* Smoke.png in Resources */,
 				4FE993691444A3D800C5B571 /* Pot1.plist in Resources */,
 				EAC58441144569B700F0A89E /* sparkle.png in Resources */,
-				4FC0329E1447492500427A40 /* CactusBumper.png in Resources */,
 				4FC0329F1447492500427A40 /* frog.png in Resources */,
 				4FC032A01447492500427A40 /* Target.png in Resources */,
 				EA922D9E1461012C00A65609 /* Splash.png in Resources */,
@@ -2139,6 +2144,9 @@
 				EA841F87146B2C2100E3538D /* Instructions2.png in Resources */,
 				EA841F891470D10A00E3538D /* ribbit.caf in Resources */,
 				EA841F8C1474C90800E3538D /* Gate2.plist in Resources */,
+				EA841F8E1474CEF200E3538D /* cactus.png in Resources */,
+				EA841F911474D17600E3538D /* boing1.caf in Resources */,
+				EA841F921474D17600E3538D /* boing2.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

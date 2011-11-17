@@ -33,6 +33,7 @@
 #import <vector>
 
 const float kFixedHeight = 10;
+const float kFrogScale = 2.0f;
 using namespace Dog3D;
 using namespace std;
 
@@ -87,8 +88,8 @@ pair<Entity *, Entity *> GateFactory::BuildSpinnerGate( btVector3 &initialPositi
     Entity *trigger = new Entity();
     trigger->SetPosition(triggerPosition);
     {
-        GraphicsComponent *graphicsComponent = GraphicsComponentFactory::BuildHoldLastAnim(graphicsScale*1.5f, 
-                                                                                           graphicsScale*1.5f, 
+        GraphicsComponent *graphicsComponent = GraphicsComponentFactory::BuildHoldLastAnim(graphicsScale*kFrogScale, 
+                                                                                           graphicsScale*kFrogScale, 
                                                                                            targetTextureName, 
                                                                                            4,
                                                                                            2);
@@ -157,7 +158,7 @@ pair<Entity *, Entity *> GateFactory::BuildDrivenGate( btVector3 &initialPositio
         info.mCollisionGroup = GRP_FIXED;
         info.mCollidesWith = GRP_BALL | GRP_GOPHER;
         
-        PhysicsComponent *physicsBox = PhysicsComponentFactory::BuildBox( initialPosition, halfExtents, yRotation, info );
+        PhysicsComponent *physicsBox = PhysicsComponentFactory::BuildBox( initialPosition, halfExtents, yRotation, info);
         
         PhysicsManager::Instance()->AddComponent( physicsBox );
         
@@ -174,8 +175,8 @@ pair<Entity *, Entity *> GateFactory::BuildDrivenGate( btVector3 &initialPositio
     Entity *trigger = new Entity();
     trigger->SetPosition(triggerPosition);
     {
-        GraphicsComponent *graphicsComponent = GraphicsComponentFactory::BuildHoldLastAnim(graphicsScale*1.5f, 
-                                                                                           graphicsScale*1.5f, 
+        GraphicsComponent *graphicsComponent = GraphicsComponentFactory::BuildHoldLastAnim(graphicsScale*kFrogScale, 
+                                                                                           graphicsScale*kFrogScale, 
                                                                                            targetTextureName, 
                                                                                            4,
                                                                                            2);
@@ -191,8 +192,9 @@ pair<Entity *, Entity *> GateFactory::BuildDrivenGate( btVector3 &initialPositio
         info.mCollisionGroup = GRP_EXPLODABLE;
         info.mCollidesWith = GRP_BALL | GRP_GOPHER;
         
-        PhysicsComponent *physicsCyl = PhysicsComponentFactory::BuildCylinder(halfExtents.x(), 
-                                                                              halfExtents.y(), 
+        // Scale down cactus collider size
+        PhysicsComponent *physicsCyl = PhysicsComponentFactory::BuildCylinder(halfExtents.x()*0.5f, 
+                                                                              halfExtents.y()*0.5f, 
                                                                               triggerPosition, 
                                                                               info);
         
@@ -201,6 +203,8 @@ pair<Entity *, Entity *> GateFactory::BuildDrivenGate( btVector3 &initialPositio
         
         TriggerComponent *triggerCtl = new TriggerComponent(gateCtl);
         trigger->SetExplodable(triggerCtl);
+        triggerCtl->mSoundEffect = AudioDispatch::Boing1;
+        
         GamePlayManager::Instance()->AddExplodable(triggerCtl);
         
     }

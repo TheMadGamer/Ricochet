@@ -32,7 +32,19 @@ AudioDispatch::AudioDispatch()
 	
     mSoundEffects.push_back(ribbit);
     
-	mAudioIsOn = true;
+
+    SoundEffect *boing1 = 
+	[[SoundEffect alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"boing1" ofType:@"caf"]];
+	
+    mSoundEffects.push_back(boing1);
+    
+    
+    SoundEffect *boing2 = 
+	[[SoundEffect alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"boing2" ofType:@"caf"]];
+	
+    mSoundEffects.push_back(boing2);
+    
+    mAudioIsOn = true;
 	
 }
 

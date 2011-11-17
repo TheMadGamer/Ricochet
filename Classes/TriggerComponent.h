@@ -6,6 +6,7 @@
  *
  */
 
+#import "AudioDispatch.h"
 #import "Component.h"
 #import "ExplodableComponent.h"
 #import "PhysicsManager.h"
@@ -22,7 +23,9 @@ namespace Dog3D
 		
 	public:
 		
-		TriggerComponent( Component *gate ) : mGate(gate), ExplodableComponent(BUMPER), mCountdown(0) {
+        AudioDispatch::SoundEffects mSoundEffect;
+        
+		TriggerComponent( Component *gate ) : mGate(gate), ExplodableComponent(BUMPER), mCountdown(0), mSoundEffect(AudioDispatch::Ribbit){
             mExplodeState = PRIMED;
         }
         

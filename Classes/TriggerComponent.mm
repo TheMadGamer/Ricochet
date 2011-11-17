@@ -21,7 +21,15 @@ void TriggerComponent::OnCollision( Entity *collidesWith)
         
         // trigger frog
         graphics->StartAnimation(AnimatedGraphicsComponent::IDLE);
-        AudioDispatch::Instance()->PlaySound(2);
+        
+        if( mSoundEffect == AudioDispatch::Boing1 )
+        {
+            AudioDispatch::Instance()->PlaySound(AudioDispatch::Boing1 + random() % 2);
+        }
+        else 
+        {
+            AudioDispatch::Instance()->PlaySound(mSoundEffect);
+        }
         
         mCountdown = kCountdown;
 		mGate->Activate();

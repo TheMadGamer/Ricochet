@@ -344,7 +344,7 @@ void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
 			
             pair<Entity *, Entity*> items = ([type isEqualToString:@"gate1"]) ?
                  GateFactory::BuildSpinnerGate(pos, extents, rotationY, mFixedRest, @"fenceC", @"frog", 1.33f, triggerX, triggerZ) :
-                 GateFactory::BuildDrivenGate(pos, extents, rotationY, mFixedRest, @"fenceC", @"frog", 1.33f, triggerX, triggerZ);
+                 GateFactory::BuildDrivenGate(pos, extents, rotationY, mFixedRest, @"fenceC", @"cactus", 1.33f, triggerX, triggerZ);
             mSceneElements.insert(items.first);
             mSceneElements.insert(items.second);
             

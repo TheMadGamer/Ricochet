@@ -16,8 +16,6 @@ namespace Dog3D
 	
 	class AudioDispatch
 	{
-		
-		
 		static AudioDispatch *sInstance;
 		
 		std::vector<SoundEffect *> mSoundEffects;
@@ -33,7 +31,9 @@ namespace Dog3D
 		{
 			Boom1 = 0, 
 			Boom2 = 1,
-            Ribbit = 2
+            Ribbit = 2,
+            Boing1 = 3,
+            Boing2 = 4
 		};
 		
 		static AudioDispatch *Instance(){ return sInstance;}
