@@ -84,7 +84,7 @@ pair<Entity *, Entity *> GateFactory::BuildSpinnerGate( btVector3 &initialPositi
 	gate->AddComponent(gateCtl);
 	
     
-    btVector3 triggerPosition(0, initialPosition.y(), 0);
+    btVector3 triggerPosition(triggerX, initialPosition.y(), triggerZ);
     Entity *trigger = new Entity();
     trigger->SetPosition(triggerPosition);
     {
@@ -172,7 +172,7 @@ pair<Entity *, Entity *> GateFactory::BuildDrivenGate( btVector3 &initialPositio
 	gate->AddComponent(gateCtl);
 	
     
-    btVector3 triggerPosition(0, initialPosition.y(), 0);
+    btVector3 triggerPosition(triggerX, initialPosition.y(), triggerZ);
     Entity *trigger = new Entity();
     trigger->SetPosition(triggerPosition);
     {

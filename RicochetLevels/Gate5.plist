@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-
 <dict>
 	<key>LayoutObjects</key>
 	<dict>
 		<key>Hole13</key>
 		<dict>
 			<key>x</key>
-			<real>-6.22462841613</real>
+			<real>-5.70851832207</real>
 			<key>y</key>
 			<real>0.492365564392</real>
 			<key>z</key>
@@ -16,7 +15,7 @@
 			<key>type</key>
 			<string>spawn</string>
 			<key>ry</key>
-			<real>0.0</real>
+			<real>0</real>
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
@@ -29,7 +28,7 @@
 		<key>Hole14</key>
 		<dict>
 			<key>x</key>
-			<real>4.2500605384</real>
+			<real>3.86297796786</real>
 			<key>y</key>
 			<real>0.492365564392</real>
 			<key>z</key>
@@ -37,7 +36,7 @@
 			<key>type</key>
 			<string>spawn</string>
 			<key>ry</key>
-			<real>0.0</real>
+			<real>0</real>
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
@@ -50,7 +49,7 @@
 		<key>Hole15</key>
 		<dict>
 			<key>x</key>
-			<real>5.00809723906</real>
+			<real>4.65327154939</real>
 			<key>y</key>
 			<real>0.492365564392</real>
 			<key>z</key>
@@ -58,7 +57,7 @@
 			<key>type</key>
 			<string>spawn</string>
 			<key>ry</key>
-			<real>0.0</real>
+			<real>0</real>
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
@@ -79,7 +78,7 @@
 			<key>type</key>
 			<string>spawn</string>
 			<key>ry</key>
-			<real>0.0</real>
+			<real>0</real>
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
@@ -94,13 +93,13 @@
 			<key>x</key>
 			<real>3.52549423159</real>
 			<key>y</key>
-			<real>0.0</real>
+			<real>0</real>
 			<key>z</key>
 			<real>-158.167426819</real>
 			<key>type</key>
 			<string>carrot</string>
 			<key>ry</key>
-			<real>0.0</real>
+			<real>0</real>
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
@@ -110,37 +109,10 @@
 			<key>sz</key>
 			<real>0.5</real>
 		</dict>
-		<key>Gate1</key>
-		<dict>
-			<key>x</key>
-			<real>-6.10993809572</real>
-			<key>y</key>
-			<real>1.99416814627</real>
-			<key>z</key>
-			<real>0.101647887268</real>
-			<key>type</key>
-			<string>gate2</string>
-			<key>ry</key>
-			<real>1.57079825</real>
-			<key>spawnTime</key>
-			<real>0.0</real>
-			<key>sx</key>
-			<real>2.0</real>
-			<key>sy</key>
-			<real>8.0</real>
-			<key>sz</key>
-			<real>0.5</real>
-			<key>tigX</key>
-			<real>0.0</real>
-			<key>trigY</key>
-			<real>0.0</real>
-			<key>trigZ</key>
-			<real>-0.0</real>
-		</dict>
 		<key>Hedge19</key>
 		<dict>
 			<key>x</key>
-			<real>-5.73031853043</real>
+			<real>-5.21420843636</real>
 			<key>y</key>
 			<real>1.99416814627</real>
 			<key>z</key>
@@ -148,91 +120,28 @@
 			<key>type</key>
 			<string>hedge1</string>
 			<key>ry</key>
-			<real>0.0</real>
+			<real>0</real>
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
-			<real>2.0</real>
+			<real>2</real>
 			<key>sy</key>
-			<real>8.0</real>
-			<key>sz</key>
-			<real>0.5</real>
-		</dict>
-		<key>Pot11</key>
-		<dict>
-			<key>x</key>
-			<real>-3.76162840336</real>
-			<key>y</key>
-			<real>2.27373675443e-015</real>
-			<key>z</key>
-			<real>2.7925003574</real>
-			<key>type</key>
-			<string>pot1</string>
-			<key>ry</key>
-			<real>0.0</real>
-			<key>spawnTime</key>
-			<real>0</real>
-			<key>sx</key>
-			<real>0.5</real>
-			<key>sy</key>
-			<real>0.5</real>
-			<key>sz</key>
-			<real>0.5</real>
-		</dict>
-		<key>Pot21</key>
-		<dict>
-			<key>x</key>
-			<real>-5.08709296311</real>
-			<key>y</key>
-			<real>2.27373675443e-015</real>
-			<key>z</key>
-			<real>4.79975808119</real>
-			<key>type</key>
-			<string>pot1</string>
-			<key>ry</key>
-			<real>0.0</real>
-			<key>spawnTime</key>
-			<real>0</real>
-			<key>sx</key>
-			<real>0.5</real>
-			<key>sy</key>
-			<real>0.5</real>
-			<key>sz</key>
-			<real>0.5</real>
-		</dict>
-		<key>Hedge21</key>
-		<dict>
-			<key>x</key>
-			<real>-5.86814338509</real>
-			<key>y</key>
-			<real>1.99416814627</real>
-			<key>z</key>
-			<real>11.8242944477</real>
-			<key>type</key>
-			<string>hedge1</string>
-			<key>ry</key>
-			<real>0.0</real>
-			<key>spawnTime</key>
-			<real>0</real>
-			<key>sx</key>
-			<real>2.0</real>
-			<key>sy</key>
-			<real>8.0</real>
+			<real>8</real>
 			<key>sz</key>
 			<real>0.5</real>
 		</dict>
 		<key>Pot29</key>
 		<dict>
 			<key>x</key>
-			<real>-2.80711797371</real>
+			<real>-4.06513632799</real>
 			<key>y</key>
-			<real>2.27373675443e-015</real>
+			<real>2.27373675443e-15</real>
 			<key>z</key>
-			<real>5.56805833485</real>
+			<real>5.47128769222</real>
 			<key>type</key>
 			<string>pot1</string>
 			<key>ry</key>
-			<real>0.0</real>
+			<real>0</real>
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
@@ -245,11 +154,11 @@
 		<key>Hedge22</key>
 		<dict>
 			<key>x</key>
-			<real>-3.93859541978</real>
+			<real>-3.42248532572</real>
 			<key>y</key>
 			<real>1.99416814627</real>
 			<key>z</key>
-			<real>9.7569216277</real>
+			<real>9.756921627700001</real>
 			<key>type</key>
 			<string>hedge1</string>
 			<key>ry</key>
@@ -257,16 +166,16 @@
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
-			<real>2.0</real>
+			<real>2</real>
 			<key>sy</key>
-			<real>8.0</real>
+			<real>8</real>
 			<key>sz</key>
 			<real>0.5</real>
 		</dict>
 		<key>Hedge23</key>
 		<dict>
 			<key>x</key>
-			<real>4.74437042411</real>
+			<real>4.35728785356</real>
 			<key>y</key>
 			<real>1.99416814627</real>
 			<key>z</key>
@@ -274,20 +183,20 @@
 			<key>type</key>
 			<string>hedge1</string>
 			<key>ry</key>
-			<real>0.0</real>
+			<real>0</real>
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
-			<real>2.0</real>
+			<real>2</real>
 			<key>sy</key>
-			<real>8.0</real>
+			<real>8</real>
 			<key>sz</key>
 			<real>0.5</real>
 		</dict>
 		<key>Hedge25</key>
 		<dict>
 			<key>x</key>
-			<real>6.53609353475</real>
+			<real>6.1490109642</real>
 			<key>y</key>
 			<real>1.99416814627</real>
 			<key>z</key>
@@ -299,16 +208,16 @@
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
-			<real>2.0</real>
+			<real>2</real>
 			<key>sy</key>
-			<real>8.0</real>
+			<real>8</real>
 			<key>sz</key>
 			<real>0.5</real>
 		</dict>
 		<key>Hedge28</key>
 		<dict>
 			<key>x</key>
-			<real>6.60500596208</real>
+			<real>6.25018027241</real>
 			<key>y</key>
 			<real>1.99416814627</real>
 			<key>z</key>
@@ -320,30 +229,9 @@
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
-			<real>2.0</real>
+			<real>2</real>
 			<key>sy</key>
-			<real>8.0</real>
-			<key>sz</key>
-			<real>0.5</real>
-		</dict>
-		<key>Hedge29</key>
-		<dict>
-			<key>x</key>
-			<real>-5.17901911177</real>
-			<key>y</key>
-			<real>1.99416814627</real>
-			<key>z</key>
-			<real>-12.363967546</real>
-			<key>type</key>
-			<string>hedge1</string>
-			<key>ry</key>
-			<real>0.0</real>
-			<key>spawnTime</key>
-			<real>0</real>
-			<key>sx</key>
-			<real>2.0</real>
-			<key>sy</key>
-			<real>8.0</real>
+			<real>8</real>
 			<key>sz</key>
 			<real>0.5</real>
 		</dict>
@@ -358,13 +246,13 @@
 			<key>type</key>
 			<string>hedge1</string>
 			<key>ry</key>
-			<real>0.0</real>
+			<real>0</real>
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
-			<real>2.0</real>
+			<real>2</real>
 			<key>sy</key>
-			<real>8.0</real>
+			<real>8</real>
 			<key>sz</key>
 			<real>0.5</real>
 		</dict>
@@ -383,20 +271,20 @@
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
-			<real>2.0</real>
+			<real>2</real>
 			<key>sy</key>
-			<real>8.0</real>
+			<real>8</real>
 			<key>sz</key>
 			<real>0.5</real>
 		</dict>
 		<key>Hedge32</key>
 		<dict>
 			<key>x</key>
-			<real>2.33243546747</real>
+			<real>1.94535289692</real>
 			<key>y</key>
 			<real>1.99416814627</real>
 			<key>z</key>
-			<real>9.7569216277</real>
+			<real>9.756921627700001</real>
 			<key>type</key>
 			<string>hedge1</string>
 			<key>ry</key>
@@ -404,16 +292,16 @@
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
-			<real>2.0</real>
+			<real>2</real>
 			<key>sy</key>
-			<real>8.0</real>
+			<real>8</real>
 			<key>sz</key>
 			<real>0.5</real>
 		</dict>
 		<key>Hedge33</key>
 		<dict>
 			<key>x</key>
-			<real>2.4013478948</real>
+			<real>2.04652220513</real>
 			<key>y</key>
 			<real>1.99416814627</real>
 			<key>z</key>
@@ -425,16 +313,16 @@
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
-			<real>2.0</real>
+			<real>2</real>
 			<key>sy</key>
-			<real>8.0</real>
+			<real>8</real>
 			<key>sz</key>
 			<real>0.5</real>
 		</dict>
 		<key>Hedge34</key>
 		<dict>
 			<key>x</key>
-			<real>4.74437042411</real>
+			<real>4.38954473444</real>
 			<key>y</key>
 			<real>1.99416814627</real>
 			<key>z</key>
@@ -442,157 +330,28 @@
 			<key>type</key>
 			<string>hedge1</string>
 			<key>ry</key>
-			<real>0.0</real>
+			<real>0</real>
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
-			<real>2.0</real>
+			<real>2</real>
 			<key>sy</key>
-			<real>8.0</real>
+			<real>8</real>
 			<key>sz</key>
 			<real>0.5</real>
-		</dict>
-		<key>Gate2</key>
-		<dict>
-			<key>x</key>
-			<real>-0.459119054462</real>
-			<key>y</key>
-			<real>1.99416814627</real>
-			<key>z</key>
-			<real>-9.89065407594</real>
-			<key>type</key>
-			<string>gate2</string>
-			<key>ry</key>
-			<real>1.57079825</real>
-			<key>spawnTime</key>
-			<real>0.0</real>
-			<key>sx</key>
-			<real>2.0</real>
-			<key>sy</key>
-			<real>8.0</real>
-			<key>sz</key>
-			<real>0.5</real>
-			<key>tigX</key>
-			<real>0.0</real>
-			<key>trigY</key>
-			<real>0.0</real>
-			<key>trigZ</key>
-			<real>-0.0</real>
-		</dict>
-		<key>Gate3</key>
-		<dict>
-			<key>x</key>
-			<real>-0.596943909127</real>
-			<key>y</key>
-			<real>1.99416814627</real>
-			<key>z</key>
-			<real>10.0939498505</real>
-			<key>type</key>
-			<string>gate2</string>
-			<key>ry</key>
-			<real>1.57079825</real>
-			<key>spawnTime</key>
-			<real>0.0</real>
-			<key>sx</key>
-			<real>2.0</real>
-			<key>sy</key>
-			<real>8.0</real>
-			<key>sz</key>
-			<real>0.5</real>
-			<key>tigX</key>
-			<real>0.0</real>
-			<key>trigY</key>
-			<real>0.0</real>
-			<key>trigZ</key>
-			<real>-0.0</real>
-		</dict>
-		<key>Gate4</key>
-		<dict>
-			<key>x</key>
-			<real>8.63732135342</real>
-			<key>y</key>
-			<real>1.99416814627</real>
-			<key>z</key>
-			<real>6.57941605652</real>
-			<key>type</key>
-			<string>gate2</string>
-			<key>ry</key>
-			<real>1.57079825</real>
-			<key>spawnTime</key>
-			<real>0.0</real>
-			<key>sx</key>
-			<real>2.0</real>
-			<key>sy</key>
-			<real>8.0</real>
-			<key>sz</key>
-			<real>0.5</real>
-			<key>tigX</key>
-			<real>0.0</real>
-			<key>trigY</key>
-			<real>0.0</real>
-			<key>trigZ</key>
-			<real>-0.0</real>
-		</dict>
-		<key>Gate5</key>
-		<dict>
-			<key>x</key>
-			<real>8.77514620809</real>
-			<key>y</key>
-			<real>1.99416814627</real>
-			<key>z</key>
-			<real>-7.96110611063</real>
-			<key>type</key>
-			<string>gate2</string>
-			<key>ry</key>
-			<real>1.57079825</real>
-			<key>spawnTime</key>
-			<real>0.0</real>
-			<key>sx</key>
-			<real>2.0</real>
-			<key>sy</key>
-			<real>8.0</real>
-			<key>sz</key>
-			<real>0.5</real>
-			<key>tigX</key>
-			<real>0.0</real>
-			<key>trigY</key>
-			<real>0.0</real>
-			<key>trigZ</key>
-			<real>-0.0</real>
 		</dict>
 		<key>Pot30</key>
 		<dict>
 			<key>x</key>
-			<real>-4.03727811269</real>
+			<real>-3.61793866126</real>
 			<key>y</key>
-			<real>2.27373675443e-015</real>
+			<real>2.27373675443e-15</real>
 			<key>z</key>
-			<real>-6.09720276849</real>
+			<real>-6.00043212585</real>
 			<key>type</key>
 			<string>pot1</string>
 			<key>ry</key>
-			<real>0.0</real>
-			<key>spawnTime</key>
 			<real>0</real>
-			<key>sx</key>
-			<real>0.5</real>
-			<key>sy</key>
-			<real>0.5</real>
-			<key>sz</key>
-			<real>0.5</real>
-		</dict>
-		<key>Pot31</key>
-		<dict>
-			<key>x</key>
-			<real>-5.36274267244</real>
-			<key>y</key>
-			<real>2.27373675443e-015</real>
-			<key>z</key>
-			<real>-4.0899450447</real>
-			<key>type</key>
-			<string>pot1</string>
-			<key>ry</key>
-			<real>0.0</real>
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
@@ -605,15 +364,258 @@
 		<key>Pot32</key>
 		<dict>
 			<key>x</key>
-			<real>-3.08276768304</real>
+			<real>-5.43751998721</real>
 			<key>y</key>
-			<real>2.27373675443e-015</real>
+			<real>2.27373675443e-15</real>
 			<key>z</key>
-			<real>-3.32164479103</real>
+			<real>-2.93456222048</real>
 			<key>type</key>
 			<string>pot1</string>
 			<key>ry</key>
-			<real>0.0</real>
+			<real>0</real>
+			<key>spawnTime</key>
+			<real>0</real>
+			<key>sx</key>
+			<real>0.5</real>
+			<key>sy</key>
+			<real>0.5</real>
+			<key>sz</key>
+			<real>0.5</real>
+		</dict>
+		<key>Hedge35</key>
+		<dict>
+			<key>x</key>
+			<real>4.35728785356</real>
+			<key>y</key>
+			<real>1.99416814627</real>
+			<key>z</key>
+			<real>7.8273736624</real>
+			<key>type</key>
+			<string>hedge1</string>
+			<key>ry</key>
+			<real>0</real>
+			<key>spawnTime</key>
+			<real>0</real>
+			<key>sx</key>
+			<real>2</real>
+			<key>sy</key>
+			<real>8</real>
+			<key>sz</key>
+			<real>0.5</real>
+		</dict>
+		<key>Hedge36</key>
+		<dict>
+			<key>x</key>
+			<real>8.679709891350001</real>
+			<key>y</key>
+			<real>1.99416814627</real>
+			<key>z</key>
+			<real>7.8273736624</real>
+			<key>type</key>
+			<string>hedge1</string>
+			<key>ry</key>
+			<real>0</real>
+			<key>spawnTime</key>
+			<real>0</real>
+			<key>sx</key>
+			<real>2</real>
+			<key>sy</key>
+			<real>8</real>
+			<key>sz</key>
+			<real>0.5</real>
+		</dict>
+		<key>Hedge37</key>
+		<dict>
+			<key>x</key>
+			<real>8.679709891350001</real>
+			<key>y</key>
+			<real>1.99416814627</real>
+			<key>z</key>
+			<real>7.8273736624</real>
+			<key>type</key>
+			<string>hedge1</string>
+			<key>ry</key>
+			<real>0</real>
+			<key>spawnTime</key>
+			<real>0</real>
+			<key>sx</key>
+			<real>2</real>
+			<key>sy</key>
+			<real>8</real>
+			<key>sz</key>
+			<real>0.5</real>
+		</dict>
+		<key>Hedge38</key>
+		<dict>
+			<key>x</key>
+			<real>8.486168606070001</real>
+			<key>y</key>
+			<real>1.99416814627</real>
+			<key>z</key>
+			<real>-8.2981343334</real>
+			<key>type</key>
+			<string>hedge1</string>
+			<key>ry</key>
+			<real>0</real>
+			<key>spawnTime</key>
+			<real>0</real>
+			<key>sx</key>
+			<real>2</real>
+			<key>sy</key>
+			<real>8</real>
+			<key>sz</key>
+			<real>0.5</real>
+		</dict>
+		<key>Hedge39</key>
+		<dict>
+			<key>x</key>
+			<real>-5.31684396643</real>
+			<key>y</key>
+			<real>1.99416814627</real>
+			<key>z</key>
+			<real>-8.22922190607</real>
+			<key>type</key>
+			<string>hedge1</string>
+			<key>ry</key>
+			<real>0</real>
+			<key>spawnTime</key>
+			<real>0</real>
+			<key>sx</key>
+			<real>2</real>
+			<key>sy</key>
+			<real>8</real>
+			<key>sz</key>
+			<real>0.5</real>
+		</dict>
+		<key>Hedge40</key>
+		<dict>
+			<key>x</key>
+			<real>-8.47801829258</real>
+			<key>y</key>
+			<real>1.99416814627</real>
+			<key>z</key>
+			<real>-8.22922190607</real>
+			<key>type</key>
+			<string>hedge1</string>
+			<key>ry</key>
+			<real>0</real>
+			<key>spawnTime</key>
+			<real>0</real>
+			<key>sx</key>
+			<real>2</real>
+			<key>sy</key>
+			<real>8</real>
+			<key>sz</key>
+			<real>0.5</real>
+		</dict>
+		<key>Hedge41</key>
+		<dict>
+			<key>x</key>
+			<real>-8.47801829258</real>
+			<key>y</key>
+			<real>1.99416814627</real>
+			<key>z</key>
+			<real>-8.22922190607</real>
+			<key>type</key>
+			<string>hedge1</string>
+			<key>ry</key>
+			<real>0</real>
+			<key>spawnTime</key>
+			<real>0</real>
+			<key>sx</key>
+			<real>2</real>
+			<key>sy</key>
+			<real>8</real>
+			<key>sz</key>
+			<real>0.5</real>
+		</dict>
+		<key>Hedge42</key>
+		<dict>
+			<key>x</key>
+			<real>-8.988263499209999</real>
+			<key>y</key>
+			<real>1.99416814627</real>
+			<key>z</key>
+			<real>7.68954880773</real>
+			<key>type</key>
+			<string>hedge1</string>
+			<key>ry</key>
+			<real>0</real>
+			<key>spawnTime</key>
+			<real>0</real>
+			<key>sx</key>
+			<real>2</real>
+			<key>sy</key>
+			<real>8</real>
+			<key>sz</key>
+			<real>0.5</real>
+		</dict>
+		<key>Gate4</key>
+		<dict>
+			<key>x</key>
+			<real>-0.459119054462</real>
+			<key>y</key>
+			<real>1.99416814627</real>
+			<key>z</key>
+			<real>-13.5034247344</real>
+			<key>type</key>
+			<string>gate1</string>
+			<key>ry</key>
+			<real>1.57079825</real>
+			<key>spawnTime</key>
+			<real>0</real>
+			<key>sx</key>
+			<real>2</real>
+			<key>sy</key>
+			<real>8</real>
+			<key>sz</key>
+			<real>0.5</real>
+			<key>trigX</key>
+			<integer>8</integer>
+			<key>trigY</key>
+			<integer>0</integer>
+			<key>trigZ</key>
+			<real>-0</real>
+		</dict>
+		<key>Gate5</key>
+		<dict>
+			<key>x</key>
+			<real>-0.459119054462</real>
+			<key>y</key>
+			<real>1.99416814627</real>
+			<key>z</key>
+			<real>13.4955845614</real>
+			<key>type</key>
+			<string>gate1</string>
+			<key>ry</key>
+			<real>1.57079825</real>
+			<key>spawnTime</key>
+			<real>0</real>
+			<key>sx</key>
+			<real>2</real>
+			<key>sy</key>
+			<real>8</real>
+			<key>sz</key>
+			<real>0.5</real>
+			<key>trigX</key>
+			<integer>8</integer>
+			<key>trigY</key>
+			<integer>0</integer>
+			<key>trigZ</key>
+			<real>-0</real>
+		</dict>
+		<key>Pot34</key>
+		<dict>
+			<key>x</key>
+			<real>-5.60320305718</real>
+			<key>y</key>
+			<real>2.27373675443e-15</real>
+			<key>z</key>
+			<real>2.44500577702</real>
+			<key>type</key>
+			<string>pot1</string>
+			<key>ry</key>
+			<real>0</real>
 			<key>spawnTime</key>
 			<real>0</real>
 			<key>sx</key>
@@ -629,7 +631,7 @@
 		<key>NumCombos</key>
 		<integer>2</integer>
 		<key>NumGopherLives</key>
-		<integer>3</integer>
+		<integer>4</integer>
 		<key>Background</key>
 		<string>InsanelyHard</string>
 		<key>GamePlayMode</key>
@@ -637,7 +639,7 @@
 		<key>ScoreMode</key>
 		<integer>0</integer>
 		<key>NumBalls</key>
-		<integer>5</integer>
+		<integer>7</integer>
 		<key>BallTypes</key>
 		<integer>1</integer>
 		<key>XBounds</key>
@@ -650,13 +652,13 @@
 		<array>
 			<dict>
 				<key>Time</key>
-				<real>0.0</real>
+				<real>0</real>
 				<key>Gophers</key>
 				<integer>100</integer>
 			</dict>
 			<dict>
 				<key>Time</key>
-				<real>0.0</real>
+				<real>0</real>
 				<key>Gophers</key>
 				<integer>100</integer>
 			</dict>
@@ -683,21 +685,21 @@
 			<key>type</key>
 			<string>cannon</string>
 			<key>scale</key>
-			<real>1.0</real>
+			<real>1</real>
 			<key>x</key>
-			<real>6.03539686836</real>
+			<real>0.0678739057389</real>
 			<key>y</key>
 			<real>1.5</real>
 			<key>z</key>
-			<real>6.8212102633e-015</real>
+			<real>6.8212102633e-15</real>
 			<key>rotationOffset</key>
-			<real>0.0</real>
+			<real>0</real>
 			<key>rotationBoundUpper</key>
 			<real>8.93609671111</real>
 			<key>rotationBoundLower</key>
 			<real>-8.93609671111</real>
 			<key>powerScale</key>
-			<real>2.0</real>
+			<real>2</real>
 		</dict>
 		<key>Furry3</key>
 		<dict>

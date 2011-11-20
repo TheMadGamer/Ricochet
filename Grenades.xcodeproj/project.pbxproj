@@ -165,6 +165,7 @@
 		EA762E6A11EFE6CD00697A9F /* Black.png in Resources */ = {isa = PBXBuildFile; fileRef = EA762E6911EFE6CD00697A9F /* Black.png */; };
 		EA7774D1132DDECD00593D94 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA7774D0132DDECD00593D94 /* StoreKit.framework */; };
 		EA7B80BD1478890F00A9D41C /* Gate4.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA7B80BC1478890F00A9D41C /* Gate4.plist */; };
+		EA7B80BF1478922300A9D41C /* Gate5.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA7B80BE1478922300A9D41C /* Gate5.plist */; };
 		EA820AD71106D06C00E8B8FE /* FakeGLU.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA820AD61106D06C00E8B8FE /* FakeGLU.mm */; };
 		EA841F86146B2C2100E3538D /* Instructions1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA841F84146B2C2100E3538D /* Instructions1.png */; };
 		EA841F87146B2C2100E3538D /* Instructions2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA841F85146B2C2100E3538D /* Instructions2.png */; };
@@ -550,6 +551,7 @@
 		EA7774D0132DDECD00593D94 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		EA79D77F11419DA3006E6EDC /* GopherController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GopherController.h; sourceTree = "<group>"; };
 		EA7B80BC1478890F00A9D41C /* Gate4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gate4.plist; sourceTree = "<group>"; };
+		EA7B80BE1478922300A9D41C /* Gate5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gate5.plist; sourceTree = "<group>"; };
 		EA820A6C1106B72800E8B8FE /* FakeGLU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeGLU.h; sourceTree = "<group>"; };
 		EA820AD61106D06C00E8B8FE /* FakeGLU.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FakeGLU.mm; sourceTree = "<group>"; };
 		EA841F84146B2C2100E3538D /* Instructions1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instructions1.png; sourceTree = "<group>"; };
@@ -1926,6 +1928,7 @@
 				EA841F8B1474C90700E3538D /* Gate2.plist */,
 				EA841F9A147852C000E3538D /* Gate3.plist */,
 				EA7B80BC1478890F00A9D41C /* Gate4.plist */,
+				EA7B80BE1478922300A9D41C /* Gate5.plist */,
 			);
 			path = RicochetLevels;
 			sourceTree = "<group>";
@@ -2163,6 +2166,7 @@
 				EA841F961474D5CA00E3538D /* lose.caf in Resources */,
 				EA841F9B147852C100E3538D /* Gate3.plist in Resources */,
 				EA7B80BD1478890F00A9D41C /* Gate4.plist in Resources */,
+				EA7B80BF1478922300A9D41C /* Gate5.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

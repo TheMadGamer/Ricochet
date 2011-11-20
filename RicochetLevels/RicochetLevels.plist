@@ -176,7 +176,17 @@
 		<key>filename</key>
 		<string>Gate4.plist</string>
 		<key>title</key>
-		<string> Gate4</string>
+		<string>Gate4</string>
+	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
+		<string>Gate5.plist</string>
+		<key>title</key>
+		<string>Gate5</string>
 	</dict>
 </array>
 </plist>
