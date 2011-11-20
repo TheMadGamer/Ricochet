@@ -339,8 +339,8 @@ void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
 		{
 			DLog(@"Loading collider %@ with YRotation %f", type, rotationY);
 			
-			float triggerX = [[object objectForKey:@"triggerX"] floatValue];
-			float triggerZ = [[object objectForKey:@"triggerZ"] floatValue];
+			float triggerX = [[object objectForKey:@"trigX"] floatValue];
+			float triggerZ = [[object objectForKey:@"trigZ"] floatValue];
 			
             pair<Entity *, Entity*> items = ([type isEqualToString:@"gate1"]) ?
                  GateFactory::BuildSpinnerGate(pos, extents, rotationY, mFixedRest, @"fenceC", @"frog", 1.33f, triggerX, triggerZ) :
