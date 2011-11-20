@@ -24,12 +24,11 @@ namespace Dog3D
 	{		
     protected:
 		std::set<EntityPair> mTriggeredObjects;
-        
-	public:
-		
-		
+        std::list<PhysicsComponent *> mRemovalQueue;
+	
+    public:
 		static const float kMushroomBlastRadius = 7.5f;
-		static const float kSmallBlastRadius = 2.0f;
+		static const float kSmallBlastRadius = 1.0f;
 
 		// initializes singleton manager
 		static void Initialize();	
@@ -91,10 +90,19 @@ namespace Dog3D
         inline void SetGround(PhysicsComponent *p){ mGround = p;}
         inline PhysicsComponent *GetGround(){ return  mGround; }
         
-        // pre-tick step
-        void doPreTick(btScalar timeStep);
-    protected:
+        // pre-tick step - collision processing
+        // at end of cb, remove objs
+        void DoPreTick(btScalar timeStep);
+        
+        // Mark component for removal on postTickStep.
+        // During collision processing, removing an object may 
+        // trigger a crash.
+        inline void MarkForRemoval(PhysicsComponent *component) { mRemovalQueue.push_back(component); }
 
+        // After processing, remove queued components for removal
+        void RemoveComponents();
+        
+    protected:
 		PhysicsManager() 
 		{
 			mBlastGhostShape = new btSphereShape(kMushroomBlastRadius);
@@ -108,7 +116,6 @@ namespace Dog3D
 			delete mSmallBlastGhostShape;
 			
 		}
-
 		
 		// managed components
 		std::list<PhysicsComponent *> mManagedComponents;

@@ -56,7 +56,7 @@ namespace Dog3D
         // remove ball from world
         physicsComponent->GetRigidBody()->setLinearVelocity(btVector3(0,0,0));
         physicsComponent->GetRigidBody()->setAngularVelocity(btVector3(0,0,0));
-        PhysicsManager::Instance()->RemoveComponent(physicsComponent);
+        PhysicsManager::Instance()->MarkForRemoval(physicsComponent);
       }
       
       mParent->GetGraphicsComponent()->mActive = false;

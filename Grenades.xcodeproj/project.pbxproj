@@ -147,6 +147,7 @@
 		EA667DB413502A16000C1D85 /* GateController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667DB313502A16000C1D85 /* GateController.mm */; };
 		EA667DD613503DB0000C1D85 /* GateFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667DD513503DB0000C1D85 /* GateFactory.mm */; };
 		EA667E7D13504684000C1D85 /* SpinnerController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667E7C13504684000C1D85 /* SpinnerController.mm */; };
+		EA68DF3D1479A18A003F26CD /* TimeBombExplodable.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA68DF3C1479A18A003F26CD /* TimeBombExplodable.mm */; };
 		EA6A2F6F1185F93D00E5968B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6A2F6E1185F93D00E5968B /* CoreGraphics.framework */; };
 		EA6A2F731185F94600E5968B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6A2F721185F94600E5968B /* OpenGLES.framework */; };
 		EA6A2F771185F94B00E5968B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6A2F761185F94B00E5968B /* Foundation.framework */; };
@@ -521,6 +522,8 @@
 		EA667DD513503DB0000C1D85 /* GateFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GateFactory.mm; sourceTree = "<group>"; };
 		EA667E7B13504684000C1D85 /* SpinnerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinnerController.h; sourceTree = "<group>"; };
 		EA667E7C13504684000C1D85 /* SpinnerController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SpinnerController.mm; sourceTree = "<group>"; };
+		EA68DF3C1479A18A003F26CD /* TimeBombExplodable.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TimeBombExplodable.mm; sourceTree = "<group>"; };
+		EA68DF3E1479A1CE003F26CD /* TimeBombExplodable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeBombExplodable.h; sourceTree = "<group>"; };
 		EA6A2F6E1185F93D00E5968B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EA6A2F721185F94600E5968B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		EA6A2F761185F94B00E5968B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1292,6 +1295,19 @@
 			name = Kinematic;
 			sourceTree = "<group>";
 		};
+		EA68DF3B1479A0A0003F26CD /* Explodables */ = {
+			isa = PBXGroup;
+			children = (
+				4F29439D144E637100054135 /* CountExplodable.h */,
+				4F29439E144E637100054135 /* CountExplodable.mm */,
+				EA76145B1135D0CF00BD7A02 /* ExplodableComponent.h */,
+				EA7319521174F94800E52AA0 /* ExplodableComponent.mm */,
+				EA68DF3C1479A18A003F26CD /* TimeBombExplodable.mm */,
+				EA68DF3E1479A1CE003F26CD /* TimeBombExplodable.h */,
+			);
+			name = Explodables;
+			sourceTree = "<group>";
+		};
 		EA6CB3A7110A89D2004C0D8F /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1822,16 +1838,13 @@
 		EAC8DF5F110A2E83008542DA /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				4F29439D144E637100054135 /* CountExplodable.h */,
-				4F29439E144E637100054135 /* CountExplodable.mm */,
-				4F95BF8714106EEB00AE5CC4 /* Character */,
 				EA96FFCA11AF336800FFE13C /* Cannon */,
-				4F58CB6E140E97FB000027F4 /* Graphics */,
-				EA667E7A13504668000C1D85 /* Kinematic */,
+				4F95BF8714106EEB00AE5CC4 /* Character */,
 				EAC8DF60110A2E9C008542DA /* Component.h */,
 				EA31A20E111799A40076F89F /* Component.mm */,
-				EA76145B1135D0CF00BD7A02 /* ExplodableComponent.h */,
-				EA7319521174F94800E52AA0 /* ExplodableComponent.mm */,
+				EA68DF3B1479A0A0003F26CD /* Explodables */,
+				4F58CB6E140E97FB000027F4 /* Graphics */,
+				EA667E7A13504668000C1D85 /* Kinematic */,
 				EA6CB348110A5BEF004C0D8F /* PhysicsComponent.h */,
 				EA6CB349110A5BEF004C0D8F /* PhysicsComponent.mm */,
 			);
@@ -2333,6 +2346,7 @@
 				4F95BF8A14106F2900AE5CC4 /* ParticleEmitter.mm in Sources */,
 				EAD1941F143EB0B600DFC2B2 /* BurstEmitter.mm in Sources */,
 				4F29439F144E637100054135 /* CountExplodable.mm in Sources */,
+				EA68DF3D1479A18A003F26CD /* TimeBombExplodable.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

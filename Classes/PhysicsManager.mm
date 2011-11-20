@@ -10,15 +10,14 @@
 #import <vector>
 #import <algorithm>
 
-#import "PhysicsComponent.h"
-#import "PhysicsManager.h"
 #import "Entity.h"
 #import "GraphicsManager.h"
 #import "GopherController.h"
 #import "GamePlayManager.h"
+#import "PhysicsComponent.h"
+#import "PhysicsManager.h"
 
-using namespace std;
-	
+using namespace std;	
 
 namespace Dog3D
 {
@@ -72,8 +71,6 @@ namespace Dog3D
 	
 	void PhysicsManager::Initialize()
 	{
-		
-/// DEBUG TODO		
 		sPhysicsManager = new PhysicsManager();
 	}
 	
@@ -87,7 +84,8 @@ namespace Dog3D
         ExplodableComponent *explodable = first->GetExplodable();
         ExplodableComponent *secondExplodable = second->GetExplodable();
         
-        if(explodable && (!secondExplodable || (secondExplodable &&
+        if(explodable && 
+           (!secondExplodable || (secondExplodable &&
                                                 secondExplodable->DetonatesOtherCollider())) && explodable->IsPrimed())
         {
             explodable->OnCollision(second);
@@ -127,7 +125,7 @@ namespace Dog3D
     
     // performs gopher ghost collision
     // Note that this could easily be removed, instead making the gophers kinematic objects
-    void PhysicsManager::doPreTick(btScalar timeStep)
+    void PhysicsManager::DoPreTick(btScalar timeStep)
     {
     
         // update for ghost objects
@@ -203,13 +201,13 @@ namespace Dog3D
                 
                 // TODO tag non ball object in ball's list of hit objects
             }
-            
-        
         }
         
-
         // performs gopher collisions
-        PhysicsManager::Instance()->doPreTick(timeStep);
+        PhysicsManager::Instance()->DoPreTick(timeStep);
+    
+        // remove anything that exploded
+        PhysicsManager::Instance()->RemoveComponents();
     }
     	
 	void PhysicsManager::CreateWorld()
@@ -243,6 +241,14 @@ namespace Dog3D
         mDynamicsWorld->setInternalTickCallback(mTickCallback, this, false);
         
 	}
+    
+    void PhysicsManager::RemoveComponents() {
+        for (list<PhysicsComponent *>::iterator it = mRemovalQueue.begin(); it != mRemovalQueue.end(); ++it)
+        {
+            RemoveComponent(*it);
+        }
+        mRemovalQueue.clear();
+    }
 	
 	void PhysicsManager::AddComponent( PhysicsComponent *component  )
 	{
@@ -304,16 +310,17 @@ namespace Dog3D
     {
         mDynamicsWorld->addConstraint(constraint, true);
     }
+    
     void PhysicsManager::RemoveConstraint(btHingeConstraint *constraint) {
         mDynamicsWorld->removeConstraint(constraint);
 	}
+    
 	void PhysicsManager::Update(float deltaTime)
 	{
 		if(mDynamicsWorld == NULL)
 		{
 			return;
 		}
-		   
 		
 		// updates kinematic object position
 		for(PhysicsComponentIterator it = mManagedComponents.begin(); it != mManagedComponents.end(); it++)
@@ -323,7 +330,6 @@ namespace Dog3D
 				(*it)->Update(deltaTime);
 			}
 		}
-		
 		
 		mDynamicsWorld->stepSimulation(deltaTime,10);
 		
@@ -342,7 +348,6 @@ namespace Dog3D
 		//}
 		
 	}
-	
 
 	// avoids gophers
     bool PhysicsManager::RayIntersects(btVector3 &rayStart, btVector3 &rayEnd, Entity *ignoreThis)
@@ -351,20 +356,11 @@ namespace Dog3D
 		PhysRayCallback rayCallback(&hitCount, ignoreThis);
 		
 		//ClosestRayResultCallback rayCallback;
-		
 		mDynamicsWorld->rayTest(rayStart, rayEnd, rayCallback);
-		
-		
-		
 		return (hitCount > 0);
-		
-	
 	}
 	
     /*
-
-	
-	
 	//two pinball objects
 	void PhysicsManager::GetTriggerContactList(std::set<EntityPair> &triggeredObjects)
 	{
@@ -439,7 +435,6 @@ namespace Dog3D
 		mDynamicsWorld->addCollisionObject(ghostCollider,
 										   GRP_EXPLODABLE, 
 										   collidesWith/* 1 removed this |GRP_GHOST|GRP_WALL|GRP_FLOOR_CEIL|GRP_FIXED*/);
-		
 	}
 	
 	void PhysicsManager::Unload()

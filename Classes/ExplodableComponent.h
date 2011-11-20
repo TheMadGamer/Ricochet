@@ -164,16 +164,6 @@ namespace Dog3D
 	};
 
 	// keeps on exploding 
-	class TimeBombExplodable : public ExplodableComponent
-	{
-	public:
-		TimeBombExplodable( ExplosionType explosionType) : 
-		ExplodableComponent(explosionType){}
-		virtual void Activate() { mTimeBomb = true; }
-		void OnCollision(Entity *collidesWith);
-	};
-	
-	// keeps on exploding 
 	class InfiniteExplodable : public ExplodableComponent
 	{
 	public:
