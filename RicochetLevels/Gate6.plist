@@ -50,7 +50,7 @@
 		<key>Hole15</key>
 		<dict>
 			<key>x</key>
-			<real>7.91203046814</real>
+			<real>5.31195686275</real>
 			<key>y</key>
 			<real>0.492365564392</real>
 			<key>z</key>
@@ -707,6 +707,108 @@
 			<key>trigZ</key>
 			<real>-4.0</real>
 		</dict>
+		<key>Hedge52</key>
+		<dict>
+			<key>x</key>
+			<real>6.02476559298</real>
+			<key>y</key>
+			<real>1.99416814627</real>
+			<key>z</key>
+			<real>-9.92751379277</real>
+			<key>type</key>
+			<string>hedge1</string>
+			<key>ry</key>
+			<real>0.0</real>
+			<key>spawnTime</key>
+			<real>0</real>
+			<key>sx</key>
+			<real>2.0</real>
+			<key>sy</key>
+			<real>8.0</real>
+			<key>sz</key>
+			<real>0.5</real>
+		</dict>
+		<key>Hedge53</key>
+		<dict>
+			<key>x</key>
+			<real>6.96457916728</real>
+			<key>y</key>
+			<real>1.99416814627</real>
+			<key>z</key>
+			<real>-13.2955528861</real>
+			<key>type</key>
+			<string>hedge1</string>
+			<key>ry</key>
+			<real>1.57079825</real>
+			<key>spawnTime</key>
+			<real>0.0</real>
+			<key>sx</key>
+			<real>2.0</real>
+			<key>sy</key>
+			<real>8.0</real>
+			<key>sz</key>
+			<real>0.5</real>
+			<key>trigX</key>
+			<real>-8.0</real>
+			<key>trigY</key>
+			<real>0.0</real>
+			<key>trigZ</key>
+			<real>-4.0</real>
+		</dict>
+		<key>Hedge54</key>
+		<dict>
+			<key>x</key>
+			<real>6.96457916728</real>
+			<key>y</key>
+			<real>1.99416814627</real>
+			<key>z</key>
+			<real>-12.2208557958</real>
+			<key>type</key>
+			<string>hedge1</string>
+			<key>ry</key>
+			<real>1.57079825</real>
+			<key>spawnTime</key>
+			<real>0.0</real>
+			<key>sx</key>
+			<real>2.0</real>
+			<key>sy</key>
+			<real>8.0</real>
+			<key>sz</key>
+			<real>0.5</real>
+			<key>trigX</key>
+			<real>-8.0</real>
+			<key>trigY</key>
+			<real>0.0</real>
+			<key>trigZ</key>
+			<real>-4.0</real>
+		</dict>
+		<key>Spinner1</key>
+		<dict>
+			<key>x</key>
+			<real>-2.77461917369</real>
+			<key>y</key>
+			<real>1.99416814627</real>
+			<key>z</key>
+			<real>3.94893872357</real>
+			<key>type</key>
+			<string>spinner1</string>
+			<key>ry</key>
+			<real>1.57079825</real>
+			<key>spawnTime</key>
+			<real>0.0</real>
+			<key>sx</key>
+			<real>2.0</real>
+			<key>sy</key>
+			<real>8.0</real>
+			<key>sz</key>
+			<real>0.5</real>
+			<key>trigX</key>
+			<real>-8.0</real>
+			<key>trigY</key>
+			<real>0.0</real>
+			<key>trigZ</key>
+			<real>-4.0</real>
+		</dict>
 	</dict>
 	<key>LevelControl</key>
 	<dict>
@@ -810,20 +912,6 @@
 			<real>-8.93609671111</real>
 			<key>powerScale</key>
 			<real>2.0</real>
-		</dict>
-		<key>Furry7</key>
-		<dict>
-			<key>type</key>
-			<string>furry</string>
-			<key>scale</key>
-			<real>0.25</real>
-		</dict>
-		<key>Furry8</key>
-		<dict>
-			<key>type</key>
-			<string>furry</string>
-			<key>scale</key>
-			<real>0.25</real>
 		</dict>
 	</dict>
 </dict>

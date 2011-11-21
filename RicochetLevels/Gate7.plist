@@ -50,11 +50,11 @@
 		<key>Hole15</key>
 		<dict>
 			<key>x</key>
-			<real>7.91203046814</real>
+			<real>5.31195686275</real>
 			<key>y</key>
 			<real>0.492365564392</real>
 			<key>z</key>
-			<real>-12.4496711815</real>
+			<real>-13.0390211988</real>
 			<key>type</key>
 			<string>spawn</string>
 			<key>ry</key>
@@ -467,7 +467,7 @@
 			<key>z</key>
 			<real>-8.94742635912</real>
 			<key>type</key>
-			<string>gate1</string>
+			<string>spinner1</string>
 			<key>ry</key>
 			<real>1.57079825</real>
 			<key>spawnTime</key>
@@ -494,7 +494,7 @@
 			<key>z</key>
 			<real>-10.9581499473</real>
 			<key>type</key>
-			<string>gate1</string>
+			<string>spinner1</string>
 			<key>ry</key>
 			<real>1.57079825</real>
 			<key>spawnTime</key>
@@ -533,13 +533,34 @@
 			<key>sz</key>
 			<real>0.5</real>
 		</dict>
+		<key>Hedge59</key>
+		<dict>
+			<key>x</key>
+			<real>6.23277148141</real>
+			<key>y</key>
+			<real>1.99416814627</real>
+			<key>z</key>
+			<real>-9.92751379277</real>
+			<key>type</key>
+			<string>hedge1</string>
+			<key>ry</key>
+			<real>0.0</real>
+			<key>spawnTime</key>
+			<real>0</real>
+			<key>sx</key>
+			<real>2.0</real>
+			<key>sy</key>
+			<real>8.0</real>
+			<key>sz</key>
+			<real>0.5</real>
+		</dict>
 	</dict>
 	<key>LevelControl</key>
 	<dict>
 		<key>NumCombos</key>
 		<integer>2</integer>
 		<key>NumGopherLives</key>
-		<integer>7</integer>
+		<integer>8</integer>
 		<key>Background</key>
 		<string>InsanelyHard</string>
 		<key>GamePlayMode</key>
