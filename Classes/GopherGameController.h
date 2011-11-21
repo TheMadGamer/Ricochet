@@ -6,9 +6,12 @@
 //  Copyright 2010 3dDogStudios. All rights reserved.
 //
 
-#import <StoreKit/StoreKit.h>
 #import <AVFoundation/AVFoundation.h>
+#ifdef IN_APP_PURCHAES
+#import <StoreKit/StoreKit.h>
+#endif
 #import <UIKit/UIKit.h>
+
 #import "PreferencesViewController.h"
 #import "InstructionsViewController.h"
 #import "GopherViewController.h"
@@ -26,9 +29,13 @@
 #if USE_OF
  OpenFeintDelegate,
 #endif
-	UIAlertViewDelegate,
-	SKProductsRequestDelegate,
+	UIAlertViewDelegate
+#ifdef IN_APP_PURCHAES
+	,SKProductsRequestDelegate,
 	LevelUnlockDelegate>
+#else
+    >
+#endif
 {
 
 	// play, sound, scores
@@ -79,6 +86,8 @@
 - (IBAction) instructionsPressed;
 
 - (IBAction) buyMoreLevelsPressed;
+
+- (IBAction) checkinWithHeyzap:(id)sender;
 
 - (void) animateIn;
 

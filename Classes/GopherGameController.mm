@@ -6,22 +6,20 @@
 //  Copyright 2010 3dDogStudios. All rights reserved.
 //
 
-#import <StoreKit/StoreKit.h>
+#import "GopherGameController.h"
 
+#import <Heyzap/Heyzap.h>
 #import "NSString+Extensions.h"
 #import "NSIndexSet+Extensions.h"
-
-#import "GopherGameController.h"
-#import "GopherViewController.h"
-#import "InstructionsViewController.h"
-#import "PreferencesViewController.h"
-#import "LevelPackPurchaseVC.h"
-
 #if USE_OF
 #import "OpenFeint.h"
 #endif
+#import <StoreKit/StoreKit.h>
 
-
+#import "GopherViewController.h"
+#import "InstructionsViewController.h"
+#import "LevelPackPurchaseVC.h"
+#import "PreferencesViewController.h"
 
 NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack1";
 
@@ -77,6 +75,7 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 
 #pragma mark In App Purchase
 
+#ifdef IN_APP_PURCHAES
 - (void) requestProductData
 {
 	SKProductsRequest *request= [[SKProductsRequest alloc] initWithProductIdentifiers: [NSSet setWithObject: kMyFeatureIdentifier]];
@@ -115,7 +114,7 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 {
 	
 }
-
+#endif
 
 
 #pragma mark IBACTIONS
@@ -170,6 +169,9 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 	[self showInstructionsView:@"Basics"];
 }
 
+- (IBAction) checkinWithHeyzap:(id)sender {
+    [[HeyzapSDK sharedSDK] checkin];
+}
 
 
 #pragma mark AUDIO
@@ -479,6 +481,7 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 		
 	}
 	
+#ifdef IN_APP_PURCHAES    
 	// starts a request for purchase
 	[self requestProductData];
 	
@@ -491,6 +494,7 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 	self.levelPackVC.delegate = self;
 	
 	[[SKPaymentQueue defaultQueue] addTransactionObserver:self.levelPackVC];
+#endif    
 }
 
 

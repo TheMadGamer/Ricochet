@@ -8,10 +8,12 @@
 
 #import "GopherAppDelegate.h"
 
-#import "GopherGameController.h"
+#import <Heyzap/Heyzap.h>
 #if USE_OF
 #import "OpenFeint.h"
 #endif
+
+#import "GopherGameController.h"
 
 // singleton app delegate
 static GopherAppDelegate *g_appDelegate;
@@ -51,6 +53,8 @@ static GopherAppDelegate *g_appDelegate;
 	// keep from dimming screen
 	[application setIdleTimerDisabled:YES];
 	
+    [HeyzapSDK startHeyzapWithAppId: @"477851597"];
+    
 }
 
 
