@@ -148,6 +148,9 @@
 		EA667DD613503DB0000C1D85 /* GateFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667DD513503DB0000C1D85 /* GateFactory.mm */; };
 		EA667E7D13504684000C1D85 /* SpinnerController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667E7C13504684000C1D85 /* SpinnerController.mm */; };
 		EA68DF3D1479A18A003F26CD /* TimeBombExplodable.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA68DF3C1479A18A003F26CD /* TimeBombExplodable.mm */; };
+		EA68DF4E147A0ECE003F26CD /* Gate6.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA68DF4D147A0ECE003F26CD /* Gate6.plist */; };
+		EA68DF51147A1480003F26CD /* Gate7.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA68DF4F147A147F003F26CD /* Gate7.plist */; };
+		EA68DF52147A1480003F26CD /* Gate8.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA68DF50147A147F003F26CD /* Gate8.plist */; };
 		EA6A2F6F1185F93D00E5968B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6A2F6E1185F93D00E5968B /* CoreGraphics.framework */; };
 		EA6A2F731185F94600E5968B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6A2F721185F94600E5968B /* OpenGLES.framework */; };
 		EA6A2F771185F94B00E5968B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6A2F761185F94B00E5968B /* Foundation.framework */; };
@@ -524,6 +527,9 @@
 		EA667E7C13504684000C1D85 /* SpinnerController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SpinnerController.mm; sourceTree = "<group>"; };
 		EA68DF3C1479A18A003F26CD /* TimeBombExplodable.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TimeBombExplodable.mm; sourceTree = "<group>"; };
 		EA68DF3E1479A1CE003F26CD /* TimeBombExplodable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeBombExplodable.h; sourceTree = "<group>"; };
+		EA68DF4D147A0ECE003F26CD /* Gate6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gate6.plist; sourceTree = "<group>"; };
+		EA68DF4F147A147F003F26CD /* Gate7.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gate7.plist; sourceTree = "<group>"; };
+		EA68DF50147A147F003F26CD /* Gate8.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gate8.plist; sourceTree = "<group>"; };
 		EA6A2F6E1185F93D00E5968B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EA6A2F721185F94600E5968B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		EA6A2F761185F94B00E5968B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1942,6 +1948,9 @@
 				EA841F9A147852C000E3538D /* Gate3.plist */,
 				EA7B80BC1478890F00A9D41C /* Gate4.plist */,
 				EA7B80BE1478922300A9D41C /* Gate5.plist */,
+				EA68DF4D147A0ECE003F26CD /* Gate6.plist */,
+				EA68DF4F147A147F003F26CD /* Gate7.plist */,
+				EA68DF50147A147F003F26CD /* Gate8.plist */,
 			);
 			path = RicochetLevels;
 			sourceTree = "<group>";
@@ -2180,6 +2189,9 @@
 				EA841F9B147852C100E3538D /* Gate3.plist in Resources */,
 				EA7B80BD1478890F00A9D41C /* Gate4.plist in Resources */,
 				EA7B80BF1478922300A9D41C /* Gate5.plist in Resources */,
+				EA68DF4E147A0ECE003F26CD /* Gate6.plist in Resources */,
+				EA68DF51147A1480003F26CD /* Gate7.plist in Resources */,
+				EA68DF52147A1480003F26CD /* Gate8.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -188,5 +188,35 @@
 		<key>title</key>
 		<string>Gate5</string>
 	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
+		<string>Gate6.plist</string>
+		<key>title</key>
+		<string>Gate6</string>
+	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
+		<string>Gate7.plist</string>
+		<key>title</key>
+		<string>Gate7</string>
+	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
+		<string>Gate8.plist</string>
+		<key>title</key>
+		<string>Gate8</string>
+	</dict>
 </array>
 </plist>

@@ -174,32 +174,38 @@ namespace Dog3D
 			btCollisionObject* obA = static_cast<btCollisionObject*>(contactManifold->getBody0());
 			btCollisionObject* obB = static_cast<btCollisionObject*>(contactManifold->getBody1());
 			
-			short collisionGrpA = obA->getBroadphaseHandle()->m_collisionFilterGroup;
-			short collisionGrpB = obB->getBroadphaseHandle()->m_collisionFilterGroup;
-			
-            // test ball/ exploders 
-            if(  (collisionGrpA & (GRP_EXPLODABLE | GRP_BALL | GRP_FIXED | GRP_WALL)) && (collisionGrpB & (GRP_EXPLODABLE | GRP_BALL | GRP_FIXED | GRP_WALL) ) )  {
+            btBroadphaseProxy *proxyA = obA->getBroadphaseHandle();
+            btBroadphaseProxy *proxyB = obB->getBroadphaseHandle();
+
+            // Hack to fix crasher - for mystery reasonson, sometimes proxy is null(WTF?)
+            if(proxyA && proxyB) {
+                short collisionGrpA = proxyA->m_collisionFilterGroup;
+                short collisionGrpB = proxyB->m_collisionFilterGroup;
                 
-                PhysicsComponent *pA = (PhysicsComponent*) obA->getUserPointer();
-                PhysicsComponent *pB = (PhysicsComponent*) obB->getUserPointer();
-                
-                if(pA && pB && pA != pB)
-                {
-                    Entity *entA = pA->GetParent();
-                    Entity *entB = pB->GetParent();
+                // test ball/ exploders 
+                if(  (collisionGrpA & (GRP_EXPLODABLE | GRP_BALL | GRP_FIXED | GRP_WALL)) && (collisionGrpB & (GRP_EXPLODABLE | GRP_BALL | GRP_FIXED | GRP_WALL) ) )  {
                     
-                    CollidePair(EntityPair(entA, entB));
-#if DEBUG
-                    //	DLog(@"Exp Col %s", entA->mDebugName.c_str() );
-#endif
+                    PhysicsComponent *pA = (PhysicsComponent*) obA->getUserPointer();
+                    PhysicsComponent *pB = (PhysicsComponent*) obB->getUserPointer();
+                    
+                    if(pA && pB && pA != pB)
+                    {
+                        Entity *entA = pA->GetParent();
+                        Entity *entB = pB->GetParent();
+                        
+                        CollidePair(EntityPair(entA, entB));
+    #if DEBUG
+                        //	DLog(@"Exp Col %s", entA->mDebugName.c_str() );
+    #endif
+                    }
+                }	
+                // count wall or hedge hits
+                else if( (collisionGrpA & (GRP_WALL | GRP_BALL | GRP_FIXED )) && (collisionGrpB & (GRP_BALL | GRP_BALL | GRP_FIXED)))
+                {
+                    NSLog(@"Ball Wall");
+                    
+                    // TODO tag non ball object in ball's list of hit objects
                 }
-            }	
-            // count wall or hedge hits
-            else if( (collisionGrpA & (GRP_WALL | GRP_BALL | GRP_FIXED )) && (collisionGrpB & (GRP_BALL | GRP_BALL | GRP_FIXED)))
-            {
-                NSLog(@"Ball Wall");
-                
-                // TODO tag non ball object in ball's list of hit objects
             }
         }
         
