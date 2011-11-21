@@ -595,7 +595,7 @@
 		<key>NumCombos</key>
 		<integer>2</integer>
 		<key>NumGopherLives</key>
-		<integer>7</integer>
+		<integer>6</integer>
 		<key>Background</key>
 		<string>InsanelyHard</string>
 		<key>GamePlayMode</key>
