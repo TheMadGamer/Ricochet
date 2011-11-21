@@ -148,9 +148,6 @@
 		EA667DD613503DB0000C1D85 /* GateFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667DD513503DB0000C1D85 /* GateFactory.mm */; };
 		EA667E7D13504684000C1D85 /* SpinnerController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA667E7C13504684000C1D85 /* SpinnerController.mm */; };
 		EA68DF3D1479A18A003F26CD /* TimeBombExplodable.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA68DF3C1479A18A003F26CD /* TimeBombExplodable.mm */; };
-		EA68DF4E147A0ECE003F26CD /* Gate6.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA68DF4D147A0ECE003F26CD /* Gate6.plist */; };
-		EA68DF51147A1480003F26CD /* Gate7.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA68DF4F147A147F003F26CD /* Gate7.plist */; };
-		EA68DF52147A1480003F26CD /* Gate8.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA68DF50147A147F003F26CD /* Gate8.plist */; };
 		EA68DF411479C5C9003F26CD /* Heyzap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EA68DF3F1479C5C9003F26CD /* Heyzap.bundle */; };
 		EA68DF421479C5C9003F26CD /* Heyzap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA68DF401479C5C9003F26CD /* Heyzap.framework */; };
 		EA6A2F6F1185F93D00E5968B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6A2F6E1185F93D00E5968B /* CoreGraphics.framework */; };
@@ -334,6 +331,9 @@
 		EAAC5C5E1210EAF7006ADE83 /* ScoresViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAAC5C5C1210EAF7006ADE83 /* ScoresViewController.xib */; };
 		EABC34A611A85F93000C6EC6 /* GopherGameController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EABC34A411A85F93000C6EC6 /* GopherGameController.mm */; };
 		EABC34A711A85F93000C6EC6 /* GopherGameController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EABC34A511A85F93000C6EC6 /* GopherGameController.xib */; };
+		EAC22A4F147A27330088B937 /* Gate6.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC22A4C147A27330088B937 /* Gate6.plist */; };
+		EAC22A50147A27330088B937 /* Gate7.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC22A4D147A27330088B937 /* Gate7.plist */; };
+		EAC22A51147A27330088B937 /* Gate8.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC22A4E147A27330088B937 /* Gate8.plist */; };
 		EAC2EDFE11176B89000F428C /* GamePlayManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2EDFD11176B89000F428C /* GamePlayManager.mm */; };
 		EAC584321441647000F0A89E /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC584311441647000F0A89E /* Smoke.png */; };
 		EAC58441144569B700F0A89E /* sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC58440144569B700F0A89E /* sparkle.png */; };
@@ -916,6 +916,9 @@
 		EABC34A311A85F93000C6EC6 /* GopherGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GopherGameController.h; sourceTree = "<group>"; };
 		EABC34A411A85F93000C6EC6 /* GopherGameController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GopherGameController.mm; sourceTree = "<group>"; };
 		EABC34A511A85F93000C6EC6 /* GopherGameController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GopherGameController.xib; sourceTree = "<group>"; };
+		EAC22A4C147A27330088B937 /* Gate6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gate6.plist; sourceTree = "<group>"; };
+		EAC22A4D147A27330088B937 /* Gate7.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gate7.plist; sourceTree = "<group>"; };
+		EAC22A4E147A27330088B937 /* Gate8.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gate8.plist; sourceTree = "<group>"; };
 		EAC2EDFC11176B89000F428C /* GamePlayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayManager.h; sourceTree = "<group>"; };
 		EAC2EDFD11176B89000F428C /* GamePlayManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GamePlayManager.mm; sourceTree = "<group>"; };
 		EAC584311441647000F0A89E /* Smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smoke.png; sourceTree = "<group>"; };
@@ -1952,9 +1955,9 @@
 				EA841F9A147852C000E3538D /* Gate3.plist */,
 				EA7B80BC1478890F00A9D41C /* Gate4.plist */,
 				EA7B80BE1478922300A9D41C /* Gate5.plist */,
-				EA68DF4D147A0ECE003F26CD /* Gate6.plist */,
-				EA68DF4F147A147F003F26CD /* Gate7.plist */,
-				EA68DF50147A147F003F26CD /* Gate8.plist */,
+				EAC22A4C147A27330088B937 /* Gate6.plist */,
+				EAC22A4D147A27330088B937 /* Gate7.plist */,
+				EAC22A4E147A27330088B937 /* Gate8.plist */,
 			);
 			path = RicochetLevels;
 			sourceTree = "<group>";
@@ -2194,6 +2197,9 @@
 				EA7B80BD1478890F00A9D41C /* Gate4.plist in Resources */,
 				EA7B80BF1478922300A9D41C /* Gate5.plist in Resources */,
 				EA68DF411479C5C9003F26CD /* Heyzap.bundle in Resources */,
+				EAC22A4F147A27330088B937 /* Gate6.plist in Resources */,
+				EAC22A50147A27330088B937 /* Gate7.plist in Resources */,
+				EAC22A51147A27330088B937 /* Gate8.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2371,6 +2377,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2394,6 +2404,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: 3dDogStudios";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2473,6 +2487,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: 3dDogStudios";
 				COPY_PHASE_STRIP = YES;
@@ -2516,7 +2534,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Anthony Lobay (MU8MU5US56)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2557,6 +2578,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: 3dDogStudios";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: 3dDogStudios";
