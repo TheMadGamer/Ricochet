@@ -29,6 +29,8 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 @synthesize levelPackVC;
 @synthesize lastLevelName = lastLevelName_;
 
+@synthesize gameCenterManager;
+
 + (NSString *) levelPlist
 {
 	// for gopher go boom, Levels
@@ -495,6 +497,16 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 	
 	[[SKPaymentQueue defaultQueue] addTransactionObserver:self.levelPackVC];
 #endif    
+    if ([GameCenterManager isGameCenterAvailable])
+    {
+        self.gameCenterManager =[[[GameCenterManager alloc] init] autorelease];
+        [self.gameCenterManager setDelegate:self];
+        [self.gameCenterManager authenticateLocalUser];
+    }
+    else
+    {
+    //The current device does not support Game Center
+    }
 }
 
 
@@ -637,10 +649,12 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 
+    self.gameCenterManager=nil;
 }
 
 
 - (void)dealloc {
+    [gameCenterManager release];
     [super dealloc];
 }
 

@@ -362,6 +362,8 @@
 		EAFCB10913727C3500865969 /* Intro2.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAFCB10613727C3500865969 /* Intro2.plist */; };
 		EAFCB10A13727C3500865969 /* Intro3.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAFCB10713727C3500865969 /* Intro3.plist */; };
 		EAFCB12813727EAD00865969 /* Intro0.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAFCB12713727EAD00865969 /* Intro0.plist */; };
+		FBDC06AD147D98770058D62A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDC06AC147D98770058D62A /* GameKit.framework */; };
+		FBDC06B2147D99DB0058D62A /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDC06B1147D99DB0058D62A /* GameCenterManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -953,6 +955,10 @@
 		EAFCB10613727C3500865969 /* Intro2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Intro2.plist; sourceTree = "<group>"; };
 		EAFCB10713727C3500865969 /* Intro3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Intro3.plist; sourceTree = "<group>"; };
 		EAFCB12713727EAD00865969 /* Intro0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Intro0.plist; sourceTree = "<group>"; };
+		FBDC06AC147D98770058D62A /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		FBDC06B0147D99DB0058D62A /* GameCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterManager.h; sourceTree = "<group>"; };
+		FBDC06B1147D99DB0058D62A /* GameCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterManager.m; sourceTree = "<group>"; };
+		FBDC06B3147D99FB0058D62A /* AppSpecificValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSpecificValues.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -960,6 +966,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBDC06AD147D98770058D62A /* GameKit.framework in Frameworks */,
 				EA6A2F6F1185F93D00E5968B /* CoreGraphics.framework in Frameworks */,
 				EA6A2F731185F94600E5968B /* OpenGLES.framework in Frameworks */,
 				EA6A2F771185F94B00E5968B /* Foundation.framework in Frameworks */,
@@ -978,6 +985,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FBDC06AF147D99940058D62A /* GameCenterManagement */,
 				EA11291911F7A633000A8124 /* Audio */,
 				EAC8DF5F110A2E83008542DA /* Component */,
 				EA1245431106852900B33424 /* Entity */,
@@ -1047,6 +1055,7 @@
 			isa = PBXGroup;
 			children = (
 				EA68DF3F1479C5C9003F26CD /* Heyzap.bundle */,
+				FBDC06AC147D98770058D62A /* GameKit.framework */,
 				EA68DF401479C5C9003F26CD /* Heyzap.framework */,
 				EA11293F11F7A944000A8124 /* AudioToolbox.framework */,
 				EA6A2F6E1185F93D00E5968B /* CoreGraphics.framework */,
@@ -1962,6 +1971,17 @@
 			path = RicochetLevels;
 			sourceTree = "<group>";
 		};
+		FBDC06AF147D99940058D62A /* GameCenterManagement */ = {
+			isa = PBXGroup;
+			children = (
+				FBDC06B3147D99FB0058D62A /* AppSpecificValues.h */,
+				FBDC06B0147D99DB0058D62A /* GameCenterManager.h */,
+				FBDC06B1147D99DB0058D62A /* GameCenterManager.m */,
+			);
+			name = GameCenterManagement;
+			path = ..;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2367,6 +2387,7 @@
 				EAD1941F143EB0B600DFC2B2 /* BurstEmitter.mm in Sources */,
 				4F29439F144E637100054135 /* CountExplodable.mm in Sources */,
 				EA68DF3D1479A18A003F26CD /* TimeBombExplodable.mm in Sources */,
+				FBDC06B2147D99DB0058D62A /* GameCenterManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

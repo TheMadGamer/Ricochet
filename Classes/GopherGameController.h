@@ -17,7 +17,7 @@
 #import "GopherViewController.h"
 #import "ScoresViewController.h"
 #import "LevelPackPurchaseVC.h"
-
+#import "GameCenterManager.h"
 #if USE_OF
 #import "OpenFeint.h"
 #endif
@@ -26,6 +26,7 @@
 	InstructionsViewControllerDelegate, GopherViewControllerDelegate, 
 	AVAudioPlayerDelegate,
 	ScoresViewDelegate,
+    GameCenterManagerDelegate,
 #if USE_OF
  OpenFeintDelegate,
 #endif
@@ -67,6 +68,8 @@
 	bool mFirstAppearance;
 		
 	NSArray *levels;
+    
+    GameCenterManager *gameCenterManager;
 		
 }
 
@@ -76,6 +79,8 @@
 @property (readonly) NSString *highScoresFileName;
 @property (nonatomic, retain) LevelPackPurchaseVC *levelPackVC;
 @property (nonatomic, retain) NSString *lastLevelName;
+
+@property(nonatomic,retain) GameCenterManager *gameCenterManager;
 
 - (IBAction)mutePressed;
 
