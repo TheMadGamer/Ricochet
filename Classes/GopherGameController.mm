@@ -21,6 +21,9 @@
 #import "LevelPackPurchaseVC.h"
 #import "PreferencesViewController.h"
 
+#import "AppSpecificValues.h"
+#import "GameCenterManager.h"
+
 NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack1";
 
 @implementation GopherGameController
@@ -29,7 +32,7 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 @synthesize levelPackVC;
 @synthesize lastLevelName = lastLevelName_;
 
-@synthesize gameCenterManager;
+@synthesize gameCenterManager=gameCenterManager_;
 
 + (NSString *) levelPlist
 {
@@ -361,6 +364,19 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 // TODO Ludo - add in game Center view here IF game center is available
 - (void) showScoresView
 {
+    GKLeaderboardViewController *leaderboardController=[[GKLeaderboardViewController alloc] init];
+    if (leaderboardController !=NULL)
+        
+    {
+        leaderboardController.category=kLeaderboardHighScore;
+        leaderboardController.timeScope=GKLeaderboardTimeScopeWeek;
+        leaderboardController.leaderboardDelegate=self;
+        [self presentModalViewController:leaderboardController animated:NO];
+    }
+    
+    
+    //do we want to keep local scores like that or only Leader board
+    /*
 	
 	 ScoresViewController *controller = [[ScoresViewController alloc] initWithNibName:@"ScoresViewController" bundle:nil];
 	 controller.delegate = self;
@@ -369,7 +385,39 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 	 [self presentModalViewController:controller animated:NO];
 	 
 	 [controller release];
-	 
+	*/ 
+}
+
+- (void) showAlertWithTitle: (NSString*) title message: (NSString*) message
+{
+	UIAlertView* alert= [[[UIAlertView alloc] initWithTitle: title message: message 
+                                                   delegate: NULL cancelButtonTitle: @"OK" otherButtonTitles: NULL] autorelease];
+	[alert show];
+	
+}
+
+
+- (void) scoreReported: (NSError*) error;
+{
+	if(error == NULL)
+	{
+		[self.gameCenterManager reloadHighScoresForCategory: kLeaderboardHighScore];
+		[self showAlertWithTitle: @"High Score Reported!"
+						 message: [NSString stringWithFormat: @"", [error localizedDescription]]];
+	}
+	else
+	{
+		[self showAlertWithTitle: @"Score Report Failed!"
+						 message: [NSString stringWithFormat: @"Reason: %@", [error localizedDescription]]];
+	}
+}
+
+
+-(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
+{
+    [self dismissModalViewControllerAnimated:NO];
+    [viewController release];
+    [self animateIn];
 }
 
 #pragma mark GOPHER CONTROL
@@ -405,6 +453,7 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 	[mLandingView removeFromSuperview];
 	
 	mGopherViewController.delegate = self;
+    mGopherViewController.gameCenterManager=self.gameCenterManager;
 	[mGopherViewController setLevelName:levelName];
 	
 	mGopherViewController.view.frame = CGRectMake(0,0,480,320);
@@ -499,8 +548,9 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 #endif    
     if ([GameCenterManager isGameCenterAvailable])
     {
+        
         self.gameCenterManager =[[[GameCenterManager alloc] init] autorelease];
-        [self.gameCenterManager setDelegate:self];
+        self.gameCenterManager.delegate=self;
         [self.gameCenterManager authenticateLocalUser];
     }
     else
@@ -655,6 +705,7 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 
 - (void)dealloc {
     [gameCenterManager release];
+    [gameCenterManager_ release];
     [super dealloc];
 }
 
@@ -862,6 +913,36 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 	
 	return [[playedLevels valueForKey:levelName] intValue];
 }
+
+//
+- (int64_t) getGameScore
+{
+	DLog(@"Get Game Score");
+	int64_t gameScore=0;
+	NSString *playedLevelsHighScoresFile = [self.highScoresFileName stringByExpandingToUserDirectory];
+	NSDictionary *playedLevelsHighScores = [NSDictionary dictionaryWithContentsOfFile:playedLevelsHighScoresFile];
+	
+	if (!playedLevelsHighScores)
+	{
+		gameScore= 0;
+	}
+    else
+    { 
+        for ( id levelName in playedLevelsHighScores)
+    
+        {
+            int64_t score = [[playedLevelsHighScores valueForKey:levelName] intValue];
+            if (score >0)
+            {
+                gameScore=gameScore+score;
+            }
+        }
+    }
+	return gameScore;
+}
+                    
+
+
 
 #pragma mark AUDIO
 - (bool) isAudioOn

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "GopherView.h"
+#import "GameCenterManager.h"
+#import "AppSpecificValues.h"
 
 @protocol GopherViewControllerDelegate;
 
@@ -34,6 +36,7 @@
 	
 	IBOutlet float tiltGravityCoef;
 	IBOutlet bool offsetGravityEnabled;
+    GameCenterManager *gameCenterManager;
 }
 
 @property (nonatomic, assign) IBOutlet GopherView *gopherView;
@@ -43,7 +46,7 @@
 @property (nonatomic, assign) float tiltGravityCoef;
 
 @property (nonatomic, assign) bool offsetGravityEnabled;
-
+@property (nonatomic,retain) GameCenterManager *gameCenterManager;
 
 - (IBAction) resumePushed:(id)sender;
 - (IBAction) endOfGamePushed:(id)sender;
@@ -82,6 +85,9 @@
 
 // gets the high score
 - (int) getScore:(NSString*)levelName;
+
+//gets the game score as Sum of All level Score
+- (int64_t) getGameScore;
 
 - (NSString*) getNextLevelName: (NSString*) currentLevelName;
 - (void) setLevelPlayed:(NSString*) levelName played:(BOOL)played;

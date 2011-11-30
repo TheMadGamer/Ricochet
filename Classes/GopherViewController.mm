@@ -26,6 +26,7 @@ using namespace Dog3D;
 
 @synthesize offsetGravityEnabled;
 @synthesize tiltGravityCoef;
+@synthesize gameCenterManager=gameCenterManager_;
 
 // pauses level
 // puts up a bunch of buttons
@@ -196,22 +197,25 @@ using namespace Dog3D;
 - (UILabel *) makeScoreLabel
 {
 	int numGophers = [gopherView deadGophers];
-  int numRemainingBalls = [gopherView remainingBalls];
+    int numRemainingBalls = [gopherView remainingBalls];
 	int currentScore =   numRemainingBalls * 100 + numGophers * 10;
 	int currentHigh = [delegate getScore:[gopherView loadedLevel]];
-	
+
 	UILabel *highScoreLabel;
 	
 	if(currentHigh < currentScore)
 	{
 		DLog(@"New High Score");
 		[delegate writeScore:currentScore forLevel:[gopherView loadedLevel]];
-		
+		int64_t gameScore=[delegate getGameScore];
 		highScoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(160-240/2- 32,240-160/2 + 80,314,96)];
-		NSString *formatString = @"Gophers: %i x 10 = %i\nBalls: %i x 100 = %i\nNew High Score: %i";
-		NSString *scoreString = [NSString stringWithFormat:formatString, numGophers, numGophers *10, numRemainingBalls, numRemainingBalls*100, currentScore];
+		//for the moment, just writing the gameScore next to the level score inside brackets
+        NSString *formatString = @"Gophers: %i x 10 = %i\nBalls: %i x 100 = %i\nNew High Score: %i (%i)";
+		NSString *scoreString = [NSString stringWithFormat:formatString, numGophers, numGophers *10, numRemainingBalls, numRemainingBalls*100, currentScore, gameScore];
 		highScoreLabel.text = scoreString;
-	}
+        //send score to game center
+        [self.gameCenterManager reportScore:gameScore forCategory:kLeaderboardHighScore];    
+    }
 	else 
 	{	
 		highScoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(160-240/2 - 32,240-160/2 + 80,314,96)];
@@ -682,12 +686,15 @@ using namespace Dog3D;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.gameCenterManager=nil;
 }
 
 
 - (void)dealloc {
+    [gameCenterManager release];
+    [gameCenterManager_ release];
     [super dealloc];
-}
+  }
 
 
 - (IBAction) nextInstructionFramePressed:(id)sender

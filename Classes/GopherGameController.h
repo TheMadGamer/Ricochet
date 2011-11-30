@@ -11,6 +11,7 @@
 #import <StoreKit/StoreKit.h>
 #endif
 #import <UIKit/UIKit.h>
+#import <GameKit/GameKit.h>
 
 #import "PreferencesViewController.h"
 #import "InstructionsViewController.h"
@@ -27,6 +28,7 @@
 	AVAudioPlayerDelegate,
 	ScoresViewDelegate,
     GameCenterManagerDelegate,
+    GKLeaderboardViewControllerDelegate,
 #if USE_OF
  OpenFeintDelegate,
 #endif
