@@ -54,7 +54,7 @@
 //  iTunes Connect will accept will work fine.
 
 //Leaderboard Category IDs
-#define kLeaderboardHighScore @"com.3dDogStudios.Leader2"
+#define kLeaderboardHighScore @"com.3dDogStudios.Grenades.OverallLeader"
 
 
 //Achievement IDs
