@@ -154,6 +154,11 @@ float kWallHeight = 1;
 	return GamePlayManager::Instance()->GetNumBallsLeft();
 }
 
+- (int) destroyedObjects 
+{
+    return GamePlayManager::Instance()->GetNumDestroyedObjects();
+}
+
 - (void) loadLevel:(NSString*) levelName
 {
 

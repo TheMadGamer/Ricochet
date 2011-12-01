@@ -215,6 +215,8 @@ namespace Dog3D
 		mFuseTime = 0.5f;
         
 		mParent->GetGraphicsComponent()->mActive = false;
+        
+        GamePlayManager::Instance()->IncrementDestroyedObjects();
 		
 	}
 	
