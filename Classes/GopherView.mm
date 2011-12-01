@@ -74,7 +74,7 @@ float kWallHeight = 1;
 		touchStartTime = 0;
 		touchStart.setZero();
 		
-    movingFarmer = false;
+        movingFarmer = false;
 		
 		lastTimeInterval = [NSDate timeIntervalSinceReferenceDate];
 		lastAccelInterval = [NSDate timeIntervalSinceReferenceDate];
@@ -347,7 +347,7 @@ float kWallHeight = 1;
 }
 
 const float kFarmerMin = 0.5f;
-const float kFarmerMax = 7.0f;
+const float kFarmerMax = 10.0f;
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {	
