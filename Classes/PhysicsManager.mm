@@ -163,7 +163,10 @@ namespace Dog3D
 	
 	void mTickCallback( btDynamicsWorld *world, btScalar timeStep)
     {
-		
+// Total hack to keep phys manager from crashing during processing 
+#if DEBUG
+		try {
+#endif
 		///one way to draw all the contact points is iterating over contact manifolds / points:
 		int numManifolds = world->getDispatcher()->getNumManifolds();
 		
@@ -214,6 +217,12 @@ namespace Dog3D
     
         // remove anything that exploded
         PhysicsManager::Instance()->RemoveComponents();
+// Total hack to keep phys manager from crashing during processing 
+#if DEBUG
+        } catch (exception e) {
+            DLog(@"Exception caught in physics manager mTickCallback");
+        }
+#endif
     }
     	
 	void PhysicsManager::CreateWorld()

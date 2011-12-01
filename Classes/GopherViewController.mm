@@ -198,7 +198,8 @@ using namespace Dog3D;
 {
 	int numGophers = [gopherView deadGophers];
     int numRemainingBalls = [gopherView remainingBalls];
-	int currentScore =   numRemainingBalls * 100 + numGophers * 10;
+    int numDestroyedObjects = [gopherView numDestroyedObjects];
+	int currentScore =   numRemainingBalls * 100 + numGophers * 10 + numDestroyedObjects * 10;
 	int currentHigh = [delegate getScore:[gopherView loadedLevel]];
 
 	UILabel *highScoreLabel;
@@ -209,9 +210,12 @@ using namespace Dog3D;
 		[delegate writeScore:currentScore forLevel:[gopherView loadedLevel]];
 		int64_t gameScore=[delegate getGameScore];
 		highScoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(160-240/2- 32,240-160/2 + 80,314,96)];
-		//for the moment, just writing the gameScore next to the level score inside brackets
-        NSString *formatString = @"Gophers: %i x 10 = %i\nBalls: %i x 100 = %i\nNew High Score: %i (%i)";
-		NSString *scoreString = [NSString stringWithFormat:formatString, numGophers, numGophers *10, numRemainingBalls, numRemainingBalls*100, currentScore, gameScore];
+		NSString *formatString = @"Gophers: %i x 10 = %i\nBalls: %i x 100 = %i\n"
+            @"Destruction: %i x 10 = %i\nNew High Score: %i  (%i)";
+		NSString *scoreString = [NSString stringWithFormat:formatString, numGophers, numGophers *10, 
+                                 numRemainingBalls, numRemainingBalls*100,
+                                 numDestroyedObjects, numDestroyedObjects*10,
+                                 currentScore, gameScore];
 		highScoreLabel.text = scoreString;
         //send score to game center
         [self.gameCenterManager reportScore:gameScore forCategory:kLeaderboardHighScore];    
@@ -219,15 +223,19 @@ using namespace Dog3D;
 	else 
 	{	
 		highScoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(160-240/2 - 32,240-160/2 + 80,314,96)];
-		NSString *formatString = @"Gophers: %i x 10 = %i\nBalls: %i x 100 = %i\nScore: %i";
-		NSString *scoreString = [NSString stringWithFormat:formatString, numGophers, numGophers *10, numRemainingBalls, numRemainingBalls*100, currentScore];
+		NSString *formatString = @"Gophers: %i x 10 = %i\nBalls: %i x 100 = %i\n"
+                @"Destruction: %i x 10 = %i\nScore: %i";
+		NSString *scoreString = [NSString stringWithFormat:formatString, numGophers, numGophers *10,
+                                 numRemainingBalls, numRemainingBalls*100, 
+                                 numDestroyedObjects, numDestroyedObjects*10,
+                                 currentScore];
 		highScoreLabel.text = scoreString;
 	}
 	
 	highScoreLabel.textAlignment = UITextAlignmentCenter;
-	highScoreLabel.numberOfLines = 3;
+	highScoreLabel.numberOfLines = 4;
 	highScoreLabel.backgroundColor = [UIColor clearColor];
-	highScoreLabel.font = [UIFont fontWithName:@"Marker Felt" size:24.0f];
+	highScoreLabel.font = [UIFont fontWithName:@"Marker Felt" size:18.0f];
 	highScoreLabel.textColor = [UIColor orangeColor];
 	highScoreLabel.shadowColor = [UIColor blackColor];
 	highScoreLabel.shadowOffset = CGSizeMake(2,2);	

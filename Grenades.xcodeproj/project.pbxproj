@@ -2429,7 +2429,7 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 					armv6,
 				);
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: 3dDogStudios";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Anthony Lobay (MU8MU5US56)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2443,7 +2443,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = Grenades;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9BE4D50F-8F4E-4F78-B46D-CBE97FC33056";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9B702F34-CBC7-42FD-8D06-FD1109160DC2";
 				SDKROOT = iphoneos;
 			};
 			name = Release;

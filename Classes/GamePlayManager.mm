@@ -31,7 +31,6 @@ using namespace std;
 
 const float kTapForce = 30.0;
 
-
 namespace Dog3D
 {
 	 
@@ -296,7 +295,7 @@ namespace Dog3D
 		ExplodableComponent *explodable = ball->GetExplodable();
 		
 
-    explodable->Prime();
+        explodable->Prime();
 		
 		// pick a random start point (see rands below)
 		btVector3 resetPosition(mBallSpawn);

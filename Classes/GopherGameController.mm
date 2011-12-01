@@ -391,19 +391,26 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 - (void) showAlertWithTitle: (NSString*) title message: (NSString*) message
 {
 	UIAlertView* alert= [[[UIAlertView alloc] initWithTitle: title message: message 
-                                                   delegate: NULL cancelButtonTitle: @"OK" otherButtonTitles: NULL] autorelease];
+                                                   delegate: NULL cancelButtonTitle: @"OK" otherButtonTitles: NULL] 
+                         autorelease];
 	[alert show];
 	
 }
 
+- (void) showHighScoreAsync:(NSString *) message {
+    
+    [self showAlertWithTitle: @"Your new High Score posted to Game Center!"
+                     message:nil];
+}
 
 - (void) scoreReported: (NSError*) error;
 {
 	if(error == NULL)
 	{
 		[self.gameCenterManager reloadHighScoresForCategory: kLeaderboardHighScore];
-		[self showAlertWithTitle: @"High Score Reported!"
-						 message: [NSString stringWithFormat: @"", [error localizedDescription]]];
+
+        // delay this display for 5 seconds
+        [self performSelector:@selector(showHighScoreAsync:) withObject:nil afterDelay:4.0f];
 	}
 	else
 	{

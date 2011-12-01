@@ -333,6 +333,16 @@ namespace Dog3D
 				return -1;
 			}
 		}
+        
+        inline int GetNumDestroyedObjects()
+        {
+            return mDestroyedObjects;
+        }
+        
+        inline void IncrementDestroyedObjects()
+        {
+            mDestroyedObjects++;
+        }
 		
 		inline void SetCarrotSearchDistance(float distance)
 		{

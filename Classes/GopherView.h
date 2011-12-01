@@ -128,6 +128,7 @@
 - (int) currentScore;
 - (int) deadGophers;
 - (int) remainingBalls;
+- (int) numDestroyedObjects;
 
 
 @end

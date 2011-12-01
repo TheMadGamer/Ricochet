@@ -643,6 +643,13 @@
 			<key>scale</key>
 			<real>0.25</real>
 		</dict>
+		<key>Furry8</key>
+		<dict>
+			<key>type</key>
+			<string>furry</string>
+			<key>scale</key>
+			<real>0.25</real>
+		</dict>
 		<key>Cannon</key>
 		<dict>
 			<key>type</key>
