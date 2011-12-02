@@ -209,9 +209,9 @@ using namespace Dog3D;
 		DLog(@"New High Score");
 		[delegate writeScore:currentScore forLevel:[gopherView loadedLevel]];
 		int64_t gameScore=[delegate getGameScore];
-		highScoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(160-240/2- 32,240-160/2 + 80,314,96)];
+		highScoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(160-240/2- 32-46/2,240-160/2 + 80,360,102)];
 		NSString *formatString = @"Gophers: %i x 10 = %i\nBalls: %i x 100 = %i\n"
-            @"Destruction: %i x 10 = %i\nNew High Score: %i  (%i)";
+            @"Destruction: %i x 10 = %i\nNew High Score: %i  Global High: %i";
 		NSString *scoreString = [NSString stringWithFormat:formatString, numGophers, numGophers *10, 
                                  numRemainingBalls, numRemainingBalls*100,
                                  numDestroyedObjects, numDestroyedObjects*10,
