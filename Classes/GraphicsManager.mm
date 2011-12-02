@@ -371,8 +371,8 @@ namespace Dog3D
 		glEnable(GL_LIGHTING);
 		glEnable(GL_LIGHT0);
 #else
-		// tmp purple
-		glColor4f(0.8,0,0.8,1);
+		// Default to white
+		glColor4f(1.0,1.0,1.0,1);
 #endif
 		
 	}

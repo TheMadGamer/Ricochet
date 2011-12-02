@@ -85,9 +85,8 @@ void GraphicsComponent::Update( float deltaTime )
 			glScalef(mScale.x(), mScale.y(), mScale.z());
 		}
 			   
-	// not enabled	
-	//	SetupMaterials();
-	
+        // not enabled	
+        //	SetupMaterials();
 		
 		// To-Do: add support for creating and holding a display list
 		glVertexPointer(3, GL_FLOAT, 0, mVertices);
@@ -97,7 +96,6 @@ void GraphicsComponent::Update( float deltaTime )
 		{
 			glColorPointer(4, GL_FLOAT, 0, mColors);
 			glEnableClientState(GL_COLOR_ARRAY);
-
 		}
 		
 		if(mNormals)
@@ -122,7 +120,10 @@ void GraphicsComponent::Update( float deltaTime )
 			glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 			glDisable(GL_TEXTURE_2D);
 		}
-		
+        if (mColors) 
+        {
+            glDisableClientState(GL_COLOR_ARRAY);
+        }
 	}
 	glPopMatrix();	
 }
@@ -183,7 +184,6 @@ CompoundGraphicsComponent::~CompoundGraphicsComponent()
 		delete (mChildren.front());
 		mChildren.pop_front();
 	}
-	
 }
 
 void CompoundGraphicsComponent::Update(float deltaTime )
@@ -194,10 +194,8 @@ void CompoundGraphicsComponent::Update(float deltaTime )
 	}
 }
 
-
 void SquareTexturedGraphicsComponent::Update( float deltaTime )
 {
-	
 	if(!mParent->mActive || !mActive)
 	{
 		return;
@@ -218,7 +216,6 @@ void SquareTexturedGraphicsComponent::Update( float deltaTime )
 	{
 		return;		
 	}
-	
 	
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnable(GL_TEXTURE_2D);
@@ -246,12 +243,9 @@ void SquareTexturedGraphicsComponent::Update( float deltaTime )
 	}
 	glPopMatrix();
 
-	
 	glDisable(GL_BLEND);
 	glEnable(GL_DEPTH_TEST);
-	glDisable(GL_TEXTURE_2D);	
-	
-	
+	glDisable(GL_TEXTURE_2D);
 }
 
 void ScreenSpaceComponent::Update( float deltaTime)
@@ -399,6 +393,11 @@ void TexturedGraphicsComponent::Update( float deltaTime )
 		}
 		
 		glDrawArrays(GL_TRIANGLE_STRIP, 0, mVertexCount);
+        
+        if (mColors) 
+        {
+            glDisableClientState(GL_COLOR_ARRAY);
+        }
 	}
 	glPopMatrix();
 			
@@ -524,7 +523,6 @@ void AnimatedGraphicsComponent::StartAnimation(GopherAnims ID, AnimationMirrorin
 	mAnimations[ID]->mTileIndex = (playForward) ? 0 : ( mAnimations[ID]->mTileCount -1);
 	
 	mMirrorAnimation = mirror;
-	
 }
 
 void AnimatedGraphicsComponent::PlayAnimation(GopherAnims ID, AnimationMirroring mirror, bool playForward )
@@ -540,7 +538,6 @@ void AnimatedGraphicsComponent::StepAnimation(SpriteAnimation *activeAnimation, 
 	// update anim frames (in case this anim is not drawn)
 	if(mFrameTime >= activeAnimation->mFrameDuration)
 	{
-		
 		mFrameTime = 0;
 		
 		if(!activeAnimation->mLoopAnimation)
@@ -572,7 +569,6 @@ void AnimatedGraphicsComponent::StepAnimation(SpriteAnimation *activeAnimation, 
 	else
 	{
 		mFrameTime += deltaTime;
-		
 	}
 }
 
@@ -585,7 +581,6 @@ void AnimatedGraphicsComponent::UpdateAnimatedWalkDirection( btVector3 &directio
 		PlayAnimation(IDLE, MIRROR_NONE);
 		return;
 	}
-
 	
 	if( direction.x() > cos(PI/8.0))
 	{
@@ -612,7 +607,6 @@ void AnimatedGraphicsComponent::UpdateAnimatedWalkDirection( btVector3 &directio
 	}
 	
 	mMirrorAnimation = (direction.z() > 0.0) ? MIRROR_HORIZONTAL : MIRROR_NONE;
-	
 }
 
 void AnimatedGraphicsComponent::Update( float deltaTime )
@@ -730,13 +724,11 @@ void AnimatedGraphicsComponent::Update( float deltaTime )
 		glVertexPointer(3, GL_FLOAT, 0, activeAnimation->mPlayBigVertices ? mBigVertices : mVertices);
 		glEnableClientState(GL_VERTEX_ARRAY);
 		
-		
 		if (mColors)
 		{
 			glColorPointer(4, GL_FLOAT, 0, mColors);
 			glEnableClientState(GL_COLOR_ARRAY);
 		}
-		
 		
 		if (mNormals)
 		{
@@ -752,7 +744,11 @@ void AnimatedGraphicsComponent::Update( float deltaTime )
 	glDisable(GL_BLEND);
 	glEnable(GL_DEPTH_TEST);
 	
-	glDisable(GL_TEXTURE_2D);	
+	glDisable(GL_TEXTURE_2D);
+    if (mColors) 
+    {
+        glDisableClientState(GL_COLOR_ARRAY);
+    }
 }
 
 void BillBoard::Update( float deltaTime )
@@ -822,7 +818,6 @@ void BillBoard::Update( float deltaTime )
 		// MATERIAL
 		SetupMaterials();
 		
-		
 		Texture2D *texture = activeAnimation->mSpriteSheet;
 		[texture enable];
 		
@@ -880,6 +875,11 @@ void BillBoard::Update( float deltaTime )
 		}
 		
 		glDrawArrays(GL_TRIANGLE_STRIP, 0, mVertexCount);
+        
+        if (mColors) 
+        {
+            glDisableClientState(GL_COLOR_ARRAY);
+        }
 	}
 	
 	glPopMatrix();
@@ -887,7 +887,8 @@ void BillBoard::Update( float deltaTime )
 	glDisable(GL_BLEND);
 	glEnable(GL_DEPTH_TEST);
 	
-	glDisable(GL_TEXTURE_2D);	
+	glDisable(GL_TEXTURE_2D);
+	
 }
 
 

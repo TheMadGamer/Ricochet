@@ -105,7 +105,7 @@ void ParticleEmitter::Draw()
     
     [leaf enable];
     
-    glColor4f(1,0,0,1);
+    glColor4f(1,1,1,1);
 
     //btVector3 pos =  GetParent()->GetPosition();
 
