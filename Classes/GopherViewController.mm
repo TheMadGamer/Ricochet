@@ -235,7 +235,7 @@ using namespace Dog3D;
 	highScoreLabel.textAlignment = UITextAlignmentCenter;
 	highScoreLabel.numberOfLines = 4;
 	highScoreLabel.backgroundColor = [UIColor clearColor];
-	highScoreLabel.font = [UIFont fontWithName:@"Marker Felt" size:18.0f];
+	highScoreLabel.font = [UIFont fontWithName:@"Marker Felt" size:22.0f];
 	highScoreLabel.textColor = [UIColor orangeColor];
 	highScoreLabel.shadowColor = [UIColor blackColor];
 	highScoreLabel.shadowOffset = CGSizeMake(2,2);	
