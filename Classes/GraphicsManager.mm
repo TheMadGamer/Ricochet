@@ -576,7 +576,7 @@ namespace Dog3D
 			colors[i] = Color(1,1,1, 1.0);
 		}
 	
-		 i = 0;
+        i = 0;
 		 //float x0 = 0.0, x1 = 1.0/3.0, x2 = 2.0/3.0, x3 = 1.0;
 		 //float y0 = 0.0, y1 = 1.0/2.0, y2 = 1.0;
 		 

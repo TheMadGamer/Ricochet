@@ -239,12 +239,9 @@ void GameEntityFactory::BuildCannon( float scale, btVector3 &initialPosition ,
 	
 	CannonUI *cannonUIControl = new CannonUI(cannon, /*wheel*/ NULL, button, rotationScale);
 	cannonUIControl->SetRotationOffset(rotationOffset);
-	
 	cannonUI->SetController(cannonUIControl);
 	
-	
 	GamePlayManager::Instance()->SetCannon( cannonController, cannonUIControl );
-	
 }
 
 Entity *GameEntityFactory::BuildCharacter( float radius, btVector3 &initialPosition, CharacterType charType )
@@ -518,8 +515,7 @@ Dog3D::Entity *GameEntityFactory::BuildSprite( btVector3 &initialPosition, float
 #if DEBUG
 	sprite->mDebugName = std::string([spriteName UTF8String]);
 #endif
-	
-	
+
 	GraphicsComponent *graphicsComponent = GraphicsComponentFactory::BuildSprite( w, h, spriteName );
 	GraphicsManager::Instance()->AddComponent(graphicsComponent, order);
 	sprite->SetGraphicsComponent(graphicsComponent);	
@@ -534,7 +530,6 @@ Dog3D::Entity *GameEntityFactory::BuildScreenSpaceSprite( btVector3 &initialPosi
 #if DEBUG
 	sprite->mDebugName = std::string([spriteName UTF8String]);
 #endif
-	
 	
 	ScreenSpaceComponent *graphicsComponent = 
 	dynamic_cast<ScreenSpaceComponent*> (GraphicsComponentFactory::BuildScreenSpaceSprite( w, h, spriteName, initialPosition, duration ));
