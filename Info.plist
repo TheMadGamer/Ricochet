@@ -60,7 +60,7 @@
 	<key>SignerIdentity</key>
 	<string>Apple iPhone OS Application Signing</string>
 	<key>UIPrerenderedIcon</key>
-	<false/>
+	<true/>
 	<key>UIStatusBarHidden</key>
 	<true/>
 </dict>
