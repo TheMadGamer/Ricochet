@@ -240,7 +240,9 @@ namespace Dog3D
 		mSolver = new btSequentialImpulseConstraintSolver;
 		
 		
-		mDynamicsWorld = new btDiscreteDynamicsWorld(mDispatcher,mBroadphase,mSolver,mCollisionConfiguration);
+		mDynamicsWorld = 
+        new btContinuousDynamicsWorld(mDispatcher, mBroadphase, mSolver, mCollisionConfiguration);
+        //new btDiscreteDynamicsWorld(mDispatcher,mBroadphase,mSolver,mCollisionConfiguration);
         
         //mDynamicsWorld->getSolverInfo().m_splitImpulse=true;
         //mDynamicsWorld->getSolverInfo().m_numIterations = 20;
