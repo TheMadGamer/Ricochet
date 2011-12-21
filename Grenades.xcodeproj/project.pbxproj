@@ -335,6 +335,7 @@
 		EAC22A50147A27330088B937 /* Gate7.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC22A4D147A27330088B937 /* Gate7.plist */; };
 		EAC22A51147A27330088B937 /* Gate8.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC22A4E147A27330088B937 /* Gate8.plist */; };
 		EAC270F114A1852E000F9E9F /* FireballExplodable.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC270F014A1852D000F9E9F /* FireballExplodable.mm */; };
+		EAC270FE14A18D15000F9E9F /* Fireball1.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC270FD14A18D15000F9E9F /* Fireball1.plist */; };
 		EAC2EDFE11176B89000F428C /* GamePlayManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2EDFD11176B89000F428C /* GamePlayManager.mm */; };
 		EAC584321441647000F0A89E /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC584311441647000F0A89E /* Smoke.png */; };
 		EAC58441144569B700F0A89E /* sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC58440144569B700F0A89E /* sparkle.png */; };
@@ -924,6 +925,7 @@
 		EAC22A4E147A27330088B937 /* Gate8.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gate8.plist; sourceTree = "<group>"; };
 		EAC270F014A1852D000F9E9F /* FireballExplodable.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FireballExplodable.mm; sourceTree = "<group>"; };
 		EAC270F214A185EF000F9E9F /* FireballExplodable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FireballExplodable.h; sourceTree = "<group>"; };
+		EAC270FD14A18D15000F9E9F /* Fireball1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Fireball1.plist; sourceTree = "<group>"; };
 		EAC2EDFC11176B89000F428C /* GamePlayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayManager.h; sourceTree = "<group>"; };
 		EAC2EDFD11176B89000F428C /* GamePlayManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GamePlayManager.mm; sourceTree = "<group>"; };
 		EAC584311441647000F0A89E /* Smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smoke.png; sourceTree = "<group>"; };
@@ -1972,6 +1974,7 @@
 				EAC22A4C147A27330088B937 /* Gate6.plist */,
 				EAC22A4D147A27330088B937 /* Gate7.plist */,
 				EAC22A4E147A27330088B937 /* Gate8.plist */,
+				EAC270FD14A18D15000F9E9F /* Fireball1.plist */,
 			);
 			path = RicochetLevels;
 			sourceTree = "<group>";
@@ -2225,6 +2228,7 @@
 				EAC22A4F147A27330088B937 /* Gate6.plist in Resources */,
 				EAC22A50147A27330088B937 /* Gate7.plist in Resources */,
 				EAC22A51147A27330088B937 /* Gate8.plist in Resources */,
+				EAC270FE14A18D15000F9E9F /* Fireball1.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
