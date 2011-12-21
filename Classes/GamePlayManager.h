@@ -312,12 +312,7 @@ namespace Dog3D
 		{
 			return (mGopherBaseLine - mGopherLives);
 		}
-		
-		inline void SetBallSpawn(btVector3 &bs)
-		{
-			mBallSpawn = bs;
-		}
-		
+				
 		inline int GetRemainingCarrots()
 		{
 			return mCarrotLives; 
@@ -348,11 +343,7 @@ namespace Dog3D
 		{
 			mCarrotSearchDistance = distance;	
 		}
-        
-        
-		// spawns in single ball 
-		void SpawnBall(Entity *ball, int position = 0);
-		
+
         // drop gopher one life
 		inline void RemoveGopherLife() 
 		{ 
@@ -400,9 +391,6 @@ namespace Dog3D
 		
 		
 		void UpdateDebugVertices();
-		
-		// updates the ball - physics or touch event
-		void UpdateBallMotion();
 		
 		// update object contact/explosion mojo		
 		void UpdateObjectContacts(float dt);
@@ -459,11 +447,8 @@ namespace Dog3D
 		CannonUI *mCannonUI;
 		
 		btVector3 mWorldBounds;
-		
 		btVector3 mFocalPoint;
-		
-		btVector3 mBallSpawn;
-		
+				
 		// total play time on level
 		float mLevelTime;
 		

@@ -168,16 +168,6 @@ namespace Dog3D
 		else
 		{
 			
-			if( mTouched || mFlicked)
-			{
-				// todo - should rely on an input object/controller
-				// steps ball or changes velocity given a tap
-				UpdateBallMotion();
-			}
-			
-			// if ball impacts a gopher, explode gopher
-			UpdateObjectContacts(deltaTime);
-			
 			// compute positions
 			// eat veggies - todo move this up to update carrot eating
 			UpdateControllers(deltaTime);
@@ -266,148 +256,14 @@ namespace Dog3D
 		// reset the explodable into idle state
 		explodable->Reset();
 		
-		if(mCannonController )
-		{
-			// get the physics component
-			PhysicsComponent *physicsComponent =  ball->GetPhysicsComponent();
-			physicsComponent->SetKinematic(true);
-			ball->mActive = false;
-			if(mUnlimitedBalls)
-			{
-				// adds to physics world
-				mCannonController->AddBall(ball);
-			}
-		}
-		else
-		{
-			// adds back to physics world
-			// continuous spawn
-			SpawnBall(ball);
-		}
-	}
-	
-	// for touch/flick/tilt mode only
-	// adds ball back to physics world
-	void GamePlayManager::SpawnBall(Entity *ball, int position)
-	{
-		DLog(@"Spawining ball");
-		
-		ExplodableComponent *explodable = ball->GetExplodable();
-		
-
-        explodable->Prime();
-		
-		// pick a random start point (see rands below)
-		btVector3 resetPosition(mBallSpawn);
-		mBallSpawn.setY(1.5);
-
-		// re activate gfx
-		ball->GetGraphicsComponent()->mActive = true;
-		
-		// get fx component				
-		vector<Component *> fxComponents;
-		ball->FindComponentsOfType(FX, fxComponents);
-		
-		// disable
-		for(int i = 0; i < fxComponents.size(); i++)
-		{
-			FXGraphicsComponent *fxComponent = static_cast<FXGraphicsComponent*>( fxComponents[i] );
-			fxComponent->mActive = true;
-		}
-		
-		
-		// form a transform to respawn at
-		btTransform transform;
-		transform.setIdentity();
-		transform.setOrigin(resetPosition);
-		
-		// get the physics component
-		PhysicsComponent *physicsComponent = ball->GetPhysicsComponent();
-		
-		if(physicsComponent)
-		{
-			// get the rigid body
-			btRigidBody *rigidBody = physicsComponent->GetRigidBody();
-			
-			if(rigidBody)
-			{
-				// update the rigid body transform
-				rigidBody->setWorldTransform(transform);
-				
-				btVector3 zero(0,0,0);
-				rigidBody->setLinearVelocity(zero);
-				rigidBody->setAngularVelocity(zero);
-				
-			}
-			
-			PhysicsManager::Instance()->AddComponent(physicsComponent);
-			
-      physicsComponent->SetKinematic(false);
-		}
-		// set the parent object's position
-		ball->SetPosition(resetPosition);
-		
-		
-	}
-	
-	
-	// updates ball motion if there's a touch motion
-	// for touch control 
-	void GamePlayManager::UpdateBallMotion()
-	{
-		
-		for(EntityListIterator it = mBalls.begin(); it != mBalls.end(); it++)
-		{
-			Entity *ball = (*it);
-			
-			ExplodableComponent *explodable = ball->GetExplodable();
-			if(explodable->IsExploding())
-			{
-				// let physics drive
-				return;
-			}
-			
-			PhysicsComponent *physicsComponent = ball->GetPhysicsComponent();
-			if(!physicsComponent)
-			{
-				return;
-			}
-			
-			// tap control mode
-			if(mTouched)
-			{
-				btVector3 direction = mTouchPosition;
-				
-				btVector3 ballPosition = ball->GetPosition();
-				direction -= ballPosition;
-				
-				direction.normalize();
-				direction *= kTapForce;
-				
-				btRigidBody *rigidBody = physicsComponent->GetRigidBody();
-				
-				btVector3 velocity = rigidBody->getLinearVelocity();
-				
-				velocity += direction;
-				
-				rigidBody->setLinearVelocity(velocity);
-				
-				mTouched = false;
-				
-			}
-		}
-	}
-	
-	// check ball/gopher collisions for explode
-	void GamePlayManager::UpdateObjectContacts(float dt)
-	{
-
-		set<EntityPair> triggeredObjects;
-		
-		PhysicsManager::Instance()->GetTriggerContactList(triggeredObjects);
-		
-		for(set<EntityPair>::iterator sIt = triggeredObjects.begin(); sIt != triggeredObjects.end(); sIt++)
-		{
+        // get the physics component
+        PhysicsComponent *physicsComponent =  ball->GetPhysicsComponent();
+        physicsComponent->SetKinematic(true);
+        ball->mActive = false;
+        if(mUnlimitedBalls)
+        {
+            // adds to physics world
+            mCannonController->AddBall(ball);
         }
 	}
 	
@@ -449,7 +305,6 @@ namespace Dog3D
 		{
 			(*it)->Update(dt);
 		}
-		
 	}
 	
 	// gopher out of bounds or timed out
@@ -514,7 +369,6 @@ namespace Dog3D
 			mSpawnIntervals.pop_front();
 		}
 		
-
         mNumGophersToSpawn = min(mNumGophersToSpawn, mGopherLives);
 		
 
@@ -593,17 +447,12 @@ namespace Dog3D
 			mSpawnComponents[i]->Update(dt);
 		}
 		
-		
 		if( mSpawnIntervals.size() == 0)
 		{
 			SceneManager::Instance()->RefreshSpawnIntervals(gameTime);
 			//DLog(@"Refreshing spawn intervals");
 		}
-		
-		
 	}
-	
-	
 	
 	Entity *GamePlayManager::GetRandomCarrot(btVector3 position)
 	{

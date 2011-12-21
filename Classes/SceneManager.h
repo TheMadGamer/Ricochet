@@ -87,7 +87,6 @@ namespace Dog3D
 			std::string mBackground;
 			IntervalQueue mSpawnIntervals;
 			
-			btVector3 mBallSpawn;
 			btVector3 mWorldBounds;
 			
 			float mCarrotSearchDistance;
@@ -101,7 +100,6 @@ namespace Dog3D
 			
 			
 			LevelControlInfo(): 
-			mBallSpawn(8.5,1.5,0),
 			mWorldBounds(10,10,15),
 			mNumCombos(0), 
 			mNumGopherLives(0), 
@@ -109,16 +107,10 @@ namespace Dog3D
 			mBallTypes(-1), 
 			mNumBalls(-1),
 			mCollisionAvoidance(0),
-			mCarrotSearchDistance(20.0f)
-      {
-			}
+			mCarrotSearchDistance(20.0f){}
 			
 			LevelControlInfo(NSDictionary *controlDictionary);	
-			
-			~LevelControlInfo()
-			{
-			}
-		};
+        };
 		
 		
 	private:
@@ -164,14 +156,11 @@ namespace Dog3D
 		static SceneManager *Instance(){ return sInstance;}	
 		static void ShutDown() { delete sInstance;  sInstance = NULL;}
 		
-		Entity *GetBall(int idx){ return mBalls[idx]; }
-		
-		void LoadScene( NSString* levelName );	
+        // Loads a scene from a file name 
+		void LoadScene(NSString* levelName);
+        void LoadScene(NSDictionary *rootDictionary, NSDictionary *controlDictionary);
 		void UnloadScene();
 		
-		//void AddWin();
-		//void AddLost();
-
 		void ConvertToSingleBodies(Entity *compoundEntity,
 								   std::vector<Entity*> &newBodies);
 		
