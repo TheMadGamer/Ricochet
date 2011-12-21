@@ -165,61 +165,7 @@ namespace Dog3D
 		}
 		
 	}
-	
-    // Flower pots use this
-	void FireballExplodable::OnCollision( Entity *collidesWith )
-	{ 
-		if(mExplodeState == TIMED_EXPLODE)
-		{
-			DLog(@"Already exploding");
-		}
 		
-		mExplodeState = TIMED_EXPLODE;
-		
-		// get fx component				
-		vector<Component *> fxComponents;
-		mParent->FindComponentsOfType(FX, fxComponents);
-		
-		// disable
-		for(int i = 0; i < fxComponents.size(); i++)
-		{
-			FXGraphicsComponent *fxComponent = static_cast<FXGraphicsComponent*>( fxComponents[i] );
-			fxComponent->mActive = false;
-			
-		}
-		
-		btVector3 position = mParent->GetPosition();
-		
-		if(mExplosionType != ELECTRO && mExplosionType != FREEZE && mExplosionType != FIRE)
-		{
-			GraphicsManager::Instance()->ShowFXElement(position, mExplosionType);
-		}
-		
-		AudioDispatch::Instance()->PlaySound(AudioDispatch::Boom2);
-		
-		PhysicsComponent *physicsComponent =  mParent->GetPhysicsComponent();
-		
-		// remove ball from world
-		physicsComponent->GetRigidBody()->setLinearVelocity(btVector3(0,0,0));
-		physicsComponent->GetRigidBody()->setAngularVelocity(btVector3(0,0,0));
-		physicsComponent->SetKinematic(true);
-		
-		// add in ghost collider
-		physicsComponent->SetGhostColliderShape(PhysicsManager::Instance()->GetSmallBlastGhost());
-		
-		PhysicsManager::Instance()->AddGhostCollider(physicsComponent->GetGhostCollider(), GRP_EXPLODABLE | GRP_BALL );
-		
-		GamePlayManager::Instance()->AddExplodable(this);
-		
-		// time out mechanism
-		mFuseTime = 0.5f;
-        
-		mParent->GetGraphicsComponent()->mActive = false;
-        
-        GamePlayManager::Instance()->IncrementDestroyedObjects();
-		
-	}
-	
 	void CompoundExplodable::OnCollision( Entity *collidesWith )
 	{ 
 		mExplodeState = EXPLODE;

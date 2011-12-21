@@ -22,6 +22,7 @@
 #import "GraphicsComponent.h"
 #import "GraphicsComponentFactory.h"
 #import "GraphicsManager.h"
+#import "FireballExplodable.h"
 #import "ParticleEmitter.h"
 #import "PhysicsComponent.h"
 #import "PhysicsComponentFactory.h"

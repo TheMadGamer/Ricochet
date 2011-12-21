@@ -132,16 +132,6 @@ namespace Dog3D
 		}
 		
 	};
-
-	// object releases from kinematic state on explode 
-	class FireballExplodable : public ExplodableComponent
-	{
-	public:
-		FireballExplodable( ExplosionType explosionType) : 
-		ExplodableComponent(explosionType){}
-		
-		void OnCollision(Entity *collidesWith);
-	};
 	
 	// object releases from kinematic state on explode 
 	class KinematicReleaseExplodable : public ExplodableComponent

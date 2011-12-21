@@ -173,8 +173,6 @@ void SceneManager::LoadScene(NSDictionary *rootDictionary, NSDictionary *control
     
     // Initialize Physics
 	PhysicsManager::Instance()->CreateWorld();
-    btVector3 gravity(0,-10,0);
-    PhysicsManager::Instance()->SetGravity(gravity);
     
     // Create level control
 	mLevelControl = LevelControlInfo(controlDictionary);

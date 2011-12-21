@@ -110,7 +110,7 @@ namespace Dog3D
 #if DEBUG
                 //Entity *entA = sIt->first;
                 //Entity *entB = sIt->second;
-                DLog(@"Collision FAIL");
+                //DLog(@"Collision FAIL");
 #endif						
             }
         }
@@ -230,31 +230,20 @@ namespace Dog3D
 		
 		btVector3 worldAabbMin(-100,-4,-100);
 		btVector3 worldAabbMax(100,4,100);
-		//int maxProxies = 256;
-		mBroadphase = new btDbvtBroadphase();//new btAxisSweep3(worldAabbMin,worldAabbMax,maxProxies);
+		mBroadphase = new btDbvtBroadphase();
 		
 		mCollisionConfiguration = new btDefaultCollisionConfiguration();
 		mDispatcher = new btCollisionDispatcher(mCollisionConfiguration);
-		//mDispatcher->registerCollisionCreateFunc(SPHERE_SHAPE_PROXYTYPE,SPHERE_SHAPE_PROXYTYPE,mCollisionConfiguration->getCollisionAlgorithmCreateFunc(CONVEX_SHAPE_PROXYTYPE,CONVEX_SHAPE_PROXYTYPE));
 
 		mSolver = new btSequentialImpulseConstraintSolver;
 		
 		
 		mDynamicsWorld = 
-        new btContinuousDynamicsWorld(mDispatcher, mBroadphase, mSolver, mCollisionConfiguration);
-        //new btDiscreteDynamicsWorld(mDispatcher,mBroadphase,mSolver,mCollisionConfiguration);
-        
-        //mDynamicsWorld->getSolverInfo().m_splitImpulse=true;
-        //mDynamicsWorld->getSolverInfo().m_numIterations = 20;
-        
-		//mDynamicsWorld->getDispatchInfo().m_useContinuous=true;
-        
+            new btContinuousDynamicsWorld(mDispatcher, mBroadphase, mSolver, mCollisionConfiguration);
 		mDynamicsWorld->setGravity(btVector3(0,-10,0));
 		
 		//TODO - goes in init?
 		mDynamicsWorld->getBroadphase()->getOverlappingPairCache()->setInternalGhostPairCallback(new btGhostPairCallback());
-
-	
         mDynamicsWorld->setInternalTickCallback(mTickCallback, this, false);
         
 	}

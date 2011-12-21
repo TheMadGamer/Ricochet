@@ -334,6 +334,7 @@
 		EAC22A4F147A27330088B937 /* Gate6.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC22A4C147A27330088B937 /* Gate6.plist */; };
 		EAC22A50147A27330088B937 /* Gate7.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC22A4D147A27330088B937 /* Gate7.plist */; };
 		EAC22A51147A27330088B937 /* Gate8.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC22A4E147A27330088B937 /* Gate8.plist */; };
+		EAC270F114A1852E000F9E9F /* FireballExplodable.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC270F014A1852D000F9E9F /* FireballExplodable.mm */; };
 		EAC2EDFE11176B89000F428C /* GamePlayManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2EDFD11176B89000F428C /* GamePlayManager.mm */; };
 		EAC584321441647000F0A89E /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC584311441647000F0A89E /* Smoke.png */; };
 		EAC58441144569B700F0A89E /* sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC58440144569B700F0A89E /* sparkle.png */; };
@@ -921,6 +922,8 @@
 		EAC22A4C147A27330088B937 /* Gate6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gate6.plist; sourceTree = "<group>"; };
 		EAC22A4D147A27330088B937 /* Gate7.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gate7.plist; sourceTree = "<group>"; };
 		EAC22A4E147A27330088B937 /* Gate8.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gate8.plist; sourceTree = "<group>"; };
+		EAC270F014A1852D000F9E9F /* FireballExplodable.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FireballExplodable.mm; sourceTree = "<group>"; };
+		EAC270F214A185EF000F9E9F /* FireballExplodable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FireballExplodable.h; sourceTree = "<group>"; };
 		EAC2EDFC11176B89000F428C /* GamePlayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayManager.h; sourceTree = "<group>"; };
 		EAC2EDFD11176B89000F428C /* GamePlayManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GamePlayManager.mm; sourceTree = "<group>"; };
 		EAC584311441647000F0A89E /* Smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smoke.png; sourceTree = "<group>"; };
@@ -1324,8 +1327,10 @@
 				4F29439E144E637100054135 /* CountExplodable.mm */,
 				EA76145B1135D0CF00BD7A02 /* ExplodableComponent.h */,
 				EA7319521174F94800E52AA0 /* ExplodableComponent.mm */,
-				EA68DF3C1479A18A003F26CD /* TimeBombExplodable.mm */,
+				EAC270F214A185EF000F9E9F /* FireballExplodable.h */,
+				EAC270F014A1852D000F9E9F /* FireballExplodable.mm */,
 				EA68DF3E1479A1CE003F26CD /* TimeBombExplodable.h */,
+				EA68DF3C1479A18A003F26CD /* TimeBombExplodable.mm */,
 			);
 			name = Explodables;
 			sourceTree = "<group>";
@@ -2388,6 +2393,7 @@
 				4F29439F144E637100054135 /* CountExplodable.mm in Sources */,
 				EA68DF3D1479A18A003F26CD /* TimeBombExplodable.mm in Sources */,
 				FBDC06B2147D99DB0058D62A /* GameCenterManager.m in Sources */,
+				EAC270F114A1852E000F9E9F /* FireballExplodable.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
