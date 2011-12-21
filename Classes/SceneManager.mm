@@ -115,15 +115,6 @@ SceneManager::LevelControlInfo::LevelControlInfo(NSDictionary *controlDictionary
 		mWorldBounds.setZ(15);
 	}
 	
-	float ballX = [[controlDictionary objectForKey:@"BallSpawnX"] floatValue];
-	mBallSpawn.setX(ballX);
-	
-	mBallSpawn.setY(1.5);
-	
-	float ballZ = [[controlDictionary objectForKey:@"BallSpawnZ"] floatValue];
-	mBallSpawn.setZ(ballZ);
-	
-	
 	float dist = [[controlDictionary objectForKey:@"CarrotSearchDistance"] floatValue];	
 	if(dist > 0)
 	{
@@ -132,7 +123,6 @@ SceneManager::LevelControlInfo::LevelControlInfo(NSDictionary *controlDictionary
 	else {
 		mCarrotSearchDistance = 20.0f;
 	}
-    
 	
 	DLog(@"Finish Init Level Control");
 }
@@ -156,42 +146,49 @@ void SceneManager::RefreshSpawnIntervals(float gameTime)
 	
 }
 
-void SceneManager::LoadScene( NSString *levelName)
+void SceneManager::LoadScene(NSString *levelName)
+{	
+	// create a pointer to a dictionary and
+	// read ".plist" from application bundle	
+	NSString *path = [[NSBundle mainBundle] bundlePath];
+	NSString *finalPath = [path stringByAppendingPathComponent:levelName];
+	
+	NSDictionary *rootDictionary = [NSDictionary dictionaryWithContentsOfFile:finalPath];
+	NSDictionary *controlDictionary = [rootDictionary objectForKey:@"LevelControl"];
+    LoadScene(rootDictionary, controlDictionary);
+    mSceneName = [levelName UTF8String];
+}
+    
+void SceneManager::LoadScene(NSDictionary *rootDictionary, NSDictionary *controlDictionary)
 {
-	if(mSceneLoaded)
+    if(mSceneLoaded)
 	{
 		DLog(@"Unloading Scene");
 		UnloadScene();
 		DLog(@"Done");
 	}
+    mSceneName = "";
     
-	DLog(@" **** Loading Scene **** ");
+    DLog(@" **** Loading Scene **** ");
+    
+    // Initialize Physics
 	PhysicsManager::Instance()->CreateWorld();
-	
-	// create a pointer to a dictionary and
-	// read ".plist" from application bundle
-	
-	NSString *path = [[NSBundle mainBundle] bundlePath];
-	NSString *finalPath = [path stringByAppendingPathComponent:levelName];
-	
-	NSDictionary *rootDictionary = [[NSDictionary dictionaryWithContentsOfFile:finalPath] retain];
-	NSDictionary *controlDictionary = [[rootDictionary objectForKey:@"LevelControl"] retain];
-	
+    btVector3 gravity(0,-10,0);
+    PhysicsManager::Instance()->SetGravity(gravity);
+    
+    // Create level control
 	mLevelControl = LevelControlInfo(controlDictionary);
 	mNumCarrots = 0;
 	
+    // Gopher spawn in intervals
 	GamePlayManager::Instance()->SetSpawnIntervals(mLevelControl.mSpawnIntervals);
 	
-	GamePlayManager::Instance()->SetUnlimitedBalls((mLevelControl.mNumBalls == -1) || (mLevelControl.mNumBalls == 0));
+	assert(mLevelControl.mNumBalls > 0);
 	
-	GamePlayManager::Instance()->SetBallSpawn(mLevelControl.mBallSpawn);
-	
-	GamePlayManager::Instance()->SetCarrotSearchDistance(mLevelControl.mCarrotSearchDistance);
-    
-    btVector3 gravity(0,-10,0);
-    PhysicsManager::Instance()->SetGravity(gravity);
-	
-	
+	GamePlayManager::Instance()->SetCarrotSearchDistance(mLevelControl.mCarrotSearchDistance);		
+    GamePlayManager::Instance()->SetWorldBounds(mLevelControl.mWorldBounds);
+
+    // FX Pool
 	btVector3 position(0,0,0);
 	
 	for(int i = 0; i < 100; i++)
@@ -199,9 +196,7 @@ void SceneManager::LoadScene( NSString *levelName)
 		Entity *entity = GameEntityFactory::BuildFXElement(position, ExplodableComponent::MUSHROOM);
 		mFXPool.push(entity);
 	}
-	
-	GamePlayManager::Instance()->SetWorldBounds(mLevelControl.mWorldBounds);
-	
+		
 	GraphicsManager::Instance()->SetFXPool(&mFXPool);
 	
 	
@@ -213,10 +208,7 @@ void SceneManager::LoadScene( NSString *levelName)
 	}
 	
 	LoadSceneObjects(rootDictionary);
-    
-	LoadGeneratedObjects(rootDictionary  );	
-	
-	
+	LoadGeneratedObjects(rootDictionary);	
 	LoadHUDs();
 	
 	// finally set number of carrot and gophers
@@ -224,11 +216,6 @@ void SceneManager::LoadScene( NSString *levelName)
 	
 	// anything that would go in front would be added here.
 	mSceneLoaded = true;
-	mSceneName = [levelName UTF8String];
-	
-	[controlDictionary release];
-	[rootDictionary release];
-	
 	
 	DLog(@"**** Done loading scene ****");
 	
@@ -264,27 +251,26 @@ void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
 	// load up things like spawn points, targets, hedges
 	for (id key in layoutDictionary) 
 	{
-		NSDictionary *object = [layoutDictionary objectForKey:key];
+		NSDictionary *objectDictionary = [layoutDictionary objectForKey:key];
 		
-		NSString *type = [object objectForKey:@"type"];
+		NSString *type = [objectDictionary objectForKey:@"type"];
 		
-		float x = [[object objectForKey:@"x"] floatValue];
-		float y = [[object objectForKey:@"y"] floatValue];
-		float z = [[object objectForKey:@"z"] floatValue];
+		float x = [[objectDictionary objectForKey:@"x"] floatValue];
+		float y = [[objectDictionary objectForKey:@"y"] floatValue];
+		float z = [[objectDictionary objectForKey:@"z"] floatValue];
 		btVector3 pos( x,y,z);
 		
-		
-		float sx = [[object objectForKey:@"sx"] floatValue];
-		float sy = [[object objectForKey:@"sy"] floatValue];
-		float sz = [[object objectForKey:@"sz"] floatValue];
+		float sx = [[objectDictionary objectForKey:@"sx"] floatValue];
+		float sy = [[objectDictionary objectForKey:@"sy"] floatValue];
+		float sz = [[objectDictionary objectForKey:@"sz"] floatValue];
 		
 		btVector3 extents(sx, sy, sz);
 		
-		float radius = [[object objectForKey:@"radius"] floatValue];
+		float radius = [[objectDictionary objectForKey:@"radius"] floatValue];
 		
-		float rotationY = [[object objectForKey:@"ry"] floatValue];
+		float rotationY = [[objectDictionary objectForKey:@"ry"] floatValue];
 		
-		float spawnTime = [[object objectForKey:@"spawnTime"] floatValue];
+		float spawnTime = [[objectDictionary objectForKey:@"spawnTime"] floatValue];
 		
 		NSRange flowerSubRange = [type rangeOfString:@"flower"];
 		
@@ -339,8 +325,8 @@ void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
 		{
 			DLog(@"Loading collider %@ with YRotation %f", type, rotationY);
 			
-			float triggerX = [[object objectForKey:@"trigX"] floatValue];
-			float triggerZ = [[object objectForKey:@"trigZ"] floatValue];
+			float triggerX = [[objectDictionary objectForKey:@"trigX"] floatValue];
+			float triggerZ = [[objectDictionary objectForKey:@"trigZ"] floatValue];
 			
             pair<Entity *, Entity*> items = ([type isEqualToString:@"gate1"]) ?
                  GateFactory::BuildSpinnerGate(pos, extents, rotationY, mFixedRest, @"fenceC", @"frog", 1.33f, triggerX, triggerZ) :
@@ -356,16 +342,6 @@ void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
 			DLog(@"Loading collider %@ with YRotation %f", type, rotationY);
 			DLog(@"Spinner Ht: %f", extents.y());
 			Entity * item = GateFactory::BuildSpinner(pos, extents, rotationY, 1.0f, @"fenceC", 1.33f);
-			mSceneElements.insert(item);
-			
-			item->SetYRotation(rotationY);
-		}
-		else if( [type isEqualToString:@"tombStone"])
-		{
-			DLog(@"Loading collider %@ with YRotation %f", type, rotationY);
-			extents.setY(kWallHeight);
-			
-			Entity * item = GameEntityFactory::BuildTexturedCollider(pos, extents, rotationY, mFixedRest, type, 1.1f);
 			mSceneElements.insert(item);
 			
 			item->SetYRotation(rotationY);

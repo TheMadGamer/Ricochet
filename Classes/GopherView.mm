@@ -127,6 +127,7 @@ float kWallHeight = 1;
 
 - (void) reloadLevel
 {
+    // TODO - this will break on programmatic level loading
 	NSString *level = [[NSString alloc] initWithUTF8String:SceneManager::Instance()->GetSceneName().c_str()];
 	
 	SceneManager::Instance()->UnloadScene();
