@@ -260,11 +260,7 @@ namespace Dog3D
         PhysicsComponent *physicsComponent =  ball->GetPhysicsComponent();
         physicsComponent->SetKinematic(true);
         ball->mActive = false;
-        if(mUnlimitedBalls)
-        {
-            // adds to physics world
-            mCannonController->AddBall(ball);
-        }
+
 	}
 	
 	// updates ball (explode) and gopher controllers

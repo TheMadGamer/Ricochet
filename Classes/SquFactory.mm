@@ -178,8 +178,8 @@ AnimatedGraphicsComponent* GraphicsComponentFactory::BuildSqu(float width,  floa
 		Texture2D *texture = GraphicsManager::Instance()->GetTexture(@"Squ_Dance");
 		SpriteAnimation *anim = new SpriteAnimation();
 		anim->mTileWidth = 8;
-		anim->mTileHeight = 8;
-		anim->mTileCount = 8*5;
+		anim->mTileHeight = 4;
+		anim->mTileCount = 30;
 		anim->mTileIndex = 0;
 		anim->mSpriteSheet = texture;
 		graphicsComponent->AddAnimation(anim, (int) AnimatedGraphicsComponent::WIN_DANCE);

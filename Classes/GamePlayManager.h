@@ -41,8 +41,8 @@ namespace Dog3D
 		mDestroyedObjects(0),
 		mGameState(PLAY),
 		mGopherHUD(NULL), mCarrotHUD(NULL), mTouched(false), mFlicked(false),
-    mCannonController(NULL), mCannonUI(NULL), 
-		mUnlimitedBalls(true), mFocalPoint(0,0,0), mCarrotSearchDistance(20.0f),
+        mCannonController(NULL), mCannonUI(NULL), 
+		mFocalPoint(0,0,0), mCarrotSearchDistance(20.0f),
 		mSpawnDelay(0.0f)
 #if DEBUG
         , mDebugVertices(NULL)
@@ -274,10 +274,6 @@ namespace Dog3D
 			mKinematicControllers.push_back(gate);
 		}
 		
-		inline void SetUnlimitedBalls(bool enabled)
-		{
-			mUnlimitedBalls = enabled;
-		}
 		
 #pragma mark SCORING
 		
@@ -482,8 +478,6 @@ namespace Dog3D
 		
 		// gas cans, etc
 		int mDestroyedObjects;
-		
-		bool mUnlimitedBalls;
 		
 		// ui events passed in
 		bool mTouched;
