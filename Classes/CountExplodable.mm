@@ -24,7 +24,7 @@ using namespace std;
 namespace Dog3D
 {
 
-  void CountExplodable::Detonate() { 
+    void CountExplodable::Detonate() { 
       
       Explode();
       
@@ -61,46 +61,54 @@ namespace Dog3D
       
       mParent->GetGraphicsComponent()->mActive = false;
       
-  }
-  
-  // fire ricochet ball
-  // explodes after n bumps
-  void CountExplodable::OnCollision( Entity *collidesWith )
-  { 
-    GopherController *controller = collidesWith != NULL ?  dynamic_cast<GopherController*>(collidesWith->GetController()) : NULL;
-    
-    // NULL = forced explode
-    if(collidesWith == NULL)
-    {
-        Detonate();
-    } 
-    else
-    { 
-        if (collidesWith != mLastCollider && ( mTimeWindow > 0.1f || collidesWith != mSecondToLastCollider) ) {
-            mSecondToLastCollider = mLastCollider;
-            mLastCollider = collidesWith;
-            mNBumps++;
-            DLog(@"NBumps (%d)++ %s", mNBumps, collidesWith->mDebugName.c_str());
-            mTimeWindow = 0;
-        }
-      
-        if (controller != NULL) 
-        {
-            if (mNBumps == mMaxBumps) {
-                Detonate();      
-            }
-            btVector3 position = mParent->GetPosition();
-            
-            if(mExplosionType != ELECTRO && mExplosionType != FREEZE && mExplosionType != FIRE)
-            {
-              GraphicsManager::Instance()->ShowFXElement(position, mExplosionType);
-            }
-            
-            AudioDispatch::Instance()->PlaySound(AudioDispatch::Boom2);
-      } else if(mNBumps == mMaxBumps) {
-          Detonate();
-      }
     }
-  }
   
+    // fire ricochet ball
+    // explodes after n bumps
+    void CountExplodable::OnCollision( Entity *collidesWith )
+    {         
+        GopherController *controller = collidesWith != NULL ?  dynamic_cast<GopherController*>(collidesWith->GetController()) : NULL;
+
+        // NULL = forced explode
+        if(collidesWith == NULL)
+        {
+            Detonate();
+        } 
+        else
+        {
+            PhysicsComponent *colliderPhysics = collidesWith->GetPhysicsComponent();
+            int collidesWithGroup = colliderPhysics->GetRigidBody()->getBroadphaseProxy()->m_collisionFilterGroup;
+            // DLog(@"Collides with group %d, filter %d", collidesWithGroup, (GRP_WALL | GRP_FIXED));
+            if( !(collidesWithGroup & (GRP_WALL |GRP_FIXED)))   // check this 
+            {
+                return;
+            }
+            if (collidesWith != mLastCollider && ( mTimeWindow > 0.1f || collidesWith != mSecondToLastCollider) ) {
+                mSecondToLastCollider = mLastCollider;
+                mLastCollider = collidesWith;
+                mNBumps++;
+                DLog(@"NBumps (%d)++ %s", mNBumps, collidesWith->mDebugName.c_str());
+                mTimeWindow = 0;
+            }
+          
+            if (controller != NULL) 
+            {
+                if (mNBumps == mMaxBumps) 
+                {
+                    Detonate();      
+                }
+                btVector3 position = mParent->GetPosition();
+                
+                if(mExplosionType != ELECTRO && mExplosionType != FREEZE && mExplosionType != FIRE)
+                {
+                  GraphicsManager::Instance()->ShowFXElement(position, mExplosionType);
+                }
+                
+                AudioDispatch::Instance()->PlaySound(AudioDispatch::Boom2);
+            } else if(mNBumps == mMaxBumps) {
+                  Detonate();
+            }
+        }
+    }
+
 }
