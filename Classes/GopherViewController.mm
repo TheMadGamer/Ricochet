@@ -149,15 +149,18 @@ using namespace Dog3D;
 
 - (void)showEdit:(id)sender
 {
-    self.editorViewController = [[EditorViewController alloc] initWithNibName:@"EditorViewController" bundle:nil];
-    [self.view addSubview:self.editorViewController.view];
+    if (!self.editorViewController) 
+    {
+        self.editorViewController = [[EditorViewController alloc] initWithNibName:@"EditorViewController" bundle:nil];
+        // Rotates the score view
+        CGAffineTransform transform = self.editorViewController.view.transform; 
+        transform = CGAffineTransformRotate(transform, M_PI/2.0);
+        self.editorViewController.view.transform = transform;
+        self.editorViewController.view.center = self.view.center;
+    }
     
-    // TODO fix the orientation on this
-    // Rotates the score view
-	CGAffineTransform transform = self.editorViewController.view.transform; 
-    transform = CGAffineTransformRotate(transform, M_PI/2.0);
-	self.editorViewController.view.transform = transform;
-    self.editorViewController.view.center = self.view.center;
+    [self.view addSubview:self.editorViewController.view];
+
 }
 
 // resumes gameplay

@@ -10,24 +10,26 @@
 
 @implementation EditorViewController
 
-#pragma mark - View lifecycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
 - (IBAction)dismiss:(id)sender
 {
-    
+    [self.view removeFromSuperview];
 }
+
+- (IBAction)save:(id)sender 
+{
+    UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Not implemented" 
+                                                     message:nil 
+                                                    delegate:nil 
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil] autorelease];
+    [alert show];
+}
+
+- (IBAction)potTool:(id)sender { [self dismiss:nil]; }
+- (IBAction)hedgeTool:(id)sender { [self dismiss:nil]; }
+- (IBAction)gopherTool:(id)sender { [self dismiss:nil]; }
+- (IBAction)exitEditMode:(id)sender { [self dismiss:nil]; }
+- (IBAction)moveTool:(id)sender  { [self dismiss:nil]; }
+- (IBAction)deleteTool:(id)sender  { [self dismiss:nil]; }
 
 @end
