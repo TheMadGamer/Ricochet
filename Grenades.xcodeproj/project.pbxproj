@@ -1914,6 +1914,8 @@
 		EAC8DF79110A2FE4008542DA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EAC2710614A42AAF000F9E9F /* EditorViewController.h */,
+				EAC2710714A42AAF000F9E9F /* EditorViewController.m */,
 				EABC34A311A85F93000C6EC6 /* GopherGameController.h */,
 				EABC34A411A85F93000C6EC6 /* GopherGameController.mm */,
 				A895E04D0E2806DB00A7AE7A /* GopherView.h */,
@@ -1922,6 +1924,8 @@
 				EA069BC1119B4ED400179E6B /* GopherViewController.mm */,
 				EA0B63F011A7B19D00124ED9 /* InstructionsViewController.h */,
 				EA0B63F111A7B19D00124ED9 /* InstructionsViewController.mm */,
+				EA667CD6134FD1BC000C1D85 /* LevelPackPurchaseVC.h */,
+				EA667CD7134FD1BC000C1D85 /* LevelPackPurchaseVC.mm */,
 				EA762AF011EEBDFD00697A9F /* NSDictionary+Extensions.h */,
 				EA762AF111EEBDFD00697A9F /* NSDictionary+Extensions.m */,
 				EA762B0511EEBEB600697A9F /* NSIndexSet+Extensions.h */,
@@ -1932,10 +1936,6 @@
 				EA069CCD119B90BF00179E6B /* PreferencesViewController.m */,
 				EAAC5C5A1210EAF7006ADE83 /* ScoresViewController.h */,
 				EAAC5C5B1210EAF7006ADE83 /* ScoresViewController.mm */,
-				EA667CD6134FD1BC000C1D85 /* LevelPackPurchaseVC.h */,
-				EA667CD7134FD1BC000C1D85 /* LevelPackPurchaseVC.mm */,
-				EAC2710614A42AAF000F9E9F /* EditorViewController.h */,
-				EAC2710714A42AAF000F9E9F /* EditorViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
