@@ -336,6 +336,8 @@
 		EAC22A51147A27330088B937 /* Gate8.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC22A4E147A27330088B937 /* Gate8.plist */; };
 		EAC270F114A1852E000F9E9F /* FireballExplodable.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC270F014A1852D000F9E9F /* FireballExplodable.mm */; };
 		EAC270FE14A18D15000F9E9F /* Fireball1.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC270FD14A18D15000F9E9F /* Fireball1.plist */; };
+		EAC2710014A3C146000F9E9F /* Debug.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC270FF14A3C144000F9E9F /* Debug.plist */; };
+		EAC2710514A3EE90000F9E9F /* DogDebug.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2710414A3EE90000F9E9F /* DogDebug.mm */; };
 		EAC2EDFE11176B89000F428C /* GamePlayManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2EDFD11176B89000F428C /* GamePlayManager.mm */; };
 		EAC584321441647000F0A89E /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC584311441647000F0A89E /* Smoke.png */; };
 		EAC58441144569B700F0A89E /* sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC58440144569B700F0A89E /* sparkle.png */; };
@@ -926,6 +928,9 @@
 		EAC270F014A1852D000F9E9F /* FireballExplodable.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FireballExplodable.mm; sourceTree = "<group>"; };
 		EAC270F214A185EF000F9E9F /* FireballExplodable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FireballExplodable.h; sourceTree = "<group>"; };
 		EAC270FD14A18D15000F9E9F /* Fireball1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Fireball1.plist; sourceTree = "<group>"; };
+		EAC270FF14A3C144000F9E9F /* Debug.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Debug.plist; sourceTree = "<group>"; };
+		EAC2710114A3C21D000F9E9F /* DogDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DogDebug.h; sourceTree = "<group>"; };
+		EAC2710414A3EE90000F9E9F /* DogDebug.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DogDebug.mm; sourceTree = "<group>"; };
 		EAC2EDFC11176B89000F428C /* GamePlayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayManager.h; sourceTree = "<group>"; };
 		EAC2EDFD11176B89000F428C /* GamePlayManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GamePlayManager.mm; sourceTree = "<group>"; };
 		EAC584311441647000F0A89E /* Smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smoke.png; sourceTree = "<group>"; };
@@ -1014,6 +1019,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				EAC270FF14A3C144000F9E9F /* Debug.plist */,
 				EA922DA11461028400A65609 /* Icon@2x.png */,
 				EA922D9F1461027E00A65609 /* Icon.png */,
 				EA9E9F8F13A47D2300704CDC /* Bullet */,
@@ -1133,6 +1139,8 @@
 				1D3623250D0F684500981E51 /* GopherAppDelegate.mm */,
 				A895E0480E2806AD00A7AE7A /* Texture2D.m */,
 				A895E0490E2806AD00A7AE7A /* Texture2D.h */,
+				EAC2710114A3C21D000F9E9F /* DogDebug.h */,
+				EAC2710414A3EE90000F9E9F /* DogDebug.mm */,
 			);
 			name = "Support Files";
 			sourceTree = "<group>";
@@ -2229,6 +2237,7 @@
 				EAC22A50147A27330088B937 /* Gate7.plist in Resources */,
 				EAC22A51147A27330088B937 /* Gate8.plist in Resources */,
 				EAC270FE14A18D15000F9E9F /* Fireball1.plist in Resources */,
+				EAC2710014A3C146000F9E9F /* Debug.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2398,6 +2407,7 @@
 				EA68DF3D1479A18A003F26CD /* TimeBombExplodable.mm in Sources */,
 				FBDC06B2147D99DB0058D62A /* GameCenterManager.m in Sources */,
 				EAC270F114A1852E000F9E9F /* FireballExplodable.mm in Sources */,
+				EAC2710514A3EE90000F9E9F /* DogDebug.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

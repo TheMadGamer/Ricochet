@@ -37,7 +37,7 @@ namespace Dog3D
 
 	void GopherController::Idle()
 	{
-		DLog(@"Idle");
+		DLog2(@"DebugGopher", @"Idle");
 
 		mControllerState = IDLE;
 		mPauseFrame = 30 * (1 + random() % 2) + (random() % 15);
@@ -61,7 +61,7 @@ namespace Dog3D
 	void GopherController::Electro()
 	{
 		
-		DLog(@"Electro");
+		DLog2(@"DebugGopher", @"Electro");
 		
 		mPreviousState = mControllerState;
 		mControllerState = ELECTRO;
@@ -74,7 +74,7 @@ namespace Dog3D
 	
 	void GopherController::Fire()
 	{
-		DLog(@"FIRE-");
+		DLog2(@"DebugGopher", @"Fire Anim");
 		mPreviousState = mControllerState;
 		mControllerState = FIRE;
 		mPauseFrame = 45;
@@ -87,7 +87,7 @@ namespace Dog3D
 	
 	void GopherController::Taunt()
 	{
-		DLog(@"Taunt");
+		DLog2(@"DebugGopher", @"Taunt");
 		mPreviousState = mControllerState;
 		mControllerState = TAUNT;
 		mPauseFrame = 90;
@@ -103,7 +103,7 @@ namespace Dog3D
 	
 	void GopherController::Eat()
 	{
-		DLog(@"Eat");
+		DLog2(@"DebugGopher", @"Eat");
 		
 		mControllerState = EAT;
 		mPauseFrame = 119;
@@ -298,7 +298,7 @@ namespace Dog3D
 		}
 		else 
 		{
-			DLog(@"Win Dance");	
+			DLog2(@"DebugGopher", @"Win Dance");	
 			mControllerState = WIN_DANCE;
 			PlayWinAnimation();
 		}
@@ -379,9 +379,7 @@ namespace Dog3D
 		// if done taunting
 		if(mPauseFrame ==0)
 		{
-			
-				Idle();
-			
+            Idle();
 		}
 	}
 	

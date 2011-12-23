@@ -24,6 +24,8 @@
 #import "AppSpecificValues.h"
 #import "GameCenterManager.h"
 
+using namespace Dog3D;
+
 NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack1";
 
 @implementation GopherGameController

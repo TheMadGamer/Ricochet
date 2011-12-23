@@ -12,15 +12,11 @@
 #import <btBulletDynamicsCommon.h>
 
 #import "Component.h"
+#import "DogDebug.h"
 
 namespace Dog3D
 {
-#if DEBUG
-#define DLog  NSLog
-#else
-#define DLog  if(false) NSLog 
-#endif
-
+    
 	class ExplodableComponent;
 	class PhysicsComponent;
 	class GraphicsComponent;

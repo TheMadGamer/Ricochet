@@ -276,9 +276,7 @@ namespace Dog3D
 		PhysicsComponentIterator it = std::find(mManagedComponents.begin(), mManagedComponents.end(), component);
 		if(it != mManagedComponents.end())
 		{
-#if DEBUG 
 			DLog(@"Removing physics comp %s", ((*it)->GetParent()->mDebugName.c_str()));
-#endif
 			
 			mManagedComponents.erase(it);
             
@@ -365,76 +363,6 @@ namespace Dog3D
 		mDynamicsWorld->rayTest(rayStart, rayEnd, rayCallback);
 		return (hitCount > 0);
 	}
-	
-    /*
-	//two pinball objects
-	void PhysicsManager::GetTriggerContactList(std::set<EntityPair> &triggeredObjects)
-	{
-		//Assume world->stepSimulation or world->performDiscreteCollisionDetection has been called
-		
-		int numManifolds = mDynamicsWorld->getDispatcher()->getNumManifolds();
-		for (int i=0;i<numManifolds;i++)
-		{
-			btPersistentManifold* contactManifold =  mDynamicsWorld->getDispatcher()->getManifoldByIndexInternal(i);
-			btCollisionObject* obA = static_cast<btCollisionObject*>(contactManifold->getBody0());
-			btCollisionObject* obB = static_cast<btCollisionObject*>(contactManifold->getBody1());
-			
-			short collisionGrpA = obA->getBroadphaseHandle()->m_collisionFilterGroup;
-			short collisionGrpB = obB->getBroadphaseHandle()->m_collisionFilterGroup;
-			
-			if(  (collisionGrpA & (GRP_EXPLODABLE | GRP_BALL)) && (collisionGrpB & (GRP_EXPLODABLE | GRP_BALL) ) )  {
-			   
-				PhysicsComponent *pA = (PhysicsComponent*) obA->getUserPointer();
-				PhysicsComponent *pB = (PhysicsComponent*) obB->getUserPointer();
-				
-				if(pA && pB && pA != pB)
-				{
-					Entity *entA = pA->GetParent();
-					Entity *entB = pB->GetParent();
-					
-					AddPair(triggeredObjects, EntityPair(entA, entB));
-#if DEBUG
-					//	DLog(@"Exp Col %s", entA->mDebugName.c_str() );
-#endif
-				}
-			}	
-		}	
-		
-		
-		// update for ghost objects
-		for(PhysicsComponentIterator it = mManagedComponents.begin(); it != mManagedComponents.end(); it++)
-		{
-		
-			//Entity *gopher = *it;
-			PhysicsComponent *physicsComponent = (*it);
-			
-			// some object maintain a ghost collider
-			btPairCachingGhostObject *ghostCollider = physicsComponent->GetGhostCollider();
-			if(ghostCollider)
-			{
-				
-				physicsComponent->SynchGhostCollider();
-								
-				int nPairs =  ghostCollider->getOverlappingPairCache()->getNumOverlappingPairs(); //pairArray.size();
-        
-				for(int i = 0; i < nPairs; i++)
-				{
-					// Dynamic cast to make sure its a rigid body
-					//pairArray[i]  ); //
-					btRigidBody *rigidBody = dynamic_cast<btRigidBody *>( ghostCollider->getOverlappingObject(i));         
-					if(rigidBody)
-					{
-						PhysicsComponent *pA = (PhysicsComponent*) rigidBody->getUserPointer();
-						if(pA)
-						{
-							Entity *entA = pA->GetParent();
-							AddPair(triggeredObjects, EntityPair(entA, physicsComponent->GetParent()));
-						}
-					}
-				}
-			}
-		}
-	}*/
 	
 	void PhysicsManager::AddGhostCollider(btPairCachingGhostObject *ghostCollider, int collidesWith)
 	{

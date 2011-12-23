@@ -10,6 +10,8 @@
 
 #import "Entity.h"
 
+using namespace Dog3D;
+
 @implementation SoundEffect
 + (id)soundEffectWithContentsOfFile:(NSString *)aPath {
     if (aPath) {
