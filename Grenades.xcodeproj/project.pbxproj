@@ -338,6 +338,9 @@
 		EAC270FE14A18D15000F9E9F /* Fireball1.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC270FD14A18D15000F9E9F /* Fireball1.plist */; };
 		EAC2710014A3C146000F9E9F /* Debug.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC270FF14A3C144000F9E9F /* Debug.plist */; };
 		EAC2710514A3EE90000F9E9F /* DogDebug.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2710414A3EE90000F9E9F /* DogDebug.mm */; };
+		EAC2710914A42AB0000F9E9F /* EditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2710714A42AAF000F9E9F /* EditorViewController.m */; };
+		EAC2710A14A42AB0000F9E9F /* EditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC2710814A42AB0000F9E9F /* EditorViewController.xib */; };
+		EAC2710D14A42C87000F9E9F /* Edit.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC2710C14A42C87000F9E9F /* Edit.png */; };
 		EAC2EDFE11176B89000F428C /* GamePlayManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2EDFD11176B89000F428C /* GamePlayManager.mm */; };
 		EAC584321441647000F0A89E /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC584311441647000F0A89E /* Smoke.png */; };
 		EAC58441144569B700F0A89E /* sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC58440144569B700F0A89E /* sparkle.png */; };
@@ -411,13 +414,13 @@
 		A895E0540E28072800A7AE7A /* OpenGL_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGL_Internal.h; sourceTree = "<group>"; };
 		EA069BC0119B4ED400179E6B /* GopherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GopherViewController.h; sourceTree = "<group>"; };
 		EA069BC1119B4ED400179E6B /* GopherViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GopherViewController.mm; sourceTree = "<group>"; };
-		EA069BC2119B4ED400179E6B /* GopherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GopherViewController.xib; sourceTree = "<group>"; };
+		EA069BC2119B4ED400179E6B /* GopherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GopherViewController.xib; path = Classes/GopherViewController.xib; sourceTree = "<group>"; };
 		EA069CCC119B90BF00179E6B /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesViewController.h; path = Views/PreferencesViewController.h; sourceTree = "<group>"; };
 		EA069CCD119B90BF00179E6B /* PreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesViewController.m; path = Views/PreferencesViewController.m; sourceTree = "<group>"; };
-		EA069CCF119B911200179E6B /* PreferencesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PreferencesViewController.xib; path = Views/PreferencesViewController.xib; sourceTree = "<group>"; };
+		EA069CCF119B911200179E6B /* PreferencesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PreferencesViewController.xib; path = Classes/Views/PreferencesViewController.xib; sourceTree = "<group>"; };
 		EA0B63F011A7B19D00124ED9 /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsViewController.h; sourceTree = "<group>"; };
 		EA0B63F111A7B19D00124ED9 /* InstructionsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InstructionsViewController.mm; sourceTree = "<group>"; };
-		EA0B63F211A7B19D00124ED9 /* InstructionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstructionsViewController.xib; sourceTree = "<group>"; };
+		EA0B63F211A7B19D00124ED9 /* InstructionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = InstructionsViewController.xib; path = Classes/InstructionsViewController.xib; sourceTree = "<group>"; };
 		EA1127C311F76757000A8124 /* SchemingWeasel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = SchemingWeasel.mp3; path = Audio/SchemingWeasel.mp3; sourceTree = "<group>"; };
 		EA1128ED11F79D0A000A8124 /* FeelinGood4.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FeelinGood4.caf; path = Audio/FeelinGood4.caf; sourceTree = "<group>"; };
 		EA11291A11F7A657000A8124 /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
@@ -526,7 +529,7 @@
 		EA52F0CC118626970050C2DC /* Ball_Ice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball_Ice.png; sourceTree = "<group>"; };
 		EA667CD6134FD1BC000C1D85 /* LevelPackPurchaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelPackPurchaseVC.h; sourceTree = "<group>"; };
 		EA667CD7134FD1BC000C1D85 /* LevelPackPurchaseVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LevelPackPurchaseVC.mm; sourceTree = "<group>"; };
-		EA667CD8134FD1BC000C1D85 /* LevelPackPurchaseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelPackPurchaseVC.xib; sourceTree = "<group>"; };
+		EA667CD8134FD1BC000C1D85 /* LevelPackPurchaseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LevelPackPurchaseVC.xib; path = Classes/LevelPackPurchaseVC.xib; sourceTree = "<group>"; };
 		EA667D921350284D000C1D85 /* TriggerComponent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TriggerComponent.mm; sourceTree = "<group>"; };
 		EA667DB213502A16000C1D85 /* GateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GateController.h; sourceTree = "<group>"; };
 		EA667DB313502A16000C1D85 /* GateController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GateController.mm; sourceTree = "<group>"; };
@@ -918,10 +921,10 @@
 		EAA5A07E11D98F7B005A79DE /* Line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Line.png; path = Cannon/Line.png; sourceTree = "<group>"; };
 		EAAC5C5A1210EAF7006ADE83 /* ScoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoresViewController.h; sourceTree = "<group>"; };
 		EAAC5C5B1210EAF7006ADE83 /* ScoresViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScoresViewController.mm; sourceTree = "<group>"; };
-		EAAC5C5C1210EAF7006ADE83 /* ScoresViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoresViewController.xib; sourceTree = "<group>"; };
+		EAAC5C5C1210EAF7006ADE83 /* ScoresViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ScoresViewController.xib; path = Classes/ScoresViewController.xib; sourceTree = "<group>"; };
 		EABC34A311A85F93000C6EC6 /* GopherGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GopherGameController.h; sourceTree = "<group>"; };
 		EABC34A411A85F93000C6EC6 /* GopherGameController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GopherGameController.mm; sourceTree = "<group>"; };
-		EABC34A511A85F93000C6EC6 /* GopherGameController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GopherGameController.xib; sourceTree = "<group>"; };
+		EABC34A511A85F93000C6EC6 /* GopherGameController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GopherGameController.xib; path = Classes/GopherGameController.xib; sourceTree = "<group>"; };
 		EAC22A4C147A27330088B937 /* Gate6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gate6.plist; sourceTree = "<group>"; };
 		EAC22A4D147A27330088B937 /* Gate7.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gate7.plist; sourceTree = "<group>"; };
 		EAC22A4E147A27330088B937 /* Gate8.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gate8.plist; sourceTree = "<group>"; };
@@ -931,6 +934,10 @@
 		EAC270FF14A3C144000F9E9F /* Debug.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Debug.plist; sourceTree = "<group>"; };
 		EAC2710114A3C21D000F9E9F /* DogDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DogDebug.h; sourceTree = "<group>"; };
 		EAC2710414A3EE90000F9E9F /* DogDebug.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DogDebug.mm; sourceTree = "<group>"; };
+		EAC2710614A42AAF000F9E9F /* EditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorViewController.h; sourceTree = "<group>"; };
+		EAC2710714A42AAF000F9E9F /* EditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorViewController.m; sourceTree = "<group>"; };
+		EAC2710814A42AB0000F9E9F /* EditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditorViewController.xib; path = Classes/EditorViewController.xib; sourceTree = "<group>"; };
+		EAC2710C14A42C87000F9E9F /* Edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Edit.png; sourceTree = "<group>"; };
 		EAC2EDFC11176B89000F428C /* GamePlayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayManager.h; sourceTree = "<group>"; };
 		EAC2EDFD11176B89000F428C /* GamePlayManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GamePlayManager.mm; sourceTree = "<group>"; };
 		EAC584311441647000F0A89E /* Smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smoke.png; sourceTree = "<group>"; };
@@ -1058,6 +1065,7 @@
 				EAF1330B1356853B00A1F3DC /* RicochetLevels */,
 				EA36FDB313B835AB00A5DBBE /* SceneElements */,
 				EA36FDF713B835EA00A5DBBE /* UI */,
+				EAC2710B14A42AC8000F9E9F /* XIB */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1244,7 +1252,6 @@
 		EA36FDF713B835EA00A5DBBE /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				EA922D9D1461012C00A65609 /* Splash.png */,
 				EA36FDF813B835EB00A5DBBE /* 3dDog.png */,
 				EA36FDF913B835EB00A5DBBE /* About.png */,
 				EA36FDFA13B835EB00A5DBBE /* ArrowButtonGold.png */,
@@ -1257,6 +1264,7 @@
 				EA36FE0113B835EB00A5DBBE /* Carrot32.png */,
 				EA36FE0213B835EB00A5DBBE /* ChoseYourLevel.png */,
 				EA36FE0313B835EB00A5DBBE /* EatArrow.png */,
+				EAC2710C14A42C87000F9E9F /* Edit.png */,
 				EA36FE0413B835EB00A5DBBE /* EmptyCarrot32.png */,
 				EA36FE0513B835EB00A5DBBE /* Exit.png */,
 				EA36FE0613B835EB00A5DBBE /* ExitText2.png */,
@@ -1290,6 +1298,7 @@
 				EA36FE2313B835EB00A5DBBE /* SoundOn.png */,
 				EA36FE2413B835EB00A5DBBE /* SoundOn32.png */,
 				EA36FE2513B835EB00A5DBBE /* SpawnArrow.png */,
+				EA922D9D1461012C00A65609 /* Splash.png */,
 				EA36FE2813B835EB00A5DBBE /* Square.png */,
 				EA36FE2913B835EB00A5DBBE /* TryAgain.png */,
 				EA36FE2A13B835EB00A5DBBE /* YouWin.png */,
@@ -1853,6 +1862,20 @@
 			path = sse;
 			sourceTree = "<group>";
 		};
+		EAC2710B14A42AC8000F9E9F /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				EAC2710814A42AB0000F9E9F /* EditorViewController.xib */,
+				EABC34A511A85F93000C6EC6 /* GopherGameController.xib */,
+				EA069BC2119B4ED400179E6B /* GopherViewController.xib */,
+				EA0B63F211A7B19D00124ED9 /* InstructionsViewController.xib */,
+				EA667CD8134FD1BC000C1D85 /* LevelPackPurchaseVC.xib */,
+				EA069CCF119B911200179E6B /* PreferencesViewController.xib */,
+				EAAC5C5C1210EAF7006ADE83 /* ScoresViewController.xib */,
+			);
+			name = XIB;
+			sourceTree = "<group>";
+		};
 		EAC636731106DCB70025A7EF /* FakeGLU */ = {
 			isa = PBXGroup;
 			children = (
@@ -1893,15 +1916,12 @@
 			children = (
 				EABC34A311A85F93000C6EC6 /* GopherGameController.h */,
 				EABC34A411A85F93000C6EC6 /* GopherGameController.mm */,
-				EABC34A511A85F93000C6EC6 /* GopherGameController.xib */,
 				A895E04D0E2806DB00A7AE7A /* GopherView.h */,
 				A895E04E0E2806DB00A7AE7A /* GopherView.mm */,
 				EA069BC0119B4ED400179E6B /* GopherViewController.h */,
 				EA069BC1119B4ED400179E6B /* GopherViewController.mm */,
-				EA069BC2119B4ED400179E6B /* GopherViewController.xib */,
 				EA0B63F011A7B19D00124ED9 /* InstructionsViewController.h */,
 				EA0B63F111A7B19D00124ED9 /* InstructionsViewController.mm */,
-				EA0B63F211A7B19D00124ED9 /* InstructionsViewController.xib */,
 				EA762AF011EEBDFD00697A9F /* NSDictionary+Extensions.h */,
 				EA762AF111EEBDFD00697A9F /* NSDictionary+Extensions.m */,
 				EA762B0511EEBEB600697A9F /* NSIndexSet+Extensions.h */,
@@ -1910,13 +1930,12 @@
 				EA762AF811EEBE7600697A9F /* NSString+Extensions.m */,
 				EA069CCC119B90BF00179E6B /* PreferencesViewController.h */,
 				EA069CCD119B90BF00179E6B /* PreferencesViewController.m */,
-				EA069CCF119B911200179E6B /* PreferencesViewController.xib */,
 				EAAC5C5A1210EAF7006ADE83 /* ScoresViewController.h */,
 				EAAC5C5B1210EAF7006ADE83 /* ScoresViewController.mm */,
-				EAAC5C5C1210EAF7006ADE83 /* ScoresViewController.xib */,
 				EA667CD6134FD1BC000C1D85 /* LevelPackPurchaseVC.h */,
 				EA667CD7134FD1BC000C1D85 /* LevelPackPurchaseVC.mm */,
-				EA667CD8134FD1BC000C1D85 /* LevelPackPurchaseVC.xib */,
+				EAC2710614A42AAF000F9E9F /* EditorViewController.h */,
+				EAC2710714A42AAF000F9E9F /* EditorViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2238,6 +2257,8 @@
 				EAC22A51147A27330088B937 /* Gate8.plist in Resources */,
 				EAC270FE14A18D15000F9E9F /* Fireball1.plist in Resources */,
 				EAC2710014A3C146000F9E9F /* Debug.plist in Resources */,
+				EAC2710A14A42AB0000F9E9F /* EditorViewController.xib in Resources */,
+				EAC2710D14A42C87000F9E9F /* Edit.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2408,6 +2429,7 @@
 				FBDC06B2147D99DB0058D62A /* GameCenterManager.m in Sources */,
 				EAC270F114A1852E000F9E9F /* FireballExplodable.mm in Sources */,
 				EAC2710514A3EE90000F9E9F /* DogDebug.mm in Sources */,
+				EAC2710914A42AB0000F9E9F /* EditorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

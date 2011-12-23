@@ -6,11 +6,13 @@
 //  Copyright 2010 3dDogStudios. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <UIKit/UIKit.h>
+
+#import "AppSpecificValues.h"
+#import "EditorViewController.h"
 #import "GopherView.h"
 #import "GameCenterManager.h"
-#import "AppSpecificValues.h"
 
 @protocol GopherViewControllerDelegate;
 
@@ -46,7 +48,9 @@
 @property (nonatomic, assign) float tiltGravityCoef;
 
 @property (nonatomic, assign) bool offsetGravityEnabled;
-@property (nonatomic,retain) GameCenterManager *gameCenterManager;
+@property (nonatomic, retain) GameCenterManager *gameCenterManager;
+
+@property (nonatomic, retain) EditorViewController *editorViewController;
 
 - (IBAction) resumePushed:(id)sender;
 - (IBAction) endOfGamePushed:(id)sender;

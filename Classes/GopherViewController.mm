@@ -9,24 +9,23 @@
 #import "GopherViewController.h"
 #import "InstructionsViewController.h"
 
-#import "PhysicsManager.h"
+#import "AudioDispatch.h"
 #import "GraphicsManager.h"
 #import "GamePlayManager.h"
+#import "PhysicsManager.h"
 #import "SceneManager.h"
-#import "AudioDispatch.h"
+
+using namespace Dog3D;
 
 @implementation GopherViewController
 
 @synthesize gopherView;
 @synthesize delegate;
 @synthesize levelName;
-
-
-using namespace Dog3D;
-
 @synthesize offsetGravityEnabled;
 @synthesize tiltGravityCoef;
-@synthesize gameCenterManager=gameCenterManager_;
+@synthesize gameCenterManager = gameCenterManager_;
+@synthesize editorViewController = editorViewController_;
 
 // pauses level
 // puts up a bunch of buttons
@@ -146,8 +145,19 @@ using namespace Dog3D;
 		
 		[self animateIn:mPauseView];
 	}
-	
+}
 
+- (void)showEdit:(id)sender
+{
+    self.editorViewController = [[EditorViewController alloc] initWithNibName:@"EditorViewController" bundle:nil];
+    [self.view addSubview:self.editorViewController.view];
+    
+    // TODO fix the orientation on this
+    // Rotates the score view
+	CGAffineTransform transform = self.editorViewController.view.transform; 
+    transform = CGAffineTransformRotate(transform, M_PI/2.0);
+	self.editorViewController.view.transform = transform;
+    self.editorViewController.view.center = self.view.center;
 }
 
 // resumes gameplay
@@ -158,20 +168,14 @@ using namespace Dog3D;
 	[mPauseView removeFromSuperview];
 	[mPauseView release];
 	mPauseView = nil;
-	
-	
 }
-
 
 - (void) exitLevel
 {
 	[gopherView endLevel];
-	[gopherView stopAnimation];
-		
+	[gopherView stopAnimation];		
 	[delegate gopherViewControllerDidFinish:self withResult:@"Foo"];
 }
-
-
 
 - (void) restartLevel
 {
@@ -517,7 +521,6 @@ using namespace Dog3D;
 // message the delegate that we're done
 - (void)finishedLoadUp
 {
-	
 	[gopherView pauseGame];
 	[gopherView stopAnimation];
 	[delegate gopherViewControllerDidFinish:self withResult:@"Splash"];
@@ -611,34 +614,21 @@ using namespace Dog3D;
 	}
 	
 	scoreLabel = label;	
-	
 	[scoreView addSubview:label];
 	
 	
-	// TODO- this was removed - show an image in the GopherView and respond to the touch event there
-	// add exit button
-	/*UIButton *button = [[UIButton buttonWithType:UIButtonTypeCustom] retain]; 	
-
-	[button setImage:[UIImage imageNamed:@"PauseButton.png"] forState:UIControlStateNormal];
-	
-	[button addTarget:self action:@selector(pausePushed:) 
-	 forControlEvents:UIControlEventTouchUpInside];
-
-	CGRect frame = scoreView.frame;
-	frame.size.height = 480;
-	scoreView.frame = frame;
-
+    UIButton *editButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain]; 	
+	[editButton setImage:[UIImage imageNamed:@"Edit.png"] forState:UIControlStateNormal];
+	[editButton addTarget:self action:@selector(showEdit:) forControlEvents:UIControlEventTouchUpInside];
+    
 	// this is a bit absurd
 	// the frame stuff is done in world space
-	CGRect rect = CGRectMake( scoreView.frame.size.height - 32, 12,32,32);
-	[button setFrame:rect];
-	 */
+	CGRect editRect = CGRectMake( 10, 30, 32, 32);
+	[editButton setFrame:editRect];
+	[scoreView addSubview:editButton]; 
 	
 	// this is needed to keep the overlay from making this single touch
 	[scoreView setMultipleTouchEnabled:YES];
-	
-	//[scoreView addSubview:button];
-	
 }
 
 -(void)shutdownStuff 
@@ -699,8 +689,8 @@ using namespace Dog3D;
 
 
 - (void)dealloc {
-    [gameCenterManager release];
     [gameCenterManager_ release];
+    [editorViewController_ release];
     [super dealloc];
   }
 
