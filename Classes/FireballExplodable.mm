@@ -1,3 +1,13 @@
+/*
+ *  FireballExplodable.h
+ *  Gopher
+ *
+ *  Created by Anthony Lobay on 12/20/11.
+ *  Copyright 2010 3dDogStudios. All rights reserved.
+ *
+ */
+
+#import "AudioDispatch.h"
 #import "Entity.h"
 #import "ExplodableComponent.h"
 #import "FireballExplodable.h"
@@ -6,7 +16,6 @@
 #import "PhysicsManager.h"
 #import "PhysicsComponent.h"
 #import "SceneManager.h"
-#import "AudioDispatch.h"
 
 #import <vector>
 
@@ -37,6 +46,10 @@ namespace Dog3D
             
         }
         
+        // hide original graphics
+        mParent->GetGraphicsComponent()->mActive = false;
+
+        
         btVector3 position = mParent->GetPosition();
         
         // Light up a fireball
@@ -46,22 +59,16 @@ namespace Dog3D
         }
         
         AudioDispatch::Instance()->PlaySound(AudioDispatch::Boom2);
-        
-        PhysicsComponent *physicsComponent =  mParent->GetPhysicsComponent();
-        
-        // remove ball from world
-        physicsComponent->GetRigidBody()->setLinearVelocity(btVector3(0,0,0));
-        physicsComponent->GetRigidBody()->setAngularVelocity(btVector3(0,0,0));
-        physicsComponent->SetKinematic(true);
-        
+                
         // Not used as this slows things down too much
         // AddGhostCollider();
         
+        // Object will be reclaimed shortly...
+        GamePlayManager::Instance()->AddExplodable(this);
+        
         // time out mechanism
         mFuseTime = 0.5f;
-        
-        mParent->GetGraphicsComponent()->mActive = false;
-        
+                
         // Notify GamePlay manager of a destroyed object
         GamePlayManager::Instance()->IncrementDestroyedObjects();
         
@@ -73,8 +80,6 @@ namespace Dog3D
         physicsComponent->SetGhostColliderShape(PhysicsManager::Instance()->GetSmallBlastGhost());
         
         PhysicsManager::Instance()->AddGhostCollider(physicsComponent->GetGhostCollider(), GRP_EXPLODABLE | GRP_BALL );
-        
-        GamePlayManager::Instance()->AddExplodable(this);
     }
     
 }
