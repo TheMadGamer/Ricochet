@@ -880,8 +880,6 @@ void SceneManager::CreateWalls( const string *backgroundTexture, int wallFlags)
 // this handles spawn and respawn
 void SceneManager::Update(float dt)
 {
-    
-	
 	for(list<SpawnInfo *>::iterator it = mDelayedSpawns.begin(); it != mDelayedSpawns.end(); it++  ) 
 	{
 		SpawnInfo *info = *it;

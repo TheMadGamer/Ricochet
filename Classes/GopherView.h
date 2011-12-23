@@ -62,7 +62,7 @@
 	
 	enum ViewState
 	{
-		LOAD, PLAY, PAUSE, GOPHER_WIN, GOPHER_LOST
+		LOAD, PLAY, PAUSE, GOPHER_WIN, GOPHER_LOST, EDIT
 	};
 	
 	ViewState mViewState;

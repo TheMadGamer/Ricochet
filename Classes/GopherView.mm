@@ -214,7 +214,7 @@ float kWallHeight = 1;
 		[self initEngine];
 	}
 	
-	if(mViewState == LOAD ) 
+	if(mViewState == LOAD) 
 	{
 		// final draw
 		GraphicsManager::Instance()->OrthoViewSetup(backingWidth, backingHeight, zEye);		
@@ -248,16 +248,13 @@ float kWallHeight = 1;
 	}
 	
 		
-	if(mViewState == PLAY || mViewState == GOPHER_WIN || mViewState == GOPHER_LOST)
+	if(mViewState == PLAY || mViewState == GOPHER_WIN || mViewState == GOPHER_LOST || mViewState == EDIT)
 	{
 		// strangely, there must be no GL context or something in the init 
 		GraphicsManager::Instance()->SetupLights();
-		GraphicsManager::Instance()->SetupView(
-											   backingWidth,  
+		GraphicsManager::Instance()->SetupView(backingWidth,  
 											   backingHeight,  
-											   zEye
-											   );
-		
+											   zEye);
 		
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -284,8 +281,11 @@ float kWallHeight = 1;
 		dt = MIN(0.2, dt);
 		
 		// in tilt mode, update phys in acclerometer thread
-        PhysicsManager::Instance()->Update(dt);
-		GamePlayManager::Instance()->Update(dt);	
+        if (mViewState != EDIT) 
+        {
+            PhysicsManager::Instance()->Update(dt);
+            GamePlayManager::Instance()->Update(dt);	
+        }
 		GraphicsManager::Instance()->Update(dt);
 
 		if(mViewState == PLAY)

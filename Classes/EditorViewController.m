@@ -8,7 +8,15 @@
 
 #import "EditorViewController.h"
 
+#import "Parse/Parse.h"
+
 @implementation EditorViewController
+
+- (void)viewDidLoad {
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    [testObject setObject:@"bar" forKey:@"foo"];
+    [testObject save];
+}
 
 - (IBAction)dismiss:(id)sender
 {
