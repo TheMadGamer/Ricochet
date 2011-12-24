@@ -10,31 +10,28 @@
 #include "SceneManager.h"
 
 #import <btBulletDynamicsCommon.h>
-
-#import "GameEntityFactory.h"
-#import "GateFactory.h"
-#import "PhysicsComponentFactory.h"
-
-#import "PhysicsManager.h"
-#import "GraphicsManager.h"
-#import "GamePlayManager.h"
-#import "SceneManager.h"
-
-#import "TriggerComponent.h"
+#import <Foundation/Foundation.h>
 
 #import "AudioDispatch.h"
-
-#import "ParticleEmitter.h"
 #import "BurstEmitter.h"
+#import "GameEntityFactory.h"
+#import "GamePlayManager.h"
+#import "GateFactory.h"
+#import "GraphicsManager.h"
+#import "NSString+Extensions.h"
+#import "ParticleEmitter.h"
+#import "PhysicsComponentFactory.h"
+#import "PhysicsManager.h"
+#import "SceneManager.h"
+#import "TriggerComponent.h"
 
 const float kBallRadius = 0.5;
-
 const float kWallHeight = 2.5;
 const float kBoxHeight = 1.5;
-
 const float kWallSlop = 0.5;
-
 const float kGoalOffset = 1.1;
+
+static NSString * const kLayoutObjects = @"LayoutObjects";
 
 using namespace Dog3D;
 using namespace std;
@@ -154,9 +151,23 @@ void SceneManager::LoadScene(NSString *levelName)
 	NSString *finalPath = [path stringByAppendingPathComponent:levelName];
 	
 	NSDictionary *rootDictionary = [NSDictionary dictionaryWithContentsOfFile:finalPath];
+    mLevelDictionary = [rootDictionary mutableCopy];
+    
 	NSDictionary *controlDictionary = [rootDictionary objectForKey:@"LevelControl"];
+    
+    mLayoutDictionary = [[rootDictionary objectForKey:kLayoutObjects] mutableCopy];
+    
+    // swap in a mutable copy that we can add to
+    [mLevelDictionary setObject:mLayoutDictionary forKey:kLayoutObjects];
+    
     LoadScene(rootDictionary, controlDictionary);
     mSceneName = [levelName UTF8String];
+}
+
+void SceneManager::SaveScene(NSString *levelName)
+{
+    NSString *filePath = [levelName stringByExpandingToUserDirectory];    
+    [mLevelDictionary writeToFile:filePath atomically:YES];
 }
     
 void SceneManager::LoadScene(NSDictionary *rootDictionary, NSDictionary *controlDictionary)
@@ -238,10 +249,9 @@ void BuildCenteredEmitter()
 
 }
 
-
 void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
 {
-	NSDictionary *layoutDictionary = [rootDictionary objectForKey:@"LayoutObjects"];
+	NSDictionary *layoutDictionary = [rootDictionary objectForKey:kLayoutObjects];
     
     // For debug
     //BuildCenteredEmitter();
@@ -462,10 +472,25 @@ void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
 
 void SceneManager::AddPot(btVector3 position)
 {
-    btVector3 extents(1,1,1);
+    btVector3 extents(0.5,10,0.5);
     Entity *item = GameEntityFactory::BuildTexturedExploder(position, extents, @"pot1");
     mSceneElements.insert(item);
     item->GetExplodable()->Prime();
+    
+    // TODO - finish in AM
+    NSMutableDictionary *pot = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                @"pot1",@"type",
+                                [NSNumber numberWithFloat:position.x()],@"x",
+                                [NSNumber numberWithFloat:position.y()],@"y", 
+                                [NSNumber numberWithFloat:position.z()],@"z", 
+                                
+                                [NSNumber numberWithFloat:0.5f], @"sx",
+                                [NSNumber numberWithFloat:10.0f], @"sy",
+                                [NSNumber numberWithFloat:0.5f], @"sz",
+                                [NSNumber numberWithFloat:0], @"ry",
+                                [NSNumber numberWithFloat:0], @"spawnTime",
+                                nil];
+    [mLayoutDictionary setObject:pot forKey:[NSString stringWithFormat:@"Pot%d", rand()]];
 }
 
 // spawn in objects
@@ -742,6 +767,16 @@ void SceneManager::ConvertToSingleBodies(Entity *compoundEntity, vector<Entity*>
 
 void SceneManager::UnloadScene()
 {
+    if (mLevelDictionary) {
+        [mLevelDictionary release];
+        mLevelDictionary = nil;
+    }
+
+    if (mLayoutDictionary) {
+        [mLayoutDictionary release];
+        mLayoutDictionary = nil;
+    }
+    
 	DLog(@" **** Unloading Scene **** ");
 	
 	PhysicsManager::Instance()->Unload();

@@ -48,11 +48,23 @@ using namespace Dog3D;
     gopherView.viewState = PLAY;
 }
 
+- (void) saveLevel:(NSString *)fileName
+{
+    SceneManager::Instance()->SaveScene(fileName);
+}
+
+#pragma mark pause, resume
 
 // pauses level
 // puts up a bunch of buttons
 - (void)pauseLevel
 {
+    // no showing pause display in edit mode
+    if (gopherView.viewState == EDIT)
+    {
+        return;
+    }
+    
 	[gopherView pauseGame];
 	
 	// attach subview

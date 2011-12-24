@@ -140,6 +140,9 @@ namespace Dog3D
 		
 		Entity *mCannon;
 		
+        NSMutableDictionary *mLevelDictionary;
+        NSMutableDictionary *mLayoutDictionary;
+        
 		std::string mSceneName;
 		
 		float mFixedRest;
@@ -149,7 +152,8 @@ namespace Dog3D
 		
 		bool mSceneLoaded;
 		
-		SceneManager(): mSceneLoaded(false), mCannon(NULL), mNumCarrots(0), mFixedRest(1.0f), mBounceRest(1.1f){}
+		SceneManager(): mSceneLoaded(false), mCannon(NULL), mNumCarrots(0), mFixedRest(1.0f), mBounceRest(1.1f), mLevelDictionary(nil), mLayoutDictionary(nil){}
+                
 	public:
 		
 		static void Initialize() { sInstance = new SceneManager();}
@@ -159,6 +163,9 @@ namespace Dog3D
         // Loads a scene from a file name 
 		void LoadScene(NSString* levelName);
         void LoadScene(NSDictionary *rootDictionary, NSDictionary *controlDictionary);
+        
+        void SaveScene(NSString *levelName);
+        
 		void UnloadScene();
 		
 		void ConvertToSingleBodies(Entity *compoundEntity,

@@ -24,6 +24,16 @@
 		<key>colorID</key>
 		<integer>2</integer>
 		<key>filename</key>
+		<string>Foo.plist</string>
+		<key>title</key>
+		<string>Foo</string>
+	</dict>
+	<dict>
+		<key>bonus</key>
+		<true/>
+		<key>colorID</key>
+		<integer>2</integer>
+		<key>filename</key>
 		<string>Intro0.plist</string>
 		<key>title</key>
 		<string>Intro 0</string>

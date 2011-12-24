@@ -13,5 +13,6 @@
 - (void) startPotTool;
 - (void) startHedgeTool;
 - (void) endEdit;
+- (void) saveLevel:(NSString *)fileName;
 
 @end

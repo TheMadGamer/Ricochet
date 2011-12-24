@@ -27,12 +27,7 @@
 
 - (IBAction)save:(id)sender 
 {
-    UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Not implemented" 
-                                                     message:nil 
-                                                    delegate:nil 
-                                           cancelButtonTitle:@"OK"
-                                           otherButtonTitles:nil] autorelease];
-    [alert show];
+    [self.delegate saveLevel:@"Foo.plist"];
 }
 
 - (IBAction)potTool:(id)sender { 

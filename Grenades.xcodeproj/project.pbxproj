@@ -349,6 +349,7 @@
 		EAC2711914A44EE7000F9E9F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC2711814A44EE6000F9E9F /* Security.framework */; };
 		EAC2712214A58EAA000F9E9F /* AnimatedGraphicsComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2712114A58EAA000F9E9F /* AnimatedGraphicsComponent.mm */; };
 		EAC2712614A58FC2000F9E9F /* FXGraphicsComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2712514A58FC2000F9E9F /* FXGraphicsComponent.mm */; };
+		EAC2712814A5AF52000F9E9F /* Foo.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC2712714A5AF51000F9E9F /* Foo.plist */; };
 		EAC2EDFE11176B89000F428C /* GamePlayManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2EDFD11176B89000F428C /* GamePlayManager.mm */; };
 		EAC584321441647000F0A89E /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC584311441647000F0A89E /* Smoke.png */; };
 		EAC58441144569B700F0A89E /* sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC58440144569B700F0A89E /* sparkle.png */; };
@@ -957,6 +958,7 @@
 		EAC2712314A58EBB000F9E9F /* AnimatedGraphicsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedGraphicsComponent.h; sourceTree = "<group>"; };
 		EAC2712414A58F96000F9E9F /* FXGraphicsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXGraphicsComponent.h; sourceTree = "<group>"; };
 		EAC2712514A58FC2000F9E9F /* FXGraphicsComponent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FXGraphicsComponent.mm; sourceTree = "<group>"; };
+		EAC2712714A5AF51000F9E9F /* Foo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Foo.plist; sourceTree = "<group>"; };
 		EAC2EDFC11176B89000F428C /* GamePlayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayManager.h; sourceTree = "<group>"; };
 		EAC2EDFD11176B89000F428C /* GamePlayManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GamePlayManager.mm; sourceTree = "<group>"; };
 		EAC584311441647000F0A89E /* Smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smoke.png; sourceTree = "<group>"; };
@@ -1027,12 +1029,12 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				FBDC06AF147D99940058D62A /* GameCenterManagement */,
 				EA11291911F7A633000A8124 /* Audio */,
 				EAC8DF5F110A2E83008542DA /* Component */,
 				EA1245431106852900B33424 /* Entity */,
 				EA925DD7119081F9005A9B74 /* Factories */,
 				EAC636731106DCB70025A7EF /* FakeGLU */,
+				FBDC06AF147D99940058D62A /* GameCenterManagement */,
 				EA6CB3A7110A89D2004C0D8F /* Manager */,
 				A895E04C0E2806C200A7AE7A /* Support Files */,
 				EAC8DF79110A2FE4008542DA /* Views */,
@@ -2014,6 +2016,7 @@
 		EAF1330B1356853B00A1F3DC /* RicochetLevels */ = {
 			isa = PBXGroup;
 			children = (
+				EAC2712714A5AF51000F9E9F /* Foo.plist */,
 				EAF1331A1356855800A1F3DC /* RicochetLevels.plist */,
 				EAFCB12713727EAD00865969 /* Intro0.plist */,
 				EAFCB10513727C3500865969 /* Intro1.plist */,
@@ -2295,6 +2298,7 @@
 				EAC2710014A3C146000F9E9F /* Debug.plist in Resources */,
 				EAC2710A14A42AB0000F9E9F /* EditorViewController.xib in Resources */,
 				EAC2710D14A42C87000F9E9F /* Edit.png in Resources */,
+				EAC2712814A5AF52000F9E9F /* Foo.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
