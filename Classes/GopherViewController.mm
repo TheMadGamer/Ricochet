@@ -27,6 +27,28 @@ using namespace Dog3D;
 @synthesize gameCenterManager = gameCenterManager_;
 @synthesize editorViewController = editorViewController_;
 
+#pragma mark GopherEditProtocol
+
+- (void) startPotTool
+{
+    [gopherView pauseGame]; 
+    gopherView.viewState = EDIT;
+}
+
+
+- (void) startHedgeTool
+{
+    [gopherView pauseGame];
+}
+
+
+- (void) endEdit 
+{    
+	[gopherView resumeGame];
+    gopherView.viewState = PLAY;
+}
+
+
 // pauses level
 // puts up a bunch of buttons
 - (void)pauseLevel
@@ -157,6 +179,7 @@ using namespace Dog3D;
         transform = CGAffineTransformRotate(transform, M_PI/2.0);
         self.editorViewController.view.transform = transform;
         self.editorViewController.view.center = self.view.center;
+        self.editorViewController.delegate = self;
     }
     
     [self.view addSubview:self.editorViewController.view];

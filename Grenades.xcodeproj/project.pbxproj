@@ -347,6 +347,7 @@
 		EAC2711514A44ED3000F9E9F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC2711414A44ED2000F9E9F /* MobileCoreServices.framework */; };
 		EAC2711714A44EE0000F9E9F /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC2711614A44EDF000F9E9F /* libz.1.1.3.dylib */; };
 		EAC2711914A44EE7000F9E9F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC2711814A44EE6000F9E9F /* Security.framework */; };
+		EAC2712214A58EAA000F9E9F /* AnimatedGraphicsComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EAC2712114A58EAA000F9E9F /* AnimatedGraphicsComponent.cpp */; };
 		EAC2EDFE11176B89000F428C /* GamePlayManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2EDFD11176B89000F428C /* GamePlayManager.mm */; };
 		EAC584321441647000F0A89E /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC584311441647000F0A89E /* Smoke.png */; };
 		EAC58441144569B700F0A89E /* sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC58440144569B700F0A89E /* sparkle.png */; };
@@ -950,6 +951,9 @@
 		EAC2711414A44ED2000F9E9F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		EAC2711614A44EDF000F9E9F /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		EAC2711814A44EE6000F9E9F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		EAC2712014A45C63000F9E9F /* GopherEditProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GopherEditProtocol.h; sourceTree = "<group>"; };
+		EAC2712114A58EAA000F9E9F /* AnimatedGraphicsComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatedGraphicsComponent.cpp; sourceTree = "<group>"; };
+		EAC2712314A58EBB000F9E9F /* AnimatedGraphicsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedGraphicsComponent.h; sourceTree = "<group>"; };
 		EAC2EDFC11176B89000F428C /* GamePlayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayManager.h; sourceTree = "<group>"; };
 		EAC2EDFD11176B89000F428C /* GamePlayManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GamePlayManager.mm; sourceTree = "<group>"; };
 		EAC584311441647000F0A89E /* Smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smoke.png; sourceTree = "<group>"; };
@@ -1145,6 +1149,8 @@
 				4F95BF8914106F2900AE5CC4 /* ParticleEmitter.mm */,
 				EAD1941E143EB0B600DFC2B2 /* BurstEmitter.mm */,
 				EAD19420143EB0C600DFC2B2 /* BurstEmitter.h */,
+				EAC2712114A58EAA000F9E9F /* AnimatedGraphicsComponent.cpp */,
+				EAC2712314A58EBB000F9E9F /* AnimatedGraphicsComponent.h */,
 			);
 			name = Graphics;
 			sourceTree = "<group>";
@@ -1960,6 +1966,7 @@
 				EA069CCD119B90BF00179E6B /* PreferencesViewController.m */,
 				EAAC5C5A1210EAF7006ADE83 /* ScoresViewController.h */,
 				EAAC5C5B1210EAF7006ADE83 /* ScoresViewController.mm */,
+				EAC2712014A45C63000F9E9F /* GopherEditProtocol.h */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2454,6 +2461,7 @@
 				EAC270F114A1852E000F9E9F /* FireballExplodable.mm in Sources */,
 				EAC2710514A3EE90000F9E9F /* DogDebug.mm in Sources */,
 				EAC2710914A42AB0000F9E9F /* EditorViewController.m in Sources */,
+				EAC2712214A58EAA000F9E9F /* AnimatedGraphicsComponent.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

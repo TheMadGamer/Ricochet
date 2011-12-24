@@ -70,8 +70,6 @@
 	bool mFirstAppearance;
 		
 	NSArray *levels;
-    
-    GameCenterManager *gameCenterManager;
 		
 }
 

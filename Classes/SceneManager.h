@@ -179,6 +179,9 @@ namespace Dog3D
 		
 		void RefreshSpawnIntervals(float gameTime);
 		
+        // Edit API
+        void AddPot(btVector3 position);
+        
 	private:
 		// see wall creation flags
 		void CreateWalls(const std::string  *background,  int wallFlags);

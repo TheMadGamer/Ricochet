@@ -379,8 +379,6 @@ void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
 				mSceneElements.insert(item);
 				item->GetExplodable()->Prime();
 			}
-			
-			//item->SetYRotation(rotationY);
 		}
 		else if([type isEqualToString:@"flower"])
 		{
@@ -460,6 +458,14 @@ void SceneManager::LoadSceneObjects(NSDictionary *rootDictionary)
         
 	}
     
+}
+
+void SceneManager::AddPot(btVector3 position)
+{
+    btVector3 extents(1,1,1);
+    Entity *item = GameEntityFactory::BuildTexturedExploder(position, extents, @"pot1");
+    mSceneElements.insert(item);
+    item->GetExplodable()->Prime();
 }
 
 // spawn in objects

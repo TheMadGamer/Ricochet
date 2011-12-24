@@ -39,10 +39,9 @@ float kWallHeight = 1;
 @implementation GopherView
 
 @synthesize gopherViewController;
-
 @synthesize offsetGravityEnabled;
-
 @synthesize tiltGravityCoef;
+@synthesize viewState = viewState_;
 
 - (id) initWithCoder:(NSCoder *)decoder
 {
@@ -64,7 +63,7 @@ float kWallHeight = 1;
 		zEye = 40;
 		delayFrames = 0;
 		
-		mViewState = LOAD;
+		viewState_ = LOAD;
 		
 		mScore = -1;
 		mTotalGophers = -1;
@@ -96,12 +95,12 @@ float kWallHeight = 1;
 
 - (void) pauseGame
 {
-	mViewState = PAUSE;
+	self.viewState = PAUSE;
 }
 
 - (void) resumeGame
 {
-	mViewState = PLAY;
+	self.viewState = PLAY;
 }
 
 - (void) initEngine
@@ -166,7 +165,7 @@ float kWallHeight = 1;
 	DLog(@"GView Load Level");
 	if([levelName isEqualToString:@"Splash"])
 	{
-		mViewState = LOAD;
+		self.viewState = LOAD;
 		return;
 	}
 	
@@ -192,13 +191,13 @@ float kWallHeight = 1;
     // update score if it has changed
     [ gopherViewController updateScore: score withDead:deadGophs andTotal: totalGophs andBallsLeft:ballsLeft];
 	
-	mViewState = PLAY;
+	self.viewState = PLAY;
 	DLog(@"GView Done Load");
 }
 
 - (void)drawView 
 {	
-	if(mViewState == PAUSE)
+	if(self.viewState == PAUSE)
 	{
 		return; 
 	}
@@ -214,7 +213,7 @@ float kWallHeight = 1;
 		[self initEngine];
 	}
 	
-	if(mViewState == LOAD) 
+	if(self.viewState == LOAD) 
 	{
 		// final draw
 		GraphicsManager::Instance()->OrthoViewSetup(backingWidth, backingHeight, zEye);		
@@ -222,7 +221,7 @@ float kWallHeight = 1;
 		
 		GraphicsManager::Instance()->OrthoViewCleanUp();
 		
-		mViewState = PAUSE;
+		self.viewState = PAUSE;
 
 		// record these
 		startTimeInterval = [NSDate timeIntervalSinceReferenceDate];
@@ -233,22 +232,22 @@ float kWallHeight = 1;
 	}
 	
 	
-	if(mViewState == PLAY)	
+	if(self.viewState == PLAY)	
 	{
 		// transition out of Play
 		if(GamePlayManager::Instance()->GetGameState() == GamePlayManager::GOPHER_WIN ||
 		   GamePlayManager::Instance()->GetGameState() == GamePlayManager::GOPHER_LOST)
 		{
-			mViewState = (GamePlayManager::Instance()->GetGameState() == GamePlayManager::GOPHER_LOST)? GOPHER_LOST : GOPHER_WIN;
+			self.viewState = (GamePlayManager::Instance()->GetGameState() == GamePlayManager::GOPHER_LOST)? GOPHER_LOST : GOPHER_WIN;
 			
 			// message delegate
-			[gopherViewController finishedLevel:(mViewState == GOPHER_LOST)]; 
+			[gopherViewController finishedLevel:(self.viewState == GOPHER_LOST)]; 
 		}
 		
 	}
 	
 		
-	if(mViewState == PLAY || mViewState == GOPHER_WIN || mViewState == GOPHER_LOST || mViewState == EDIT)
+	if(self.viewState == PLAY || self.viewState == GOPHER_WIN || self.viewState == GOPHER_LOST || self.viewState == EDIT)
 	{
 		// strangely, there must be no GL context or something in the init 
 		GraphicsManager::Instance()->SetupLights();
@@ -281,14 +280,14 @@ float kWallHeight = 1;
 		dt = MIN(0.2, dt);
 		
 		// in tilt mode, update phys in acclerometer thread
-        if (mViewState != EDIT) 
+        if (self.viewState != EDIT) 
         {
             PhysicsManager::Instance()->Update(dt);
             GamePlayManager::Instance()->Update(dt);	
         }
 		GraphicsManager::Instance()->Update(dt);
 
-		if(mViewState == PLAY)
+		if(self.viewState == PLAY)
 		{
 			SceneManager::Instance()->Update(dt);
 		}
@@ -352,62 +351,68 @@ const float kFarmerMax = 10.0f;
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {	
-    // in non-play, ignore touch
-	if(mViewState != PLAY)
+	if(self.viewState == EDIT)
 	{
-		return;
-	}
-	
-    CGPoint touchPoint = [[touches anyObject] locationInView:self];
-    
-	// check for pause touch
-	{
-		btVector3 touchPt = [self getTouchPoint:touchPoint];
-		touchPt -= btVector3(-9,0,-14);
-		
-		if(touchPt.length() < 1.5f)
-		{
-			[gopherViewController pauseLevel];
-            return;
-		}
-    }		
-	
-    for (UITouch *touch in touches) 
+		CGPoint touchPoint = [[touches anyObject] locationInView:self];
+        btVector3 touchPt = [self getTouchPoint:touchPoint];
+        touchPt.setY(1.0);
+        SceneManager::Instance()->AddPot(touchPt);
+        
+	} 
+    else if (self.viewState == PLAY)
     {
-        
-        CGPoint touchPoint = [touch locationInView:self];
-        
-        touchStart = [self getTouchPoint:touchPoint];
-        btVector3 touchPosition = touchStart;
-        
-        //changed this to allow run cannon
-        if(enableSlider && touchStart.z() > -10)
+	
+        CGPoint touchPoint = [[touches anyObject] locationInView:self];
+    
+        // check for pause touch
         {
-            GamePlayManager::Instance()->StartSwipe(touchStart);
-            //mDidMove = false;
-        }
-        else
-        {
-            //
-            CannonController *cannon= GamePlayManager::Instance()->GetCannon();
-            touchStart -= cannon->GetParent()->GetPosition();
-            touchStart.setY(0);
-            float dist = touchStart.length();
-            if(kFarmerMin <= dist && dist <= kFarmerMax )
+            btVector3 touchPt = [self getTouchPoint:touchPoint];
+            touchPt -= btVector3(-9,0,-14);
+            
+            if(touchPt.length() < 1.5f)
             {
-                //NSLog(@"Touch near farmer");
-                touchStart.normalize();
-                movingFarmer = true;
-                //NSLog(@"touch start %f %f %f", touchStart.x(), touchStart.y(), touchStart.z());
-                
-                // nothing happens until we begin rotation on move
+                [gopherViewController pauseLevel];
+                return;
+            }
+        }		
+        
+        for (UITouch *touch in touches) 
+        {
+            
+            CGPoint touchPoint = [touch locationInView:self];
+            
+            touchStart = [self getTouchPoint:touchPoint];
+            btVector3 touchPosition = touchStart;
+            
+            //changed this to allow run cannon
+            if(enableSlider && touchStart.z() > -10)
+            {
+                GamePlayManager::Instance()->StartSwipe(touchStart);
+                //mDidMove = false;
             }
             else
             {
-                // possibly a fire button 
-                GamePlayManager::Instance()->Touch(touchPosition);	
-            }
-        }        
+                //
+                CannonController *cannon= GamePlayManager::Instance()->GetCannon();
+                touchStart -= cannon->GetParent()->GetPosition();
+                touchStart.setY(0);
+                float dist = touchStart.length();
+                if(kFarmerMin <= dist && dist <= kFarmerMax )
+                {
+                    //NSLog(@"Touch near farmer");
+                    touchStart.normalize();
+                    movingFarmer = true;
+                    //NSLog(@"touch start %f %f %f", touchStart.x(), touchStart.y(), touchStart.z());
+                    
+                    // nothing happens until we begin rotation on move
+                }
+                else
+                {
+                    // possibly a fire button 
+                    GamePlayManager::Instance()->Touch(touchPosition);	
+                }
+            }        
+        }
     }
 	
 }
@@ -415,7 +420,7 @@ const float kFarmerMax = 10.0f;
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
 
-	if(mViewState != PLAY)
+	if(self.viewState != PLAY)
 	{
 		return;
 	}

@@ -11,12 +11,13 @@
 
 #import "AppSpecificValues.h"
 #import "EditorViewController.h"
-#import "GopherView.h"
 #import "GameCenterManager.h"
+#import "GopherView.h"
+#import "GopherEditProtocol.h"
 
 @protocol GopherViewControllerDelegate;
 
-@interface GopherViewController : UIViewController <GopherViewDelegate> {
+@interface GopherViewController : UIViewController <GopherViewDelegate, GopherEditProtocol> {
 	
 	IBOutlet GopherView *gopherView;	
 	UIView *scoreView;

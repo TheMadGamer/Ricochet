@@ -713,7 +713,6 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 
 
 - (void)dealloc {
-    [gameCenterManager release];
     [gameCenterManager_ release];
     [super dealloc];
 }

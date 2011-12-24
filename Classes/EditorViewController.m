@@ -12,6 +12,8 @@
 
 @implementation EditorViewController
 
+@synthesize delegate=delegate_;
+
 - (void)viewDidLoad {
     PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
     [testObject setObject:@"bar" forKey:@"foo"];
@@ -33,10 +35,19 @@
     [alert show];
 }
 
-- (IBAction)potTool:(id)sender { [self dismiss:nil]; }
+- (IBAction)potTool:(id)sender { 
+    [self.delegate startPotTool];
+    [self dismiss:nil]; 
+
+}
 - (IBAction)hedgeTool:(id)sender { [self dismiss:nil]; }
 - (IBAction)gopherTool:(id)sender { [self dismiss:nil]; }
-- (IBAction)exitEditMode:(id)sender { [self dismiss:nil]; }
+- (IBAction)exitEditMode:(id)sender 
+{ 
+    [self.delegate endEdit];
+    [self dismiss:nil];
+}
+
 - (IBAction)moveTool:(id)sender  { [self dismiss:nil]; }
 - (IBAction)deleteTool:(id)sender  { [self dismiss:nil]; }
 

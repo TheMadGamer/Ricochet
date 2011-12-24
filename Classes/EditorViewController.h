@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "GopherEditProtocol.h"
+
 @interface EditorViewController : UIViewController
 
 - (IBAction)dismiss:(id)sender;
@@ -20,5 +22,7 @@
 - (IBAction)exitEditMode:(id)sender;
 - (IBAction)moveTool:(id)sender;
 - (IBAction)deleteTool:(id)sender;
+
+@property (nonatomic, assign) id<GopherEditProtocol> delegate;
 
 @end

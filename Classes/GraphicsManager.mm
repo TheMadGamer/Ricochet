@@ -386,13 +386,12 @@ namespace Dog3D
 				
 		//double fovy = 2.0 * atan(size.height/(2.0*zEye)) * 180.0 / PI;
 		//double aspect = 10.0/15.0;
-		
-		
-    float nearClip = 0.5;
-    float farClip = 80;
-    glOrthof(-10, 10, -15, 15, nearClip, farClip);
-			//double fovy = 2.0 * atan(30.0/(2.0*zEye)) * 180.0 / PI;
-			//gluPerspective(fovy, 1.0/1.5, nearClip, farClip);
+            
+        float nearClip = 0.5;
+        float farClip = 80;
+        glOrthof(-10, 10, -15, 15, nearClip, farClip);
+        //double fovy = 2.0 * atan(30.0/(2.0*zEye)) * 180.0 / PI;
+        //gluPerspective(fovy, 1.0/1.5, nearClip, farClip);
 		
 		
 		glMatrixMode(GL_MODELVIEW); 
@@ -401,7 +400,7 @@ namespace Dog3D
 		btVector3 focalPoint;
 		GamePlayManager::Instance()->GetFocalPoint(focalPoint);
 		
-    gluLookAt(focalPoint.x(), zEye, focalPoint.z(), 
+        gluLookAt(focalPoint.x(), zEye, focalPoint.z(), 
         focalPoint.x(), 0.0, focalPoint.z(), 
         0.0, 0.0, 1.0);
 		

@@ -38,6 +38,11 @@
 
 @end
 
+enum ViewState
+{
+    LOAD, PLAY, PAUSE, GOPHER_WIN, GOPHER_LOST, EDIT
+};
+
 
 @interface GopherView : EAGLView <UIAccelerometerDelegate> {
 
@@ -59,13 +64,6 @@
 	Texture2D *mSplashTexture;
 
 	int delayFrames;
-	
-	enum ViewState
-	{
-		LOAD, PLAY, PAUSE, GOPHER_WIN, GOPHER_LOST, EDIT
-	};
-	
-	ViewState mViewState;
 	
 	btVector3 touchStart;
 	CFTimeInterval touchStartTime;
@@ -105,7 +103,7 @@
 @property (nonatomic, assign) id<GopherViewDelegate> gopherViewController;
 @property (nonatomic, assign) float tiltGravityCoef; 
 @property (nonatomic, assign) bool offsetGravityEnabled;
-
+@property (nonatomic, assign) ViewState viewState;
 
 - (void) pauseGame;
 
