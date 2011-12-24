@@ -1,5 +1,5 @@
 //
-//  AnimatedGraphicsComponent.cpp
+//  FXGraphicsComponent.mm
 //  Grenades
 //
 //  Created by Anthony Lobay on 12/23/11.

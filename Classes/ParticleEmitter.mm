@@ -201,5 +201,6 @@ void ParticleEmitter::Draw()
 	glEnable(GL_DEPTH_TEST);
 	
 	glDisable(GL_TEXTURE_2D);
+    glDisableClientState(GL_COLOR_ARRAY);
     
 }

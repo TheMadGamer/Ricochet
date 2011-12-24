@@ -14,7 +14,9 @@
 #import <queue>
 #import <list>
 
+#import "AnimatedGraphicsComponent.h"
 #import "Entity.h"
+#import "FXGraphicsComponent.h"
 #import "GraphicsComponent.h"
 #import "ExplodableComponent.h"
 #import "PhysicsManager.h"

@@ -6,9 +6,12 @@
  *  Copyright 2011 3dDogStudios.com. All rights reserved.
  *
  */
+
 #import "TriggerComponent.h"
 
+#import "AnimatedGraphicsComponent.h"
 #import "AudioDispatch.h"
+#import "FXGraphicsComponent.h"
 #import "GraphicsComponent.h"
 
 using namespace Dog3D;

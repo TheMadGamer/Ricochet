@@ -6,6 +6,9 @@
  *  Copyright 2010 3dDogStudios. All rights reserved.
  *
  */
+
+#import "AnimatedGraphicsComponent.h"
+#import "FXGraphicsComponent.h"
 #import "GraphicsComponent.h"
 
 namespace Dog3D
