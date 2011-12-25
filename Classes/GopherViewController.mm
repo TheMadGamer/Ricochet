@@ -7,11 +7,13 @@
 //
 
 #import "GopherViewController.h"
-#import "InstructionsViewController.h"
+
+#import "Parse/Parse.h"
 
 #import "AudioDispatch.h"
 #import "GraphicsManager.h"
 #import "GamePlayManager.h"
+#import "InstructionsViewController.h"
 #import "PhysicsManager.h"
 #import "SceneManager.h"
 
@@ -55,13 +57,31 @@ using namespace Dog3D;
     if ([fileName length] > 6 &&
         [[fileName substringWithRange:range] isEqualToString:@".plist"])
     {
-        SceneManager::Instance()->SaveScene(fileName);
+        SceneManager::Instance()->SaveScene(fileName, self);
     }
     else
     {
-        SceneManager::Instance()->SaveScene([fileName stringByAppendingString:@".plist"]);    
+        SceneManager::Instance()->SaveScene([fileName stringByAppendingString:@".plist"], self);    
     }
 }
+
+- (void)callbackWithResult:(NSNumber *)result error:(NSError *)error
+{
+    NSLog(@"File uploaded");
+    
+/*    PFObject *userLevel = [PFObject objectWithClassName:@"UserLevel"];
+    [userLevel setObject:@"Joe Smith" forKey:@"applicantName"];
+    [userLevel setObject:file forKey:@"applicantResumeFile"];
+    [userLevel saveInBackground];*/
+}
+
+-(void) foo 
+{
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    [testObject setObject:@"bar" forKey:@"foo"];
+    [testObject save];
+}
+
 #pragma mark pause, resume
 
 // pauses level

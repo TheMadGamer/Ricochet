@@ -17,9 +17,10 @@
 + (NSString *) levelsDirectory;
 
 + (NSString *) pathForUserFile:(NSString *)filename;
-- (NSString *) stringByExpandingToUserDirectory;
 
+- (NSString *) stringByExpandingToUserDirectory;
 - (NSString *) stringByExpandingToLevelsDirectory;
+- (NSString *) stringByExpandingToBundleDirectory;
 
 // All files of type plist in /levels
 - (NSArray *) allLevelFiles;

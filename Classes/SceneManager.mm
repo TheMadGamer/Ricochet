@@ -11,6 +11,7 @@
 
 #import <btBulletDynamicsCommon.h>
 #import <Foundation/Foundation.h>
+#import "Parse/Parse.h"
 
 #import "AudioDispatch.h"
 #import "BurstEmitter.h"
@@ -183,10 +184,23 @@ void SceneManager::LoadScene(NSString *levelName)
     mSceneName = [levelName UTF8String];
 }
 
-void SceneManager::SaveScene(NSString *levelName)
+void SceneManager::SaveScene(NSString *levelName, id callbackTarget)
 {
     NSString *filePath = [levelName stringByExpandingToLevelsDirectory];    
     [mLevelDictionary writeToFile:filePath atomically:YES];
+    
+    NSData *data = [NSPropertyListSerialization dataWithPropertyList:mLevelDictionary  
+                                                              format:NSPropertyListXMLFormat_v1_0
+                                                             options:0
+                                                               error:nil];   
+    PFFile *file = [PFFile fileWithName:levelName data:data];
+    //[file saveInBackgroundWithTarget:callbackTarget selector:@selector(callbackWithResult:error:)];
+    [file save];
+    
+    PFObject *userLevel = [PFObject objectWithClassName:@"UserLevel"];
+    [userLevel setObject:@"Problem?" forKey:@"CreatedBy"];
+    [userLevel setObject:file forKey:@"levelFile"];
+    [userLevel saveInBackground]; 
 }
     
 void SceneManager::LoadScene(NSDictionary *rootDictionary, NSDictionary *controlDictionary)

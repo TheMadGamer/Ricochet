@@ -18,12 +18,6 @@
 
 @synthesize delegate=delegate_;
 
-- (void)viewDidLoad {
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    [testObject setObject:@"bar" forKey:@"foo"];
-    [testObject save];
-}
-
 - (IBAction)dismiss:(id)sender
 {
     [self.view removeFromSuperview];

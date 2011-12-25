@@ -164,7 +164,7 @@ namespace Dog3D
 		void LoadScene(NSString* levelName);
         void LoadScene(NSDictionary *rootDictionary, NSDictionary *controlDictionary);
         
-        void SaveScene(NSString *levelName);
+        void SaveScene(NSString *levelName, id callbackTarget);
         
 		void UnloadScene();
 		
