@@ -59,6 +59,11 @@
 	return [[NSString userDirectory] stringByAppendingPathComponent:filename];
 }
 
+- (NSString *) stringByExpandingToBundleDirectory
+{
+    return [[NSBundle mainBundle] pathForResource:self ofType:nil];
+}
+
 - (NSString *) stringByExpandingToUserDirectory
 {
 	return [[NSString userDirectory] stringByAppendingPathComponent:self];

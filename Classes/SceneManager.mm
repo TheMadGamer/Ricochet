@@ -159,7 +159,7 @@ void SceneManager::LoadScene(NSString *levelName)
 	exists = [fileManager fileExistsAtPath:userFile isDirectory:&isDirectory];
 	if (!exists)
     {
-        NSString *bundleFile = [levelName stringByExpandingToUserDirectory];
+        NSString *bundleFile = [levelName stringByExpandingToBundleDirectory];
         fileDictionary = [NSDictionary dictionaryWithContentsOfFile:bundleFile];
     }
     else
