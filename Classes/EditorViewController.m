@@ -43,6 +43,8 @@
         if ([prompt.enteredText hasNonWhitespace]) 
         {
             [self.delegate saveLevel:prompt.enteredText];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"LevelsUpdated"
+                                                                object:nil];
         }
     }
 }

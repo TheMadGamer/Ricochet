@@ -169,14 +169,8 @@ float kWallHeight = 1;
 		return;
 	}
 	
-	[levelName retain];
-	
-	if(mLoadedLevel != nil)
-	{
-		[mLoadedLevel release];
-	}
-	
-	mLoadedLevel = levelName;
+    [mLoadedLevel autorelease];
+	mLoadedLevel = [levelName retain];
 	
 	SceneManager::Instance()->LoadScene(levelName);
 	GamePlayManager::Instance()->SetGameState(GamePlayManager::PLAY);

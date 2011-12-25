@@ -21,6 +21,9 @@
 
 - (NSString *) stringByExpandingToLevelsDirectory;
 
+// All files of type plist in /levels
+- (NSArray *) allLevelFiles;
+
 - (bool)hasNonWhitespace;
 
 @end

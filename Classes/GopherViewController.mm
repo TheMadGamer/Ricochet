@@ -352,7 +352,7 @@ using namespace Dog3D;
 			
 			// exit option
 			// TODO - get isLastLevel from delegate
-			if((![delegate isLastLevel:levelName]) )
+			if((![delegate isLastLevel:self.levelName]) )
 			{
 				// exit button
 				UIButton *exitButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain]; 
@@ -467,7 +467,7 @@ using namespace Dog3D;
 - (IBAction) nextLevelPushed:(id) sender
 {
 	
-	if([delegate isLastLevel:levelName])
+	if([delegate isLastLevel:self.levelName])
 	{
 		DLog(@"MASSIVE FAIL!");
 	}
@@ -476,7 +476,7 @@ using namespace Dog3D;
 		[mEndOfGameView release];
 		mEndOfGameView = nil;
 		
-		levelName = [delegate getNextLevelName:levelName];
+		self.levelName = [delegate getNextLevelName:levelName];
 		
 		// load next level		
 		[gopherView startAnimation];

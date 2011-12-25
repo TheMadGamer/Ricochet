@@ -69,8 +69,6 @@
 
 	bool mFirstAppearance;
 		
-	NSArray *levels;
-		
 }
 
 + (NSString *) levelPlist;
@@ -79,6 +77,8 @@
 @property (readonly) NSString *highScoresFileName;
 @property (nonatomic, retain) LevelPackPurchaseVC *levelPackVC;
 @property (nonatomic, retain) NSString *lastLevelName;
+
+@property (nonatomic, retain) NSMutableArray *internalLevels;
 
 @property(nonatomic,retain) GameCenterManager *gameCenterManager;
 

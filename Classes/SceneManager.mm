@@ -147,20 +147,39 @@ void SceneManager::LoadScene(NSString *levelName)
 {	
 	// create a pointer to a dictionary and
 	// read ".plist" from application bundle	
-	NSString *path = [[NSBundle mainBundle] bundlePath];
-	NSString *finalPath = [path stringByAppendingPathComponent:levelName];
 	
-	NSDictionary *rootDictionary = [NSDictionary dictionaryWithContentsOfFile:finalPath];
-    mLevelDictionary = [rootDictionary mutableCopy];
+    // try first built ins, then try to load a bundle file 
+    NSDictionary *fileDictionary;
     
-	NSDictionary *controlDictionary = [rootDictionary objectForKey:@"LevelControl"];
+	NSString *userFile = [levelName stringByExpandingToLevelsDirectory];
     
-    mLayoutDictionary = [[rootDictionary objectForKey:kLayoutObjects] mutableCopy];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+	BOOL exists, isDirectory;
+	exists = [fileManager fileExistsAtPath:userFile isDirectory:&isDirectory];
+	if (!exists)
+    {
+        NSString *bundleFile = [levelName stringByExpandingToUserDirectory];
+        fileDictionary = [NSDictionary dictionaryWithContentsOfFile:bundleFile];
+    }
+    else
+    {   
+         fileDictionary = [NSDictionary dictionaryWithContentsOfFile:userFile];
+    }
+    
+    
+    
+	
+    mLevelDictionary = [fileDictionary mutableCopy];
+    
+	NSDictionary *controlDictionary = [fileDictionary objectForKey:@"LevelControl"];
+    
+    mLayoutDictionary = [[fileDictionary objectForKey:kLayoutObjects] mutableCopy];
     
     // swap in a mutable copy that we can add to
     [mLevelDictionary setObject:mLayoutDictionary forKey:kLayoutObjects];
     
-    LoadScene(rootDictionary, controlDictionary);
+    LoadScene(fileDictionary, controlDictionary);
     mSceneName = [levelName UTF8String];
 }
 

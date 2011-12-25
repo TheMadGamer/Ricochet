@@ -22,7 +22,7 @@
     
     if (self = [super initWithTitle:title message:message delegate:delegate cancelButtonTitle:cancelButtonTitle otherButtonTitles:okayButtonTitle, nil])
     {
-        UITextField *theTextField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 40.0, 260.0, 25.0)]; 
+        UITextField *theTextField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 32.0, 260.0, 25.0)]; 
         [theTextField setBackgroundColor:[UIColor whiteColor]]; 
         [self addSubview:theTextField];
         self.textField = theTextField;

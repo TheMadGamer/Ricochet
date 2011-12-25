@@ -31,6 +31,7 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 @implementation GopherGameController
 
 @dynamic levels; 
+@synthesize internalLevels = internalLevels_;
 @synthesize levelPackVC;
 @synthesize lastLevelName = lastLevelName_;
 @synthesize gameCenterManager=gameCenterManager_;
@@ -70,25 +71,39 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 // update to levels notify
 - (void)levelsUpdated:(NSNotification *)notification
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:[GopherGameController levelPlist] ofType:nil];		
-    levels = [[NSArray arrayWithContentsOfFile:path] retain];
+
+    self.internalLevels = [NSMutableArray arrayWithCapacity:100];
     
-    // somehow merge in 
+    NSString *userLevels = [NSString levelsDirectory];
+    NSArray *userFiles = [userLevels allLevelFiles];
+    for (NSString *userFileName in userFiles)
+    {
+        NSDictionary *userLevel = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   userFileName, @"filename",
+                                   [userFileName substringWithRange:NSMakeRange(0, [userFileName length]-6)], @"title",
+                                   nil];
+        [self.internalLevels addObject:userLevel];
+    }
+    
+    NSString *builtInPath = [[NSBundle mainBundle] pathForResource:[GopherGameController levelPlist] ofType:nil];
+    NSArray *builtInLevels = [[NSArray arrayWithContentsOfFile:builtInPath] retain];
+    [self.internalLevels addObjectsFromArray:builtInLevels];
+    
     
     // get lastLevelName
-    NSDictionary *dict = [levels objectAtIndex:[levels count] -1];
+    NSDictionary *dict = [self.internalLevels objectAtIndex:[self.internalLevels count] -1];
     self.lastLevelName = [ dict objectForKey:@"filename"];
 
 }
 
 - (NSArray *) levels
 {
-	if (!levels)
+	if (!self.internalLevels)
 	{				
         // force a level update
 		[self levelsUpdated:nil];
 	}
-	return levels;
+	return self.internalLevels;
 }
 
 #pragma mark In App Purchase
@@ -475,7 +490,7 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 	
 	mGopherViewController.delegate = self;
     mGopherViewController.gameCenterManager=self.gameCenterManager;
-	[mGopherViewController setLevelName:levelName];
+	mGopherViewController.levelName = levelName;
 	
 	mGopherViewController.view.frame = CGRectMake(0,0,480,320);
 	
@@ -857,13 +872,13 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 
 - (NSString*) getNextLevelName: (NSString*) currentLevelName
 {
-	for( int i = 0; i < [levels count]-1; i++)
+	for( int i = 0; i < [self.internalLevels count]-1; i++)
 	{
-		NSDictionary *dict = [levels objectAtIndex:i];
+		NSDictionary *dict = [self.internalLevels objectAtIndex:i];
 		NSString *levelName = [ dict objectForKey:@"filename"];
 		if([currentLevelName isEqualToString:levelName])
 		{
-			NSDictionary *nextDict = [levels objectAtIndex:i+1];
+			NSDictionary *nextDict = [self.internalLevels objectAtIndex:i+1];
 			return [ nextDict objectForKey:@"filename"];		
 			 
 		}
@@ -879,9 +894,9 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 
 - (bool) isBonusLevel: (NSString*) currentLevelName
 {
-	for( int i = 0; i < [levels count]; i++)
+	for( int i = 0; i < [self.internalLevels count]; i++)
 	{
-		NSDictionary *dict = [levels objectAtIndex:i];
+		NSDictionary *dict = [self.internalLevels objectAtIndex:i];
 		NSString *levelName = [ dict objectForKey:@"filename"];
 		if([currentLevelName isEqualToString:levelName])
 		{

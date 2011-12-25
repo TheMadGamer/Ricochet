@@ -74,7 +74,8 @@
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	// Prevent selection of header rows	
-	if ([[delegate.levels objectAtIndex:indexPath.row] valueForKey:@"group"])
+    NSArray *levels = delegate.levels;
+	if ([[levels objectAtIndex:indexPath.row] valueForKey:@"group"])
 	{
 		return nil;
 	}
