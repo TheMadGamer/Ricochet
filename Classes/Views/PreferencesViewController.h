@@ -4,12 +4,10 @@
 
 @interface PreferencesViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>  {
 	id <PreferencesViewControllerDelegate> delegate;
-
 	NSIndexPath *currentLevelIndexPath;
 }
 
 @property (nonatomic, assign) id <PreferencesViewControllerDelegate> delegate;
-
 @property (nonatomic, retain) NSIndexPath *currentLevelIndexPath;
 
 - (IBAction) goBack;
@@ -18,6 +16,9 @@
 
 
 @protocol PreferencesViewControllerDelegate
+
+@property (nonatomic, retain) NSArray *levels;
+
 - (void)preferencesViewControllerDidFinish:(PreferencesViewController *)controller withSelectedLevel:(NSString*)levelName  ;
 
 // gets the high score
@@ -26,6 +27,5 @@
 - (bool) isLevelUnlockedFromName:(NSString *)currentLevelName;
 - (bool) isBonusLevel:(NSString *)levelName;
 
-@property (nonatomic, retain) NSArray *levels;
 @end
 

@@ -166,7 +166,7 @@ void SceneManager::LoadScene(NSString *levelName)
 
 void SceneManager::SaveScene(NSString *levelName)
 {
-    NSString *filePath = [levelName stringByExpandingToUserDirectory];    
+    NSString *filePath = [levelName stringByExpandingToLevelsDirectory];    
     [mLevelDictionary writeToFile:filePath atomically:YES];
 }
     

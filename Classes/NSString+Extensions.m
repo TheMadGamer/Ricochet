@@ -32,6 +32,28 @@
 	return userDirectory;
 }
 
+
++ (NSString *) levelsDirectory
+{
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *userDirectory = [paths objectAtIndex:0];
+    NSString *levelsDirectory = [userDirectory stringByAppendingString:@"/levels"];
+	
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+	BOOL exists, isDirectory;
+	exists = [fileManager fileExistsAtPath:levelsDirectory isDirectory:&isDirectory];
+	if (!exists || !isDirectory)
+    {
+		[fileManager createDirectoryAtPath:levelsDirectory 
+               withIntermediateDirectories:YES 
+                                attributes:nil
+                                     error:nil];
+	}
+    
+	return levelsDirectory;
+}
+
 + (NSString *) pathForUserFile:(NSString *)filename
 {
 	return [[NSString userDirectory] stringByAppendingPathComponent:filename];
@@ -41,6 +63,23 @@
 {
 	return [[NSString userDirectory] stringByAppendingPathComponent:self];
 }
+
+- (NSString *) stringByExpandingToLevelsDirectory
+{
+	return [[NSString levelsDirectory] stringByAppendingPathComponent:self];
+}
+
+- (NSArray *) allLevelFiles
+{
+    NSString *levelsDirectory = [NSString levelsDirectory];
+
+    NSArray *dirContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:levelsDirectory error:nil];
+    NSArray *onlyPlist = 
+        [dirContents filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.plist'"]];
+    return onlyPlist;
+}
+
+// Whitespace
 
 - (bool)hasNonWhitespace 
 {

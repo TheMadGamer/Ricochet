@@ -12,10 +12,15 @@
 @interface NSString (Extensions)
 
 + (NSString *) userDirectory;
+
+// Where levels are stored
++ (NSString *) levelsDirectory;
+
 + (NSString *) pathForUserFile:(NSString *)filename;
 - (NSString *) stringByExpandingToUserDirectory;
 
-- (bool)hasNonWhitespace;
+- (NSString *) stringByExpandingToLevelsDirectory;
 
+- (bool)hasNonWhitespace;
 
 @end

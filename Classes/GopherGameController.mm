@@ -30,42 +30,10 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 
 @implementation GopherGameController
 
-@synthesize levels; 
+@dynamic levels; 
 @synthesize levelPackVC;
 @synthesize lastLevelName = lastLevelName_;
-
 @synthesize gameCenterManager=gameCenterManager_;
-
-+ (NSString *) levelPlist
-{
-	// for gopher go boom, Levels
-	return @"RicochetLevels.plist";
-}
-
-- (NSArray *) levels
-{
-	if (!levels)
-	{				
-		NSString *path = [[NSBundle mainBundle] pathForResource:[GopherGameController levelPlist] ofType:nil];		
-		levels = [[NSArray arrayWithContentsOfFile:path] retain];
-		
-		// get lastLevelName
-		for( int i = 1; i < [levels count]; i++)
-		{
-			NSDictionary *dict = [levels objectAtIndex:i];
-			
-			if([dict valueForKey:@"group"])
-			{
-				break;
-			}
-			else
-			{
-				self.lastLevelName = [ dict objectForKey:@"filename"];
-			}
-		}	
-	}
-	return levels;
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -75,9 +43,52 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 		
 		mFinishedGLInit = false;
 		mFirstAppearance = true;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                 selector:@selector(levelsUpdated:) 
+                                                     name:@"LevelsUpdated" 
+                                                   object:nil];
 		
     }
     return self;
+}
+
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [gameCenterManager_ release];
+    [super dealloc];
+}
+
+
++ (NSString *) levelPlist
+{
+	// for gopher go boom, Levels
+	return @"RicochetLevels.plist";
+}
+
+// update to levels notify
+- (void)levelsUpdated:(NSNotification *)notification
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:[GopherGameController levelPlist] ofType:nil];		
+    levels = [[NSArray arrayWithContentsOfFile:path] retain];
+    
+    // somehow merge in 
+    
+    // get lastLevelName
+    NSDictionary *dict = [levels objectAtIndex:[levels count] -1];
+    self.lastLevelName = [ dict objectForKey:@"filename"];
+
+}
+
+- (NSArray *) levels
+{
+	if (!levels)
+	{				
+        // force a level update
+		[self levelsUpdated:nil];
+	}
+	return levels;
 }
 
 #pragma mark In App Purchase
@@ -85,7 +96,8 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 #ifdef IN_APP_PURCHAES
 - (void) requestProductData
 {
-	SKProductsRequest *request= [[SKProductsRequest alloc] initWithProductIdentifiers: [NSSet setWithObject: kMyFeatureIdentifier]];
+	SKProductsRequest *request = 
+        [[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithObject: kMyFeatureIdentifier]];
 	request.delegate = self;
 	[request start];
 }
@@ -96,12 +108,10 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
     NSArray *myProduct = response.products;
 	NSArray *invalids = response.invalidProductIdentifiers;
 
-	
 	for(int i=0;i<[invalids count];i++)
 	{
 		NSLog(@"Invalid Product identifier: %@", [invalids objectAtIndex:i]);
 	}
-	
 	
 	for(int i=0;i<[myProduct count];i++)
 	{
@@ -139,7 +149,8 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 		
 		// Warn the user that purchases are disabled.
 		UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Purchases disabled"
-													   message:@"You are not authorized to make purchases.  Please enable in-app purchases and try again."
+													   message:@"You are not authorized to make purchases."
+                                                               @"  Please enable in-app purchases and try again."
 													  delegate:nil
 											 cancelButtonTitle:@"OK"
 											 otherButtonTitles:nil];
@@ -154,7 +165,8 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 -(IBAction)play
 {
 	// fire level select
-	PreferencesViewController *controller = [[PreferencesViewController alloc] initWithNibName:@"PreferencesViewController" bundle:nil];
+	PreferencesViewController *controller =
+        [[PreferencesViewController alloc] initWithNibName:@"PreferencesViewController" bundle:nil];
 	
 	controller.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 	controller.delegate = self;
@@ -711,11 +723,6 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
     self.gameCenterManager=nil;
 }
 
-
-- (void)dealloc {
-    [gameCenterManager_ release];
-    [super dealloc];
-}
 
 #pragma mark LEVEL PLAYED
 ////////////////////////////////////////////////////////////////
