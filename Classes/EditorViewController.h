@@ -10,7 +10,7 @@
 
 #import "GopherEditProtocol.h"
 
-@interface EditorViewController : UIViewController
+@interface EditorViewController : UIViewController <UIAlertViewDelegate>
 
 - (IBAction)dismiss:(id)sender;
 - (IBAction)save:(id)sender;

@@ -50,9 +50,18 @@ using namespace Dog3D;
 
 - (void) saveLevel:(NSString *)fileName
 {
-    SceneManager::Instance()->SaveScene(fileName);
+    NSRange range = NSMakeRange([fileName length]-6, 6);
+    
+    if ([fileName length] > 6 &&
+        [[fileName substringWithRange:range] isEqualToString:@".plist"])
+    {
+        SceneManager::Instance()->SaveScene(fileName);
+    }
+    else
+    {
+        SceneManager::Instance()->SaveScene([fileName stringByAppendingString:@".plist"]);    
+    }
 }
-
 #pragma mark pause, resume
 
 // pauses level

@@ -22,8 +22,13 @@
 	BOOL exists, isDirectory;
 	exists = [fileManager fileExistsAtPath:userDirectory isDirectory:&isDirectory];
 	if (!exists || !isDirectory)
-		[fileManager createDirectoryAtPath:userDirectory attributes:nil];
-	
+    {
+		[fileManager createDirectoryAtPath:userDirectory 
+               withIntermediateDirectories:YES 
+                                attributes:nil
+                                     error:nil];
+	}
+    
 	return userDirectory;
 }
 
@@ -35,6 +40,12 @@
 - (NSString *) stringByExpandingToUserDirectory
 {
 	return [[NSString userDirectory] stringByAppendingPathComponent:self];
+}
+
+- (bool)hasNonWhitespace 
+{
+    return ([[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]length] > 0);
+    
 }
 
 @end

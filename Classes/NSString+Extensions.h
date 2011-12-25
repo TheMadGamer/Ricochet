@@ -15,4 +15,7 @@
 + (NSString *) pathForUserFile:(NSString *)filename;
 - (NSString *) stringByExpandingToUserDirectory;
 
+- (bool)hasNonWhitespace;
+
+
 @end

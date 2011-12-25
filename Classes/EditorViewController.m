@@ -8,7 +8,11 @@
 
 #import "EditorViewController.h"
 
+#import <UIKit/UIKit.h>
 #import "Parse/Parse.h"
+
+#import "AlertPrompt.h"
+#import "NSString+Extensions.h"
 
 @implementation EditorViewController
 
@@ -27,7 +31,20 @@
 
 - (IBAction)save:(id)sender 
 {
-    [self.delegate saveLevel:@"Foo.plist"];
+    AlertPrompt *alert = [[[AlertPrompt alloc] initWithTitle:@"Save File?" message:@"Enter file name" delegate:self cancelButtonTitle:@"Cancel" okButtonTitle:@"Save"] autorelease];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) 
+    {
+        AlertPrompt *prompt = (AlertPrompt *)alertView;
+        if ([prompt.enteredText hasNonWhitespace]) 
+        {
+            [self.delegate saveLevel:prompt.enteredText];
+        }
+    }
 }
 
 - (IBAction)potTool:(id)sender { 
