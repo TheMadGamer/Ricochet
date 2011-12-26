@@ -87,7 +87,9 @@ namespace Dog3D
                 mSecondToLastCollider = mLastCollider;
                 mLastCollider = collidesWith;
                 mNBumps++;
+#if DEBUG
                 DLog(@"NBumps (%d)++ %s", mNBumps, collidesWith->mDebugName.c_str());
+#endif
                 mTimeWindow = 0;
             }
           

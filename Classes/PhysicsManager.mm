@@ -276,8 +276,9 @@ namespace Dog3D
 		PhysicsComponentIterator it = std::find(mManagedComponents.begin(), mManagedComponents.end(), component);
 		if(it != mManagedComponents.end())
 		{
+#if DEBUG
 			DLog(@"Removing physics comp %s", ((*it)->GetParent()->mDebugName.c_str()));
-			
+#endif	
 			mManagedComponents.erase(it);
             
             btHingeConstraint *hinge = component->GetHinge();
