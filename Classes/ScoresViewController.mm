@@ -3,18 +3,19 @@
 //  Gopher
 //
 //  Created by Anthony Lobay on 8/9/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Copyright 2010 3dDogStudios. All rights reserved.
 //
 
 #import "ScoresViewController.h"
+
 #import "GopherAppDelegate.h"
 #import "GopherGameController.h"
 
 @implementation ScoresViewController
 
-@synthesize states;
-@synthesize delegate;
-@synthesize table;
+@dynamic states;
+@synthesize delegate = delegate_;
+@synthesize tableView = tableView_;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -30,7 +31,7 @@
 	[alert show];
 	[alert release];
 	
-	[table performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+	[self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
 	
 }
 
@@ -66,13 +67,13 @@
 
 - (NSArray *) states
 {
-	if (!states)
+	if (!states_)
 	{				
 		NSString *path = [[NSBundle mainBundle] pathForResource:[GopherGameController levelPlist] ofType:nil];		
-		states = [[NSArray arrayWithContentsOfFile:path] retain];
+		states_ = [[NSArray arrayWithContentsOfFile:path] retain];
 	}
 	
-	return states;
+	return states_;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -133,12 +134,12 @@
 		
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
-		int score = [delegate getScore:levelFile];
+		int score = [self.delegate getScore:levelFile];
 		NSNumber *number = [NSNumber numberWithInt:score];
 		
 		cell.textLabel.text = [levelName stringByAppendingFormat:@" - %@", number];
 		
-		int highScore = [delegate getScore:levelFile];
+		int highScore = [self.delegate getScore:levelFile];
 		if(highScore > 0)
 		{
 			UIImageView *accessoryView = [[[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 32, 32.0)] autorelease];
@@ -173,6 +174,7 @@
 
 
 - (void)dealloc {
+    [states_ release];
     [super dealloc];
 }
 

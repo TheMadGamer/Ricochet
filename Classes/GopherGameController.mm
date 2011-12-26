@@ -16,10 +16,11 @@
 #import "GopherViewController.h"
 #import "InstructionsViewController.h"
 #import "LevelPackPurchaseVC.h"
+#import "LevelsViewController.h"
 #import "NotificationTags.h"
 #import "NSIndexSet+Extensions.h"
 #import "NSString+Extensions.h"
-#import "PreferencesViewController.h"
+
 
 using namespace Dog3D;
 
@@ -183,8 +184,8 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 -(IBAction)play
 {
 	// fire level select
-	PreferencesViewController *controller =
-        [[PreferencesViewController alloc] initWithNibName:@"PreferencesViewController" bundle:nil];
+	LevelsViewController *controller =
+        [[LevelsViewController alloc] initWithNibName:@"LevelsViewController" bundle:nil];
 	
 	controller.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 	controller.delegate = self;
@@ -324,10 +325,10 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 	[self animateIn];
 }
 
-#pragma mark PREF CONTROL
+#pragma mark Levels View Controller
 // finished level select
-- (void)preferencesViewControllerDidFinish:(PreferencesViewController *)controller 
-                         withSelectedLevel:(NSString*)levelName {
+- (void)levelsViewControllerDidFinish:(LevelsViewController *)controller 
+                    withSelectedLevel:(NSString*)levelName {
     
 	[self dismissModalViewControllerAnimated:NO];
 	
@@ -523,7 +524,7 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 		
 	}
 	else */
-	// go back to prefs view (level load up)
+	// go back to levels view (level load up)
 	{	
 		// gopher view may have changed this
 		if(mAudioIsOn)
@@ -536,13 +537,10 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 			[mMuteButton setImage:[UIImage imageNamed:@"SoundOff.png"] forState:UIControlStateNormal];
 		}
 		
-		PreferencesViewController *controller = [[PreferencesViewController alloc] initWithNibName:@"PreferencesViewController" bundle:nil];
-		
-		//controller.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+		LevelsViewController *controller =
+            [[LevelsViewController alloc] initWithNibName:@"LevelsViewController" bundle:nil];
 		controller.delegate = self;
-		
-		[self presentModalViewController:controller animated:NO];
-		
+		[self presentModalViewController:controller animated:NO];		
 		[controller release];		
 	}
 }

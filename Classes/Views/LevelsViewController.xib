@@ -61,7 +61,7 @@
 						<string key="NSFrame">{{9, 212}, {186, 101}}</string>
 						<reference key="NSSuperview" ref="499222397"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="7613338"/>
+						<reference key="NSNextKeyView" ref="761302934"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
@@ -115,7 +115,7 @@
 							<int key="traits">2</int>
 							<double key="pointSize">15</double>
 						</object>
-						<object class="NSFont" key="IBUIFont" id="399126331">
+						<object class="NSFont" key="IBUIFont" id="734509231">
 							<string key="NSName">Helvetica-Bold</string>
 							<double key="NSSize">15</double>
 							<int key="NSfFlags">16</int>
@@ -149,7 +149,7 @@
 							<string key="NSResourceName">BrownArrowDown.png</string>
 						</object>
 					</object>
-					<object class="IBUIButton" id="7613338">
+					<object class="IBUIButton" id="761302934">
 						<reference key="NSNextResponder" ref="499222397"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{115, 270}, {80, 37}}</string>
@@ -175,7 +175,7 @@
 							<int key="type">2</int>
 							<double key="pointSize">15</double>
 						</object>
-						<reference key="IBUIFont" ref="399126331"/>
+						<reference key="IBUIFont" ref="734509231"/>
 					</object>
 				</object>
 				<string key="NSFrameSize">{480, 320}</string>
@@ -238,7 +238,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">refreshLevels:</string>
-						<reference key="source" ref="7613338"/>
+						<reference key="source" ref="761302934"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
@@ -278,7 +278,7 @@
 							<reference ref="1070246042"/>
 							<reference ref="296502306"/>
 							<reference ref="623581583"/>
-							<reference ref="7613338"/>
+							<reference ref="761302934"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -319,7 +319,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">58</int>
-						<reference key="object" ref="7613338"/>
+						<reference key="object" ref="761302934"/>
 						<reference key="parent" ref="499222397"/>
 					</object>
 				</object>
@@ -343,7 +343,7 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>PreferencesViewController</string>
+					<string>LevelsViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>UIResponder</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -375,7 +375,7 @@
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<object class="IBPartialClassDescription">
-					<string key="className">PreferencesViewController</string>
+					<string key="className">LevelsViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<object class="NSMutableDictionary" key="actions">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -422,7 +422,7 @@
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/PreferencesViewController.h</string>
+						<string key="minorKey">./Classes/LevelsViewController.h</string>
 					</object>
 				</object>
 			</object>

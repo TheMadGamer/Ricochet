@@ -37,8 +37,8 @@
 		A895E04F0E2806DB00A7AE7A /* GopherView.mm in Sources */ = {isa = PBXBuildFile; fileRef = A895E04E0E2806DB00A7AE7A /* GopherView.mm */; };
 		EA069BC3119B4ED400179E6B /* GopherViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA069BC1119B4ED400179E6B /* GopherViewController.mm */; };
 		EA069BC4119B4ED400179E6B /* GopherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA069BC2119B4ED400179E6B /* GopherViewController.xib */; };
-		EA069CCE119B90BF00179E6B /* PreferencesViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA069CCD119B90BF00179E6B /* PreferencesViewController.mm */; };
-		EA069CD0119B911200179E6B /* PreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA069CCF119B911200179E6B /* PreferencesViewController.xib */; };
+		EA069CCE119B90BF00179E6B /* LevelsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA069CCD119B90BF00179E6B /* LevelsViewController.mm */; };
+		EA069CD0119B911200179E6B /* LevelsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA069CCF119B911200179E6B /* LevelsViewController.xib */; };
 		EA0B63F311A7B19D00124ED9 /* InstructionsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA0B63F111A7B19D00124ED9 /* InstructionsViewController.mm */; };
 		EA0B63F411A7B19D00124ED9 /* InstructionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA0B63F211A7B19D00124ED9 /* InstructionsViewController.xib */; };
 		EA1127C411F76757000A8124 /* SchemingWeasel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EA1127C311F76757000A8124 /* SchemingWeasel.mp3 */; };
@@ -427,9 +427,9 @@
 		EA069BC0119B4ED400179E6B /* GopherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GopherViewController.h; sourceTree = "<group>"; };
 		EA069BC1119B4ED400179E6B /* GopherViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GopherViewController.mm; sourceTree = "<group>"; };
 		EA069BC2119B4ED400179E6B /* GopherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GopherViewController.xib; path = Classes/GopherViewController.xib; sourceTree = "<group>"; };
-		EA069CCC119B90BF00179E6B /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesViewController.h; path = Views/PreferencesViewController.h; sourceTree = "<group>"; };
-		EA069CCD119B90BF00179E6B /* PreferencesViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PreferencesViewController.mm; path = Views/PreferencesViewController.mm; sourceTree = "<group>"; };
-		EA069CCF119B911200179E6B /* PreferencesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PreferencesViewController.xib; path = Classes/Views/PreferencesViewController.xib; sourceTree = "<group>"; };
+		EA069CCC119B90BF00179E6B /* LevelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; name = LevelsViewController.h; path = Views/LevelsViewController.h; sourceTree = "<group>"; };
+		EA069CCD119B90BF00179E6B /* LevelsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = LevelsViewController.mm; path = Views/LevelsViewController.mm; sourceTree = "<group>"; };
+		EA069CCF119B911200179E6B /* LevelsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LevelsViewController.xib; path = Classes/Views/LevelsViewController.xib; sourceTree = "<group>"; };
 		EA0B63F011A7B19D00124ED9 /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsViewController.h; sourceTree = "<group>"; };
 		EA0B63F111A7B19D00124ED9 /* InstructionsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InstructionsViewController.mm; sourceTree = "<group>"; };
 		EA0B63F211A7B19D00124ED9 /* InstructionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = InstructionsViewController.xib; path = Classes/InstructionsViewController.xib; sourceTree = "<group>"; };
@@ -1920,7 +1920,7 @@
 				EA069BC2119B4ED400179E6B /* GopherViewController.xib */,
 				EA0B63F211A7B19D00124ED9 /* InstructionsViewController.xib */,
 				EA667CD8134FD1BC000C1D85 /* LevelPackPurchaseVC.xib */,
-				EA069CCF119B911200179E6B /* PreferencesViewController.xib */,
+				EA069CCF119B911200179E6B /* LevelsViewController.xib */,
 				EAAC5C5C1210EAF7006ADE83 /* ScoresViewController.xib */,
 			);
 			name = XIB;
@@ -1985,8 +1985,8 @@
 				EA762AF211EEBDFD00697A9F /* NSIndexSet+Extensions.m */,
 				EA762AF311EEBDFD00697A9F /* NSString+Extensions.h */,
 				EA762AF811EEBE7600697A9F /* NSString+Extensions.m */,
-				EA069CCC119B90BF00179E6B /* PreferencesViewController.h */,
-				EA069CCD119B90BF00179E6B /* PreferencesViewController.mm */,
+				EA069CCC119B90BF00179E6B /* LevelsViewController.h */,
+				EA069CCD119B90BF00179E6B /* LevelsViewController.mm */,
 				EAAC5C5A1210EAF7006ADE83 /* ScoresViewController.h */,
 				EAAC5C5B1210EAF7006ADE83 /* ScoresViewController.mm */,
 			);
@@ -2125,7 +2125,7 @@
 				EA52F0CF118626970050C2DC /* Ball_Fire.png in Resources */,
 				EA52F0D0118626970050C2DC /* Ball_Ice.png in Resources */,
 				EA069BC4119B4ED400179E6B /* GopherViewController.xib in Resources */,
-				EA069CD0119B911200179E6B /* PreferencesViewController.xib in Resources */,
+				EA069CD0119B911200179E6B /* LevelsViewController.xib in Resources */,
 				EA0B63F411A7B19D00124ED9 /* InstructionsViewController.xib in Resources */,
 				EABC34A711A85F93000C6EC6 /* GopherGameController.xib in Resources */,
 				EA96FFCE11AF499600FFE13C /* button.png in Resources */,
@@ -2344,7 +2344,7 @@
 				EA7319531174F94800E52AA0 /* ExplodableComponent.mm in Sources */,
 				EA191C8F117D5FB600F30836 /* SceneManager.mm in Sources */,
 				EA069BC3119B4ED400179E6B /* GopherViewController.mm in Sources */,
-				EA069CCE119B90BF00179E6B /* PreferencesViewController.mm in Sources */,
+				EA069CCE119B90BF00179E6B /* LevelsViewController.mm in Sources */,
 				EAC8488A11A202DE0000720A /* CannonController.mm in Sources */,
 				EA0B63F311A7B19D00124ED9 /* InstructionsViewController.mm in Sources */,
 				EABC34A611A85F93000C6EC6 /* GopherGameController.mm in Sources */,

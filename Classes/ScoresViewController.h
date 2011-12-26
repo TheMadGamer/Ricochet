@@ -3,11 +3,11 @@
 //  Gopher
 //
 //  Created by Anthony Lobay on 8/9/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Copyright 2010 3dDogStudios. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "PreferencesViewController.h"
+#import "LevelsViewController.h"
 
 @protocol ScoresViewDelegate
 
@@ -17,14 +17,11 @@
 @end
 
 @interface ScoresViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>  {
-	id <PreferencesViewControllerDelegate, ScoresViewDelegate> delegate;
-	NSArray *states;
-	IBOutlet UITableView *table;
-
+	NSArray *states_;
 }
 
-@property (nonatomic, assign) IBOutlet UITableView *table;
-@property (nonatomic, assign) id <PreferencesViewControllerDelegate, ScoresViewDelegate> delegate;
+@property (nonatomic, assign) IBOutlet UITableView *tableView;
+@property (nonatomic, assign) id <LevelsViewControllerDelegate, ScoresViewDelegate> delegate;
 @property (nonatomic, retain) NSArray *states;
 
 - (IBAction) goBack;

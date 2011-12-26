@@ -1,19 +1,19 @@
 //
-//  PreferencesViewController.m
+//  LevelsViewController.m
 //  Gopher
 //
 //  Created by Anthony Lobay on 5/22/10.
 //  Copyright 2010 3dDogStudios. All rights reserved.
 //
 
-#import "PreferencesViewController.h"
+#import "LevelsViewController.h"
 
 #import "DownloadManager.h"
 #import "NotificationTags.h"
 
 using namespace Dog3D;
 
-@implementation PreferencesViewController
+@implementation LevelsViewController
 
 @synthesize delegate = delegate_;
 @synthesize currentLevelIndexPath = currentLevelIndexPath_;
@@ -74,7 +74,7 @@ using namespace Dog3D;
 
 - (IBAction) goBack
 {
-	[self.delegate preferencesViewControllerDidFinish:self withSelectedLevel:@"None"];
+	[self.delegate levelsViewControllerDidFinish:self withSelectedLevel:@"None"];
 }
 
 // shows view in landscape (in debugger)
@@ -103,7 +103,7 @@ using namespace Dog3D;
 	NSString *levelName = [ dict objectForKey:@"filename"];
 	//NSLog(@"Selected Level %@", levelName);
 	
-	[self.delegate preferencesViewControllerDidFinish:self withSelectedLevel:levelName]; 
+	[self.delegate levelsViewControllerDidFinish:self withSelectedLevel:levelName]; 
 	
 }
 

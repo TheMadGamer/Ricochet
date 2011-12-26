@@ -13,7 +13,7 @@
 #import <UIKit/UIKit.h>
 #import <GameKit/GameKit.h>
 
-#import "PreferencesViewController.h"
+#import "LevelsViewController.h"
 #import "InstructionsViewController.h"
 #import "GopherViewController.h"
 #import "ScoresViewController.h"
@@ -23,15 +23,14 @@
 #import "OpenFeint.h"
 #endif
 
-@interface GopherGameController : UIViewController <PreferencesViewControllerDelegate, 
-	InstructionsViewControllerDelegate, GopherViewControllerDelegate, 
+@interface GopherGameController : UIViewController <
+    LevelsViewControllerDelegate, 
+	InstructionsViewControllerDelegate, 
+    GopherViewControllerDelegate, 
 	AVAudioPlayerDelegate,
 	ScoresViewDelegate,
     GameCenterManagerDelegate,
     GKLeaderboardViewControllerDelegate,
-#if USE_OF
- OpenFeintDelegate,
-#endif
 	UIAlertViewDelegate
 #ifdef IN_APP_PURCHAES
 	,SKProductsRequestDelegate,
