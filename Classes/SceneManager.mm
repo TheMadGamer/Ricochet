@@ -15,6 +15,7 @@
 
 #import "AudioDispatch.h"
 #import "BurstEmitter.h"
+#import "DownloadManager.h"
 #import "GameEntityFactory.h"
 #import "GamePlayManager.h"
 #import "GateFactory.h"
@@ -168,9 +169,6 @@ void SceneManager::LoadScene(NSString *levelName)
          fileDictionary = [NSDictionary dictionaryWithContentsOfFile:userFile];
     }
     
-    
-    
-	
     mLevelDictionary = [fileDictionary mutableCopy];
     
 	NSDictionary *controlDictionary = [fileDictionary objectForKey:@"LevelControl"];
@@ -197,9 +195,12 @@ void SceneManager::SaveScene(NSString *levelName, id callbackTarget)
     //[file saveInBackgroundWithTarget:callbackTarget selector:@selector(callbackWithResult:error:)];
     [file save];
     
-    PFObject *userLevel = [PFObject objectWithClassName:@"UserLevel"];
-    [userLevel setObject:@"Problem?" forKey:@"CreatedBy"];
-    [userLevel setObject:file forKey:@"levelFile"];
+    PFObject *userLevel = [PFObject objectWithClassName:kUserLevel];
+    
+    // TODO - make this the logged in user
+    [userLevel setObject:kAnonymousUser forKey:kCreatedBy];
+    [userLevel setObject:file forKey:kLevelFile];
+    [userLevel setObject:levelName forKey:kLevelName];
     [userLevel saveInBackground]; 
 }
     

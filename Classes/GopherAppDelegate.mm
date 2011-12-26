@@ -9,14 +9,15 @@
 #import "GopherAppDelegate.h"
 
 #import <Heyzap/Heyzap.h>
-#if USE_OF
-#import "OpenFeint.h"
-#endif
 
+#import "DownloadManager.h"
 #import "GopherGameController.h"
+
+using namespace Dog3D;
 
 // singleton app delegate
 static GopherAppDelegate *g_appDelegate;
+
 
 @implementation GopherAppDelegate
 
@@ -55,8 +56,15 @@ static GopherAppDelegate *g_appDelegate;
 	
     [HeyzapSDK startHeyzapWithAppId: @"477851597"];
     
+    [self performSelectorInBackground:@selector(startupManagers:) withObject:nil];
 }
 
+- (void)startupManagers:(NSObject *)dummy
+{
+    DownloadManager::Initialize();
+    DownloadManager::Instance()->UpdateLevels();
+    
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 	

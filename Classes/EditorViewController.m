@@ -12,6 +12,7 @@
 #import "Parse/Parse.h"
 
 #import "AlertPrompt.h"
+#import "NotificationTags.h"
 #import "NSString+Extensions.h"
 
 @implementation EditorViewController
@@ -37,7 +38,7 @@
         if ([prompt.enteredText hasNonWhitespace]) 
         {
             [self.delegate saveLevel:prompt.enteredText];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"LevelsUpdated"
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedLevels
                                                                 object:nil];
         }
     }

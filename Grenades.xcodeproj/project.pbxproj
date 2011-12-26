@@ -351,6 +351,8 @@
 		EAC2712614A58FC2000F9E9F /* FXGraphicsComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2712514A58FC2000F9E9F /* FXGraphicsComponent.mm */; };
 		EAC2712814A5AF52000F9E9F /* Foo.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC2712714A5AF51000F9E9F /* Foo.plist */; };
 		EAC2712B14A69C59000F9E9F /* AlertPrompt.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2712A14A69C56000F9E9F /* AlertPrompt.m */; };
+		EAC2757A14A80631000F9E9F /* DownloadManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2757914A80630000F9E9F /* DownloadManager.mm */; };
+		EAC2757E14A81623000F9E9F /* NotificationTags.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2757D14A81621000F9E9F /* NotificationTags.m */; };
 		EAC2EDFE11176B89000F428C /* GamePlayManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2EDFD11176B89000F428C /* GamePlayManager.mm */; };
 		EAC584321441647000F0A89E /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC584311441647000F0A89E /* Smoke.png */; };
 		EAC58441144569B700F0A89E /* sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC58440144569B700F0A89E /* sparkle.png */; };
@@ -962,6 +964,10 @@
 		EAC2712714A5AF51000F9E9F /* Foo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Foo.plist; sourceTree = "<group>"; };
 		EAC2712914A69C55000F9E9F /* AlertPrompt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertPrompt.h; sourceTree = "<group>"; };
 		EAC2712A14A69C56000F9E9F /* AlertPrompt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertPrompt.m; sourceTree = "<group>"; };
+		EAC2757914A80630000F9E9F /* DownloadManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DownloadManager.mm; sourceTree = "<group>"; };
+		EAC2757B14A80648000F9E9F /* DownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadManager.h; sourceTree = "<group>"; };
+		EAC2757C14A81610000F9E9F /* NotificationTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationTags.h; sourceTree = "<group>"; };
+		EAC2757D14A81621000F9E9F /* NotificationTags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationTags.m; sourceTree = "<group>"; };
 		EAC2EDFC11176B89000F428C /* GamePlayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayManager.h; sourceTree = "<group>"; };
 		EAC2EDFD11176B89000F428C /* GamePlayManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GamePlayManager.mm; sourceTree = "<group>"; };
 		EAC584311441647000F0A89E /* Smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smoke.png; sourceTree = "<group>"; };
@@ -1399,6 +1405,8 @@
 			children = (
 				EA11295E11F7AEF6000A8124 /* AudioDispatch.h */,
 				EA11295F11F7AEF6000A8124 /* AudioDispatch.mm */,
+				EAC2757B14A80648000F9E9F /* DownloadManager.h */,
+				EAC2757914A80630000F9E9F /* DownloadManager.mm */,
 				EAC2EDFC11176B89000F428C /* GamePlayManager.h */,
 				EAC2EDFD11176B89000F428C /* GamePlayManager.mm */,
 				EA6CB5CE110AB571004C0D8F /* GraphicsManager.h */,
@@ -1407,6 +1415,8 @@
 				EA6CB3A9110A89E2004C0D8F /* PhysicsManager.mm */,
 				EA191C8D117D5FB600F30836 /* SceneManager.h */,
 				EA191C8E117D5FB600F30836 /* SceneManager.mm */,
+				EAC2757C14A81610000F9E9F /* NotificationTags.h */,
+				EAC2757D14A81621000F9E9F /* NotificationTags.m */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -2478,6 +2488,8 @@
 				EAC2712214A58EAA000F9E9F /* AnimatedGraphicsComponent.mm in Sources */,
 				EAC2712614A58FC2000F9E9F /* FXGraphicsComponent.mm in Sources */,
 				EAC2712B14A69C59000F9E9F /* AlertPrompt.m in Sources */,
+				EAC2757A14A80631000F9E9F /* DownloadManager.mm in Sources */,
+				EAC2757E14A81623000F9E9F /* NotificationTags.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

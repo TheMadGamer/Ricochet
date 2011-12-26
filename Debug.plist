@@ -6,5 +6,7 @@
 	<false/>
 	<key>DebugPhysics</key>
 	<true/>
+	<key>DebugDownload</key>
+	<true/>
 </dict>
 </plist>

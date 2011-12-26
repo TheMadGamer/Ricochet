@@ -9,20 +9,17 @@
 #import "GopherGameController.h"
 
 #import <Heyzap/Heyzap.h>
-#import "NSString+Extensions.h"
-#import "NSIndexSet+Extensions.h"
-#if USE_OF
-#import "OpenFeint.h"
-#endif
 #import <StoreKit/StoreKit.h>
-
-#import "GopherViewController.h"
-#import "InstructionsViewController.h"
-#import "LevelPackPurchaseVC.h"
-#import "PreferencesViewController.h"
 
 #import "AppSpecificValues.h"
 #import "GameCenterManager.h"
+#import "GopherViewController.h"
+#import "InstructionsViewController.h"
+#import "LevelPackPurchaseVC.h"
+#import "NotificationTags.h"
+#import "NSIndexSet+Extensions.h"
+#import "NSString+Extensions.h"
+#import "PreferencesViewController.h"
 
 using namespace Dog3D;
 
@@ -47,7 +44,7 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
         
         [[NSNotificationCenter defaultCenter] addObserver:self 
                                                  selector:@selector(levelsUpdated:) 
-                                                     name:@"LevelsUpdated" 
+                                                     name:kUpdatedLevels
                                                    object:nil];
 		
     }
