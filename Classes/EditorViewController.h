@@ -10,7 +10,9 @@
 
 #import "GopherEditProtocol.h"
 
-@interface EditorViewController : UIViewController <UIAlertViewDelegate>
+@interface EditorViewController : UIViewController <
+    UIAlertViewDelegate,
+    UITextFieldDelegate>
 
 - (IBAction)dismiss:(id)sender;
 - (IBAction)save:(id)sender;
@@ -24,7 +26,9 @@
 - (IBAction)deleteTool:(id)sender;
 
 @property (nonatomic, assign) id<GopherEditProtocol> delegate;
-@property (nonatomic, assign) btVector3 extents;
 @property (nonatomic, assign) float yRotation;
+@property (nonatomic, assign) IBOutlet UITextField *rotationText;
+@property (nonatomic, assign) IBOutlet UITextField *xExtentsText;
+@property (nonatomic, assign) IBOutlet UITextField *zExtentsText;
 
 @end

@@ -555,7 +555,7 @@ void SceneManager::AddHedge(btVector3 position, btVector3 extents, float rotatio
                                 
                                 [NSNumber numberWithFloat:extents.x()], @"sx",
                                 [NSNumber numberWithFloat:10.0f], @"sy",
-                                [NSNumber numberWithFloat:extents.x()], @"sz",
+                                [NSNumber numberWithFloat:extents.z()], @"sz",
                                 [NSNumber numberWithFloat:rotationY], @"ry",
                                 [NSNumber numberWithFloat:0], @"spawnTime",
                                 nil];

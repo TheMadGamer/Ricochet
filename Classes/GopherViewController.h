@@ -45,12 +45,9 @@
 @property (nonatomic, assign) IBOutlet GopherView *gopherView;
 @property (nonatomic, assign) id <GopherViewControllerDelegate> delegate;
 @property (nonatomic, assign) NSString *levelName;
-
 @property (nonatomic, assign) float tiltGravityCoef;
-
 @property (nonatomic, assign) bool offsetGravityEnabled;
 @property (nonatomic, retain) GameCenterManager *gameCenterManager;
-
 @property (nonatomic, retain) EditorViewController *editorViewController;
 
 - (IBAction) resumePushed:(id)sender;
@@ -60,7 +57,6 @@
 - (IBAction) helpButtonPushed:(id)sender;
 - (IBAction) nextInstructionFramePressed:(id)sender;
 - (IBAction) nextLevelPushed:(id) sender;
-
 
 // animates in a view
 - (void) animateIn:(UIView*) animView;
@@ -75,7 +71,6 @@
 
 - (void)initStuff;
 - (void)shutdownStuff;
-
 
 @end
 

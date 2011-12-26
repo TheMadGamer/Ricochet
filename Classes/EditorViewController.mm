@@ -18,18 +18,25 @@
 @implementation EditorViewController
 
 @synthesize delegate = delegate_;
-@synthesize extents = extents_;
 @synthesize yRotation = yRotation_;
+@synthesize rotationText = rotationText_;
+@synthesize xExtentsText = xExtentsText_;
+@synthesize zExtentsText = zExtentsText_;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-        self.extents = btVector3(2,10,0.5);
         self.yRotation = 0;
     }
     return self;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField*)aTextField
+{
+    [aTextField resignFirstResponder];
+    return YES;
 }
 
 - (IBAction)dismiss:(id)sender
@@ -64,7 +71,8 @@
 }
 - (IBAction)hedgeTool:(id)sender 
 { 
-    [self.delegate startHedgeToolWithExtents:self.extents yRotation:self.yRotation];
+    btVector3 extents([self.xExtentsText.text floatValue], 10, [self.zExtentsText.text floatValue]);
+    [self.delegate startHedgeToolWithExtents:extents yRotation:[self.rotationText.text floatValue]];
     [self dismiss:nil]; 
 }
 
