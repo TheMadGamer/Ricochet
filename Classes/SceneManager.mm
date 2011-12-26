@@ -536,6 +536,55 @@ void SceneManager::AddPot(btVector3 position)
     [mLayoutDictionary setObject:pot forKey:[NSString stringWithFormat:@"Pot%d", rand()]];
 }
 
+void SceneManager::AddHedge(btVector3 position, btVector3 extents, float rotationY)
+{
+    NSString *type = @"hedge1";
+    DLog(@"Loading collider %@ with YRotation %f", type, rotationY);
+    DLog(@"Collider Ht: %f", extents.y());
+    Entity * item = GameEntityFactory::BuildTexturedCollider(position, extents, rotationY, mFixedRest, type, 1.33f);
+    mSceneElements.insert(item);
+    
+    item->SetYRotation(rotationY);
+    
+    // TODO - finish in AM
+    NSMutableDictionary *pot = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                @"hedge1",@"type",
+                                [NSNumber numberWithFloat:position.x()],@"x",
+                                [NSNumber numberWithFloat:position.y()],@"y", 
+                                [NSNumber numberWithFloat:position.z()],@"z", 
+                                
+                                [NSNumber numberWithFloat:extents.x()], @"sx",
+                                [NSNumber numberWithFloat:10.0f], @"sy",
+                                [NSNumber numberWithFloat:extents.x()], @"sz",
+                                [NSNumber numberWithFloat:rotationY], @"ry",
+                                [NSNumber numberWithFloat:0], @"spawnTime",
+                                nil];
+    [mLayoutDictionary setObject:pot forKey:[NSString stringWithFormat:@"Hedge%d", rand()]];
+}
+
+
+void SceneManager::AddGopher(btVector3 position)
+{
+    btVector3 extents(0.5,10,0.5);
+    Entity *item = GameEntityFactory::BuildTexturedExploder(position, extents, @"pot1");
+    mSceneElements.insert(item);
+    item->GetExplodable()->Prime();
+    
+    // TODO - finish in AM
+    NSMutableDictionary *pot = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                @"hole1",@"type",
+                                [NSNumber numberWithFloat:position.x()],@"x",
+                                [NSNumber numberWithFloat:position.y()],@"y", 
+                                [NSNumber numberWithFloat:position.z()],@"z", 
+                                
+                                [NSNumber numberWithFloat:0.5f], @"sx",
+                                [NSNumber numberWithFloat:10.0f], @"sy",
+                                [NSNumber numberWithFloat:0.5f], @"sz",
+                                [NSNumber numberWithFloat:0], @"ry",
+                                [NSNumber numberWithFloat:0], @"spawnTime",
+                                nil];
+    [mLayoutDictionary setObject:pot forKey:[NSString stringWithFormat:@"Hole1%d", rand()]];
+}
 // spawn in objects
 void SceneManager::LoadGeneratedObjects(NSDictionary *rootDictionary)
 {	

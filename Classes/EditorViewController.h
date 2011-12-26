@@ -24,5 +24,7 @@
 - (IBAction)deleteTool:(id)sender;
 
 @property (nonatomic, assign) id<GopherEditProtocol> delegate;
+@property (nonatomic, assign) btVector3 extents;
+@property (nonatomic, assign) float yRotation;
 
 @end

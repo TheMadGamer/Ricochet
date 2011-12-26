@@ -188,6 +188,8 @@ namespace Dog3D
 		
         // Edit API
         void AddPot(btVector3 position);
+        void AddHedge(btVector3 position, btVector3 extents, float rotationY);
+        void AddGopher(btVector3 position);
         
 	private:
 		// see wall creation flags

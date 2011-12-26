@@ -35,14 +35,25 @@ using namespace Dog3D;
 {
     [gopherView pauseGame]; 
     gopherView.viewState = EDIT;
+    gopherView.editTool = POT;
 }
 
 
-- (void) startHedgeTool
+- (void)startGopherTool
+{    
+    [gopherView pauseGame]; 
+    gopherView.viewState = EDIT;
+    gopherView.editTool = GOPHER;
+}
+
+- (void) startHedgeToolWithExtents:(btVector3)extents yRotation:(float)yRotation
 {
     [gopherView pauseGame];
+    gopherView.viewState = EDIT;
+    gopherView.editTool = HEDGE;
+    gopherView.editExtents = extents;
+    gopherView.yRotation = yRotation;
 }
-
 
 - (void) endEdit 
 {    

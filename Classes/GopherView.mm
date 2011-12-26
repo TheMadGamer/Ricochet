@@ -5,28 +5,21 @@
 //  Copyright 2010 3dDogStudios. All rights reserved.
 //
 
-
+#import <btBulletDynamicsCommon.h>
 #import <QuartzCore/QuartzCore.h>
 #import <OpenGLES/EAGLDrawable.h>
 #import <UIKit/UIKit.h>
 #import <OpenGLES/ES1/gl.h>
-
 #import <vector>
 
-#import <btBulletDynamicsCommon.h>
-
-#import "GopherView.h"
-
-#import "GameEntityFactory.h"
-
-#import "PhysicsManager.h"
-#import "GraphicsManager.h"
-#import "GamePlayManager.h"
-#import "SceneManager.h"
 #import "AudioDispatch.h"
-
 #import "FakeGLU.h"
-
+#import "GameEntityFactory.h"
+#import "GamePlayManager.h"
+#import "GopherView.h"
+#import "GraphicsManager.h"
+#import "PhysicsManager.h"
+#import "SceneManager.h"
 #import "TriggerComponent.h"
 
 using namespace Dog3D;
@@ -39,9 +32,10 @@ float kWallHeight = 1;
 @implementation GopherView
 
 @synthesize gopherViewController;
-@synthesize offsetGravityEnabled;
-@synthesize tiltGravityCoef;
 @synthesize viewState = viewState_;
+@synthesize editTool = editTool_;
+@synthesize editExtents = editExtents_;
+@synthesize yRotation = yRotation_;
 
 - (id) initWithCoder:(NSCoder *)decoder
 {
@@ -79,13 +73,9 @@ float kWallHeight = 1;
 		lastAccelInterval = [NSDate timeIntervalSinceReferenceDate];
 		
 		mEngineInitialized = false;
-		
-		offsetGravityEnabled = true;
-		tiltGravityCoef = 20.0f;
-		
-		fX = 0;
-		fY = 0;
-			
+        
+        editExtents_ = btVector3(4,10,1);
+        
         enableSlider = false;		
 	}
 	
@@ -136,7 +126,7 @@ float kWallHeight = 1;
 
 - (NSString*) loadedLevel
 {
-	return mLoadedLevel;
+	return loadedLevel;
 }
 
 - (int) currentScore
@@ -169,8 +159,8 @@ float kWallHeight = 1;
 		return;
 	}
 	
-    [mLoadedLevel autorelease];
-	mLoadedLevel = [levelName retain];
+    [loadedLevel autorelease];
+	loadedLevel = [levelName retain];
 	
 	SceneManager::Instance()->LoadScene(levelName);
 	GamePlayManager::Instance()->SetGameState(GamePlayManager::PLAY);
@@ -279,7 +269,7 @@ float kWallHeight = 1;
             PhysicsManager::Instance()->Update(dt);
             GamePlayManager::Instance()->Update(dt);	
         }
-		GraphicsManager::Instance()->Update(dt);
+        GraphicsManager::Instance()->Update(dt);
 
 		if(self.viewState == PLAY)
 		{
@@ -318,11 +308,8 @@ float kWallHeight = 1;
 -(void) endLevel
 {
 	SceneManager::Instance()->UnloadScene();
-	if(mLoadedLevel != nil)
-	{
-		[mLoadedLevel release];
-		mLoadedLevel = nil;
-	}
+    [loadedLevel release];
+    loadedLevel = nil;
 }
 
 - (btVector3) getTouchPoint:( CGPoint ) touchPoint
@@ -350,8 +337,22 @@ const float kFarmerMax = 10.0f;
 		CGPoint touchPoint = [[touches anyObject] locationInView:self];
         btVector3 touchPt = [self getTouchPoint:touchPoint];
         touchPt.setY(1.0);
-        SceneManager::Instance()->AddPot(touchPt);
-        
+        switch (self.editTool) {
+            case POT:
+                 SceneManager::Instance()->AddPot(touchPt);       
+                break;
+            
+            case HEDGE:
+                SceneManager::Instance()->AddHedge(touchPt, 
+                                                   self.editExtents, 
+                                                   self.yRotation);
+                break;
+            case GOPHER:
+                SceneManager::Instance()->AddGopher(touchPt);
+                break;
+            default:
+                break;
+        }        
 	} 
     else if (self.viewState == PLAY)
     {

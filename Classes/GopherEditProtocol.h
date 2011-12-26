@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <btBulletDynamicsCommon.h>
 
 @protocol GopherEditProtocol <NSObject>
 
 - (void) startPotTool;
-- (void) startHedgeTool;
+- (void) startHedgeToolWithExtents:(btVector3)extents yRotation:(float)yRotation;
+- (void) startGopherTool;
 - (void) endEdit;
 - (void) saveLevel:(NSString *)fileName;
 

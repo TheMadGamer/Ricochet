@@ -338,7 +338,7 @@
 		EAC270FE14A18D15000F9E9F /* Fireball1.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC270FD14A18D15000F9E9F /* Fireball1.plist */; };
 		EAC2710014A3C146000F9E9F /* Debug.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC270FF14A3C144000F9E9F /* Debug.plist */; };
 		EAC2710514A3EE90000F9E9F /* DogDebug.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2710414A3EE90000F9E9F /* DogDebug.mm */; };
-		EAC2710914A42AB0000F9E9F /* EditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2710714A42AAF000F9E9F /* EditorViewController.m */; };
+		EAC2710914A42AB0000F9E9F /* EditorViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2710714A42AAF000F9E9F /* EditorViewController.mm */; };
 		EAC2710A14A42AB0000F9E9F /* EditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC2710814A42AB0000F9E9F /* EditorViewController.xib */; };
 		EAC2710D14A42C87000F9E9F /* Edit.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC2710C14A42C87000F9E9F /* Edit.png */; };
 		EAC2710F14A44E57000F9E9F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC2710E14A44E57000F9E9F /* Parse.framework */; };
@@ -349,7 +349,6 @@
 		EAC2711914A44EE7000F9E9F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC2711814A44EE6000F9E9F /* Security.framework */; };
 		EAC2712214A58EAA000F9E9F /* AnimatedGraphicsComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2712114A58EAA000F9E9F /* AnimatedGraphicsComponent.mm */; };
 		EAC2712614A58FC2000F9E9F /* FXGraphicsComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2712514A58FC2000F9E9F /* FXGraphicsComponent.mm */; };
-		EAC2712814A5AF52000F9E9F /* Foo.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC2712714A5AF51000F9E9F /* Foo.plist */; };
 		EAC2712B14A69C59000F9E9F /* AlertPrompt.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2712A14A69C56000F9E9F /* AlertPrompt.m */; };
 		EAC2757A14A80631000F9E9F /* DownloadManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAC2757914A80630000F9E9F /* DownloadManager.mm */; };
 		EAC2757E14A81623000F9E9F /* NotificationTags.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2757D14A81621000F9E9F /* NotificationTags.m */; };
@@ -427,7 +426,7 @@
 		EA069BC0119B4ED400179E6B /* GopherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GopherViewController.h; sourceTree = "<group>"; };
 		EA069BC1119B4ED400179E6B /* GopherViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GopherViewController.mm; sourceTree = "<group>"; };
 		EA069BC2119B4ED400179E6B /* GopherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GopherViewController.xib; path = Classes/GopherViewController.xib; sourceTree = "<group>"; };
-		EA069CCC119B90BF00179E6B /* LevelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; name = LevelsViewController.h; path = Views/LevelsViewController.h; sourceTree = "<group>"; };
+		EA069CCC119B90BF00179E6B /* LevelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelsViewController.h; path = Views/LevelsViewController.h; sourceTree = "<group>"; };
 		EA069CCD119B90BF00179E6B /* LevelsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = LevelsViewController.mm; path = Views/LevelsViewController.mm; sourceTree = "<group>"; };
 		EA069CCF119B911200179E6B /* LevelsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LevelsViewController.xib; path = Classes/Views/LevelsViewController.xib; sourceTree = "<group>"; };
 		EA0B63F011A7B19D00124ED9 /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsViewController.h; sourceTree = "<group>"; };
@@ -947,7 +946,7 @@
 		EAC2710114A3C21D000F9E9F /* DogDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DogDebug.h; sourceTree = "<group>"; };
 		EAC2710414A3EE90000F9E9F /* DogDebug.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DogDebug.mm; sourceTree = "<group>"; };
 		EAC2710614A42AAF000F9E9F /* EditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorViewController.h; sourceTree = "<group>"; };
-		EAC2710714A42AAF000F9E9F /* EditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorViewController.m; sourceTree = "<group>"; };
+		EAC2710714A42AAF000F9E9F /* EditorViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EditorViewController.mm; sourceTree = "<group>"; };
 		EAC2710814A42AB0000F9E9F /* EditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditorViewController.xib; path = Classes/EditorViewController.xib; sourceTree = "<group>"; };
 		EAC2710C14A42C87000F9E9F /* Edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Edit.png; sourceTree = "<group>"; };
 		EAC2710E14A44E57000F9E9F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -961,7 +960,6 @@
 		EAC2712314A58EBB000F9E9F /* AnimatedGraphicsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedGraphicsComponent.h; sourceTree = "<group>"; };
 		EAC2712414A58F96000F9E9F /* FXGraphicsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXGraphicsComponent.h; sourceTree = "<group>"; };
 		EAC2712514A58FC2000F9E9F /* FXGraphicsComponent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FXGraphicsComponent.mm; sourceTree = "<group>"; };
-		EAC2712714A5AF51000F9E9F /* Foo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Foo.plist; sourceTree = "<group>"; };
 		EAC2712914A69C55000F9E9F /* AlertPrompt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertPrompt.h; sourceTree = "<group>"; };
 		EAC2712A14A69C56000F9E9F /* AlertPrompt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertPrompt.m; sourceTree = "<group>"; };
 		EAC2757914A80630000F9E9F /* DownloadManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DownloadManager.mm; sourceTree = "<group>"; };
@@ -1967,7 +1965,7 @@
 				EAC2712914A69C55000F9E9F /* AlertPrompt.h */,
 				EAC2712A14A69C56000F9E9F /* AlertPrompt.m */,
 				EAC2710614A42AAF000F9E9F /* EditorViewController.h */,
-				EAC2710714A42AAF000F9E9F /* EditorViewController.m */,
+				EAC2710714A42AAF000F9E9F /* EditorViewController.mm */,
 				EAC2712014A45C63000F9E9F /* GopherEditProtocol.h */,
 				EABC34A311A85F93000C6EC6 /* GopherGameController.h */,
 				EABC34A411A85F93000C6EC6 /* GopherGameController.mm */,
@@ -2031,7 +2029,6 @@
 		EAF1330B1356853B00A1F3DC /* RicochetLevels */ = {
 			isa = PBXGroup;
 			children = (
-				EAC2712714A5AF51000F9E9F /* Foo.plist */,
 				EAF1331A1356855800A1F3DC /* RicochetLevels.plist */,
 				EAFCB12713727EAD00865969 /* Intro0.plist */,
 				EAFCB10513727C3500865969 /* Intro1.plist */,
@@ -2313,7 +2310,6 @@
 				EAC2710014A3C146000F9E9F /* Debug.plist in Resources */,
 				EAC2710A14A42AB0000F9E9F /* EditorViewController.xib in Resources */,
 				EAC2710D14A42C87000F9E9F /* Edit.png in Resources */,
-				EAC2712814A5AF52000F9E9F /* Foo.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2484,7 +2480,7 @@
 				FBDC06B2147D99DB0058D62A /* GameCenterManager.m in Sources */,
 				EAC270F114A1852E000F9E9F /* FireballExplodable.mm in Sources */,
 				EAC2710514A3EE90000F9E9F /* DogDebug.mm in Sources */,
-				EAC2710914A42AB0000F9E9F /* EditorViewController.m in Sources */,
+				EAC2710914A42AB0000F9E9F /* EditorViewController.mm in Sources */,
 				EAC2712214A58EAA000F9E9F /* AnimatedGraphicsComponent.mm in Sources */,
 				EAC2712614A58FC2000F9E9F /* FXGraphicsComponent.mm in Sources */,
 				EAC2712B14A69C59000F9E9F /* AlertPrompt.m in Sources */,

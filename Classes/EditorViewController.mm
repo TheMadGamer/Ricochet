@@ -17,7 +17,20 @@
 
 @implementation EditorViewController
 
-@synthesize delegate=delegate_;
+@synthesize delegate = delegate_;
+@synthesize extents = extents_;
+@synthesize yRotation = yRotation_;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self)
+    {
+        self.extents = btVector3(2,10,0.5);
+        self.yRotation = 0;
+    }
+    return self;
+}
 
 - (IBAction)dismiss:(id)sender
 {
@@ -49,8 +62,17 @@
     [self dismiss:nil]; 
 
 }
-- (IBAction)hedgeTool:(id)sender { [self dismiss:nil]; }
-- (IBAction)gopherTool:(id)sender { [self dismiss:nil]; }
+- (IBAction)hedgeTool:(id)sender 
+{ 
+    [self.delegate startHedgeToolWithExtents:self.extents yRotation:self.yRotation];
+    [self dismiss:nil]; 
+}
+
+- (IBAction)gopherTool:(id)sender 
+{ 
+     [self.delegate startGopherTool];
+    [self dismiss:nil]; 
+}
 - (IBAction)exitEditMode:(id)sender 
 { 
     [self.delegate endEdit];

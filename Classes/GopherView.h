@@ -43,6 +43,10 @@ enum ViewState
     LOAD, PLAY, PAUSE, GOPHER_WIN, GOPHER_LOST, EDIT
 };
 
+enum EditTool
+{
+    POT, HEDGE, GOPHER, SPINNER
+};
 
 @interface GopherView : EAGLView <UIAccelerometerDelegate> {
 
@@ -55,13 +59,8 @@ enum ViewState
 
 	NSTimeInterval lastTimeInterval;
 	NSTimeInterval lastAccelInterval;
-	
-	// Accelerometer mojo
-	float gX, gY, gZ, fX, fY;
 
 	GLfloat zEye;
-	
-	Texture2D *mSplashTexture;
 
 	int delayFrames;
 	
@@ -83,9 +82,7 @@ enum ViewState
 	int physFrames;
 	float physTime;
 	
-	NSString* mLoadedLevel;
-	
-	bool offsetGravityEnabled;
+	NSString* loadedLevel;
 	
 	// touch started
 	bool movingFarmer;
@@ -101,9 +98,10 @@ enum ViewState
 }
 
 @property (nonatomic, assign) id<GopherViewDelegate> gopherViewController;
-@property (nonatomic, assign) float tiltGravityCoef; 
-@property (nonatomic, assign) bool offsetGravityEnabled;
 @property (nonatomic, assign) ViewState viewState;
+@property (nonatomic, assign) EditTool editTool;
+@property (nonatomic, assign) btVector3 editExtents;
+@property (nonatomic, assign) float yRotation;
 
 - (void) pauseGame;
 
