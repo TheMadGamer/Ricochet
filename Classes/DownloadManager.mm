@@ -38,24 +38,35 @@ void DownloadManager::UpdateLevels()
         for (PFObject *object in objects)
         {
             NSString *levelName = [object objectForKey:kLevelName];
-            DLog2(@"DebugDownload", @"Downloaded %@", levelName);
-            // TODO - verify we need to download
+            DLog2(@"DebugDownload", @"Found file on server: %@", levelName);
             
-            if (levelName) 
+            if (levelName)
             {
-                // Force download
-                PFFile *file = [object objectForKey:kLevelFile];
-                NSData *levelData = [file getData];
-                
                 NSString *levelPath = [levelName stringByExpandingToLevelsDirectory];
-                [levelData writeToFile:levelPath atomically:YES];
-                 
+
+                BOOL exists;
+                exists = [[NSFileManager defaultManager] fileExistsAtPath:levelPath];
+                if (!exists)
+                {
+                    DLog2(@"DebugDownload", @"File downloading: %@", levelName);
+     
+                    // Force download
+                    PFFile *file = [object objectForKey:kLevelFile];
+                    NSData *levelData = [file getData];
+                    
+                                    [levelData writeToFile:levelPath atomically:YES];
+                }
+                else
+                {
+                    DLog2(@"DebugDownload", @"File already exists: %@", levelName);
+                }
             }
         }
      
         if (objects.count)
         {
-            [[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedLevels object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedLevels
+                                                                object:nil];
         }
         DLog2(@"DebugDownload", @"Successfully retrieved %d files.", objects.count);
     } else {

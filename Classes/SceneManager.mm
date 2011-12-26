@@ -152,13 +152,10 @@ void SceneManager::LoadScene(NSString *levelName)
 	
     // try first built ins, then try to load a bundle file 
     NSDictionary *fileDictionary;
-    
 	NSString *userFile = [levelName stringByExpandingToLevelsDirectory];
     
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    
-	BOOL exists, isDirectory;
-	exists = [fileManager fileExistsAtPath:userFile isDirectory:&isDirectory];
+	BOOL exists;
+	exists = [[NSFileManager defaultManager] fileExistsAtPath:userFile];
 	if (!exists)
     {
         NSString *bundleFile = [levelName stringByExpandingToBundleDirectory];
