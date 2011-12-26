@@ -1,43 +1,81 @@
+//
+//  PreferencesViewController.m
+//  Gopher
+//
+//  Created by Anthony Lobay on 5/22/10.
+//  Copyright 2010 3dDogStudios. All rights reserved.
+//
+
 #import "PreferencesViewController.h"
+
+#import "DownloadManager.h"
+#import "NotificationTags.h"
+
+using namespace Dog3D;
 
 @implementation PreferencesViewController
 
-@synthesize delegate;
-
-@synthesize currentLevelIndexPath;
-
-#pragma mark -
-#pragma mark === Action method ===
-#pragma mark -
-
-- (IBAction) goBack{
-	[self.delegate preferencesViewControllerDidFinish:self withSelectedLevel:@"None"];
-}
-
-
-#pragma mark -
-#pragma mark === View configuration ===
-#pragma mark -
+@synthesize delegate = delegate_;
+@synthesize currentLevelIndexPath = currentLevelIndexPath_;
+@synthesize tableView = tableView_;
+@synthesize isVisible = isVisible_;
 
 - (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle {
 	
 	if (self = [super initWithNibName:nibName bundle:nibBundle]) {
 		self.wantsFullScreenLayout = YES;
+        [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                 selector:@selector(levelsUpdated:)
+                                                     name:kUpdatedLevels 
+                                                   object:nil];
 	}
 	return self;
 }
 
-/*
+- (void)dealloc 
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [currentLevelIndexPath_ release];
+    [tableView_ release];
+    [super dealloc];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
+    self.isVisible = YES;
     [self performSelector:@selector(flashTableScrollIndicators) withObject:nil afterDelay:0.0];
 }
 
 - (void)flashTableScrollIndicators
 {
     [self.tableView flashScrollIndicators];
-}*/
+}
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    self.isVisible = NO;
+}
+     
+- (void)levelsUpdated:(NSNotification *)notification
+{
+    if (self.isVisible) 
+    {
+        [self.tableView reloadData];
+        [self.tableView flashScrollIndicators];
+    }
+}
+
+#pragma mark - Actions
+
+- (IBAction)refreshLevels:(id)sender
+{
+    DownloadManager::Instance()->UpdateLevels();
+}
+
+- (IBAction) goBack
+{
+	[self.delegate preferencesViewControllerDidFinish:self withSelectedLevel:@"None"];
+}
 
 // shows view in landscape (in debugger)
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -49,21 +87,19 @@
 #pragma mark Data source methods for the level select view
 #pragma mark - 
 
-
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
-	return [delegate.levels count];
+	return [self.delegate.levels count];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	// Prevent selection of header rows	
-	if ([[delegate.levels objectAtIndex:indexPath.row] valueForKey:@"group"])
+	if ([[self.delegate.levels objectAtIndex:indexPath.row] valueForKey:@"group"])
 		return;
 	
 	// load up the game
-	NSDictionary *dict = [delegate.levels objectAtIndex:indexPath.row];
+	NSDictionary *dict = [self.delegate.levels objectAtIndex:indexPath.row];
 	NSString *levelName = [ dict objectForKey:@"filename"];
 	//NSLog(@"Selected Level %@", levelName);
 	
@@ -74,17 +110,17 @@
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	// Prevent selection of header rows	
-    NSArray *levels = delegate.levels;
+    NSArray *levels = self.delegate.levels;
 	if ([[levels objectAtIndex:indexPath.row] valueForKey:@"group"])
 	{
 		return nil;
 	}
 #ifndef DEBUG
 	
-	NSDictionary *levelDictionary = [delegate.levels objectAtIndex:indexPath.row];
+	NSDictionary *levelDictionary = [self.delegate.levels objectAtIndex:indexPath.row];
 	NSString* levelFile = [levelDictionary valueForKey:@"filename"];
 	// prevent selection of locked levels
-	if(![delegate isLevelUnlockedFromName:levelFile])
+	if(![self.delegate isLevelUnlockedFromName:levelFile])
 	{
 		return nil;
 	}
@@ -95,7 +131,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if ([[delegate.levels objectAtIndex:indexPath.row] valueForKey:@"group"])
+	if ([[self.delegate.levels objectAtIndex:indexPath.row] valueForKey:@"group"])
 		return 38.0;
 	else
 		return 44.0;
@@ -105,7 +141,7 @@
 {
 	UITableViewCell *cell = nil;
 	
-	if ([[delegate.levels objectAtIndex:indexPath.row] valueForKey:@"group"])
+	if ([[self.delegate.levels objectAtIndex:indexPath.row] valueForKey:@"group"])
 	{
 		// These cells are fake table headers for the group names.  I was having too many problems
 		// using the viewForHeaderInSection (one pixel offsets when the headers stop at the top of the view)
@@ -138,7 +174,7 @@
 		
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		
-		NSDictionary *dict = [delegate.levels objectAtIndex:indexPath.row];
+		NSDictionary *dict = [self.delegate.levels objectAtIndex:indexPath.row];
 		cell.textLabel.text = [dict valueForKey:@"title"];
 		
 		cell.textLabel.textColor =  [UIColor colorWithPatternImage:[UIImage imageNamed:@"GreenBlueGrad.png"]];  // [UIColor redColor];
@@ -153,7 +189,7 @@
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TableViewCell"] autorelease];
 		}
 		
-		NSDictionary *levelDictionary = [delegate.levels objectAtIndex:indexPath.row];
+		NSDictionary *levelDictionary = [self.delegate.levels objectAtIndex:indexPath.row];
 		NSString* levelName = [levelDictionary valueForKey:@"title"];
 		NSString* levelFile = [levelDictionary valueForKey:@"filename"];
 		
@@ -181,7 +217,7 @@
 		
 #endif
 		
-		if( ![delegate isLevelUnlockedFromName:levelFile])
+		if( ![self.delegate isLevelUnlockedFromName:levelFile])
 		{
 
 			cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -195,7 +231,7 @@
 		else {
 			
 			
-			int highScore = [delegate getScore:levelFile];
+			int highScore = [self.delegate getScore:levelFile];
 			// currently, just an orange or clear carrot
 			// TODO - bronze, silver, gold carrots
 			if(highScore > 0)

@@ -71,6 +71,12 @@ NSString *const kMyFeatureIdentifier = @"com.3dDogStudios.GopherGoBoom.LevelPack
 
     self.internalLevels = [NSMutableArray arrayWithCapacity:100];
     
+    NSDictionary *myLevelsGroup = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   [NSNumber numberWithBool:YES], @"group",
+                                   @"My Levels", @"title",
+                               nil];
+    [self.internalLevels addObject:myLevelsGroup];
+    
     NSString *userLevels = [NSString levelsDirectory];
     NSArray *userFiles = [userLevels allLevelFiles];
     for (NSString *userFileName in userFiles)

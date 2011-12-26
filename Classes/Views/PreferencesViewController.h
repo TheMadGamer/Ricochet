@@ -1,16 +1,22 @@
-
+//
+//  PreferencesViewController.mm
+//  Gopher
+//
+//  Created by Anthony Lobay on 5/22/10.
+//  Copyright 2010 3dDogStudios. All rights reserved.
+//
 
 @protocol PreferencesViewControllerDelegate;
 
-@interface PreferencesViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>  {
-	id <PreferencesViewControllerDelegate> delegate;
-	NSIndexPath *currentLevelIndexPath;
-}
+@interface PreferencesViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>  
 
 @property (nonatomic, assign) id <PreferencesViewControllerDelegate> delegate;
 @property (nonatomic, retain) NSIndexPath *currentLevelIndexPath;
+@property (nonatomic, retain) IBOutlet UITableView *tableView;
+@property (nonatomic, assign) BOOL isVisible;
 
 - (IBAction) goBack;
+- (IBAction)refreshLevels:(id)sender;
 
 @end
 

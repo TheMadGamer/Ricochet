@@ -198,7 +198,19 @@ void SceneManager::SaveScene(NSString *levelName, id callbackTarget)
     [userLevel setObject:kAnonymousUser forKey:kCreatedBy];
     [userLevel setObject:file forKey:kLevelFile];
     [userLevel setObject:levelName forKey:kLevelName];
-    [userLevel saveInBackground]; 
+    [userLevel saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+     {
+         UIAlertView *alert = [[UIAlertView alloc] autorelease];
+         if (succeeded) 
+         {
+             [alert initWithTitle:@"Level uploaded" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+         }
+         else
+         {
+             [alert initWithTitle:@"Level uploaded failed." message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+         }
+         [alert show];
+     }]; 
 }
     
 void SceneManager::LoadScene(NSDictionary *rootDictionary, NSDictionary *controlDictionary)

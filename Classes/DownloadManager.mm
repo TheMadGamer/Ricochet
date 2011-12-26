@@ -63,15 +63,15 @@ void DownloadManager::UpdateLevels()
             }
         }
      
-        if (objects.count)
-        {
-            [[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedLevels
-                                                                object:nil];
-        }
         DLog2(@"DebugDownload", @"Successfully retrieved %d files.", objects.count);
     } else {
          // Log details of the failure
         DLog2(@"DebugDownload", @"Error: %@ %@", error, [error userInfo]);
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedLevels
+                                                        object:nil];
+    
+
     }];
 }
